@@ -15,11 +15,11 @@
             color: #1a1a1a; 
         }
         
-        /* 統一標題與副標題樣式，依照原本大小 */
+        /* 標題與副標題：依照原始設定大小 */
         .wix-title { font-size: 42px; color: #242323; letter-spacing: 0.1em; line-height: 1.3; }
         .wix-subtitle { font-size: 22px; color: #727272; letter-spacing: 0.2em; }
 
-        /* 灰藍色/深灰色矩形按鈕 (還原截圖樣式) */
+        /* 深灰色矩形按鈕 (還原截圖樣式) */
         .vision-gray-btn {
             background-color: #7d7d7d; 
             color: white; 
@@ -34,7 +34,6 @@
         .vision-gray-btn:hover { background-color: #4a4a4a; }
         .vision-gray-btn .arrow { margin-left: 8px; font-weight: bold; font-size: 18px; }
 
-        /* 圓圈按鈕 */
         .wix-btn-circle {
             border: 1px solid #757575; border-radius: 50px; padding: 10px 32px;
             display: inline-flex; align-items: center; background: transparent;
@@ -43,26 +42,24 @@
         }
         .wix-btn-circle:hover { border-radius: 12px; background: #fdfdfd; color: #000; }
 
-        /* 技術圖示與引號 */
         .tech-icon { width: 75px; height: 75px; fill: #757575; margin-bottom: 25px; opacity: 0.8; }
         .quote-icon { font-size: 80px; color: #757575; opacity: 0.4; line-height: 0.5; margin-bottom: 30px; }
 
-        /* 願景區塊：弧線背景還原設計 */
+        /* 願景區塊背景與弧線 */
         .section-vision-bg {
             background-color: #E9E9E9;
             position: relative;
-            padding: 80px 0;
+            padding: 80px 0 120px 0;
             overflow: hidden;
         }
         
-        /* 左下角白色弧線轉折 */
         .section-vision-bg::after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
             width: 45%; 
-            height: 120px; 
+            height: 140px; 
             background-color: #FFFFFF;
             border-top-right-radius: 120px; 
             z-index: 1;
@@ -86,7 +83,7 @@
         </div>
     </nav>
 
-    <section class="py-16 text-center flex items-center justify-center">
+    <section class="py-16 text-center">
         <div class="container mx-auto px-6">
             <h6 class="wix-subtitle mb-6">全方位精準醫療</h6>
             <h4 class="wix-title font-bold mb-10">先天基因｜後天影響｜整體健康</h4>
@@ -98,7 +95,7 @@
         </div>
     </section>
 
-    <section class="bg-[#E9E9E9] py-16 border-t border-b border-gray-200 flex items-center justify-center text-center">
+    <section class="bg-[#E9E9E9] py-16 border-t border-b border-gray-200 text-center">
         <div class="container mx-auto px-6">
             <h4 class="wix-title mb-10 font-bold">精準檢測 | <span class="italic opacity-60">AI</span>基因分析</h4>
             <div class="max-w-3xl mx-auto text-gray-500 text-lg leading-loose mb-12 tracking-widest">
@@ -135,13 +132,13 @@
     </section>
 
     <section id="vision" class="section-vision-bg">
-        <div class="container mx-auto px-10 relative z-10 flex flex-col md:flex-row items-center gap-16">
-            <div class="md:w-1/2">
-                <h2 class="wix-title text-left !text-4xl">改變台灣的基因體醫學</h2>
+        <div class="container mx-auto px-10 relative z-10 flex flex-col md:flex-row items-start gap-16">
+            <div class="md:w-5/12">
+                <h2 class="wix-title text-left !text-4xl leading-tight">改變台灣的<br>基因體醫學</h2>
             </div>
             
-            <div class="md:w-1/2 flex flex-col items-start">
-                <div class="space-y-6 text-gray-700 leading-loose text-lg text-justify mb-10">
+            <div class="md:w-7/12 flex flex-col items-start">
+                <div class="space-y-8 text-gray-700 leading-loose text-lg text-justify mb-12">
                     <p>健曜國際有限公司於2018年2月由陳彥瑜博士及幾位致力推廣基因檢測的年輕科學家一同成立。提供學研界的科研生物資訊服務，積極開發“精準健康”服務。</p>
                     <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者，與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
                     <p>密切與各醫學中心、高階診所合作，為精準健康與精準醫學領域的“IC設計公司”：提供最高品質的臨床與設計服務。</p>
@@ -178,15 +175,14 @@
     </section>
 
     <section id="contact-section" class="py-20 border-t border-gray-100 bg-white">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
             <div class="space-y-10 text-left">
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-lg text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
                 <div class="w-full h-80 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.5746766432044!2d121.386348!3d25.082987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a0b730596323%3A0x67347a5975e533c3!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.478494054668!2d121.3855018!3d25.0687053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6fb36209e73%3A0x6095033c7f99863c!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-            
             <form class="space-y-10">
                 <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-3 outline-none focus:border-black">
                 <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-3 outline-none focus:border-black" required>
