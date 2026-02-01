@@ -206,23 +206,39 @@
     </section>
 
     <section id="contact-section" class="strip-white py-16 border-t border-gray-100">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-6">
-                <h2 class="wix-title text-3xl">聯繫我們</h2>
-                <p class="text-base text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
-                <div class="w-full h-64 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <div class="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400 text-sm italic">Google Maps Area</div>
-                </div>
-            </div>
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+        <div class="space-y-6">
+            <h2 class="wix-title text-3xl">聯繫我們</h2>
+            <p class="text-base text-gray-600 leading-relaxed">
+                新北市林口區仁愛路二段502號<br>
+                02-6604-0580
+            </p>
             
-            <form class="space-y-8">
-                <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-2 outline-none focus:border-black text-sm">
-                <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 outline-none focus:border-black text-sm" required>
-                <textarea placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 h-24 outline-none focus:border-black text-sm"></textarea>
-                <button type="submit" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm">SEND</button>
-            </form>
+            <div class="w-full h-[280px] rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <iframe 
+                    src="http://googleusercontent.com/maps.google.com/6" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
-    </section>
+        
+        <form class="space-y-8 flex flex-col justify-end">
+            <div class="space-y-6">
+                <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-2 outline-none focus:border-black text-sm transition-colors">
+                <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 outline-none focus:border-black text-sm transition-colors" required>
+                <textarea placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 h-24 outline-none focus:border-black text-sm transition-colors"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition-all rounded-md text-sm font-medium tracking-widest mt-4">SEND</button>
+        </form>
+
+    </div>
+</section>
 
 </body>
 </html>
