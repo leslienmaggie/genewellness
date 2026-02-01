@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於創始人 | 劍橋博士基因檢驗</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap');
+        .font-serif-custom { font-family: 'Noto Serif TC', serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-serif-custom">
+
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center py-4">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl md:text-3xl" style="font-family: serif;">Dr. Cambridge's NGS</h1>
+                <h2 class="text-xl md:text-2xl font-bold text-gray-700">劍橋博士基因檢驗</h2>
+            </div>
+            <ul class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                <li><a href="index.html" class="hover:text-blue-600">首頁</a></li>
+                <li><a href="about.html" class="bg-gray-100 px-4 py-1 rounded text-gray-900">關於</a></li>
+                <li><a href="#" class="hover:text-blue-600">新知</a></li>
+                <li><a href="#" class="hover:text-blue-600">商務</a></li>
+                <li><a href="#" class="hover:text-blue-600">聯絡我們</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="container mx-auto px-6 py-16">
+        <div class="flex flex-col md:flex-row items-start justify-center gap-12">
+            
+            <div class="md:w-1/2 text-center md:text-right space-y-8">
+                <div>
+                    <h3 class="text-gray-400 text-lg mb-2">現職：</h3>
+                    <p class="text-xl leading-relaxed">
+                        健曜國際有限公司 研發長/共同創辦人<br>
+                        長庚醫院精準醫學計畫專案顧問<br>
+                        信息者基因有限公司 顧問
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-gray-400 text-lg mb-2">經歷：</h3>
+                    <p class="text-gray-600 leading-loose">
+                        長庚大學 智慧醫療創新學程 兼任教授<br>
+                        桃園怡仁醫院LDTs基因體實驗室 主任<br>
+                        麗寶生醫股份有限公司 生物資訊長<br>
+                        林口長庚醫院生物資訊中心 主任/創辦人<br>
+                        新加坡科技部 (A*STAR) 研究計畫外審委員<br>
+                        美國系統生物研究所 研究科學家<br>
+                        英國Sanger研究院 副科學家
+                    </p>
+                </div>
+
+                <div class="flex justify-center md:justify-end space-x-4 pt-4">
+                    <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">f</div>
+                    <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">t</div>
+                    <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">in</div>
+                    <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">ig</div>
+                </div>
+            </div>
+
+            <div class="md:w-1/3">
+                <img src="https://via.placeholder.com/400x600" alt="Founder" class="w-full h-auto shadow-2xl rounded-sm">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-bold text-center mb-10">相關影像記錄</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="#" class="group relative overflow-hidden rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/300x300" class="w-full h-48 object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition">
+                        查看更多
+                    </div>
+                </a>
+                </div>
+        </div>
+    </section>
+
+</body>
+</html>
