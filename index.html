@@ -13,22 +13,21 @@
         body { font-family: 'Forum', 'Noto Sans TC', serif; -webkit-font-smoothing: antialiased; }
         .logo-font { font-family: 'Old English Text MT', 'Apple Chancery', serif; }
         
-        /* 背景色同步 */
+        /* 區塊背景設定 */
         .strip-white { background-color: #FFFFFF; }
         .strip-vision-gray { background-color: #E9E9E9; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
 
-        /* 願景區塊背景：調整 background-size 與 padding 以拿掉上方過多灰色 */
+        /* 願景區塊背景比例修正 */
         .section-vision {
             background-color: #FFFFFF; 
             background-image: linear-gradient(#E9E9E9, #E9E9E9); 
             background-repeat: no-repeat;
-            /* 調整比例：讓灰色背景不要長到最頂部 */
-            background-size: 100% 75%; 
-            background-position: bottom; /* 讓灰色對齊底部 */
+            /* 修改處：從 90% 改為 70%，並設定位置到底部 */
+            background-size: 100% 70%; 
+            background-position: bottom;
             position: relative;
             overflow: hidden;
-            padding-top: 40px;    /* 縮小上方留白 */
-            padding-bottom: 60px; /* 保持下方間距 */
+            padding-bottom: 60px;
         }
         
         .section-vision::after {
@@ -43,13 +42,13 @@
             z-index: 1;
         }
 
-        /* 使用者見證區：上白下灰漸層 */
+        /* 使用者見證區：漸層 */
         .section-feedback {
             background: linear-gradient(to bottom, #FFFFFF 0%, #E9E9E9 100%);
             border-bottom: 1px solid #e0e0e0;
         }
 
-        /* 文字樣式 */
+        /* 文字樣式修正 */
         .wix-title { 
             font-family: 'Forum', 'Noto Sans TC', serif; 
             font-size: 38px; 
@@ -76,15 +75,6 @@
 
         .tech-icon { width: 60px; height: 60px; fill: #757575; margin-bottom: 15px; opacity: 0.8; }
         .quote-icon { font-size: 60px; color: #757575; opacity: 0.25; font-family: serif; line-height: 0.5; margin-bottom: 10px; }
-        
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: #ffffff;
-            min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 100; border-radius: 8px; margin-top: 5px;
-        }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a { color: #666; padding: 10px 16px; display: block; font-size: 14px; }
     </style>
 </head>
 <body class="text-gray-800 bg-white">
@@ -99,14 +89,6 @@
                 <a href="index.html" class="bg-gray-100 px-3 py-1.5 rounded text-gray-900">首頁</a>
                 <a href="company.html" class="hover:text-black">關於</a>
                 <a href="#tech" class="hover:text-black">獨家技術</a>
-                <div class="dropdown">
-                    <a href="#" class="hover:text-black flex items-center">檢測 <span class="ml-1 text-[8px]">▼</span></a>
-                    <div class="dropdown-content text-left">
-                        <a href="wgs.html">WGS 全基因體檢測</a>
-                        <a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="wellness-i.html">wellness-i 基因命盤</a>
-                    </div>
-                </div>
                 <a href="#contact-section" class="hover:text-black">聯絡我們</a>
             </div>
         </div>
@@ -129,10 +111,6 @@
             <h4 class="wix-title mb-6 font-bold">精準檢測 | <span class="italic opacity-60">AI</span>基因分析</h4>
             <div class="max-w-3xl mx-auto text-gray-600 text-base leading-relaxed mb-10 tracking-widest text-center">
                 根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防
-            </div>
-            <div class="flex justify-center space-x-4">
-                <a href="wgs.html" class="wix-btn-circle px-10"><span>WGS</span></a>
-                <a href="wes.html" class="wix-btn-circle px-10"><span>WES</span></a>
             </div>
         </div>
     </section>
@@ -160,7 +138,7 @@
         </div>
     </section>
 
-    <section id="vision" class="section-vision">
+    <section id="vision" class="section-vision pt-20">
         <div class="container mx-auto px-10 relative z-10 flex flex-col md:flex-row items-start gap-12">
             <div class="md:w-1/2">
                 <h2 class="wix-title text-left !text-3xl whitespace-nowrap tracking-tight">改變台灣的基因體醫學</h2>
@@ -209,13 +187,12 @@
                 
                 <div class="w-full h-72 rounded-xl overflow-hidden shadow-sm border border-gray-100">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.286367373977!2d121.3853112!3d25.0743621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a0e28f28df1d%3A0x6a053229b3803698!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB6愛6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.6826079978433!2d121.385501!3d25.078768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a0e5b7c7b7b7%3A0x7b7b7b7b7b7b7b7b!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1234567890" 
                         width="100%" 
                         height="100%" 
                         style="border:0;" 
                         allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
+                        loading="lazy">
                     </iframe>
                 </div>
             </div>
