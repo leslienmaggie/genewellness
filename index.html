@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您的專屬基因檢測網站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-blue: #003366; /* 基因康健的主色調 */
+            --accent-green: #4CAF50;
+        }
+        .bg-primary { background-color: var(--primary-blue); }
+        .text-primary { color: var(--primary-blue); }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <nav class="bg-white py-4 shadow-sm border-b sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">G</div>
+                <span class="text-xl font-bold text-primary tracking-wider">YOUR DOMAIN</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-gray-600 font-medium">
+                <a href="#" class="hover:text-blue-900">關於我們</a>
+                <a href="#" class="hover:text-blue-900">檢測項目</a>
+                <a href="#" class="hover:text-blue-900">最新消息</a>
+                <a href="#" class="text-primary border border-primary px-4 py-1 rounded-full hover:bg-blue-50 transition">預約諮詢</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative bg-white overflow-hidden py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-primary mb-6 leading-tight">
+                    預見未來的健康<br><span class="text-blue-500">從基因開始</span>
+                </h1>
+                <p class="text-gray-500 text-lg mb-8 max-w-lg">
+                    透過專業的基因檢測與大數據分析，為您提供個人化的健康風險評估與生活建議。
+                </p>
+                <div class="flex space-x-4">
+                    <button class="bg-primary text-white px-8 py-3 rounded-lg shadow-lg hover:opacity-90">立即檢測</button>
+                    <button class="border border-gray-300 px-8 py-3 rounded-lg hover:bg-gray-50">了解更多</button>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 relative">
+                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800" 
+                     alt="Laboratory" class="rounded-3xl shadow-2xl">
+            </div>
+        </div>
+    </header>
+
+</body>
+</html>
