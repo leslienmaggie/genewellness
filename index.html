@@ -16,10 +16,23 @@
         /* 區塊顏色 */
         .strip-white { background-color: #FFFFFF; }
         .strip-light-gray { background-color: #FAFAFA; }
-        .testimonial-radial { background: radial-gradient(circle, #ffffff 0%, #f4f4f4 60%, #ececec 100%); }
-        .vision-section { background-color: #E9E9E9; clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%, 0 88%); }
+        
+        /* 放射狀漸層 (見證區) */
+        .testimonial-gradient {
+            background: radial-gradient(circle, #ffffff 0%, #f4f4f4 60%, #ececec 100%);
+        }
+        
+        /* 願景區塊弧線 */
+        .vision-section {
+            background-color: #E9E9E9;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%, 0 88%);
+        }
 
-        /* 下拉選單樣式 */
+        /* 標題與字體 */
+        .wix-title { font-size: 40px; color: #242323; letter-spacing: 0.1em; line-height: 1.2; }
+        .wix-subtitle { font-size: 22px; color: #727272; letter-spacing: 0.2em; }
+        
+        /* 下拉選單 */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none; position: absolute; background-color: #ffffff;
@@ -30,7 +43,7 @@
         .dropdown-content a { color: #666; padding: 12px 20px; display: block; font-size: 14px; transition: 0.3s; }
         .dropdown-content a:hover { background-color: #f8f8f8; color: #000; }
 
-        /* Wix 物理按鈕動態 */
+        /* Wix 按鈕物理動態 */
         .wix-btn-circle {
             border: 1px solid #757575; border-radius: 50px; padding: 12px 35px;
             display: inline-flex; align-items: center; background: transparent;
@@ -40,11 +53,9 @@
         .wix-btn-circle svg { margin-left: 10px; fill: currentColor; transition: transform 0.3s ease; }
         .wix-btn-circle:hover svg { transform: translateY(3px); }
 
-        .wix-title { font-size: 40px; color: #242323; letter-spacing: 0.1em; line-height: 1.2; }
-        .wix-subtitle { font-size: 22px; color: #727272; letter-spacing: 0.2em; }
-        
-        /* 獨家技術圖示樣式 */
+        /* 圖示與引號樣式 */
         .tech-icon { width: 80px; height: 80px; fill: #757575; margin: 0 auto 30px; opacity: 0.8; }
+        .quote-icon { font-size: 60px; color: #757575; opacity: 0.5; font-family: serif; line-height: 1; }
     </style>
 </head>
 <body class="text-gray-800 bg-white">
@@ -56,7 +67,7 @@
                 <span class="text-2xl font-bold text-gray-700 tracking-wider">劍橋博士基因檢驗</span>
             </div>
             <div class="hidden md:flex space-x-8 text-gray-500 font-medium items-center text-sm">
-                <a href="index.html" class="bg-gray-100 px-4 py-2 rounded text-gray-900">首頁</a>
+                <a href="index.html" class="bg-gray-100 px-4 py-1 rounded text-gray-900">首頁</a>
                 <a href="company.html" class="hover:text-black">關於</a>
                 <a href="#tech" class="hover:text-black">獨家技術</a>
                 <div class="dropdown">
@@ -88,7 +99,7 @@
 
     <section class="strip-light-gray py-28 text-center border-y border-gray-100">
         <div class="container mx-auto px-6">
-            <h4 class="wix-title mb-10">精準檢測 | AI基因分析</h4>
+            <h4 class="wix-title mb-10 font-bold">精準檢測 | <span class="italic opacity-70">AI</span>基因分析</h4>
             <div class="max-w-3xl mx-auto text-gray-500 text-lg leading-loose mb-16 tracking-widest text-center">
                 根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>
                 全面細緻的健康數據分析、預測和干預<br>
@@ -103,7 +114,7 @@
 
     <section id="tech" class="strip-white py-28 text-center">
         <div class="container mx-auto px-6">
-            <h2 class="wix-title mb-20">獨家技術</h2>
+            <h2 class="wix-title mb-20 font-bold">獨家技術</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
                 <div class="flex flex-col items-center">
                     <svg class="tech-icon" viewBox="20 20 160 160"><path d="M20 20v160c44.183 0 80-35.817 80-80S64.183 20 20 20z M100 100c0 44.183 35.817 80 80 80V20c-44.183 0-80 35.817-80 80z"/></svg>
@@ -120,6 +131,40 @@
                     <h3 class="text-xl font-bold tracking-widest mb-6">多基因風險預測(PRS)</h3>
                     <p class="text-gray-500 text-sm leading-loose">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-gradient py-28 border-y border-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
+                <div class="space-y-6">
+                    <div class="quote-icon">“</div>
+                    <h5 class="text-xl font-bold">羅小姐/運動選手</h5>
+                    <p class="text-gray-600 leading-loose text-sm px-4">配合營養師長期追蹤但始終維他命D不足導致容易骨質，在經過基因檢測後發現麩質不耐基因，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="quote-icon">“</div>
+                    <h5 class="text-xl font-bold">蔡小姐/媽媽</h5>
+                    <p class="text-gray-600 leading-loose text-sm px-4">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="quote-icon">“</div>
+                    <h5 class="text-xl font-bold">陳小姐/醫師</h5>
+                    <p class="text-gray-600 leading-loose text-sm px-4">骨質疏鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單，多一分保險多一分保障。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="vision-section py-32">
+        <div class="container mx-auto px-10 flex flex-col md:flex-row items-start gap-16">
+            <div class="md:w-1/2">
+                <h2 class="wix-title text-left !text-5xl font-bold leading-tight">改變台灣的<br>基因體醫學</h2>
+            </div>
+            <div class="md:w-1/2 space-y-8 text-gray-700 leading-loose text-lg">
+                <p>健曜國際有限公司於2018年2月由陳彥瑜博士一同成立，提供高品質的臨床與設計服務。</p>
+                <a href="company.html" class="bg-gray-500 text-white px-8 py-3 rounded-lg hover:bg-black transition inline-block">創辦人簡介 »</a>
             </div>
         </div>
     </section>
