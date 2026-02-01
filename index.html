@@ -10,26 +10,46 @@
         @import url('https://fonts.googleapis.com/css2?family=Forum&family=Noto+Sans+TC:wght@300;400;700&display=swap');
         
         html { scroll-behavior: smooth; }
-        body { font-family: 'Forum', 'Noto Sans TC', serif; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Forum', 'Noto Sans TC', serif; -webkit-font-smoothing: antialiased; background-color: white; }
         .logo-font { font-family: 'Old English Text MT', 'Apple Chancery', serif; }
         
-        /* 區塊顏色 */
-        .strip-white { background-color: #FFFFFF; }
-        .strip-light-gray { background-color: #FAFAFA; }
-        .testimonial-gradient {
-            background: radial-gradient(circle, #ffffff 0%, #f4f4f4 60%, #ececec 100%);
+        /* 1. 全方位精準醫療：純白背景 */
+        .section-hero { background-color: #FFFFFF; }
+
+        /* 2. 精準檢測區：淺灰背景 */
+        .section-testing { background-color: #FAFAFA; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
+
+        /* 3. 獨家技術區：純白背景 */
+        .section-tech { background-color: #FFFFFF; }
+
+        /* 4. 改變台灣區塊：完全複製截圖的灰色背景與白色圓潤弧線 */
+        .section-vision {
+            background-color: #FFFFFF; /* 底色白 */
+            background-image: linear-gradient(#E9E9E9, #E9E9E9); /* 灰色區塊 */
+            background-repeat: no-repeat;
+            background-size: 100% 85%; /* 灰色占上方 85% */
+            position: relative;
+            padding-bottom: 100px;
+        }
+        /* 核心弧線：使用圓潤的邊界 */
+        .section-vision::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 55%; /* 弧線延伸長度 */
+            height: 150px;
+            background-color: #FFFFFF;
+            border-top-right-radius: 120px; /* 這裡控制那個圓潤的凹角 */
         }
 
-        /* 願景區塊：灰色背景 + 左下角弧線設計 */
-        .vision-section {
-            background-color: #E9E9E9;
-            /* 實作左下角向內凹陷的弧線效果 */
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%, 0 88%);
-            padding-bottom: 8rem; /* 增加底部間距避免內容被遮擋 */
+        /* 5. 使用者回饋：放射漸層 */
+        .section-feedback {
+            background: radial-gradient(circle, #ffffff 0%, #f4f4f4 70%, #ececec 100%);
         }
 
-        /* 標題與文字 */
-        .wix-title { font-size: 40px; color: #242323; letter-spacing: 0.1em; line-height: 1.2; font-weight: normal; }
+        /* 樣式定義 */
+        .wix-title { font-size: 42px; color: #242323; letter-spacing: 0.1em; font-weight: normal; line-height: 1.3; }
         .wix-subtitle { font-size: 22px; color: #727272; letter-spacing: 0.2em; }
         
         /* 下拉選單 */
@@ -40,33 +60,32 @@
             z-index: 100; border-radius: 8px; margin-top: 10px; border: 1px solid #f0f0f0;
         }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a { color: #666; padding: 12px 20px; display: block; font-size: 14px; }
+        .dropdown-content a { color: #666; padding: 12px 20px; display: block; font-size: 14px; transition: 0.3s; }
         .dropdown-content a:hover { background-color: #f8f8f8; color: #000; }
 
-        /* Wix 圓圈按鈕物理動態 */
+        /* 按鈕：圓角變方圓角 */
         .wix-btn-circle {
-            border: 1px solid #757575; border-radius: 50px; padding: 12px 35px;
+            border: 1px solid #757575; border-radius: 50px; padding: 10px 32px;
             display: inline-flex; align-items: center; background: transparent;
             color: #757575; font-size: 16px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .wix-btn-circle:hover { border-radius: 15px; background: #fdfdfd; color: #000; border-color: #333; }
+        .wix-btn-circle:hover { border-radius: 12px; background: #fdfdfd; color: #000; }
         .wix-btn-circle svg { margin-left: 10px; fill: currentColor; transition: transform 0.3s ease; }
         .wix-btn-circle:hover svg { transform: translateY(3px); }
 
-        /* 願景區塊內的深灰按鈕 */
-        .gray-pill-btn {
-            background-color: #808080; color: white; padding: 12px 28px;
+        /* 願景區深灰按鈕 (含 >> 符號) */
+        .vision-gray-btn {
+            background-color: #7d7d7d; color: white; padding: 12px 24px;
             border-radius: 10px; display: inline-flex; align-items: center;
-            font-size: 16px; transition: all 0.3s ease;
+            font-size: 16px; transition: background 0.3s; font-family: 'Noto Sans TC';
         }
-        .gray-pill-btn:hover { background-color: #666; transform: scale(1.03); }
+        .vision-gray-btn:hover { background-color: #4a4a4a; }
+        .vision-gray-btn span.arrows { margin-left: 8px; font-weight: bold; font-size: 18px; }
 
-        /* 圖示與引號樣式 */
-        .tech-icon { width: 80px; height: 80px; fill: #757575; margin: 0 auto 30px; opacity: 0.8; }
-        .quote-icon { font-size: 60px; color: #757575; opacity: 0.4; font-family: serif; line-height: 1; }
+        .tech-icon { width: 75px; height: 75px; fill: #757575; margin-bottom: 25px; opacity: 0.8; }
     </style>
 </head>
-<body class="text-gray-800 bg-white">
+<body class="text-gray-800">
 
     <nav class="bg-white/95 py-4 border-b border-gray-100 sticky top-0 z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
@@ -74,18 +93,14 @@
                 <span class="logo-font text-3xl">Dr. Cambridge's NGS</span>
                 <span class="text-2xl font-bold text-gray-700 tracking-wider">劍橋博士基因檢驗</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-gray-500 font-medium text-sm">
+            <div class="hidden md:flex space-x-8 text-gray-500 font-medium items-center text-sm">
                 <a href="index.html" class="bg-gray-100 px-4 py-2 rounded text-gray-900">首頁</a>
                 <a href="company.html" class="hover:text-black">關於</a>
                 <a href="#tech" class="hover:text-black">獨家技術</a>
                 <div class="dropdown">
                     <a href="#" class="hover:text-black flex items-center">檢測 <span class="ml-1 text-[10px]">▼</span></a>
                     <div class="dropdown-content text-left">
-                        <a href="wgs.html">WGS 全基因體檢測</a>
-                        <a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="wellness-i.html">wellness-i 基因命盤</a>
-                        <a href="height.html">劍橋博士身高管理</a>
-                        <a href="sleep.html">劍橋博士睡眠追蹤</a>
+                        <a href="wgs.html">WGS 全基因體檢測</a><a href="wes.html">WES 外顯體基因檢測</a><a href="wellness-i.html">wellness-i 基因命盤</a><a href="height.html">劍橋博士身高管理</a><a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
                 <a href="#contact" class="hover:text-black">聯絡我們</a>
@@ -93,10 +108,10 @@
         </div>
     </nav>
 
-    <section class="strip-white py-24 text-center">
+    <section class="section-hero py-24 text-center">
         <div class="container mx-auto px-6">
             <h6 class="wix-subtitle mb-6">全方位精準醫療</h6>
-            <h4 class="wix-title font-bold mb-10 text-5xl">先天基因｜後天影響｜整體健康</h4>
+            <h4 class="wix-title font-bold mb-10">先天基因｜後天影響｜整體健康</h4>
             <p class="wix-subtitle mb-14" style="font-size: 20px;">依照你的基因，打造出最合適的生活方式</p>
             <div class="flex justify-center space-x-6">
                 <a href="#vision" class="wix-btn-circle"><span>了解更多</span><svg width="18" height="18" viewBox="0 0 200 200"><path d="M100 20c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80zm35.533 91.251l-30.37 28.03a7.27 7.27 0 0 1-2.264 1.434 7.221 7.221 0 0 1-2.697.515c-.066 0-.135 0-.203-.003-1.836.038-3.688-.587-5.144-1.931L64.468 111.25a7.292 7.292 0 0 1-.413-10.305 7.291 7.291 0 0 1 10.305-.413l18.547 17.118V59.185a7.293 7.293 0 1 1 14.586 0v58.098l18.148-16.749a7.293 7.293 0 0 1 9.892 10.717z"></path></svg></a>
@@ -105,13 +120,11 @@
         </div>
     </section>
 
-    <section class="strip-light-gray py-28 text-center border-y border-gray-100">
+    <section class="section-testing py-28 text-center">
         <div class="container mx-auto px-6">
-            <h4 class="wix-title mb-10 font-bold">精準檢測 | <span class="italic opacity-70">AI</span>基因分析</h4>
-            <div class="max-w-3xl mx-auto text-gray-500 text-lg leading-loose mb-16 tracking-widest">
-                根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>
-                全面細緻的健康數據分析、預測和干預<br>
-                實現健康風險的監測、預測和早期預防
+            <h4 class="wix-title mb-10 font-bold">精準檢測 | AI基因分析</h4>
+            <div class="max-w-3xl mx-auto text-gray-500 text-lg leading-loose mb-16 tracking-widest text-center">
+                根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防
             </div>
             <div class="flex justify-center space-x-6">
                 <a href="wgs.html" class="wix-btn-circle px-12"><span>WGS</span></a>
@@ -120,14 +133,14 @@
         </div>
     </section>
 
-    <section id="tech" class="strip-white py-28 text-center">
+    <section id="tech" class="section-tech py-28 text-center">
         <div class="container mx-auto px-6">
-            <h2 class="wix-title mb-24 font-bold text-5xl">獨家技術</h2>
+            <h2 class="wix-title mb-24 font-bold">獨家技術</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
                 <div class="flex flex-col items-center">
                     <svg class="tech-icon" viewBox="20 20 160 160"><path d="M20 20v160c44.183 0 80-35.817 80-80S64.183 20 20 20z M100 100c0 44.183 35.817 80 80 80V20c-44.183 0-80 35.817-80 80z"/></svg>
                     <h3 class="text-xl font-bold tracking-widest mb-6">ACMG位點判定AI</h3>
-                    <p class="text-gray-500 text-sm leading-loose">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則<br>12條無害性準則</p>
+                    <p class="text-gray-500 text-sm leading-loose">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則<br>12 條無害性準則</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <svg class="tech-icon" viewBox="20 20 160 160"><path d="M100 20c-44.118 0-80 35.882-80 80s35.882 80 80 80 80-35.882 80-80h-80V20z"/></svg>
@@ -143,67 +156,87 @@
         </div>
     </section>
 
-    <section id="vision" class="vision-section py-32">
-        <div class="container mx-auto px-10 flex flex-col md:flex-row items-start gap-16">
+    <section id="vision" class="section-vision pt-32">
+        <div class="container mx-auto px-10 relative z-10 flex flex-col md:flex-row items-start gap-20">
             <div class="md:w-1/2">
-                <h2 class="wix-title text-left !text-5xl font-bold leading-tight">改變台灣的<br>基因體醫學</h2>
+                <h2 class="wix-title text-left !text-5xl font-bold">改變台灣的<br>基因體醫學</h2>
             </div>
-            <div class="md:w-1/2 space-y-8 text-gray-700 leading-loose text-lg">
+            <div class="md:w-1/2 space-y-8 text-gray-700 leading-loose text-lg text-justify">
                 <p>健曜國際有限公司於2018年2月由陳彥瑜博士及幾位致力推廣基因檢測的年輕科學家一同成立。提供學研界的科研生物資訊服務，積極開發“精準健康”服務。</p>
-                <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者，提供最優質的檢測報告服務。</p>
-                <div class="flex space-x-6 pt-4">
-                    <a href="company.html" class="gray-pill-btn">創辦人簡介 »</a>
+                <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者，與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
+                <p>密切與各醫學中心、高階診所合作，為精準健康與精準醫學領域的“IC設計公司”：提供最高品質的臨床與設計服務。</p>
+                <div class="flex space-x-6 pt-6">
+                    <a href="company.html" class="vision-gray-btn">創辦人簡介 <span class="arrows">»</span></a>
+                    <a href="https://drlesliechen.wordpress.com/" target="_blank" class="vision-gray-btn">基因醫學網誌 <span class="arrows">»</span></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonial-gradient py-28 border-y border-gray-100">
+    <section class="section-feedback py-28 border-y border-gray-100">
         <div class="container mx-auto px-6 text-center">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
                 <div class="space-y-6">
                     <div class="quote-icon">“</div>
                     <h5 class="text-xl font-bold">羅小姐/運動選手</h5>
-                    <p class="text-gray-600 leading-loose text-sm px-4 text-justify">配合營養師長期追蹤但維他命D不足，檢測後發現麩質不耐基因，改變飲食後一個月數據恢復正常。</p>
+                    <p class="text-gray-600 leading-loose text-sm px-4">配合營養師長期追蹤但維他命D不足，檢測後發現麩質不耐基因，改變飲食後一個月恢復正常。</p>
                 </div>
                 <div class="space-y-6">
                     <div class="quote-icon">“</div>
                     <h5 class="text-xl font-bold">蔡小姐/媽媽</h5>
-                    <p class="text-gray-600 leading-loose text-sm px-4 text-justify">兒子身高落後，檢測顯示晚發育體質，搭配營養建議後在高中順利長到理想身高。</p>
+                    <p class="text-gray-600 leading-loose text-sm px-4">兒子身高落後，檢測顯示晚發育體質。搭配營養建議後在高中順利長到理想身高。</p>
                 </div>
                 <div class="space-y-6">
                     <div class="quote-icon">“</div>
                     <h5 class="text-xl font-bold">陳小姐/醫師</h5>
-                    <p class="text-gray-600 leading-loose text-sm px-4 text-justify">家族有骨鬆問題，檢測發現 ALPL 突變。讓我們能提前為小孩評估保障，多一分安心。</p>
+                    <p class="text-gray-600 leading-loose text-sm px-4">家族有骨鬆問題，檢測發現 ALPL 突變。這讓我們能提前為小孩評估保障，多一分安心。</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="strip-white py-24 text-center">
+        <div class="container mx-auto px-12">
+            <h2 class="wix-subtitle mb-16 !text-3xl">合作夥伴</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=NTUH" class="h-16 object-contain"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=CGH" class="h-16 object-contain"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=FEMH" class="h-16 object-contain"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=CMUH" class="h-16 object-contain"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=GENOMICS" class="h-16 object-contain"></div>
+                </div>
+                <div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="strip-white py-28 border-t border-gray-100">
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
-            <div>
-                <h2 class="wix-title text-left mb-10">聯繫我們</h2>
-                <div class="space-y-4 text-xl text-gray-600 mb-10">
-                    <p>林口新創園: 新北市林口區仁愛路二段502號</p>
-                    <p>聯絡電話： 02-6604-0580</p>
+            <div class="space-y-10">
+                <h2 class="wix-title text-left">聯繫我們</h2>
+                <div class="space-y-4 text-xl text-gray-600">
+                    <p>林口新創園: <br>新北市林口區仁愛路二段502號</p>
+                    <p>聯絡電話： <br>02-6604-0580</p>
                 </div>
-                <div class="w-full h-80 bg-gray-200 rounded-2xl flex items-center justify-center border border-dashed border-gray-300 text-gray-400 font-bold">Google Map 區域</div>
+                <div class="w-full h-80 bg-gray-200 rounded-2xl flex items-center justify-center text-gray-400">Google Map 區域</div>
             </div>
             <form class="space-y-12">
-                <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-3 outline-none focus:border-black transition">
-                <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-3 outline-none focus:border-black transition" required>
-                <textarea placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-3 h-32 outline-none focus:border-black transition"></textarea>
-                <button type="submit" class="w-full bg-gray-500 text-white py-5 tracking-widest hover:bg-black transition rounded-md">SEND</button>
+                <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-4 outline-none focus:border-black transition">
+                <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-4 outline-none focus:border-black transition" required>
+                <textarea placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-4 h-32 outline-none focus:border-black transition"></textarea>
+                <button type="submit" class="w-full bg-gray-500 text-white py-5 tracking-widest hover:bg-black transition rounded-sm">SEND</button>
             </form>
         </div>
     </section>
 
-    <div class="fixed bottom-10 right-10 z-[100]">
-        <button class="bg-gray-600 text-white px-8 py-4 rounded-full shadow-2xl flex items-center space-x-3 hover:scale-110 transition duration-300">
-            <span>💬</span><span class="font-medium tracking-wider">Let's Chat!</span>
-        </button>
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 2, spaceBetween: 30, loop: true, autoplay: { delay: 3000 },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            breakpoints: { 640: { slidesPerView: 3 }, 1024: { slidesPerView: 5 } }
+        });
+    </script>
 </body>
 </html>
