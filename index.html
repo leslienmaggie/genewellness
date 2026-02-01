@@ -20,15 +20,15 @@
         /* 2. 精準檢測區：淺灰 */
         .strip-light-gray { background-color: #FAFAFA; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
 
-        /* 3. 願景區塊 (修正版)：確保按鈕在灰色區塊內 */
+        /* 3. 願景區塊：背景比例修正，確保按鈕在灰色區塊內 */
         .section-vision {
-            background-color: #FFFFFF; /* 底部基色 */
-            background-image: linear-gradient(#E9E9E9, #E9E9E9); /* 灰色區塊 */
+            background-color: #FFFFFF; 
+            background-image: linear-gradient(#E9E9E9, #E9E9E9); 
             background-repeat: no-repeat;
-            background-size: 100% 92%; /* 稍微加高灰色占比，確保按鈕被包覆 */
+            background-size: 100% 92%; 
             position: relative;
             overflow: hidden;
-            padding-bottom: 100px; /* 增加底部內距 */
+            padding-bottom: 100px; 
         }
         
         /* 圓潤白色切角效果 */
@@ -74,7 +74,7 @@
         .wix-btn-circle svg { margin-left: 10px; fill: currentColor; transition: transform 0.3s ease; }
         .wix-btn-circle:hover svg { transform: translateY(3px); }
 
-        /* 願景區深灰按鈕 (對齊圖二) */
+        /* 願景區深灰按鈕 */
         .vision-gray-btn {
             background-color: #7d7d7d; color: white; padding: 12px 24px;
             border-radius: 10px; display: inline-flex; align-items: center;
@@ -226,8 +226,20 @@
             <div class="space-y-10 text-left">
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-lg text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
-                <div class="w-full h-80 bg-gray-200 rounded-2xl flex items-center justify-center text-gray-400">Google Map</div>
+                
+                <div class="w-full h-80 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.6826622438575!2d121.3789417753782!3d25.078761177836376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6de66049381%3A0xc66598c17df66e2c!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1706850000000!5m2!1szh-TW!2stw" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
+            
             <form class="space-y-12">
                 <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-3 outline-none focus:border-black">
                 <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-3 outline-none focus:border-black" required>
