@@ -17,7 +17,7 @@
         .strip-white { background-color: #FFFFFF; }
         .strip-vision-gray { background-color: #E9E9E9; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
 
-        /* 願景區塊背景比例微調 */
+        /* 願景區塊背景 */
         .section-vision {
             background-color: #FFFFFF; 
             background-image: linear-gradient(#E9E9E9, #E9E9E9); 
@@ -25,7 +25,7 @@
             background-size: 100% 90%; 
             position: relative;
             overflow: hidden;
-            padding-bottom: 60px; /* 減少底部留白 */
+            padding-bottom: 60px;
         }
         
         .section-vision::after {
@@ -34,30 +34,30 @@
             bottom: 0;
             left: 0;
             width: 50%; 
-            height: 100px; /* 調降圓弧高度 */
+            height: 100px; 
             background-color: #FFFFFF;
             border-top-right-radius: 120px; 
             z-index: 1;
         }
 
-        /* 使用者見證區：漸層 */
+        /* 使用者見證區：漸層效果 */
         .section-feedback {
-            background: radial-gradient(circle, #FFFFFF 30%, #E9E9E9 700%);
-            border-top: 1px solid #FFFFFF;
-            border-bottom: 1px solid #FFFFFF;
+            background: radial-gradient(circle, #FFFFFF 30%, #E9E9E9 150%);
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        /* 文字樣式修正 */
+        /* 文字樣式 */
         .wix-title { 
             font-family: 'Forum', 'Noto Sans TC', serif; 
-            font-size: 38px; /* 稍微調小一點點，更精緻 */
+            font-size: 38px; 
             color: #242323; 
             letter-spacing: 0.1em; 
             line-height: 1.2; 
         }
         .wix-subtitle { font-size: 18px; color: #727272; letter-spacing: 0.15em; }
         
-        /* 按鈕與元件樣式 */
+        /* 元件樣式 */
         .wix-btn-circle {
             border: 1px solid #757575; border-radius: 50px; padding: 8px 28px;
             display: inline-flex; align-items: center; background: transparent;
@@ -75,7 +75,6 @@
         .tech-icon { width: 60px; height: 60px; fill: #757575; margin-bottom: 15px; opacity: 0.8; }
         .quote-icon { font-size: 60px; color: #757575; opacity: 0.25; font-family: serif; line-height: 0.5; margin-bottom: 10px; }
         
-        /* 下拉選單 */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none; position: absolute; background-color: #ffffff;
@@ -127,7 +126,7 @@
         <div class="container mx-auto px-6">
             <h4 class="wix-title mb-6 font-bold">精準檢測 | <span class="italic opacity-60">AI</span>基因分析</h4>
             <div class="max-w-3xl mx-auto text-gray-600 text-base leading-relaxed mb-10 tracking-widest text-center">
-                根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防
+                根據基因、生活方式、所處環境等進行獨一無一的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防
             </div>
             <div class="flex justify-center space-x-4">
                 <a href="wgs.html" class="wix-btn-circle px-10"><span>WGS</span></a>
@@ -143,7 +142,7 @@
                 <div class="flex flex-col items-center">
                     <svg class="tech-icon" viewBox="20 20 160 160"><path d="M20 20v160c44.183 0 80-35.817 80-80S64.183 20 20 20z M100 100c0 44.183 35.817 80 80 80V20c-44.183 0-80 35.817-80 80z"/></svg>
                     <h3 class="text-lg font-bold tracking-widest mb-4">ACMG位點判定AI</h3>
-                    <p class="text-gray-500 text-xs leading-loose">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>針對台灣人基因研發<br></p>
+                    <p class="text-gray-500 text-xs leading-loose">針對台灣人基因研發<br>全自動化平台 ACMG指引</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <svg class="tech-icon" viewBox="20 20 160 160"><path d="M100 20c-44.118 0-80 35.882-80 80s35.882 80 80 80 80-35.882 80-80h-80V20z"/></svg>
@@ -152,8 +151,8 @@
                 </div>
                 <div class="flex flex-col items-center">
                     <svg class="tech-icon" viewBox="38.5 20 123 160"><path d="M102.887 20v117.469c32.371 0 58.613-26.296 58.613-58.734C161.5 46.296 135.258 20 102.887 20z M38.5 121.266C38.5 153.704 64.742 180 97.113 180V62.532c-32.371 0-58.613 26.296-58.613 58.734z"/></svg>
-                    <h3 class="text-lg font-bold tracking-widest mb-4">台灣人專用多基因風險預測(PRS)</h3>
-                    <p class="text-gray-500 text-xs leading-loose">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人PRS演算法</p>
+                    <h3 class="text-lg font-bold tracking-widest mb-4">多基因風險預測</h3>
+                    <p class="text-gray-500 text-xs leading-loose">獨步全球的台灣人演算法</p>
                 </div>
             </div>
         </div>
@@ -164,21 +163,14 @@
             <div class="md:w-1/2">
                 <h2 class="wix-title text-left !text-3xl whitespace-nowrap tracking-tight">改變台灣的基因體醫學</h2>
             </div>
-            
-          <div class="md:w-1/2 flex flex-col items-start">
-    <div class="space-y-5 text-gray-600 leading-relaxed text-base text-justify break-all mb-8">
-        <p>健曜國際有限公司於2018年2月由陳彥瑜博士及幾位致力推廣基因檢測的年輕科學家一同成立。提供學研界的科研生物資訊服務，積極開發「精準健康」服務。</p>
-        <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者，並與國內定序服務龍頭合作，提供最優質的基因檢測報告。</p>
-        <p>密切與各醫學中心、高階診所合作，定位為精準醫學領域的「IC設計公司」：提供最高品質的臨床與設計服務。</p>
-    </div>
-    
-    <div class="flex space-x-4">
-        <a href="company.html" class="vision-gray-btn group">
-            創辦人簡介 
-            <span class="ml-2 transform group-hover:translate-x-1 transition-transform">»</span>
-        </a>
-    </div>
-</div>
+            <div class="md:w-1/2 flex flex-col items-start">
+                <div class="space-y-4 text-gray-700 leading-relaxed text-base text-justify mb-8">
+                    <p>健曜國際有限公司於2018年2月由陳彥瑜博士成立。專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測判讀的領導者。</p>
+                    <p>密切與各醫學中心、高階診所合作，定位為精準醫學領域的「IC設計公司」：提供最高品質的臨床與設計服務。</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="company.html" class="vision-gray-btn">創辦人簡介</a>
+                </div>
             </div>
         </div>
     </section>
@@ -189,56 +181,50 @@
                 <div class="flex flex-col items-center text-center">
                     <div class="quote-icon">“</div>
                     <h5 class="text-lg font-bold mb-4 text-slate-800">羅小姐/運動選手</h5>
-                    <p class="text-gray-600 leading-relaxed text-sm px-4 text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質，在經過基因檢測後發現麩質不耐基因，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
+                    <p class="text-gray-600 leading-relaxed text-sm px-4 text-justify">配合營養師追蹤但維他命D不足，經過基因檢測發現麩質不耐，改變習慣後一個月恢復正常。</p>
                 </div>
                 <div class="flex flex-col items-center text-center">
                     <div class="quote-icon">“</div>
                     <h5 class="text-lg font-bold mb-4 text-slate-800">蔡小姐/媽媽</h5>
-                    <p class="text-gray-600 leading-relaxed text-sm px-4 text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
+                    <p class="text-gray-600 leading-relaxed text-sm px-4 text-justify">基因檢測報告顯示兒子為晚發育體質，讓我放下了心，搭配營養建議，兒子在高中長到理想身高。</p>
                 </div>
                 <div class="flex flex-col items-center text-center">
                     <div class="quote-icon">“</div>
                     <h5 class="text-lg font-bold mb-4 text-slate-800">陳小姐/醫師</h5>
-                    <p class="text-gray-600 leading-relaxed text-sm px-4 text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p>
+                    <p class="text-gray-600 leading-relaxed text-sm px-4 text-justify">基因檢測發現ALPL出問題，帶領小孩檢測，重新評估醫療保單，多一分保險多一分保障。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact-section" class="strip-white py-16 border-t border-gray-100">
-    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
-        
-        <div class="space-y-6">
-            <h2 class="wix-title text-3xl">聯繫我們</h2>
-            <p class="text-base text-gray-600 leading-relaxed">
-                新北市林口區仁愛路二段502號<br>
-                02-6604-0580
-            </p>
-            
-            <div class="w-full h-[280px] rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                <iframe 
-                    src="http://googleusercontent.com/maps.google.com/6" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-        
-        <form class="space-y-8 flex flex-col justify-end">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
             <div class="space-y-6">
-                <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-2 outline-none focus:border-black text-sm transition-colors">
-                <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 outline-none focus:border-black text-sm transition-colors" required>
-                <textarea placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 h-24 outline-none focus:border-black text-sm transition-colors"></textarea>
+                <h2 class="wix-title text-3xl">聯繫我們</h2>
+                <p class="text-base text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
+                <div class="w-full h-72 rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <iframe 
+                        src="http://googleusercontent.com/maps.google.com/7" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
-            <button type="submit" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition-all rounded-md text-sm font-medium tracking-widest mt-4">SEND</button>
-        </form>
-
-    </div>
-</section>
+            
+            <form class="space-y-8 flex flex-col justify-end">
+                <div class="space-y-6">
+                    <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-2 outline-none focus:border-black text-sm">
+                    <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 outline-none focus:border-black text-sm" required>
+                    <textarea placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 h-24 outline-none focus:border-black text-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm mt-4">SEND</button>
+            </form>
+        </div>
+    </section>
 
 </body>
 </html>
