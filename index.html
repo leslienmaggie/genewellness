@@ -19,14 +19,12 @@
             color: #1a1a1a;
         }
 
-        /* 標誌部分同樣統一字體，改以粗細區分層次 */
         .logo-font { font-family: 'Noto Sans TC', sans-serif; font-weight: 700; }
         
-        /* 背景與條塊設定 */
         .strip-white { background-color: #FFFFFF; }
         .strip-vision-gray { background-color: #E9E9E9; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
 
-        /* 願景區塊樣式 */
+        /* 願景區塊樣式 - 確保內容在灰色背景中垂直居中 */
         .section-vision {
             background-color: #FFFFFF; 
             background-image: linear-gradient(#E9E9E9, #E9E9E9); 
@@ -34,8 +32,10 @@
             background-size: 100% 92%; 
             position: relative;
             overflow: hidden;
-            padding-top: 80px; 
-            padding-bottom: 100px; 
+            display: flex;
+            align-items: center; /* 垂直居中 */
+            min-height: 600px;  /* 設定最小高度確保居中效果明顯 */
+            padding-bottom: 140px; /* 預留給底部的圓弧空間 */
         }
         
         .section-vision::after {
@@ -50,13 +50,12 @@
             z-index: 1;
         }
 
-        /* 使用者見證區 */
         .section-feedback {
             background: linear-gradient(to bottom, #FFFFFF 0%, #F5F5F5 100%);
             border-bottom: 1px solid #f0f0f0;
         }
 
-        /* 文字樣式：維持原本設定的大小與間距 */
+        /* 文字樣式 */
         .wix-title { 
             font-size: 42px; 
             color: #242323; 
@@ -69,7 +68,6 @@
             letter-spacing: 0.2em; 
         }
         
-        /* 按鈕樣式 */
         .vision-gray-btn {
             background-color: #7d7d7d; 
             color: white; 
@@ -82,7 +80,6 @@
             white-space: nowrap;
         }
         .vision-gray-btn:hover { background-color: #4a4a4a; }
-        .vision-gray-btn .arrow { margin-left: 8px; font-weight: bold; font-size: 18px; }
 
         .wix-btn-circle {
             border: 1px solid #757575; border-radius: 50px; padding: 10px 32px;
@@ -113,8 +110,8 @@
         </div>
     </nav>
 
-    <section class="strip-white py-24 text-center">
-        <div class="container mx-auto px-6">
+    <section class="strip-white min-h-[70vh] flex items-center justify-center text-center">
+        <div class="container mx-auto px-6 py-20">
             <h6 class="wix-subtitle mb-6">全方位精準醫療</h6>
             <h4 class="wix-title font-bold mb-10">先天基因｜後天影響｜整體健康</h4>
             <p class="wix-subtitle mb-14" style="font-size: 20px;">依照你的基因，打造出最合適的生活方式</p>
@@ -125,30 +122,30 @@
         </div>
     </section>
 
-    <section class="strip-vision-gray py-28 text-center">
-        <div class="container mx-auto px-6">
+    <section class="strip-vision-gray min-h-[50vh] flex items-center justify-center text-center">
+        <div class="container mx-auto px-6 py-24">
             <h4 class="wix-title mb-10 font-bold">精準檢測 | <span class="italic opacity-60">AI</span> 基因分析</h4>
-            <div class="max-w-3xl mx-auto text-gray-500 text-lg leading-loose mb-16 tracking-widest">
+            <div class="max-w-3xl mx-auto text-gray-500 text-lg leading-loose tracking-widest">
                 根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防
             </div>
         </div>
     </section>
 
-    <section id="tech" class="strip-white py-28 text-center">
-        <div class="container mx-auto px-6">
+    <section id="tech" class="strip-white min-h-[80vh] flex items-center justify-center text-center">
+        <div class="container mx-auto px-6 py-28">
             <h2 class="wix-title mb-24 font-bold">獨家技術</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center justify-center">
                     <svg class="tech-icon" viewBox="20 20 160 160"><path d="M20 20v160c44.183 0 80-35.817 80-80S64.183 20 20 20z M100 100c0 44.183 35.817 80 80 80V20c-44.183 0-80 35.817-80 80z"/></svg>
                     <h3 class="text-xl font-bold tracking-widest mb-6">ACMG位點判定AI</h3>
                     <p class="text-gray-500 text-sm leading-loose">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則<br>12 條無害性準則</p>
                 </div>
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center justify-center">
                     <svg class="tech-icon" viewBox="20 20 160 160"><path d="M100 20c-44.118 0-80 35.882-80 80s35.882 80 80 80 80-35.882 80-80h-80V20z"/></svg>
                     <h3 class="text-xl font-bold tracking-widest mb-6">次世代基因定序</h3>
                     <p class="text-gray-500 text-sm leading-loose">NGS高速高效技術<br>數十億個DNA片段定序</p>
                 </div>
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center justify-center">
                     <svg class="tech-icon" viewBox="38.5 20 123 160"><path d="M102.887 20v117.469c32.371 0 58.613-26.296 58.613-58.734C161.5 46.296 135.258 20 102.887 20z M38.5 121.266C38.5 153.704 64.742 180 97.113 180V62.532c-32.371 0-58.613 26.296-58.613 58.734z"/></svg>
                     <h3 class="text-xl font-bold tracking-widest mb-6">多基因風險預測(PRS)</h3>
                     <p class="text-gray-500 text-sm leading-loose">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
@@ -158,7 +155,7 @@
     </section>
 
     <section id="vision" class="section-vision">
-        <div class="container mx-auto px-10 relative z-10 flex flex-col md:flex-row items-start gap-20">
+        <div class="container mx-auto px-10 relative z-10 flex flex-col md:flex-row items-center gap-20">
             <div class="md:w-1/2">
                 <h2 class="wix-title text-left !text-3xl font-bold">改變台灣的基因體醫學</h2>
             </div>
@@ -178,8 +175,8 @@
         </div>
     </section>
 
-    <section class="section-feedback py-32">
-        <div class="container mx-auto px-6">
+    <section class="section-feedback min-h-[70vh] flex items-center justify-center">
+        <div class="container mx-auto px-6 py-32">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
                 <div class="flex flex-col items-center text-center">
                     <div class="quote-icon">“</div>
@@ -200,15 +197,15 @@
         </div>
     </section>
 
-    <section id="contact-section" class="strip-white py-28 border-t border-gray-100">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
+    <section id="contact-section" class="strip-white min-h-[80vh] flex items-center border-t border-gray-100">
+        <div class="container mx-auto px-6 py-28 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             <div class="space-y-10 text-left">
                 <h2 class="wix-title font-bold">聯繫我們</h2>
                 <p class="text-lg text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
                 
                 <div class="w-full h-80 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.6828552195843!2d121.3857593!3d25.0787884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6d899555555%3A0x6d859e9541a7732a!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" 
+                        src="http://googleusercontent.com/maps.google.com/2" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
