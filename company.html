@@ -6,7 +6,7 @@
     <title>關於創始人 | 劍橋博士基因檢驗</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         
         html { scroll-behavior: smooth; }
         body { 
@@ -16,7 +16,7 @@
             background-color: #ffffff;
         }
 
-        /* 導覽列：還原截圖選中狀態 */
+        /* 導覽列：還原截圖選中灰色底塊樣式 */
         .nav-link {
             padding: 10px 20px;
             font-size: 16px;
@@ -30,7 +30,7 @@
             font-weight: 500;
         }
 
-        /* 願景區塊背景：流線圓弧轉折 */
+        /* 弧線轉折背景設計 */
         .section-curve-bg {
             background-color: #E9E9E9;
             position: relative;
@@ -64,20 +64,29 @@
             transition: opacity 0.3s;
         }
         .social-btn:hover { opacity: 0.7; }
+
+        /* Banner Logo 樣式 */
+        .logo-banner {
+            height: 60px; /* 依照圖片比例可自行調整高度 */
+            width: auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div class="container mx-auto px-6 h-20 flex justify-between items-center max-w-6xl">
-            <div class="flex items-center space-x-6">
-                <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 28px;">Dr. Cambridge's NGS</span>
-                <span class="text-2xl font-bold text-[#242323] tracking-tighter">劍橋博士基因檢驗</span>
+        <div class="container mx-auto px-6 h-24 flex justify-between items-center max-w-6xl">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Banner.png" alt="劍橋博士基因檢驗 Banner" class="logo-banner">
+                </a>
             </div>
+
             <div class="hidden md:flex items-center space-x-1">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="company.html" class="nav-link active">關於</a>
-                <a href="#" class="nav-link">新知</a>
+                <a href="index.html#tech" class="nav-link">新知</a>
                 <a href="#" class="nav-link">商務</a>
                 <a href="#" class="nav-link">檢測</a>
                 <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
@@ -86,16 +95,19 @@
     </nav>
 
     <section class="max-w-5xl mx-auto px-6 py-20">
-        <div class="flex flex-col md:flex-row items-start justify-between gap-12">
+        <div class="flex flex-col md:flex-row items-start justify-between gap-16">
             
-            <div class="md:w-1/2 space-y-10 pt-4">
-                <div class="space-y-4">
-                    <p class="text-gray-500 font-bold">現職：</p>
-                    <p class="text-xl leading-relaxed text-[#1a1a1a] font-bold">
-                        健曜國際有限公司 研發長/共同創辦人<br>
-                        長庚醫院精準醫學計畫專案顧問<br>
-                        信息者基因有限公司 顧問
-                    </p>
+            <div class="md:w-1/2 space-y-12 pt-4">
+                <div>
+                    <h2 class="text-4xl font-bold mb-10">陳彥瑜 博士</h2>
+                    <div class="space-y-4">
+                        <p class="text-gray-500 font-bold">現職：</p>
+                        <p class="text-xl leading-relaxed text-[#1a1a1a] font-bold">
+                            健曜國際有限公司 研發長/共同創辦人<br>
+                            長庚醫院精準醫學計畫專案顧問<br>
+                            信息者基因有限公司 顧問
+                        </p>
+                    </div>
                 </div>
 
                 <div class="space-y-4">
@@ -120,10 +132,12 @@
             </div>
 
             <div class="md:w-2/5">
-                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" 
-                     alt="Founder" 
-                     class="w-full h-auto shadow-xl rounded-sm">
-                <p class="mt-4 text-gray-400 text-sm tracking-[0.2em] font-medium">FOUNDER / DR. LESLIE CHEN</p>
+                <div class="relative">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" 
+                         alt="Founder Dr. Leslie Chen" 
+                         class="w-full h-auto shadow-2xl rounded-sm">
+                    <p class="mt-4 text-gray-400 text-sm tracking-[0.2em] font-medium text-right">FOUNDER / DR. LESLIE CHEN</p>
+                </div>
             </div>
         </div>
     </section>
@@ -134,19 +148,19 @@
             
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div class="aspect-square bg-white overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="記錄 1">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="影像記錄 1">
                 </div>
                 <div class="aspect-square bg-white overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="記錄 2">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="影像記錄 2">
                 </div>
                 <div class="aspect-square bg-white overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="記錄 3">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="影像記錄 3">
                 </div>
                 <div class="aspect-square bg-white overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="記錄 4">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="影像記錄 4">
                 </div>
                 <div class="aspect-square bg-white overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="記錄 5">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover" alt="影像記錄 5">
                 </div>
             </div>
         </div>
