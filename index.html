@@ -7,24 +7,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 統一引入 Noto Sans TC */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         
         html { scroll-behavior: smooth; }
-        
-        /* 全域設定：統一使用 Noto Sans TC */
-        body { 
-            font-family: 'Noto Sans TC', sans-serif; 
-            -webkit-font-smoothing: antialiased; 
-            color: #1a1a1a;
-        }
-
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; }
         .logo-font { font-family: 'Noto Sans TC', sans-serif; font-weight: 700; }
         
         .strip-white { background-color: #FFFFFF; }
         .strip-vision-gray { background-color: #E9E9E9; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
 
-        /* 願景區塊樣式 - 確保內容在灰色背景中垂直居中 */
         .section-vision {
             background-color: #FFFFFF; 
             background-image: linear-gradient(#E9E9E9, #E9E9E9); 
@@ -33,9 +24,9 @@
             position: relative;
             overflow: hidden;
             display: flex;
-            align-items: center; /* 垂直居中 */
-            min-height: 600px;  /* 設定最小高度確保居中效果明顯 */
-            padding-bottom: 140px; /* 預留給底部的圓弧空間 */
+            align-items: center;
+            min-height: 600px;
+            padding-bottom: 140px;
         }
         
         .section-vision::after {
@@ -50,23 +41,8 @@
             z-index: 1;
         }
 
-        .section-feedback {
-            background: linear-gradient(to bottom, #FFFFFF 0%, #F5F5F5 100%);
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        /* 文字樣式 */
-        .wix-title { 
-            font-size: 42px; 
-            color: #242323; 
-            letter-spacing: 0.1em; 
-            line-height: 1.3; 
-        }
-        .wix-subtitle { 
-            font-size: 22px; 
-            color: #727272; 
-            letter-spacing: 0.2em; 
-        }
+        .wix-title { font-size: 42px; color: #242323; letter-spacing: 0.1em; line-height: 1.3; }
+        .wix-subtitle { font-size: 22px; color: #727272; letter-spacing: 0.2em; }
         
         .vision-gray-btn {
             background-color: #7d7d7d; 
@@ -110,7 +86,7 @@
         </div>
     </nav>
 
-    <section class="strip-white min-h-[70vh] flex items-center justify-center text-center">
+    <section class="strip-white min-h-[60vh] flex items-center justify-center text-center">
         <div class="container mx-auto px-6 py-20">
             <h6 class="wix-subtitle mb-6">全方位精準醫療</h6>
             <h4 class="wix-title font-bold mb-10">先天基因｜後天影響｜整體健康</h4>
@@ -125,13 +101,17 @@
     <section class="strip-vision-gray min-h-[50vh] flex items-center justify-center text-center">
         <div class="container mx-auto px-6 py-24">
             <h4 class="wix-title mb-10 font-bold">精準檢測 | <span class="italic opacity-60">AI</span> 基因分析</h4>
-            <div class="max-w-3xl mx-auto text-gray-500 text-lg leading-loose tracking-widest">
+            <div class="max-w-3xl mx-auto text-gray-500 text-lg leading-loose tracking-widest mb-12">
                 根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防
+            </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#" class="vision-gray-btn">WGS 全基因體定序 <span class="ml-2">»</span></a>
+                <a href="#" class="vision-gray-btn">WES 全外顯子定序 <span class="ml-2">»</span></a>
             </div>
         </div>
     </section>
 
-    <section id="tech" class="strip-white min-h-[80vh] flex items-center justify-center text-center">
+    <section id="tech" class="strip-white min-h-[70vh] flex items-center justify-center text-center">
         <div class="container mx-auto px-6 py-28">
             <h2 class="wix-title mb-24 font-bold">獨家技術</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
@@ -159,14 +139,12 @@
             <div class="md:w-1/2">
                 <h2 class="wix-title text-left !text-3xl font-bold">改變台灣的基因體醫學</h2>
             </div>
-            
             <div class="md:w-1/2 flex flex-col items-start">
                 <div class="space-y-8 text-gray-700 leading-loose text-lg text-justify mb-12">
                     <p>健曜國際有限公司於2018年2月由陳彥瑜博士及幾位致力推廣基因檢測的年輕科學家一同成立。提供學研界的科研生物資訊服務，積極開發“精準健康”服務。</p>
                     <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者，與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
                     <p>密切與各醫學中心、高階診所合作，為精準健康與精準醫學領域的“IC設計公司”：提供最高品質的臨床與設計服務。</p>
                 </div>
-                
                 <div class="flex space-x-6">
                     <a href="company.html" class="vision-gray-btn">創辦人簡介 <span class="arrow">»</span></a>
                     <a href="https://drlesliechen.wordpress.com/" target="_blank" class="vision-gray-btn">基因醫學網誌 <span class="arrow">»</span></a>
@@ -175,7 +153,7 @@
         </div>
     </section>
 
-    <section class="section-feedback min-h-[70vh] flex items-center justify-center">
+    <section class="section-feedback min-h-[60vh] flex items-center justify-center">
         <div class="container mx-auto px-6 py-32">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
                 <div class="flex flex-col items-center text-center">
@@ -197,20 +175,15 @@
         </div>
     </section>
 
-    <section id="contact-section" class="strip-white min-h-[80vh] flex items-center border-t border-gray-100">
+    <section id="contact-section" class="strip-white min-h-[70vh] flex items-center border-t border-gray-100">
         <div class="container mx-auto px-6 py-28 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             <div class="space-y-10 text-left">
                 <h2 class="wix-title font-bold">聯繫我們</h2>
                 <p class="text-lg text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
-                
                 <div class="w-full h-80 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-                    <iframe 
-                        src="http://googleusercontent.com/maps.google.com/2" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.628867540251!2d121.38575971500735!3d25.080512483951233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a12908f1f1d1%3A0x6a0c5c363b92f44a!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1650000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-            
             <form class="space-y-12">
                 <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-3 outline-none focus:border-black">
                 <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-3 outline-none focus:border-black" required>
