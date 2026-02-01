@@ -43,14 +43,9 @@
             z-index: 1;
         }
 
-        /* 4. 使用者見證背景 */
-        .section-feedback {
-            background: radial-gradient(ellipse at center, #ffffff 0%, #f4f4f4 45%, #d4d4d4 100%);
-        }
-
         /* 文字樣式修正：將 Forum 字體應用於大標題 */
         .wix-title { 
-            font-family: 'Forum', 'Noto Sans TC', serif; /* 優先使用 Forum */
+            font-family: 'Forum', 'Noto Sans TC', serif; 
             font-size: 42px; 
             color: #242323; 
             letter-spacing: 0.1em; 
@@ -90,6 +85,20 @@
         }
         .vision-gray-btn:hover { background-color: #4a4a4a; }
         .vision-gray-btn span.arrows { margin-left: 8px; font-weight: bold; font-size: 18px; }
+
+        /* 合作夥伴箭頭樣式自訂 */
+        .swiper-button-next, .swiper-button-prev {
+            width: 44px;
+            height: 44px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            color: #7d7d7d !important;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 18px !important;
+            font-weight: bold;
+        }
 
         .tech-icon { width: 75px; height: 75px; fill: #757575; margin-bottom: 25px; opacity: 0.8; }
         .quote-icon { font-size: 80px; color: #757575; opacity: 0.4; font-family: serif; line-height: 0.5; margin-bottom: 30px; }
@@ -192,17 +201,22 @@
     </section>
 
     <section id="partners" class="strip-white py-24 text-center">
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-12 relative">
             <h2 class="wix-subtitle mb-16 !text-3xl">合作夥伴</h2>
+            
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=NTUH" class="h-16 opacity-50"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=CGH" class="h-16 opacity-50"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=FEMH" class="h-16 opacity-50"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=CMUH" class="h-16 opacity-50"></div>
+                <div class="swiper-wrapper flex items-center">
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=PARTNER+1" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=PARTNER+2" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=PARTNER+3" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=PARTNER+4" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=PARTNER+5" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/200x80?text=PARTNER+6" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"></div>
                 </div>
-                <div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
             </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </section>
     
@@ -258,10 +272,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // 初始化合作夥伴輪播
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 2, spaceBetween: 30, loop: true, autoplay: { delay: 3000 },
-            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-            breakpoints: { 640: { slidesPerView: 3 }, 1024: { slidesPerView: 5 } }
+            slidesPerView: 2, 
+            spaceBetween: 40, 
+            loop: true, 
+            autoplay: { 
+                delay: 2500,
+                disableOnInteraction: false 
+            },
+            navigation: { 
+                nextEl: ".swiper-button-next", 
+                prevEl: ".swiper-button-prev" 
+            },
+            breakpoints: { 
+                640: { slidesPerView: 3 }, 
+                1024: { slidesPerView: 5 } 
+            }
         });
     </script>
 </body>
