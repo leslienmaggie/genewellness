@@ -6,39 +6,102 @@
     <title>關於創始人 | 劍橋博士基因檢驗</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --primary-blue: #003366; }
-        .text-primary { color: var(--primary-blue); }
-        .logo-font { font-family: 'Old English Text MT', 'Apple Chancery', serif; }
-        /* 針對舊系統優化字體顯示 */
-        body { font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif; }
+        /* 統一引入 Noto Sans TC */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            -webkit-font-smoothing: antialiased; 
+            color: #1a1a1a; 
+        }
+        
+        /* 標題固定 42px 邏輯 */
+        .wix-title { font-size: 42px; color: #242323; letter-spacing: 0.1em; line-height: 1.3; }
+        .wix-subtitle { font-size: 22px; color: #727272; letter-spacing: 0.2em; }
+
+        /* 統一按鈕樣式 */
+        .wix-btn-circle {
+            border: 1px solid #757575; border-radius: 50px; padding: 10px 32px;
+            display: inline-flex; align-items: center; background: transparent;
+            color: #757575; font-size: 16px; transition: all 0.4s;
+            cursor: pointer;
+        }
+        .wix-btn-circle:hover { border-radius: 12px; background: #fdfdfd; color: #000; }
+
+        /* 影像記錄區背景 */
+        .section-gallery {
+            background-color: #E9E9E9;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* 自定義導覽列樣式以符合圖片 */
+        .custom-nav-link {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            color: #727272; /* text-gray-500 */
+            transition: all 0.2s ease-in-out;
+        }
+        .custom-nav-link:hover {
+            color: #1a1a1a; /* hover:text-black */
+        }
+        .custom-nav-link.active {
+            background-color: #e0e0e0; /* bg-gray-100 */
+            color: #1a1a1a; /* text-gray-900 */
+        }
+
+        /* 調整 social media icon 樣式 */
+        .social-icon {
+            width: 32px; /* 寬度 */
+            height: 32px; /* 高度 */
+            background-color: transparent; /* 透明背景 */
+            border: 1px solid #ccc; /* 灰色邊框 */
+            border-radius: 50%; /* 圓形 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #727272; /* 文字顏色 */
+            font-size: 0.75rem; /* 字體大小 */
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            background-color: #f0f0f0; /* 懸停時淺灰色背景 */
+            color: #1a1a1a; /* 懸停時深色文字 */
+            border-color: #a0a0a0; /* 懸停時深色邊框 */
+        }
+
     </style>
 </head>
 <body class="bg-white">
 
-    <nav class="bg-white py-4 shadow-sm border-b sticky top-0 z-50">
-        <div class="container mx-auto px-4 flex justify-between items-center">
+    <nav class="bg-white/95 py-4 border-b border-gray-100 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <span class="logo-font text-2xl md:text-3xl border-gray-300 pr-3 border-r">Dr. Cambridge's NGS</span>
-                <span class="text-xl md:text-2xl font-bold text-gray-700">劍橋博士基因檢驗</span>
+                <span class="text-3xl font-bold" style="font-family: serif;">Dr. Cambridge's NGS</span>
+                <span class="text-2xl font-bold text-gray-700 tracking-wider">劍橋博士基因檢驗</span>
             </div>
-            <div class="hidden md:flex space-x-6 text-gray-600 font-medium items-center">
-                <a href="index.html" class="hover:text-blue-900 transition">首頁</a>
-                <a href="company.html" class="bg-gray-100 px-4 py-2 rounded text-gray-900">關於</a>
-                <a href="#" class="hover:text-blue-900 transition">新知</a>
-                <a href="#" class="hover:text-blue-900 transition">商務</a>
-                <a href="#" class="hover:text-blue-900 transition">檢測</a>
-                <a href="#" class="text-primary border border-primary px-4 py-1 rounded-full hover:bg-blue-50 transition">聯絡我們</a>
+            <div class="hidden md:flex space-x-2 text-gray-500 font-medium items-center text-sm">
+                <a href="index.html" class="custom-nav-link">首頁</a>
+                <a href="company.html" class="custom-nav-link active">關於</a>
+                <a href="index.html#tech" class="custom-nav-link">獨家技術</a>
+                <a href="index.html#contact-section" class="custom-nav-link">聯絡我們</a>
+                <a href="#" class="custom-nav-link">檢測</a>
+                <a href="#" class="custom-nav-link">新知</a>
+                <a href="#" class="custom-nav-link">商務</a>
             </div>
         </div>
     </nav>
 
-    <section class="container mx-auto px-6 py-16">
-        <div class="flex flex-col md:flex-row items-start justify-center gap-12">
+    <section class="container mx-auto px-6 py-20">
+        <div class="flex flex-col md:flex-row items-start justify-center gap-16">
             
-            <div class="md:w-1/2 text-center md:text-right space-y-8">
+            <div class="md:w-1/2 text-left space-y-12">
                 <div>
-                    <h3 class="text-gray-400 text-lg mb-2">現職：</h3>
-                    <p class="text-xl leading-relaxed font-bold">
+                    <h2 class="wix-title font-bold mb-8">陳彥瑜 博士</h2>
+                    <h3 class="text-gray-400 text-xl mb-4 font-medium tracking-widest">現職</h3>
+                    <p class="text-xl leading-relaxed text-gray-700 font-medium">
                         健曜國際有限公司 研發長/共同創辦人<br>
                         長庚醫院精準醫學計畫專案顧問<br>
                         信息者基因有限公司 顧問
@@ -46,8 +109,8 @@
                 </div>
 
                 <div>
-                    <h3 class="text-gray-400 text-lg mb-2">經歷：</h3>
-                    <p class="text-gray-600 leading-loose">
+                    <h3 class="text-gray-400 text-xl mb-4 font-medium tracking-widest">經歷</h3>
+                    <p class="text-gray-600 leading-loose text-lg">
                         長庚大學 智慧醫療創新學程 兼任教授<br>
                         桃園怡仁醫院LDTs基因體實驗室 主任<br>
                         麗寶生醫股份有限公司 生物資訊長<br>
@@ -58,35 +121,33 @@
                     </p>
                 </div>
 
-                <div class="flex justify-center md:justify-end space-x-4 pt-4">
-                    <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">f</div>
-                    <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">t</div>
-                    <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">in</div>
-                    <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">ig</div>
-                </div>
+                <div class="flex space-x-4 pt-4">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">in</a>
+                    </div>
             </div>
 
-            <div class="md:w-1/3">
-                <img src="https://via.placeholder.com/600x800?text=Dr.+Cambridge" alt="Founder" class="w-full h-auto shadow-2xl rounded-sm">
+            <div class="md:w-1/3 flex justify-center md:justify-end">
+                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" alt="Founder" class="w-full h-auto shadow-xl rounded-sm max-w-xs md:max-w-none">
             </div>
         </div>
     </section>
 
-    <section class="bg-gray-50 py-20 border-t border-gray-100">
+    <section class="section-gallery py-20">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold mb-10">相關影像記錄</h2>
+            <h2 class="wix-title font-bold mb-16">相關影像記錄</h2>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="aspect-square bg-gray-200 overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="aspect-square bg-white overflow-hidden rounded-sm shadow-sm hover:shadow-md transition cursor-pointer">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Gallery">
                 </div>
-                <div class="aspect-square bg-gray-200 overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+                <div class="aspect-square bg-white overflow-hidden rounded-sm shadow-sm hover:shadow-md transition cursor-pointer">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Gallery">
                 </div>
-                <div class="aspect-square bg-gray-200 overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+                <div class="aspect-square bg-white overflow-hidden rounded-sm shadow-sm hover:shadow-md transition cursor-pointer">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Gallery">
                 </div>
-                <div class="aspect-square bg-gray-200 overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+                <div class="aspect-square bg-white overflow-hidden rounded-sm shadow-sm hover:shadow-md transition cursor-pointer">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Gallery">
                 </div>
             </div>
