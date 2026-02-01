@@ -6,6 +6,7 @@
     <title>關於創始人 | 劍橋博士基因檢驗</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 引入 Noto Sans TC 作為主要字體庫 */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         
         html { scroll-behavior: smooth; }
@@ -16,25 +17,26 @@
             background-color: #ffffff;
         }
 
-        /* 導覽列：字體變小並調整選中狀態的底色 */
+        /* 導覽列連結：依照截圖縮小字體與內距 */
         .nav-link {
-            padding: 6px 14px;
-            font-size: 14px; /* 縮小字體 */
+            padding: 4px 12px;
+            font-size: 14px; 
             color: #727272;
             transition: all 0.2s;
             border-radius: 4px;
         }
+        .nav-link:hover { color: #000; }
         .nav-link.active {
-            background-color: #E5E5E5; 
+            background-color: #EBEBEB; 
             color: #1a1a1a;
             font-weight: 500;
         }
 
-        /* 弧線轉折背景 */
+        /* 弧線轉折背景：調降高度以符合緊湊版型 */
         .section-curve-bg {
             background-color: #E9E9E9;
             position: relative;
-            padding: 60px 0 120px 0;
+            padding: 60px 0 100px 0;
             overflow: hidden;
             border-top: 1px solid #eee;
         }
@@ -44,30 +46,30 @@
             bottom: 0;
             left: 0;
             width: 50%; 
-            height: 120px; 
+            height: 100px; 
             background-color: #FFFFFF;
             border-top-right-radius: 120px; 
             z-index: 1;
         }
 
-        /* 黑底圓形社群圖標 */
+        /* 社群圖標：依照截圖縮小尺寸 */
         .social-btn {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             background-color: #000;
             color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 11px;
             transition: opacity 0.3s;
         }
         .social-btn:hover { opacity: 0.7; }
 
-        /* Banner Logo：縮小高度以符合比例 */
+        /* Banner Logo：縮小高度以達成精緻感 */
         .logo-banner {
-            height: 38px; /* 大幅縮小 Logo 高度 */
+            height: 35px; 
             width: auto;
             display: block;
         }
@@ -76,7 +78,7 @@
 <body>
 
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div class="container mx-auto px-6 h-16 flex justify-between items-center max-w-4xl">
+        <div class="container mx-auto px-6 h-14 flex justify-between items-center max-w-4xl">
             <div class="flex items-center">
                 <a href="index.html">
                     <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/Banner.png" 
@@ -96,24 +98,22 @@
         </div>
     </nav>
 
-    <section class="max-w-4xl mx-auto px-6 py-16">
-        <div class="flex flex-col md:flex-row items-start justify-between gap-12">
+    <section class="max-w-4xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row items-start justify-between gap-10">
             
-            <div class="md:w-1/2 space-y-10 pt-8">
-                <div>
-                    <div class="space-y-4">
-                        <p class="text-gray-400 font-bold text-sm tracking-widest">現職：</p>
-                        <p class="text-lg leading-relaxed text-[#1a1a1a] font-bold">
-                            健曜國際有限公司 研發長/共同創辦人<br>
-                            長庚醫院精準醫學計畫專案顧問<br>
-                            信息者基因有限公司 顧問
-                        </p>
-                    </div>
+            <div class="md:w-1/2 space-y-8 pt-6">
+                <div class="space-y-3">
+                    <p class="text-gray-400 font-light text-sm tracking-widest">現職：</p>
+                    <p class="text-[17px] leading-relaxed text-[#1a1a1a] font-bold">
+                        健曜國際有限公司 研發長/共同創辦人<br>
+                        長庚醫院精準醫學計畫專案顧問<br>
+                        信息者基因有限公司 顧問
+                    </p>
                 </div>
 
-                <div class="space-y-4">
-                    <p class="text-gray-400 font-bold text-sm tracking-widest">經歷：</p>
-                    <p class="text-gray-600 leading-loose text-base">
+                <div class="space-y-3">
+                    <p class="text-gray-400 font-light text-sm tracking-widest">經歷：</p>
+                    <p class="text-[#333333] leading-loose text-base font-normal">
                         長庚大學 智慧醫療創新學程 兼任教授<br>
                         桃園怡仁醫院LDTs基因體實驗室 主任<br>
                         麗寶生醫股份有限公司 生物資訊長<br>
@@ -124,7 +124,7 @@
                     </p>
                 </div>
 
-                <div class="flex space-x-3 pt-4">
+                <div class="flex space-x-2 pt-2">
                     <a href="#" class="social-btn">f</a>
                     <a href="#" class="social-btn">t</a>
                     <a href="#" class="social-btn">in</a>
@@ -132,12 +132,12 @@
                 </div>
             </div>
 
-            <div class="md:w-2/5">
+            <div class="md:w-[42%]">
                 <div class="relative">
                     <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" 
                          alt="Founder" 
-                         class="w-full h-auto shadow-xl rounded-sm">
-                    <p class="mt-3 text-gray-400 text-xs tracking-[0.2em] font-medium text-right uppercase">Founder / Dr. Leslie Chen</p>
+                         class="w-full h-auto shadow-lg rounded-sm">
+                    <p class="mt-3 text-gray-400 text-[10px] tracking-[0.2em] font-medium text-right uppercase">FOUNDER / DR. LESLIE CHEN</p>
                 </div>
             </div>
         </div>
@@ -145,21 +145,21 @@
 
     <section class="section-curve-bg">
         <div class="max-w-4xl mx-auto px-6 relative z-10">
-            <h2 class="text-2xl font-bold mb-8 text-[#1a1a1a]">相關影像記錄</h2>
+            <h2 class="text-xl font-bold mb-8 text-[#1a1a1a] tracking-widest">相關影像記錄</h2>
             <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
                 <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
-                <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
+                <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
-                <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
+                <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
-                <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
+                <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
-                <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
+                <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
             </div>
