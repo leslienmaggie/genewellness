@@ -20,7 +20,7 @@
         /* 2. 精準檢測區：淺灰 */
         .strip-light-gray { background-color: #FAFAFA; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
 
-        /* 3. 願景區塊：背景比例修正，確保按鈕在灰色區塊內 */
+        /* 3. 願景區塊：背景比例修正 */
         .section-vision {
             background-color: #FFFFFF; 
             background-image: linear-gradient(#E9E9E9, #E9E9E9); 
@@ -31,7 +31,6 @@
             padding-bottom: 100px; 
         }
         
-        /* 圓潤白色切角效果 */
         .section-vision::after {
             content: "";
             position: absolute;
@@ -69,6 +68,7 @@
             border: 1px solid #757575; border-radius: 50px; padding: 10px 32px;
             display: inline-flex; align-items: center; background: transparent;
             color: #757575; font-size: 16px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
         }
         .wix-btn-circle:hover { border-radius: 12px; background: #fdfdfd; color: #000; }
         .wix-btn-circle svg { margin-left: 10px; fill: currentColor; transition: transform 0.3s ease; }
@@ -110,7 +110,7 @@
                         <a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
-                <a href="#contact" class="hover:text-black">聯絡我們</a>
+                <a href="#contact-section" class="hover:text-black">聯絡我們</a>
             </div>
         </div>
     </nav>
@@ -122,7 +122,8 @@
             <p class="wix-subtitle mb-14" style="font-size: 20px;">依照你的基因，打造出最合適的生活方式</p>
             <div class="flex justify-center space-x-6">
                 <a href="#vision" class="wix-btn-circle"><span>了解更多</span><svg width="18" height="18" viewBox="0 0 200 200"><path d="M100 20c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80zm35.533 91.251l-30.37 28.03a7.27 7.27 0 0 1-2.264 1.434 7.221 7.221 0 0 1-2.697.515c-.066 0-.135 0-.203-.003-1.836.038-3.688-.587-5.144-1.931L64.468 111.25a7.292 7.292 0 0 1-.413-10.305 7.291 7.291 0 0 1 10.305-.413l18.547 17.118V59.185a7.293 7.293 0 1 1 14.586 0v58.098l18.148-16.749a7.293 7.293 0 0 1 9.892 10.717z"></path></svg></a>
-                <a href="#contact" class="wix-btn-circle"><span>預約諮詢</span><svg width="18" height="18" viewBox="0 0 200 200"><path d="M100 20c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80zm35.533 91.251l-30.37 28.03a7.27 7.27 0 0 1-2.264 1.434 7.221 7.221 0 0 1-2.697.515c-.066 0-.135 0-.203-.003-1.836.038-3.688-.587-5.144-1.931L64.468 111.25a7.292 7.292 0 0 1-.413-10.305 7.291 7.291 0 0 1 10.305-.413l18.547 17.118V59.185a7.293 7.293 0 1 1 14.586 0v58.098l18.148-16.749a7.293 7.293 0 0 1 9.892 10.717z"></path></svg></a>
+                
+                <a href="#contact-section" class="wix-btn-circle"><span>預約諮詢</span><svg width="18" height="18" viewBox="0 0 200 200"><path d="M100 20c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80zm35.533 91.251l-30.37 28.03a7.27 7.27 0 0 1-2.264 1.434 7.221 7.221 0 0 1-2.697.515c-.066 0-.135 0-.203-.003-1.836.038-3.688-.587-5.144-1.931L64.468 111.25a7.292 7.292 0 0 1-.413-10.305 7.291 7.291 0 0 1 10.305-.413l18.547 17.118V59.185a7.293 7.293 0 1 1 14.586 0v58.098l18.148-16.749a7.293 7.293 0 0 1 9.892 10.717z"></path></svg></a>
             </div>
         </div>
     </section>
@@ -221,7 +222,7 @@
         </div>
     </section>
 
-    <section id="contact" class="strip-white py-28 border-t border-gray-100">
+    <section id="contact-section" class="strip-white py-28 border-t border-gray-100">
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
             <div class="space-y-10 text-left">
                 <h2 class="wix-title">聯繫我們</h2>
