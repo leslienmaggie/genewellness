@@ -43,7 +43,14 @@
             z-index: 1;
         }
 
-        /* 文字樣式修正：將 Forum 字體應用於大標題 */
+        /* 4. 使用者見證區：中間白邊緣灰漸層 */
+        .section-feedback {
+            background: radial-gradient(circle, #FFFFFF 0%, #FAFAFA 100%);
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* 文字樣式修正 */
         .wix-title { 
             font-family: 'Forum', 'Noto Sans TC', serif; 
             font-size: 42px; 
@@ -86,22 +93,8 @@
         .vision-gray-btn:hover { background-color: #4a4a4a; }
         .vision-gray-btn span.arrows { margin-left: 8px; font-weight: bold; font-size: 18px; }
 
-        /* 合作夥伴箭頭樣式自訂 */
-        .swiper-button-next, .swiper-button-prev {
-            width: 44px;
-            height: 44px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            color: #7d7d7d !important;
-        }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 18px !important;
-            font-weight: bold;
-        }
-
         .tech-icon { width: 75px; height: 75px; fill: #757575; margin-bottom: 25px; opacity: 0.8; }
-        .quote-icon { font-size: 80px; color: #757575; opacity: 0.4; font-family: serif; line-height: 0.5; margin-bottom: 30px; }
+        .quote-icon { font-size: 80px; color: #757575; opacity: 0.25; font-family: serif; line-height: 0.5; margin-bottom: 20px; }
     </style>
 </head>
 <body class="text-gray-800 bg-white">
@@ -200,55 +193,23 @@
         </div>
     </section>
 
-    <section id="partners" class="strip-white py-24 text-center">
-        <div class="container mx-auto px-12 relative">
-            <h2 class="wix-subtitle mb-16 !text-3xl">合作夥伴</h2>
-            
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper flex items-center">
-                 <div class="swiper-slide">
-                   <img src="images/中國醫.jpg" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
-                 </div>
-                 <div class="swiper-slide">
-                   <img src="images/北榮.jpg" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
-                 </div>
-                 <div class="swiper-slide">
-                   <img src="images/亞東.jpg" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
-                 </div>
-                 <div class="swiper-slide">
-                   <img src="images/北醫.png" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
-                 </div>
-                 <div class="swiper-slide">
-                   <img src="images/國防.jpg" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
-                 </div>
-                 <div class="swiper-slide">
-                   <img src="images/基米.jpg" class="mx-auto h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
-                 </div>
-              </div>
-            </div>
-
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    </section>
-    
-    <section class="section-feedback py-32 border-y border-gray-100">
+    <section class="section-feedback py-32">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-stretch">
-                <div class="flex flex-col h-full space-y-6 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
+                <div class="flex flex-col items-center text-center">
                     <div class="quote-icon">“</div>
-                    <h5 class="text-xl font-bold">羅小姐/運動選手</h5>
-                    <p class="text-gray-600 leading-loose text-sm px-4 flex-grow">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
+                    <h5 class="text-xl font-bold mb-6 text-slate-800">羅小姐/運動選手</h5>
+                    <p class="text-gray-600 leading-loose text-[15px] px-4 text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
                 </div>
-                <div class="flex flex-col h-full space-y-6 text-center">
+                <div class="flex flex-col items-center text-center">
                     <div class="quote-icon">“</div>
-                    <h5 class="text-xl font-bold">蔡小姐/媽媽</h5>
-                    <p class="text-gray-600 leading-loose text-sm px-4 flex-grow">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
+                    <h5 class="text-xl font-bold mb-6 text-slate-800">蔡小姐/媽媽</h5>
+                    <p class="text-gray-600 leading-loose text-[15px] px-4 text-justify">我跟先生都很高，但兒子身高始終落後，到國中也沒進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中開始發育，長到理想身高。</p>
                 </div>
-                <div class="flex flex-col h-full space-y-6 text-center">
+                <div class="flex flex-col items-center text-center">
                     <div class="quote-icon">“</div>
-                    <h5 class="text-xl font-bold">陳小姐/醫師</h5>
-                    <p class="text-gray-600 leading-loose text-sm px-4 flex-grow">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p>
+                    <h5 class="text-xl font-bold mb-6 text-slate-800">陳小姐/醫師</h5>
+                    <p class="text-gray-600 leading-loose text-[15px] px-4 text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p>
                 </div>
             </div>
         </div>
@@ -262,7 +223,7 @@
                 
                 <div class="w-full h-80 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.886470087405!2d121.3853123!3d25.0718507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6dee3a9c78d%3A0xc3f1a238466e309!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.0!2d121.3!3d25.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDAwJzAwLjAiTiAxMjHCsDE4JzAwLjAiRQ!5e0!3m2!1szh-TW!2stw!4v123456789" 
                         width="100%" 
                         height="100%" 
                         style="border:0;" 
@@ -282,25 +243,5 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 2, 
-            spaceBetween: 40, 
-            loop: true, 
-            autoplay: { 
-                delay: 2500,
-                disableOnInteraction: false 
-            },
-            navigation: { 
-                nextEl: ".swiper-button-next", 
-                prevEl: ".swiper-button-prev" 
-            },
-            breakpoints: { 
-                640: { slidesPerView: 3 }, 
-                1024: { slidesPerView: 5 } 
-            }
-        });
-    </script>
 </body>
 </html>
