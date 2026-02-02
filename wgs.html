@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全基因體檢測 WGS | 劍橋博士基因檢驗</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
+        
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
+        .nav-link:hover { color: #000; }
+        .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
+        @media (max-width: 767px) {
+            .pc-nav-only { display: none !important; } 
+            #mobile-nav-panel {
+                display: none; position: absolute; top: 64px; left: 0; width: 100%;
+                background: white; flex-direction: column; padding: 10px 24px;
+                border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999;
+            }
+            #mobile-nav-panel.show { display: flex !important; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
+            #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
+            #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
+            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
+        }
+
+        @media (min-width: 768px) {
+            #hamburger-btn, #mobile-nav-panel { display: none !important; }
+            .dropdown:hover .dropdown-pc { display: block; }
+            .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
+            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
+        }
+
+        .wgs-num { font-size: 24px; color: #ccc; font-weight: 300; display: block; margin-bottom: 8px; }
+        .wgs-grid-title { font-size: 18px; font-weight: 700; color: #444; margin-bottom: 12px; }
+        .wgs-grid-desc { font-size: 14px; color: #666; line-height: 1.8; }
+        
+        .vision-btn { border: 1.5px solid #727272; color: #727272; padding: 8px 30px; border-radius: 999px; font-size: 14px; transition: 0.3s; display: inline-flex; align-items: center; justify-content: center; width: 180px; }
+        .vision-btn:hover { background: #727272; color: white; }
+    </style>
+</head>
+<body>
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
+            <a href="index.html"><img src="Banner.png" alt="Logo" class="h-8 md:h-9"></a>
+            <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
+                <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
+            </button>
+            <div class="pc-nav-only flex items-center space-x-1">
+                <a href="index.html" class="nav-link">首頁</a>
+                <a href="company.html" class="nav-link">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
+                <a href="services.html" class="nav-link">商務</a>
+                <div class="dropdown relative">
+                    <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
+                    <div class="dropdown-pc">
+                        <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a><a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="wellnessi.html">wellness-i 基因命盤</a><a href="height.html">劍橋博士身高管理</a>
+                        <a href="sleep.html">劍橋博士睡眠追蹤</a>
+                    </div>
+                </div>
+                <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+            </div>
+            <div id="mobile-nav-panel">
+                <a href="index.html" class="mobile-row">首頁</a>
+                <a href="company.html" class="mobile-row">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
+                <a href="services.html" class="mobile-row">商務</a>
+                <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
+                <div id="mobile-sub-box"></div> 
+                <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-16 md:py-24 max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-700 tracking-widest mb-4">全基因體檢測</h1>
+            <p class="text-gray-500 tracking-wide">Whole genome sequencing disease risk testing</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20">
+            <div class="flex flex-col items-center">
+                <img src="images/wgs-growth.jpg" alt="成長基因定序" class="w-full h-64 object-cover rounded-sm mb-8">
+                <div class="text-left w-full px-4">
+                    <h2 class="text-xl font-bold mb-6">成長基因定序</h2>
+                    <ul class="text-sm text-gray-600 space-y-2 leading-relaxed mb-8">
+                        <li>檢測 > 20000 個身高相關基因位點</li>
+                        <li>13 項身高遺傳疾病</li>
+                        <li>6 項內分泌疾病</li>
+                        <li>8 項慢性疾病</li>
+                        <li>3 項營養疾病</li>
+                        <li>四項生理問題相關基因</li>
+                        <li>幹細胞活性與端粒長度</li>
+                    </ul>
+                    <div class="flex flex-col space-y-3 items-center">
+                        <a href="#" class="vision-btn">檢測項目 →</a>
+                        <a href="#" class="vision-btn text-xs">DM 下載 <span class="ml-2">⬇</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <img src="images/wgs-disease.jpg" alt="疾病風險定序" class="w-full h-64 object-cover rounded-sm mb-8">
+                <div class="text-left w-full px-4">
+                    <h2 class="text-xl font-bold mb-6">疾病風險定序</h2>
+                    <p class="text-sm text-gray-600 mb-6 font-bold">6000 項十四大類疾病，包含：</p>
+                    <ul class="text-sm text-gray-600 space-y-2 leading-relaxed mb-8">
+                        <li>腫瘤、心血管、神經、代謝、</li>
+                        <li>遺傳疾病、發育、內分泌、</li>
+                        <li>肌肉骨骼、免疫系統、皮膚、</li>
+                        <li>呼吸系統、眼科、腸胃道、血液疾病</li>
+                    </ul>
+                    <div class="flex flex-col space-y-3 items-center">
+                        <a href="#" class="vision-btn">檢測項目 →</a>
+                        <a href="#" class="vision-btn text-xs">DM 下載 <span class="ml-2">⬇</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white border-t border-gray-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-x-20 gap-y-16">
+                <div>
+                    <span class="wgs-num">01</span>
+                    <h3 class="wgs-grid-title">全基因定序 / WGS</h3>
+                    <p class="wgs-grid-desc">一生一次，完整定序解析 30 億個鹼基。整合國際權威資料庫，依據國際學會指引結合最新醫學研究文獻，檢驗相關基因的完整序列，包含單點與小片段變異，最完整評估先天疾病風險。</p>
+                </div>
+                <div>
+                    <span class="wgs-num">02</span>
+                    <h3 class="wgs-grid-title">深度基因定序 / Deep sequencing</h3>
+                    <p class="wgs-grid-desc">通過台灣認證基金會(TAF)之 ISO17025 品質認證的實驗室，採用 Illumina 試劑與 Illumina NovaSeq X 次世代基因定序平台進行全基因體定序 (>30X)，品質最有保障。</p>
+                </div>
+                <div>
+                    <span class="wgs-num">03</span>
+                    <h3 class="wgs-grid-title">準確 / Most accurate</h3>
+                    <p class="wgs-grid-desc">權威資料庫中登錄的每個風險基因，風險基因變異均達到 20 倍覆蓋度，再以美國 ACMG 與英國 ACGS 指引評估每一個基因變異風險，最後由遺傳專家審視後撰寫檢測結果報告。</p>
+                </div>
+                <div>
+                    <span class="wgs-num">04</span>
+                    <h3 class="wgs-grid-title">方便 / Most convenient</h3>
+                    <p class="wgs-grid-desc">紫頭管抽血 3c.c.，等待 30 個工作天，您將收到檢測 PDF 檔報告(註一)。另提供原始數據，包含 FastQ、Bam 與 vcf 檔，酌收工本費 $2000。<br><span class="text-xs text-gray-400">註一：響應環保，一律提供 PDF 電子檔。</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 GeneWellness International 健曜國際</footer>
+
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
+    </a>
+
+    <script>
+        const hb = document.getElementById('hamburger-btn');
+        const menu = document.getElementById('mobile-nav-panel');
+        const trigger = document.getElementById('mobile-sub-trigger');
+        const subBox = document.getElementById('mobile-sub-box');
+        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="wellnessi.html" class="sub-item">wellness-i 基因命盤</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
+        hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
+        trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml; subBox.classList.toggle('active'); };
+        document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
+    </script>
+</body>
+</html>
