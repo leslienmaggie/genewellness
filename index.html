@@ -35,33 +35,23 @@
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
-        .wix-title { font-size: 28px; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; }
-        @media (min-width: 768px) { .wix-title { font-size: 32px; } }
-        
-        /* 統一按鈕大小版型：WGS, WES, 了解更多, 預約諮詢 */
-        .unified-btn { 
-            width: 180px; /* 統一寬度 */
-            height: 48px; /* 統一高度 */
-            border: 1px solid #d1d5db; 
-            border-radius: 9999px; 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #727272; 
-            font-size: 15px; 
-            transition: all 0.3s;
-            background-color: transparent;
-        }
+        /* 統一按鈕版型尺寸 */
+        .unified-btn { width: 180px; height: 48px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; transition: 0.3s; border: 1px solid #d1d5db; color: #727272; background-color: transparent; }
         .unified-btn:hover { border-color: #1a1a1a; color: #1a1a1a; }
-        .bg-white-btn { background-color: #ffffff; } /* 針對檢測區的白色底色 */
+        .bg-white-btn { background-color: #ffffff; }
 
+        /* 願景區深灰色按鈕樣式 */
         .vision-gray-btn { background-color: #7d7d7d; color: white; padding: 10px 24px; border-radius: 8px; display: inline-flex; align-items: center; font-size: 14px; white-space: nowrap; transition: 0.3s; }
         .vision-gray-btn:hover { background-color: #4a4a4a; }
 
+        /* 使用者見證區塊 上白下灰分層背景 */
+        .testimonial-split-bg { background: linear-gradient(180deg, #ffffff 50%, #f5f5f5 50%); }
+
+        .wix-title { font-size: 28px; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; }
+        @media (min-width: 768px) { .wix-title { font-size: 32px; } }
         .tech-svg { width: 80px; height: 80px; margin-bottom: 30px; fill: #1a1a1a; opacity: 0.8; }
         .section-vision-bg { background-color: #E9E9E9; position: relative; padding: 60px 0 100px 0; overflow: hidden; border-top: 1px solid #eee; }
         .section-vision-bg::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50%; height: 100px; background-color: #FFFFFF; border-top-right-radius: 120px; z-index: 1; }
-        
         .partner-img { height: 45px; width: auto; opacity: 0.6; filter: grayscale(100%); transition: 0.3s; }
         .partner-img:hover { opacity: 1; filter: grayscale(0%); }
     </style>
@@ -117,18 +107,10 @@
     <section class="bg-[#E9E9E9] py-16 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <h4 class="wix-title mb-8">精準檢測 | AI基因分析</h4>
-            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10 tracking-widest">
-                根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>
-                全面細緻的健康數據分析、預測和干預<br>
-                實現健康風險的監測、預測和早期預防
-            </div>
+            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10">根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防</div>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <a href="wgs.html" class="unified-btn bg-white-btn group">
-                    WGS <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
-                </a>
-                <a href="wes.html" class="unified-btn bg-white-btn group">
-                    WES <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
-                </a>
+                <a href="wgs.html" class="unified-btn bg-white-btn">WGS ⬇</a>
+                <a href="wes.html" class="unified-btn bg-white-btn">WES ⬇</a>
             </div>
         </div>
     </section>
@@ -139,17 +121,17 @@
             <div class="flex flex-col items-center">
                 <svg class="tech-svg" viewBox="0 0 100 100"><path d="M50 20v60c-16.5 0-30-13.5-30-30s13.5-30 30-30z M50 20c16.5 0 30 13.5 30 30s-13.5 30-30 30z" fill="none" stroke="currentColor" stroke-width="4"/></svg>
                 <h3 class="text-xl font-bold mb-6">ACMG位點判定AI</h3>
-                <p class="text-gray-500 text-[15px] leading-loose">針對台灣人基因研發 / 全自動化平台 / ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
+                <p class="text-gray-500 text-[15px]">針對台灣人基因研發 / 全自動化平台 / ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
             </div>
             <div class="flex flex-col items-center">
                 <svg class="tech-svg" viewBox="0 0 100 100"><path d="M50 20c16.5 0 30 13.5 30 30s-13.5 30-30 30s-30-13.5-30-30h30z" fill="none" stroke="currentColor" stroke-width="4"/></svg>
                 <h3 class="text-xl font-bold mb-6">次世代基因定序</h3>
-                <p class="text-gray-500 text-[15px] leading-loose">NGS高速高效技術<br>數十億個DNA片段定序</p>
+                <p class="text-gray-500 text-[15px]">NGS高速高效技術<br>數十億個DNA片段定序</p>
             </div>
             <div class="flex flex-col items-center">
                 <svg class="tech-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="10 5"/></svg>
                 <h3 class="text-xl font-bold mb-6">台灣人專用PRS</h3>
-                <p class="text-gray-500 text-[15px] leading-loose">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
+                <p class="text-gray-500 text-[15px]">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
             </div>
         </div>
     </section>
@@ -171,22 +153,24 @@
         </div>
     </section>
 
-    <section class="py-24 max-w-5xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-            <div>
-                <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
-                <h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5>
-                <p class="text-gray-500 text-[15px] text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因腸道吸收較差，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
-            </div>
-            <div>
-                <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
-                <h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5>
-                <p class="text-gray-500 text-[15px] text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
-            </div>
-            <div>
-                <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
-                <h5 class="text-lg font-bold mb-4">陳小姐/醫師</h5>
-                <p class="text-gray-500 text-[15px] text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p>
+    <section class="testimonial-split-bg py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+                <div>
+                    <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
+                    <h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5>
+                    <p class="text-gray-500 text-[15px] text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因腸道吸收較差，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
+                </div>
+                <div>
+                    <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
+                    <h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5>
+                    <p class="text-gray-500 text-[15px] text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
+                </div>
+                <div>
+                    <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
+                    <h5 class="text-lg font-bold mb-4">陳小姐/醫師</h5>
+                    <p class="text-gray-500 text-[15px] text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p>
+                </div>
             </div>
         </div>
     </section>
@@ -197,7 +181,7 @@
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
                 <div class="w-full h-64 rounded-xl overflow-hidden border border-gray-100">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.682855217462!2d121.3857597!3d25.0787681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a0e445353955%3A0xc47e3077755f4f3!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1710000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.3976378401345!2d121.3855513!3d25.0714777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6da37330759%3A0xc3f8373b53b879c9!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB6Jew6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw0" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <form id="contact-form" class="space-y-6 pt-4">
