@@ -15,16 +15,17 @@
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
         @media (max-width: 767px) {
-            .pc-nav-only { display: none !important; }
+            .pc-nav-only { display: none !important; } 
             #mobile-nav-panel {
                 display: none; position: absolute; top: 64px; left: 0; width: 100%;
                 background: white; flex-direction: column; padding: 10px 24px;
                 border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999;
             }
             #mobile-nav-panel.show { display: flex !important; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
             #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
             #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
-            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
+            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
         }
 
         @media (min-width: 768px) {
@@ -40,7 +41,6 @@
         .section-vision-bg { background-color: #E9E9E9; position: relative; padding: 60px 0 100px 0; overflow: hidden; border-top: 1px solid #eee; }
         .section-vision-bg::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50%; height: 100px; background-color: #FFFFFF; border-top-right-radius: 120px; z-index: 1; }
         
-        /* 合作夥伴 Logo 樣式 */
         .partner-img { height: 45px; width: auto; opacity: 0.6; filter: grayscale(100%); transition: 0.3s; }
         .partner-img:hover { opacity: 1; filter: grayscale(0%); }
     </style>
@@ -128,15 +128,15 @@
     <section id="vision" class="section-vision-bg">
         <div class="max-w-4xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-start gap-12">
             <div class="md:w-5/12"><h2 class="wix-title text-left leading-tight">改變台灣的<br>基因體醫學</h2></div>
-            <div class="md:w-7/12 text-justify">
-                <div class="space-y-6 text-gray-700 leading-relaxed mb-10">
+            <div class="md:w-7/12 flex flex-col items-end text-justify">
+                <div class="space-y-6 text-gray-700 leading-relaxed text-base mb-10">
                     <p>健曜國際有限公司於2018年2月由陳彥瑜博士及幾位致力推廣基因檢測的年輕科學家一同成立。提供學研界的科研生物資訊服務，積極開發“精準健康”服務。</p>
                     <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者。</p>
                     <p>與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
                 </div>
                 <div class="flex gap-4">
-                    <a href="company.html" class="bg-gray-500 text-white px-8 py-2 rounded-lg text-sm">創辦人簡介</a>
-                    <a href="https://drlesliechen.wordpress.com/" target="_blank" class="bg-gray-500 text-white px-8 py-2 rounded-lg text-sm">基因醫學網誌</a>
+                    <a href="company.html" class="vision-gray-btn">創辦人簡介</a>
+                    <a href="https://drlesliechen.wordpress.com/" target="_blank" class="vision-gray-btn">基因醫學網誌</a>
                 </div>
             </div>
         </div>
@@ -144,9 +144,21 @@
 
     <section class="py-24 max-w-5xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-            <div><div class="text-5xl text-gray-200 mb-4">“</div><h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5><p class="text-gray-500 text-[15px] text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因腸道吸收較差，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p></div>
-            <div><div class="text-5xl text-gray-200 mb-4">“</div><h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5><p class="text-gray-500 text-[15px] text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p></div>
-            <div><div class="text-5xl text-gray-200 mb-4">“</div><h5 class="text-lg font-bold mb-4">陳小姐/醫師</h5><p class="text-gray-500 text-[15px] text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p></div>
+            <div>
+                <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
+                <h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5>
+                <p class="text-gray-500 text-[15px] text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因腸道吸收較差，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
+            </div>
+            <div>
+                <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
+                <h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5>
+                <p class="text-gray-500 text-[15px] text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
+            </div>
+            <div>
+                <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
+                <h5 class="text-lg font-bold mb-4">陳小姐/醫師</h5>
+                <p class="text-gray-500 text-[15px] text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p>
+            </div>
         </div>
     </section>
 
@@ -156,7 +168,7 @@
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
                 <div class="w-full h-64 rounded-xl overflow-hidden border border-gray-100">
-                    <iframe src="http://googleusercontent.com/maps.google.com/6" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.8824368940843!2d121.3853118!3d25.0719859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a0b162607f0f%3A0xe54d89a660d3d5f4!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1710000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <form id="contact-form" class="space-y-6 pt-4">
@@ -183,6 +195,11 @@
     </section>
 
     <footer class="bg-[#F5F5F5] py-4 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 健曜國際</footer>
+
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] no-underline flex items-center space-x-3 hover:bg-black transition">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
+    </a>
 
     <script>
         const hb = document.getElementById('hamburger-btn');
