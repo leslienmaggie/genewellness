@@ -10,7 +10,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列基礎樣式 */
+        /* 導覽列樣式 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
@@ -34,14 +34,14 @@
             .dropdown:hover .dropdown-pc { display: block; }
             .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
-            /* 電腦版絕對隱藏管理入口 */
+            /* 電幕版強制隱藏管理按鈕 */
             .mobile-admin-only { display: none !important; }
         }
 
         .iframe-container { width: 100%; height: calc(100vh - 120px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
         
-        /* 隱形入口：稍微加大感應範圍，顏色更淡 */
-        .secret-link { color: #f3f4f6; font-size: 11px; text-decoration: none; padding: 10px; display: inline-block; }
+        /* 隱形入口：顏色極淡，避免引起使用者注意 */
+        .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
     </style>
 </head>
 <body>
@@ -80,12 +80,11 @@
         </div>
     </nav>
 
-    <main class="system-section bg-white py-4">
+    <main class="bg-white py-4">
         <div class="max-w-5xl mx-auto px-4 md:px-6">
-            
             <div class="system-container bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100">
                 <iframe 
-                    src="https://script.google.com/macros/s/AKfycbzzE_JsbOIkKsXEjQv_Rgj6Qo89kouPiinuut5n3MTXGhEkmMPB5Jq9-uHzf92Zr96P/exec" 
+                    src="https://script.google.com/macros/s/AKfycbwZxT-80P2ajosppZbacMkjGB8T1OwyRPPZHmGPVMLq3iZdakRUXO2I9nn0deoG-syn/exec" 
                     class="iframe-container"
                     sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
                     allow="geolocation; microphone; camera; encrypted-media;"
@@ -93,14 +92,13 @@
             </div>
 
             <div class="mobile-admin-only flex justify-center mt-6">
-                <a href="https://script.google.com/macros/s/AKfycbwZxT-80P2ajosppZbacMkjGB8T1OwyRPPZHmGPVMLq3iZdakRUXO2I9nn0deoG-syn/exec" 
+                <a href="https://script.google.com/macros/s/AKfycbwZxT-80P2ajosppZbacMkjGB8T1OwyRPPZHmGPVMLq3iZdakRUXO2I9nn0deoG-syn/exec?authuser=0" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    class="secret-link">
-                    System Node: 2026-v2
+                    Node: 2026-v4-auth
                 </a>
             </div>
-            
         </div>
     </main>
 
