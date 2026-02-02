@@ -10,8 +10,8 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列連結：確保字體 15px */
-        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; }
+        /* 導覽列連結 */
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
@@ -31,13 +31,19 @@
                 z-index: 9999;
             }
             #nav-menu.show { display: flex !important; }
-            
             .nav-link { width: 100%; padding: 15px 0; text-align: left; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
             
-            /* 子選單靠左縮排 */
-            .dropdown-content-mobile { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
-            .dropdown.active .dropdown-content-mobile { display: flex; }
-            .dropdown-content-mobile a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; }
+            /* 子選單：預設完全隱藏 (解決您圈起來的部分) */
+            .dropdown-content-mobile { 
+                display: none; 
+                flex-direction: column; 
+                padding-left: 20px; 
+                background: #fafafa; 
+                width: 100%;
+            }
+            /* 只有在父層 active 時才顯示 */
+            .dropdown.active .dropdown-content-mobile { display: flex !important; }
+            .dropdown-content-mobile a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; font-size: 14px; }
         }
 
         /* 電腦版下拉選單 */
@@ -58,10 +64,10 @@
             .dropdown-pc a:hover { background-color: #f5f5f5; color: #000; }
         }
 
-        .logo-banner { height: 32px; @media (min-width: 768px) { height: 35px; } width: auto; }
-        .social-btn { width: 26px; height: 26px; background-color: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+        .logo-banner { height: 32px; width: auto; }
+        @media (min-width: 768px) { .logo-banner { height: 35px; } }
         
-        /* 照片牆樣式 */
+        /* 照片區塊樣式 */
         .record-img-container { aspect-ratio: 4 / 3; overflow: hidden; background-color: #fff; border: 1px solid #eee; padding: 4px; border-radius: 2px; }
         .record-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
         .record-img:hover { transform: scale(1.05); }
@@ -87,7 +93,7 @@
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
                 <a href="#" class="nav-link">商務</a>
                 
-                <div class="dropdown" id="mobile-toggle">
+                <div class="dropdown" id="mobile-dropdown-toggle">
                     <div class="nav-link">檢測 <span class="text-[10px] ml-1">▼</span></div>
                     <div class="dropdown-content-mobile">
                         <a href="wgs.html">WGS 全基因體檢測</a>
@@ -136,9 +142,9 @@
                         英國 Sanger 研究院 副科學家
                     </p>
                 </div>
-                <div class="flex space-x-2 justify-center md:justify-start">
-                    <a href="#" class="social-btn">f</a>
-                    <a href="#" class="social-btn">in</a>
+                <div class="flex space-x-4 justify-center md:justify-start">
+                    <a href="#" class="text-xl opacity-80 hover:opacity-100">🔗</a>
+                    <a href="#" class="text-xl opacity-80 hover:opacity-100">📧</a>
                 </div>
             </div>
         </div>
@@ -154,7 +160,7 @@
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/4Leroy%20Hood.jpg" alt="影像" class="record-img"></div>
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/5%E9%81%8B%E5%8B%95%E5%93%A1%E9%BB%83%E9%87%91%E8%A8%88%E7%95%AB.jpg" alt="影像" class="record-img"></div>
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/6%E6%9E%97%E4%BF%8A%E6%98%93.jpg" alt="影像" class="record-img"></div>
-                <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/7TTY.jpg" alt="影像" class="record-img"></div>
+                <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/7%E6%88%B4%E8%B3%87%E7%A9%81.jpg" alt="影像" class="record-img"></div>
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/8%E7%8E%8B%E5%AD%90%E7%B6%AD.jpg" alt="影像" class="record-img"></div>
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/9Panos.jpg" alt="影像" class="record-img"></div>
             </div>
@@ -171,21 +177,29 @@
     <script>
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const navMenu = document.getElementById('nav-menu');
-        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileToggle = document.getElementById('mobile-dropdown-toggle');
 
+        // 切換漢堡選單
         hamburgerBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             navMenu.classList.toggle('show');
         });
 
+        // 手機版：點擊「檢測 ▼」展開/縮合子選單
         mobileToggle.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
-                this.classList.toggle('active');
+                // 防止點擊到子連結時觸發關閉
+                if (e.target.closest('.nav-link')) {
+                    this.classList.toggle('active');
+                }
             }
         });
 
-        document.addEventListener('click', () => {
-            navMenu.classList.remove('show');
+        // 點擊外面關閉選單
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                navMenu.classList.remove('show');
+            }
         });
     </script>
 </body>
