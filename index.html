@@ -213,14 +213,15 @@
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
                 <div class="w-full h-64 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.682662283038!2d121.3732917761066!3d25.078759536486895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7eea4b4fd5d%3A0x24317495dbcd4b9a!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5Luy6Ias6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.561571216521!2d121.38573981144062!3d25.082006377708767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a691461973cf%3A0x7b1c3e3871b0559a!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1706842000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-            <form class="space-y-6 pt-4">
-                <input type="text" placeholder="姓名" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black">
-                <input type="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
-                <textarea placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 text-sm h-24 outline-none focus:border-black"></textarea>
-                <button type="submit" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm">SEND</button>
+            <form id="contact-form" class="space-y-6 pt-4">
+                <input type="text" name="name" placeholder="姓名" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
+                <input type="email" name="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
+                <textarea name="message" placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 text-sm h-24 outline-none focus:border-black" required></textarea>
+                <button type="submit" id="submit-btn" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm">SEND</button>
+                <p id="response-msg" class="text-xs text-center mt-2 hidden"></p>
             </form>
         </div>
     </section>
@@ -237,6 +238,35 @@
             <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/基米.jpg" alt="基米" class="partner-img">
         </div>
     </section>
+
+    <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        const msg = document.getElementById('response-msg');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxAT2FaY09CFO5tYxSMqOt86cdR7z69mC2MEZuJRQoQdPnkexW1nDVYKeA8X0SBIF7k/exec'; 
+
+        btn.disabled = true;
+        btn.innerText = 'SENDING...';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(this)})
+            .then(response => {
+                btn.innerText = 'SEND';
+                btn.disabled = false;
+                msg.innerText = '感謝您的留言，我們將盡快回覆您！';
+                msg.classList.remove('hidden', 'text-red-500');
+                msg.classList.add('text-green-600');
+                this.reset();
+            })
+            .catch(error => {
+                btn.innerText = 'SEND';
+                btn.disabled = false;
+                msg.innerText = '傳送失敗，請稍後再試。';
+                msg.classList.remove('hidden', 'text-green-600');
+                msg.classList.add('text-red-500');
+            });
+    });
+    </script>
 
 </body>
 </html>
