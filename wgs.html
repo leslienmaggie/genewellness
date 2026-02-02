@@ -8,7 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         html { scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; font-size: 17px; } /* 調大整體字體 */
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; font-size: 17px; }
         
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
@@ -35,14 +35,14 @@
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
-        /* 統一按鈕樣式 */
+        /* 縮小後的統一按鈕樣式 */
         .vision-btn { 
             border: 1px solid #727272; 
             color: #727272; 
-            padding: 10px 0; 
-            width: 200px; 
+            padding: 6px 0; 
+            width: 140px; 
             border-radius: 999px; 
-            font-size: 14px; 
+            font-size: 13px; 
             font-weight: 500;
             transition: 0.3s; 
             display: inline-flex; 
@@ -50,6 +50,7 @@
             justify-content: center; 
             letter-spacing: 0.05em;
             text-decoration: none;
+            white-space: nowrap;
         }
         .vision-btn:hover { background: #727272; color: white; }
 
@@ -73,8 +74,10 @@
                 <div class="dropdown relative">
                     <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
                     <div class="dropdown-pc">
-                        <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a><a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="wellnessi.html">wellness-i 基因命盤</a><a href="height.html">劍橋博士身高管理</a>
+                        <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a>
+                        <a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="wellnessi.html">wellness-i 基因命盤</a>
+                        <a href="height.html">劍橋博士身高管理</a>
                         <a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
@@ -98,43 +101,49 @@
             <p class="text-gray-500 tracking-wide">Whole genome sequencing disease risk testing</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 md:gap-20">
-            <div class="flex flex-col items-center">
-                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/hand.png" alt="成長基因定序" class="w-4/5 h-auto object-cover rounded-sm mb-8">
-                <div class="text-left w-full px-4">
-                    <h2 class="text-2xl font-bold mb-6">成長基因定序</h2>
-                    <div class="flex flex-col space-y-4 items-center mb-8">
-                        <a href="#" class="vision-btn">檢測項目 →</a>
-                        <a href="#" class="vision-btn">DM 下載 ⬇</a>
-                    </div>
-                    <ul class="text-lg text-gray-600 mb-6 font-bold">
-                        <li>檢測 > 20000 個身高相關基因位點</li>
-                        <li>13 項身高遺傳疾病</li>
-                        <li>6 項內分泌疾病</li>
-                        <li>8 項慢性疾病</li>
-                        <li>3 項營養疾病</li>
-                        <li>四項生理問題相關基因</li>
-                        <li>幹細胞活性與端粒長度</li>
-                    </ul>
+        <div class="grid md:grid-cols-2 gap-12 md:gap-16">
+            <div class="flex flex-col items-start">
+                <div class="w-full aspect-[4/3] overflow-hidden rounded-sm mb-8">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/hand.png" alt="成長基因定序" class="w-full h-full object-cover">
                 </div>
+                
+                <h2 class="text-2xl font-bold mb-4">成長基因定序</h2>
+                
+                <div class="flex flex-row space-x-3 mb-8">
+                    <a href="#" class="vision-btn">檢測項目 →</a>
+                    <a href="#" class="vision-btn">DM 下載 ⬇</a>
+                </div>
+
+                <ul class="text-lg text-gray-600 space-y-3 leading-relaxed">
+                    <li>檢測 > 20000 個身高相關基因位點</li>
+                    <li>13 項身高遺傳疾病</li>
+                    <li>6 項內分泌疾病</li>
+                    <li>8 項慢性疾病</li>
+                    <li>3 項營養疾病</li>
+                    <li>四項生理問題相關基因</li>
+                    <li>幹細胞活性與端粒長度</li>
+                </ul>
             </div>
 
-            <div class="flex flex-col items-center">
-                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/dna.png" alt="疾病風險定序" class="w-4/5 h-auto object-cover rounded-sm mb-8">
-                <div class="text-left w-full px-4">
-                    <h2 class="text-2xl font-bold mb-4">疾病風險定序</h2>
-                    <div class="flex flex-col space-y-4 items-center mb-8">
-                        <a href="#" class="vision-btn">檢測項目 →</a>
-                        <a href="#" class="vision-btn">DM 下載 ⬇</a>
-                    </div>
-                    <p class="text-lg text-gray-600 mb-6 font-bold">6000 項十四大類疾病，包含：</p>
-                    <ul class="text-lg text-gray-600 space-y-3 leading-relaxed">
-                        <li>腫瘤、心血管、神經、代謝、</li>
-                        <li>遺傳疾病、發育、內分泌、</li>
-                        <li>肌肉骨骼、免疫系統、皮膚、</li>
-                        <li>呼吸系統、眼科、腸胃道、血液疾病</li>
-                    </ul>
+            <div class="flex flex-col items-start">
+                <div class="w-full aspect-[4/3] overflow-hidden rounded-sm mb-8">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/dna.png" alt="疾病風險定序" class="w-full h-full object-cover">
                 </div>
+                
+                <h2 class="text-2xl font-bold mb-4">疾病風險定序</h2>
+                
+                <div class="flex flex-row space-x-3 mb-8">
+                    <a href="#" class="vision-btn">檢測項目 →</a>
+                    <a href="#" class="vision-btn">DM 下載 ⬇</a>
+                </div>
+
+                <p class="text-lg text-gray-600 mb-4 font-bold">6000 項十四大類疾病，包含：</p>
+                <ul class="text-lg text-gray-600 space-y-3 leading-relaxed">
+                    <li>腫瘤、心血管、神經、代謝、</li>
+                    <li>遺傳疾病、發育、內分泌、</li>
+                    <li>肌肉骨骼、免疫系統、皮膚、</li>
+                    <li>呼吸系統、眼科、腸胃道、血液疾病</li>
+                </ul>
             </div>
         </div>
     </section>
