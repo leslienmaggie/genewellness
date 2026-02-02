@@ -10,12 +10,12 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列：確保橫排不換行 */
+        /* 統一導覽列：字體 15px，橫排不換行 */
         .nav-link { padding: 4px 12px; font-size: 15px; color: #727272; transition: all 0.2s; border-radius: 4px; white-space: nowrap; display: inline-block; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; }
 
-        /* 下拉選單 CSS */
+        /* 下拉選單樣式 */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none;
@@ -28,15 +28,7 @@
             margin-top: 0px;
             border: 1px solid #f0f0f0;
         }
-        .dropdown-content a {
-            color: #727272;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 14px;
-            transition: background 0.2s;
-            white-space: nowrap;
-        }
+        .dropdown-content a { color: #727272; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; transition: background 0.2s; white-space: nowrap; }
         .dropdown-content a:hover { background-color: #f5f5f5; color: #000; border-radius: 8px; }
         .dropdown:hover .dropdown-content { display: block; }
 
@@ -49,8 +41,6 @@
         .logo-banner { height: 35px; width: auto; display: block; }
         .tech-icon { width: 60px; height: 60px; fill: #757575; margin-bottom: 20px; opacity: 0.8; }
         .quote-icon { font-size: 60px; color: #757575; opacity: 0.4; line-height: 0.5; margin-bottom: 20px; }
-        .partner-img { height: 45px; width: auto; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
-        .partner-img:hover { filter: grayscale(0%); opacity: 1; }
         
         .section-vision-bg { background-color: #E9E9E9; position: relative; padding: 60px 0 100px 0; overflow: hidden; border-top: 1px solid #eee; }
         .section-vision-bg::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50%; height: 100px; background-color: #FFFFFF; border-top-right-radius: 120px; z-index: 1; }
@@ -63,16 +53,13 @@
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div class="container mx-auto px-6 h-16 flex justify-between items-center max-w-5xl">
             <div class="flex items-center">
-                <a href="index.html">
-                    <img src="Banner.png" alt="Logo" class="logo-banner">
-                </a>
+                <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
             </div>
             <div class="hidden md:flex items-center space-x-1">
                 <a href="index.html" class="nav-link active">首頁</a>
                 <a href="company.html" class="nav-link">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
                 <a href="#" class="nav-link">商務</a>
-                
                 <div class="dropdown">
                     <a href="#" class="nav-link">檢測</a>
                     <div class="dropdown-content">
@@ -83,7 +70,6 @@
                         <a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
-
                 <a href="#contact-section" class="nav-link">聯絡我們</a>
             </div>
         </div>
@@ -177,7 +163,7 @@
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
                 <div class="w-full h-64 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.623193636511!2d121.3734493!3d25.0714481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6de4c831349%3A0x6a0a09e07297e008!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5Luy5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="http://googleusercontent.com/maps.google.com/5" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <form id="contact-form" class="space-y-6 pt-4">
@@ -187,14 +173,6 @@
                 <button type="submit" id="submit-btn" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm">SEND</button>
                 <p id="response-msg" class="text-xs text-center mt-2 hidden"></p>
             </form>
-        </div>
-    </section>
-
-    <section class="py-12 bg-white max-w-4xl mx-auto px-6 border-t border-gray-50">
-        <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-8">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/NTU.jpg" alt="台大醫院" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/CGMH.jpg" alt="長庚醫院" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/基米.jpg" alt="基米" class="partner-img">
         </div>
     </section>
 
@@ -221,16 +199,14 @@
 
         fetch(scriptURL, { method: 'POST', body: new FormData(this)})
             .then(response => {
-                btn.innerText = 'SEND';
-                btn.disabled = false;
+                btn.innerText = 'SEND'; btn.disabled = false;
                 msg.innerText = '感謝您的留言，我們將盡快回覆您！';
                 msg.classList.remove('hidden', 'text-red-500');
                 msg.classList.add('text-green-600');
                 this.reset();
             })
             .catch(error => {
-                btn.innerText = 'SEND';
-                btn.disabled = false;
+                btn.innerText = 'SEND'; btn.disabled = false;
                 msg.innerText = '傳送失敗，請稍後再試。';
                 msg.classList.remove('hidden', 'text-green-600');
                 msg.classList.add('text-red-500');
