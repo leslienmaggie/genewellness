@@ -10,12 +10,10 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列基礎樣式 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        /* 手機模式選單控制 */
         @media (max-width: 767px) {
             .pc-nav-only { display: none !important; } 
             #mobile-nav-panel {
@@ -30,7 +28,6 @@
             .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
         }
 
-        /* 電腦模式選單與下拉 */
         @media (min-width: 768px) {
             #hamburger-btn, #mobile-nav-panel { display: none !important; }
             .dropdown:hover .dropdown-pc { display: block; }
@@ -38,18 +35,15 @@
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
-        /* 統一按鈕尺寸 (180x48px) */
         .unified-btn { width: 180px; height: 48px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; transition: 0.3s; border: 1px solid #d1d5db; color: #727272; background-color: transparent; }
         .unified-btn:hover { border-color: #1a1a1a; color: #1a1a1a; }
         
-        /* 深灰色按鈕樣式 (#7d7d7d) */
         .vision-gray-btn { background-color: #7d7d7d; color: white; padding: 10px 24px; border-radius: 8px; display: inline-flex; align-items: center; font-size: 14px; white-space: nowrap; transition: 0.3s; cursor: pointer; }
         .vision-gray-btn:hover { background-color: #4a4a4a; }
 
         .wix-title { font-size: 32px; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; color: #666; }
         @media (min-width: 768px) { .wix-title { font-size: 40px; } }
 
-        /* 特殊文字排版樣式 */
         .service-num { font-size: 24px; font-weight: 300; color: #333; margin-right: 20px; }
         .service-item-title { font-size: 18px; font-weight: 700; color: #1a1a1a; }
         .service-desc { font-size: 14px; color: #666; line-height: 1.8; margin-top: 10px; }
@@ -70,8 +64,10 @@
                 <div class="dropdown relative">
                     <div class="nav-link">檢測 <span class="text-[10px] ml-1">▼</span></div>
                     <div class="dropdown-pc">
-                        <a href="wgs.html">WGS 全基因體檢測</a><a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="wellness-i.html">wellness-i 基因命盤</a><a href="height.html">劍橋博士身高管理</a>
+                        <a href="wgs.html">WGS 全基因體檢測</a>
+                        <a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="wellnessi.html">wellness-i 基因命盤</a>
+                        <a href="height.html">劍橋博士身高管理</a>
                         <a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
@@ -116,7 +112,7 @@
             </div>
             <div class="flex flex-col items-center md:items-end justify-between py-2">
                 <div class="w-full max-w-[320px] md:max-w-[380px] h-full">
-                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Keyboard.jpg" alt="商務服務" class="w-full h-full object-cover shadow-sm rounded">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Keyboard.jpg" alt="鍵盤圖示" class="w-full h-full object-cover shadow-sm rounded">
                 </div>
                 <div class="mt-8">
                     <a href="index.html#contact-section" class="vision-gray-btn">聯繫我們</a>
@@ -165,8 +161,13 @@
         const menu = document.getElementById('mobile-nav-panel');
         const trigger = document.getElementById('mobile-sub-trigger');
         const subBox = document.getElementById('mobile-sub-box');
-        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="wellness-i.html" class="sub-item">wellness-i 基因命盤</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
-        
+        const subHtml = `
+            <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
+            <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
+            <a href="wellnessi.html" class="sub-item">wellness-i 基因命盤</a>
+            <a href="height.html" class="sub-item">劍橋博士身高管理</a>
+            <a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>
+        `;
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
         trigger.onclick = (e) => { 
             if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml;
