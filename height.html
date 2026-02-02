@@ -26,8 +26,7 @@
             #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
             #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
             .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
-            .system-section { padding: 0 !important; }
-            .system-container { border-radius: 0 !important; border: none !important; }
+            .system-section { padding-top: 20px !important; }
         }
 
         @media (min-width: 768px) {
@@ -37,12 +36,12 @@
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
-        /* 系統視窗高度優化 */
-        .iframe-container { width: 100%; height: calc(100vh - 150px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
+        /* 系統視窗樣式 */
+        .iframe-container { width: 100%; height: calc(100vh - 180px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
         
-        /* 管理員按鈕：更明顯的樣式 */
-        .admin-btn { background-color: #1a1a1a; color: white; padding: 10px 20px; border-radius: 9999px; font-size: 13px; font-weight: 500; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; }
-        .admin-btn:hover { background-color: #4a4a4a; }
+        /* 管理員按鈕樣式 */
+        .admin-btn { background-color: #1a1a1a; color: white; padding: 10px 24px; border-radius: 9999px; font-size: 13px; font-weight: 500; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; }
+        .admin-btn:hover { background-color: #4a4a4a; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
     </style>
 </head>
 <body>
@@ -81,16 +80,17 @@
         </div>
     </nav>
 
-    <main class="system-section bg-white md:bg-gray-50 py-4 md:py-8">
-        <div class="max-w-5xl mx-auto md:px-6">
-            <div class="flex justify-center md:justify-end mb-6 px-4">
-                <a href="https://script.google.com/macros/s/AKfycbzzE_JsbOIkKsXEjQv_Rgj6Qo89kouPiinuut5n3MTXGhEkmMPB5Jq9-uHzf92Zr96P/exec" target="_blank" class="admin-btn shadow-lg">
+    <main class="system-section bg-gray-50 py-6 md:py-10">
+        <div class="max-w-5xl mx-auto px-4 md:px-6">
+            
+            <div class="flex justify-center md:justify-end mb-6">
+                <a href="https://script.google.com/macros/s/AKfycbzzE_JsbOIkKsXEjQv_Rgj6Qo89kouPiinuut5n3MTXGhEkmMPB5Jq9-uHzf92Zr96P/exec" target="_blank" class="admin-btn shadow-md">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     管理員登入 / 開啟全螢幕系統
                 </a>
             </div>
             
-            <div class="system-container bg-white shadow-2xl md:rounded-xl overflow-hidden md:border border-gray-100">
+            <div class="system-container bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-100">
                 <iframe 
                     src="https://script.google.com/macros/s/AKfycbzzE_JsbOIkKsXEjQv_Rgj6Qo89kouPiinuut5n3MTXGhEkmMPB5Jq9-uHzf92Zr96P/exec" 
                     class="iframe-container"
@@ -98,6 +98,7 @@
                     allow="geolocation; microphone; camera; encrypted-media;"
                 ></iframe>
             </div>
+            
         </div>
     </main>
 
