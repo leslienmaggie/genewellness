@@ -31,24 +31,11 @@
             font-weight: 500;
         }
 
-        /* 弧線轉折背景 */
-        .section-curve-bg {
-            background-color: #E9E9E9;
-            position: relative;
-            padding: 60px 0 100px 0;
-            overflow: hidden;
-            border-top: 1px solid #eee;
-        }
-        .section-curve-bg::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50%; 
-            height: 100px; 
-            background-color: #FFFFFF;
-            border-top-right-radius: 120px; 
-            z-index: 1;
+        /* Banner Logo */
+        .logo-banner {
+            height: 35px; 
+            width: auto;
+            display: block;
         }
 
         /* 社群圖標 */
@@ -66,34 +53,9 @@
         }
         .social-btn:hover { opacity: 0.7; }
 
-        /* Banner Logo */
-        .logo-banner {
-            height: 35px; 
-            width: auto;
-            display: block;
-        }
-
-        /* LINE 按鈕樣式：確保固定在右下角 */
+        /* Chat Button 動畫 */
         #chat-button {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background-color: #757575;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 9999px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s;
-            z-index: 9999;
-            text-decoration: none;
             animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-        #chat-button:hover {
-            background-color: #1a1a1a;
-            transform: scale(1.05);
         }
         @keyframes bounceIn {
             from { transform: translateY(100px); opacity: 0; }
@@ -164,18 +126,37 @@
         </div>
     </section>
 
-    <section class="section-curve-bg">
-        <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <section class="bg-[#F5F5F5] py-16 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-6">
             <h2 class="text-xl font-bold mb-8 text-[#1a1a1a] tracking-widest">相關影像記錄</h2>
             <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
                 <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
+                <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
+                <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
+                </div>
+            </div>
         </div>
     </section>
 
-    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button">
+    <footer class="bg-[#1a1a1a] py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 text-sm tracking-widest">2026 健曜國際</p>
+        </div>
+    </footer>
+
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" 
+       class="fixed bottom-6 right-6 bg-[#757575] hover:bg-[#1a1a1a] text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 transition-all duration-300 z-[9999]">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
         </svg>
