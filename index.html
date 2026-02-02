@@ -15,7 +15,7 @@
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        /* 手機版選單：靠左對齊 */
+        /* 手機版漢堡選單 */
         @media (max-width: 767px) {
             #nav-menu {
                 display: none;
@@ -30,24 +30,19 @@
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             }
             #nav-menu.show { display: flex; }
-            .nav-link { width: 100%; padding: 15px 0; text-align: left; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
+            .nav-link { width: 100%; padding: 15px 0; text-align: left; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
             
-            .dropdown.active .dropdown-content { 
-                display: flex; 
-                flex-direction: column; 
-                position: static; 
-                box-shadow: none; 
-                border: none; 
-                padding-left: 20px; 
-                background: #fafafa; 
-            }
-            .dropdown-content a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; }
+            /* 手機版子選單：預設隱藏 */
+            .dropdown-content-mobile { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
+            .dropdown.active .dropdown-content-mobile { display: flex; }
+            .dropdown-content-mobile a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
         }
 
         /* 電腦版下拉選單 */
         @media (min-width: 768px) {
-            .dropdown:hover .dropdown-content { display: block; }
-            .dropdown-content {
+            .dropdown-content-mobile { display: none; } /* 電腦版隱藏手機專用內容 */
+            .dropdown:hover .dropdown-pc { display: block; }
+            .dropdown-pc {
                 display: none;
                 position: absolute;
                 background-color: #ffffff;
@@ -55,11 +50,10 @@
                 box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
                 z-index: 100;
                 border-radius: 8px;
-                margin-top: 0px;
                 border: 1px solid #f0f0f0;
             }
-            .dropdown-content a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; white-space: nowrap; }
-            .dropdown-content a:hover { background-color: #f5f5f5; color: #000; border-radius: 8px; }
+            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; white-space: nowrap; }
+            .dropdown-pc a:hover { background-color: #f5f5f5; color: #000; border-radius: 8px; }
         }
 
         .wix-title { font-size: 28px; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; }
@@ -101,9 +95,16 @@
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
                 <a href="#" class="nav-link">商務</a>
                 
-                <div class="dropdown" id="mobile-dropdown">
-                    <a href="javascript:void(0)" class="nav-link">檢測 <span class="text-[10px] ml-1">▼</span></a>
-                    <div class="dropdown-content">
+                <div class="dropdown" id="mobile-dropdown-toggle">
+                    <div class="nav-link">檢測 <span class="text-[10px] ml-1">▼</span></div>
+                    <div class="dropdown-content-mobile">
+                        <a href="wgs.html">WGS 全基因體檢測</a>
+                        <a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="wellness-i.html">wellness-i 基因命盤</a>
+                        <a href="height.html">劍橋博士身高管理</a>
+                        <a href="sleep.html">劍橋博士睡眠追蹤</a>
+                    </div>
+                    <div class="dropdown-pc">
                         <a href="wgs.html">WGS 全基因體檢測</a>
                         <a href="wes.html">WES 外顯體基因檢測</a>
                         <a href="wellness-i.html">wellness-i 基因命盤</a>
@@ -130,14 +131,14 @@
     <section class="bg-[#E9E9E9] py-16 border-y border-gray-200 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <h4 class="wix-title mb-8">精準檢測 | <span class="italic opacity-60">AI</span>基因分析</h4>
-            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10 tracking-widest text-center">
+            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10 tracking-widest">
                 根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>
                 全面細緻的健康數據分析、預測和干預<br>
                 實現健康風險的監測、預測和早期預防
             </div>
             <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-                <a href="#" class="vision-gray-btn w-64 md:w-auto justify-center">WGS 全基因體定序 <span class="ml-2">»</span></a>
-                <a href="#" class="vision-gray-btn w-64 md:w-auto justify-center">WES 全外顯子定序 <span class="ml-2">»</span></a>
+                <a href="#" class="vision-gray-btn w-64 md:w-auto justify-center">WGS 全基因體定序</a>
+                <a href="#" class="vision-gray-btn w-64 md:w-auto justify-center">WES 全外顯子定序</a>
             </div>
         </div>
     </section>
@@ -148,7 +149,7 @@
             <div class="flex flex-col items-center">
                 <svg class="tech-icon" viewBox="20 20 160 160"><path d="M20 20v160c44.183 0 80-35.817 80-80S64.183 20 20 20z M100 100c0 44.183 35.817 80 80 80V20c-44.183 0-80 35.817-80 80z"/></svg>
                 <h3 class="text-lg font-bold tracking-widest mb-4">ACMG位點判定AI</h3>
-                <p class="text-gray-500 text-sm leading-relaxed text-center">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
+                <p class="text-gray-500 text-sm leading-relaxed text-center">針對台灣人基因研發、全自動化平台、ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
             </div>
             <div class="flex flex-col items-center">
                 <svg class="tech-icon" viewBox="20 20 160 160"><path d="M100 20c-44.118 0-80 35.882-80 80s35.882 80 80 80 80-35.882 80-80h-80V20z"/></svg>
@@ -158,7 +159,7 @@
             <div class="flex flex-col items-center">
                 <svg class="tech-icon" viewBox="38.5 20 123 160"><path d="M102.887 20v117.469c32.371 0 58.613-26.296 58.613-58.734C161.5 46.296 135.258 20 102.887 20z M38.5 121.266C38.5 153.704 64.742 180 97.113 180V62.532c-32.371 0-58.613 26.296-58.613 58.734z"/></svg>
                 <h3 class="text-lg font-bold tracking-widest mb-4">多基因風險預測(PRS)</h3>
-                <p class="text-gray-500 text-sm leading-relaxed text-center">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
+                <p class="text-gray-500 text-sm leading-relaxed text-center">Multi-ethnic PRS AI、細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
             </div>
         </div>
     </section>
@@ -172,7 +173,7 @@
                     <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者。</p>
                     <p>與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
                 </div>
-                <div class="flex flex-col md:flex-row gap-4 items-end">
+                <div class="flex flex-col md:flex-row gap-4">
                     <a href="company.html" class="vision-gray-btn">創辦人簡介</a>
                     <a href="https://drlesliechen.wordpress.com/" target="_blank" class="vision-gray-btn">基因醫學網誌</a>
                 </div>
@@ -205,8 +206,8 @@
             <div class="space-y-8">
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
-                <div class="w-full h-64 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.623193636511!2d121.3734493!3d25.0714481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6de4c831349%3A0x6a0a09e07297e008!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5Luy5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw0" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="w-full h-64 rounded-xl overflow-hidden border border-gray-100">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.6827054817345!2d121.3853177!3d25.0787625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6e01a938c6d%3A0xc3f17d848130833a!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB6oS76Lev5LqM5661NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <form id="contact-form" class="space-y-6 pt-4">
@@ -239,13 +240,15 @@
     <script>
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
-        const mobileDropdown = document.getElementById('mobile-dropdown');
+        const mobileToggle = document.getElementById('mobile-dropdown-toggle');
 
         hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
-        mobileDropdown.addEventListener('click', function(e) {
+        // 手機版：點擊「檢測」這一行才展開
+        mobileToggle.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
-                if (e.target.closest('.nav-link') || e.target.tagName === 'SPAN') {
+                // 點擊文字或三角形
+                if (e.target.closest('.nav-link')) {
                     this.classList.toggle('active');
                 }
             }
