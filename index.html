@@ -10,58 +10,80 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 統一導覽列：字體 15px，橫排不換行 */
-        .nav-link { padding: 4px 12px; font-size: 15px; color: #727272; transition: all 0.2s; border-radius: 4px; white-space: nowrap; display: inline-block; }
+        /* 導覽列基礎設定 */
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; }
         .nav-link:hover { color: #000; }
-        .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; }
+        .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
+
+        /* 電腦版選單隱藏邏輯 */
+        @media (max-width: 767px) {
+            #nav-menu {
+                display: none; /* 預設手機版隱藏文字選單 */
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 1px solid #eee;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            #nav-menu.show { display: flex; }
+            .nav-link { width: 100%; padding: 12px 0; border-bottom: 1px solid #f9f9f9; }
+        }
 
         /* 下拉選單樣式 */
-        .dropdown { position: relative; display: inline-block; }
+        .dropdown { position: relative; }
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #ffffff;
             min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
             z-index: 100;
             border-radius: 8px;
-            margin-top: 0px;
             border: 1px solid #f0f0f0;
         }
-        .dropdown-content a { color: #727272; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; transition: background 0.2s; white-space: nowrap; }
-        .dropdown-content a:hover { background-color: #f5f5f5; color: #000; border-radius: 8px; }
-        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
+        .dropdown-content a:hover { background-color: #f5f5f5; color: #000; }
+        /* 電腦版滑鼠移入顯示，手機版透過點擊 */
+        @media (min-width: 768px) {
+            .dropdown:hover .dropdown-content { display: block; }
+        }
+        .dropdown.active .dropdown-content { display: block; position: static; box-shadow: none; border: none; padding-left: 20px; }
 
-        .wix-title { font-size: 32px; color: #1a1a1a; letter-spacing: 0.1em; line-height: 1.3; font-weight: 700; }
-        .wix-subtitle { font-size: 18px; color: #727272; letter-spacing: 0.2em; }
-        .vision-gray-btn { background-color: #7d7d7d; color: white; padding: 10px 24px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; min-width: 160px; font-size: 14px; transition: background 0.3s; white-space: nowrap; }
-        .vision-gray-btn:hover { background-color: #4a4a4a; }
-        .vision-gray-btn .arrow { margin-left: 8px; font-weight: bold; font-size: 16px; }
-        
-        .logo-banner { height: 35px; width: auto; display: block; }
-        .tech-icon { width: 60px; height: 60px; fill: #757575; margin-bottom: 20px; opacity: 0.8; }
-        .quote-icon { font-size: 60px; color: #757575; opacity: 0.4; line-height: 0.5; margin-bottom: 20px; }
-        
-        .section-vision-bg { background-color: #E9E9E9; position: relative; padding: 60px 0 100px 0; overflow: hidden; border-top: 1px solid #eee; }
-        .section-vision-bg::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50%; height: 100px; background-color: #FFFFFF; border-top-right-radius: 120px; z-index: 1; }
-        
+        /* 其他元件樣式保持不變 */
+        .wix-title { font-size: 28px; @media (min-width: 768px) { font-size: 32px; } font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; }
+        .vision-gray-btn { background-color: #7d7d7d; color: white; padding: 10px 24px; border-radius: 8px; display: inline-flex; align-items: center; font-size: 14px; white-space: nowrap; }
+        .logo-banner { height: 32px; @media (min-width: 768px) { height: 35px; } width: auto; }
         #chat-button { animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
         @keyframes bounceIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .section-vision-bg { background-color: #E9E9E9; padding: 60px 0 100px 0; position: relative; overflow: hidden; }
+        .section-vision-bg::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50%; height: 100px; background-color: #FFFFFF; border-top-right-radius: 120px; }
     </style>
 </head>
 <body class="bg-white">
-    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div class="container mx-auto px-6 h-16 flex justify-between items-center max-w-5xl">
-            <div class="flex items-center">
-                <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
-            </div>
-            <div class="hidden md:flex items-center space-x-1">
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50 h-16">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
+            <a href="index.html">
+                <img src="Banner.png" alt="Logo" class="logo-banner">
+            </a>
+
+            <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5">
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+            </button>
+
+            <div id="nav-menu" class="flex md:flex-row items-center md:space-x-1">
                 <a href="index.html" class="nav-link active">首頁</a>
                 <a href="company.html" class="nav-link">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
                 <a href="#" class="nav-link">商務</a>
-                <div class="dropdown">
-                    <a href="#" class="nav-link">檢測</a>
+                
+                <div class="dropdown" id="mobile-dropdown">
+                    <a href="javascript:void(0)" class="nav-link flex justify-between items-center">檢測 <span class="md:hidden">▼</span></a>
                     <div class="dropdown-content">
                         <a href="wgs.html">WGS 全基因體檢測</a>
                         <a href="wes.html">WES 外顯體基因檢測</a>
@@ -70,53 +92,54 @@
                         <a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
-                <a href="#contact-section" class="nav-link">聯絡我們</a>
+
+                <a href="#contact-section" class="nav-link" id="contact-link">聯絡我們</a>
             </div>
         </div>
     </nav>
 
-    <section class="py-20 text-center max-w-4xl mx-auto px-6">
-        <h6 class="wix-subtitle mb-4">全方位精準醫療</h6>
+    <section class="py-12 md:py-20 text-center max-w-4xl mx-auto px-6">
+        <h6 class="text-gray-500 tracking-widest mb-4 text-sm md:text-lg">全方位精準醫療</h6>
         <h4 class="wix-title mb-8">先天基因｜後天影響｜整體健康</h4>
-        <p class="wix-subtitle mb-10 text-[16px]">依照你的基因，打造出最合適的生活方式</p>
-        <div class="flex justify-center space-x-4">
-            <a href="#vision" class="vision-gray-btn">了解更多 <span class="arrow">»</span></a>
-            <a href="#contact-section" class="vision-gray-btn">預約諮詢 <span class="arrow">»</span></a>
+        <p class="text-gray-500 mb-10 text-base md:text-lg tracking-widest">依照你的基因，打造出最合適的生活方式</p>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+            <a href="#vision" class="border border-gray-300 rounded-full px-8 py-2 text-gray-500 hover:border-black hover:text-black transition">了解更多</a>
+            <a href="#contact-section" class="border border-gray-300 rounded-full px-8 py-2 text-gray-500 hover:border-black hover:text-black transition">預約諮詢</a>
         </div>
     </section>
 
-    <section class="bg-[#E9E9E9] py-16 border-t border-b border-gray-200 text-center">
+    <section class="bg-[#E9E9E9] py-16 border-y border-gray-200 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <h4 class="wix-title mb-8">精準檢測 | <span class="italic opacity-60">AI</span>基因分析</h4>
-            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10 tracking-widest text-center">
+            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10 tracking-widest">
                 根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>
                 全面細緻的健康數據分析、預測和干預<br>
                 實現健康風險的監測、預測和早期預防
             </div>
-            <div class="flex justify-center space-x-4">
-                <a href="#" class="vision-gray-btn">WGS 全基因體定序 <span class="arrow">»</span></a>
-                <a href="#" class="vision-gray-btn">WES 全外顯子定序 <span class="arrow">»</span></a>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="#" class="vision-gray-btn w-64 md:w-auto justify-center">WGS 全基因體定序 <span class="ml-2">»</span></a>
+                <a href="#" class="vision-gray-btn w-64 md:w-auto justify-center">WES 全外顯子定序 <span class="ml-2">»</span></a>
             </div>
         </div>
     </section>
 
-    <section id="tech" class="py-20 text-center max-w-4xl mx-auto px-6">
+    <section class="py-20 text-center max-w-4xl mx-auto px-6">
         <h2 class="wix-title mb-16">獨家技術</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div class="flex flex-col items-center">
-                <svg class="tech-icon" viewBox="20 20 160 160"><path d="M20 20v160c44.183 0 80-35.817 80-80S64.183 20 20 20z M100 100c0 44.183 35.817 80 80 80V20c-44.183 0-80 35.817-80 80z"/></svg>
+                <div class="w-16 h-16 bg-gray-100 rounded-full mb-6 flex items-center justify-center">🧬</div>
                 <h3 class="text-lg font-bold tracking-widest mb-4">ACMG位點判定AI</h3>
-                <p class="text-gray-500 text-sm leading-relaxed text-center">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
+                <p class="text-gray-500 text-sm leading-relaxed">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
             </div>
             <div class="flex flex-col items-center">
-                <svg class="tech-icon" viewBox="20 20 160 160"><path d="M100 20c-44.118 0-80 35.882-80 80s35.882 80 80 80 80-35.882 80-80h-80V20z"/></svg>
+                <div class="w-16 h-16 bg-gray-100 rounded-full mb-6 flex items-center justify-center">📊</div>
                 <h3 class="text-lg font-bold tracking-widest mb-4">次世代基因定序</h3>
-                <p class="text-gray-500 text-sm leading-relaxed text-center">NGS高速高效技術<br>數十億個DNA片段定序</p>
+                <p class="text-gray-500 text-sm leading-relaxed">NGS高速高效技術<br>數十億個DNA片段定序</p>
             </div>
             <div class="flex flex-col items-center">
-                <svg class="tech-icon" viewBox="38.5 20 123 160"><path d="M102.887 20v117.469c32.371 0 58.613-26.296 58.613-58.734C161.5 46.296 135.258 20 102.887 20z M38.5 121.266C38.5 153.704 64.742 180 97.113 180V62.532c-32.371 0-58.613 26.296-58.613 58.734z"/></svg>
+                <div class="w-16 h-16 bg-gray-100 rounded-full mb-6 flex items-center justify-center">🧠</div>
                 <h3 class="text-lg font-bold tracking-widest mb-4">多基因風險預測(PRS)</h3>
-                <p class="text-gray-500 text-sm leading-relaxed text-center">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
+                <p class="text-gray-500 text-sm leading-relaxed">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
             </div>
         </div>
     </section>
@@ -125,14 +148,12 @@
         <div class="max-w-4xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-start gap-12">
             <div class="md:w-5/12"><h2 class="wix-title text-left leading-tight">改變台灣的<br>基因體醫學</h2></div>
             <div class="md:w-7/12 flex flex-col items-end text-justify">
-                <div class="space-y-6 text-gray-700 leading-relaxed text-[16px] mb-10">
+                <div class="space-y-6 text-gray-700 leading-relaxed text-base mb-10">
                     <p>健曜國際有限公司於2018年2月由陳彥瑜博士及幾位致力推廣基因檢測的年輕科學家一同成立。提供學研界的科研生物資訊服務，積極開發“精準健康”服務。</p>
                     <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者。</p>
                     <p>與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
                 </div>
-                <div class="flex flex-col items-end space-y-4">
-                    <a href="company.html" class="vision-gray-btn">創辦人簡介 <span class="arrow">»</span></a>
-                </div>
+                <a href="company.html" class="vision-gray-btn">創辦人簡介</a>
             </div>
         </div>
     </section>
@@ -140,17 +161,17 @@
     <section class="py-20 max-w-4xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
             <div class="flex flex-col items-center text-center">
-                <div class="quote-icon">“</div>
+                <div class="text-5xl text-gray-200 mb-4">“</div>
                 <h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5>
                 <p class="text-gray-600 leading-relaxed text-sm text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
             </div>
             <div class="flex flex-col items-center text-center">
-                <div class="quote-icon">“</div>
+                <div class="text-5xl text-gray-200 mb-4">“</div>
                 <h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5>
                 <p class="text-gray-600 leading-relaxed text-sm text-justify">基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中開始發育，長到理想身高。</p>
             </div>
             <div class="flex flex-col items-center text-center">
-                <div class="quote-icon">“</div>
+                <div class="text-5xl text-gray-200 mb-4">“</div>
                 <h5 class="text-lg font-bold mb-4">陳小姐/醫師</h5>
                 <p class="text-gray-600 leading-relaxed text-sm text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變。報告結果讓我們重新評估醫療保單項目及額度。</p>
             </div>
@@ -161,57 +182,77 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div class="space-y-8">
                 <h2 class="wix-title">聯繫我們</h2>
-                <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
-                <div class="w-full h-64 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <iframe src="http://googleusercontent.com/maps.google.com/5" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <p class="text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
+                <div class="w-full h-64 rounded-xl overflow-hidden border border-gray-100">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.682613149841!2d121.38573677595604!3d25.0787861364906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6e600000001%3A0xc3f8379f88457008!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5661NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-            <form id="contact-form" class="space-y-6 pt-4">
-                <input type="text" name="name" placeholder="姓名" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
-                <input type="email" name="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
-                <textarea name="message" placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 text-sm h-24 outline-none focus:border-black" required></textarea>
-                <button type="submit" id="submit-btn" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm">SEND</button>
+            <form id="contact-form" class="space-y-6">
+                <input type="text" name="name" placeholder="姓名" class="w-full border-b border-gray-300 py-3 text-sm outline-none focus:border-black" required>
+                <input type="email" name="email" placeholder="Email *" class="w-full border-b border-gray-300 py-3 text-sm outline-none focus:border-black" required>
+                <textarea name="message" placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-3 text-sm h-32 outline-none focus:border-black" required></textarea>
+                <button type="submit" id="submit-btn" class="w-full bg-gray-500 text-white py-4 hover:bg-black transition rounded-md text-sm font-bold tracking-widest">SEND</button>
                 <p id="response-msg" class="text-xs text-center mt-2 hidden"></p>
             </form>
         </div>
     </section>
 
-    <footer class="bg-[#F5F5F5] py-4 border-t border-gray-200">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-[#1a1a1a] text-xs tracking-widest font-medium">2026 健曜國際</p>
-        </div>
+    <footer class="bg-[#F5F5F5] py-6 border-t border-gray-200 text-center">
+        <p class="text-xs tracking-widest font-medium">2026 健曜國際</p>
     </footer>
 
     <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" class="fixed bottom-6 right-6 bg-[#757575] hover:bg-[#1a1a1a] text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 z-[9999] no-underline">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
         <span class="font-bold tracking-wider text-sm">Let's Chat!</span>
     </a>
 
     <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submit-btn');
-        const msg = document.getElementById('response-msg');
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxAT2FaY09CFO5tYxSMqOt86cdR7z69mC2MEZuJRQoQdPnkexW1nDVYKeA8X0SBIF7k/exec'; 
+        // 漢堡選單開關
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const contactLink = document.getElementById('contact-link');
 
-        btn.disabled = true;
-        btn.innerText = 'SENDING...';
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(this)})
-            .then(response => {
-                btn.innerText = 'SEND'; btn.disabled = false;
-                msg.innerText = '感謝您的留言，我們將盡快回覆您！';
-                msg.classList.remove('hidden', 'text-red-500');
-                msg.classList.add('text-green-600');
-                this.reset();
-            })
-            .catch(error => {
-                btn.innerText = 'SEND'; btn.disabled = false;
-                msg.innerText = '傳送失敗，請稍後再試。';
-                msg.classList.remove('hidden', 'text-green-600');
-                msg.classList.add('text-red-500');
-            });
-    });
+        // 點擊聯絡我們後關閉選單 (手機版)
+        contactLink.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+        });
+
+        // 手機版下拉選單點擊觸發
+        const mobileDropdown = document.getElementById('mobile-dropdown');
+        mobileDropdown.addEventListener('click', (e) => {
+            if (window.innerWidth < 768) {
+                mobileDropdown.classList.toggle('active');
+            }
+        });
+
+        // 表單提交
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const msg = document.getElementById('response-msg');
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxAT2FaY09CFO5tYxSMqOt86cdR7z69mC2MEZuJRQoQdPnkexW1nDVYKeA8X0SBIF7k/exec'; 
+
+            btn.disabled = true;
+            btn.innerText = 'SENDING...';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(this)})
+                .then(response => {
+                    btn.innerText = 'SEND'; btn.disabled = false;
+                    msg.innerText = '感謝您的留言，我們將盡快回覆您！';
+                    msg.classList.remove('hidden', 'text-red-500');
+                    msg.classList.add('text-green-600');
+                    this.reset();
+                })
+                .catch(error => {
+                    btn.innerText = 'SEND'; btn.disabled = false;
+                    msg.innerText = '傳送失敗，請稍後再試。';
+                    msg.classList.remove('hidden', 'text-green-600');
+                    msg.classList.add('text-red-500');
+                });
+        });
     </script>
 </body>
 </html>
