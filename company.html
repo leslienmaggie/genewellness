@@ -10,12 +10,12 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列連結：確保橫排不換行 */
+        /* 導覽列：確保字體 15px，橫排不換行 */
         .nav-link { padding: 4px 12px; font-size: 15px; color: #727272; transition: all 0.2s; border-radius: 4px; white-space: nowrap; display: inline-block; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; }
 
-        /* 下拉選單 CSS */
+        /* 下拉選單樣式 */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none;
@@ -28,21 +28,18 @@
             margin-top: 0px;
             border: 1px solid #f0f0f0;
         }
-        .dropdown-content a {
-            color: #727272;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 14px;
-            transition: background 0.2s;
-            white-space: nowrap;
-        }
+        .dropdown-content a { color: #727272; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; transition: background 0.2s; white-space: nowrap; }
         .dropdown-content a:hover { background-color: #f5f5f5; color: #000; border-radius: 8px; }
         .dropdown:hover .dropdown-content { display: block; }
 
         .logo-banner { height: 35px; width: auto; display: block; }
         .social-btn { width: 26px; height: 26px; background-color: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: opacity 0.3s; }
         
+        /* 照片區塊樣式 */
+        .record-img-container { aspect-ratio: 4 / 3; overflow: hidden; background-color: #fff; border: 1px solid #eee; padding: 4px; border-radius: 2px; }
+        .record-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .record-img:hover { transform: scale(1.05); }
+
         #chat-button { animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
         @keyframes bounceIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
@@ -113,12 +110,24 @@
     <section class="bg-[#F5F5F5] py-16 border-t border-gray-100">
         <div class="max-w-4xl mx-auto px-6">
             <h2 class="text-xl font-bold mb-8 text-[#1a1a1a] tracking-widest">相關影像記錄</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-white p-2 shadow-sm">
-                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/中國醫.jpg" alt="影像" class="w-full h-full object-cover">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="record-img-container">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/1.%20%E5%89%8D%E6%8E%92%E5%B7%A6%E8%87%B3%E5%8F%B3%EF%BC%9A%20%E5%9C%8B%E8%A1%9B%E9%99%A2%E8%A8%B1%E6%83%A0%E6%81%92%E5%89%AF%E9%99%A2%E9%95%B7%E3%80%81%20%E8%A1%9B.jpg" alt="國衛院合影" class="record-img">
                 </div>
-                <div class="bg-white p-2 shadow-sm">
-                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/亞東.jpg" alt="影像" class="w-full h-full object-cover">
+                <div class="record-img-container">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/2%E7%99%8C%E7%97%87%E7%B2%BE%E6%BA%96%E9%86%AB%E5%AD%B8.jpg" alt="癌症精準醫學" class="record-img">
+                </div>
+                <div class="record-img-container">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/3%E7%BE%8E%E5%9C%8B%E7%99%8C%E7%97%87%E5%9F%BA%E5%9B%A0%E6%AA%A2%E6%B8%AC%E5%B8%82%E5%8D%A0%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84Tempu.jpg" alt="Tempus" class="record-img">
+                </div>
+                <div class="record-img-container">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/4Leroy%20Hood.jpg" alt="Leroy Hood" class="record-img">
+                </div>
+                <div class="record-img-container">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/5%E9%81%8B%E5%8B%95%E5%93%A1%E9%BB%83%E9%87%91%E8%A8%88%E7%95%AB.jpg" alt="運動員黃金計畫" class="record-img">
+                </div>
+                <div class="record-img-container">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%82%B3%E9%BD%8A%E6%89%B6%E8%BC%AA%E7%A4%BE.jpg" alt="傳齊扶輪社" class="record-img">
                 </div>
             </div>
         </div>
