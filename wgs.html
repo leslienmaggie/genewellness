@@ -8,7 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         html { scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; font-size: 17px; } /* 調大整體字體 */
         
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
@@ -53,9 +53,9 @@
         }
         .vision-btn:hover { background: #727272; color: white; }
 
-        .wgs-num { font-size: 24px; color: #ccc; font-weight: 300; display: block; margin-bottom: 8px; }
-        .wgs-grid-title { font-size: 18px; font-weight: 700; color: #444; margin-bottom: 12px; }
-        .wgs-grid-desc { font-size: 14px; color: #666; line-height: 1.8; }
+        .wgs-num { font-size: 26px; color: #ccc; font-weight: 300; display: block; margin-bottom: 8px; }
+        .wgs-grid-title { font-size: 20px; font-weight: 700; color: #444; margin-bottom: 12px; }
+        .wgs-grid-desc { font-size: 16px; color: #666; line-height: 1.8; }
     </style>
 </head>
 <body>
@@ -73,10 +73,8 @@
                 <div class="dropdown relative">
                     <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
                     <div class="dropdown-pc">
-                        <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a>
-                        <a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="wellnessi.html">wellness-i 基因命盤</a>
-                        <a href="height.html">劍橋博士身高管理</a>
+                        <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a><a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="wellnessi.html">wellness-i 基因命盤</a><a href="height.html">劍橋博士身高管理</a>
                         <a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
@@ -102,10 +100,14 @@
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-20">
             <div class="flex flex-col items-center">
-                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/hand.png" alt="成長基因定序" class="w-full h-64 object-cover rounded-sm mb-8">
+                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/hand.png" alt="成長基因定序" class="w-4/5 h-auto object-cover rounded-sm mb-8">
                 <div class="text-left w-full px-4">
-                    <h2 class="text-xl font-bold mb-6">成長基因定序</h2>
-                    <ul class="text-sm text-gray-600 space-y-2 leading-relaxed mb-8">
+                    <h2 class="text-2xl font-bold mb-6">成長基因定序</h2>
+                    <div class="flex flex-col space-y-4 items-center mb-8">
+                        <a href="#" class="vision-btn">檢測項目 →</a>
+                        <a href="#" class="vision-btn">DM 下載 ⬇</a>
+                    </div>
+                    <ul class="text-lg text-gray-600 space-y-3 leading-relaxed">
                         <li>檢測 > 20000 個身高相關基因位點</li>
                         <li>13 項身高遺傳疾病</li>
                         <li>6 項內分泌疾病</li>
@@ -114,34 +116,30 @@
                         <li>四項生理問題相關基因</li>
                         <li>幹細胞活性與端粒長度</li>
                     </ul>
-                    <div class="flex flex-col space-y-4 items-center">
-                        <a href="#" class="vision-btn">檢測項目 →</a>
-                        <a href="#" class="vision-btn">DM 下載 ⬇</a>
-                    </div>
                 </div>
             </div>
 
             <div class="flex flex-col items-center">
-                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/dna.png" alt="疾病風險定序" class="w-full h-64 object-cover rounded-sm mb-8">
+                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/dna.png" alt="疾病風險定序" class="w-4/5 h-auto object-cover rounded-sm mb-8">
                 <div class="text-left w-full px-4">
-                    <h2 class="text-xl font-bold mb-6">疾病風險定序</h2>
-                    <p class="text-sm text-gray-600 mb-6 font-bold">6000 項十四大類疾病，包含：</p>
-                    <ul class="text-sm text-gray-600 space-y-2 leading-relaxed mb-8">
+                    <h2 class="text-2xl font-bold mb-4">疾病風險定序</h2>
+                    <div class="flex flex-col space-y-4 items-center mb-8">
+                        <a href="#" class="vision-btn">檢測項目 →</a>
+                        <a href="#" class="vision-btn">DM 下載 ⬇</a>
+                    </div>
+                    <p class="text-lg text-gray-600 mb-6 font-bold">6000 項十四大類疾病，包含：</p>
+                    <ul class="text-lg text-gray-600 space-y-3 leading-relaxed">
                         <li>腫瘤、心血管、神經、代謝、</li>
                         <li>遺傳疾病、發育、內分泌、</li>
                         <li>肌肉骨骼、免疫系統、皮膚、</li>
                         <li>呼吸系統、眼科、腸胃道、血液疾病</li>
                     </ul>
-                    <div class="flex flex-col space-y-4 items-center">
-                        <a href="#" class="vision-btn">檢測項目 →</a>
-                        <a href="#" class="vision-btn">DM 下載 ⬇</a>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 md:py-24 bg-white border-t border-gray-50">
+    <section class="py-16 md:py-24 bg-gray-50 border-t border-gray-100">
         <div class="max-w-5xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-x-20 gap-y-16">
                 <div>
