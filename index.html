@@ -16,7 +16,7 @@
             background-color: #ffffff;
         }
         
-        /* 導覽列連結 */
+        /* 導覽列連結 - 已確保使用半形字元 */
         .nav-link {
             padding: 4px 12px;
             font-size: 14px; 
@@ -31,11 +31,9 @@
             font-weight: 500;
         }
 
-        /* 標題與字體比例 */
         .wix-title { font-size: 32px; color: #1a1a1a; letter-spacing: 0.1em; line-height: 1.3; font-weight: 700; }
         .wix-subtitle { font-size: 18px; color: #727272; letter-spacing: 0.2em; }
 
-        /* 深灰色矩形按鈕 */
         .vision-gray-btn {
             background-color: #7d7d7d; 
             color: white; 
@@ -52,7 +50,6 @@
         .vision-gray-btn:hover { background-color: #4a4a4a; }
         .vision-gray-btn .arrow { margin-left: 8px; font-weight: bold; font-size: 16px; }
 
-        /* 圓圈按鈕 */
         .wix-btn-circle {
             border: 1px solid #d1d1d1; border-radius: 50px; padding: 8px 24px;
             display: inline-flex; align-items: center; background: transparent;
@@ -61,10 +58,6 @@
         }
         .wix-btn-circle:hover { border-radius: 12px; background: #fdfdfd; color: #000; border-color: #000; }
 
-        .tech-icon { width: 60px; height: 60px; fill: #757575; margin-bottom: 20px; opacity: 0.8; }
-        .quote-icon { font-size: 60px; color: #757575; opacity: 0.4; line-height: 0.5; margin-bottom: 20px; }
-
-        /* 願景區塊背景與弧線轉折 */
         .section-vision-bg {
             background-color: #E9E9E9;
             position: relative;
@@ -84,29 +77,12 @@
             z-index: 1;
         }
 
-        .logo-banner {
-            height: 35px; 
-            width: auto;
-            display: block;
-        }
-
-        .partner-img {
-            height: 45px;
-            width: auto;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: all 0.3s ease;
-        }
+        .logo-banner { height: 35px; width: auto; display: block; }
+        .partner-img { height: 45px; width: auto; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
         .partner-img:hover { filter: grayscale(0%); opacity: 1; }
 
-        #chat-button {
-            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-        @keyframes bounceIn {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        #chat-button { animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        @keyframes bounceIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body class="bg-white">
@@ -115,9 +91,7 @@
         <div class="container mx-auto px-6 h-14 flex justify-between items-center max-w-4xl">
             <div class="flex items-center">
                 <a href="index.html">
-                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/Banner.png" 
-                         alt="劍橋博士基因檢驗" 
-                         class="logo-banner">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/Banner.png" alt="劍橋博士基因檢驗" class="logo-banner">
                 </a>
             </div>
             <div class="hidden md:flex items-center space-x-1">
@@ -131,118 +105,13 @@
         </div>
     </nav>
 
-    <section class="py-16 text-center max-w-4xl mx-auto px-6">
-        <h6 class="wix-subtitle mb-4">全方位精準醫療</h6>
-        <h4 class="wix-title mb-8">先天基因｜後天影響｜整體健康</h4>
-        <p class="wix-subtitle mb-10 text-[16px]">依照你的基因，打造出最合適的生活方式</p>
-        <div class="flex justify-center space-x-4">
-            <a href="#vision" class="wix-btn-circle"><span>了解更多</span></a>
-            <a href="#contact-section" class="wix-btn-circle"><span>預約諮詢</span></a>
-        </div>
-    </section>
-
-    <section class="bg-[#E9E9E9] py-16 border-t border-b border-gray-200 text-center">
-        <div class="max-w-4xl mx-auto px-6">
-            <h4 class="wix-title mb-8">精準檢測 | <span class="italic opacity-60">AI</span>基因分析</h4>
-            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10 tracking-widest text-justify md:text-center">
-                根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防
+    <section class="bg-[#F5F5F5] py-16 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-xl font-bold mb-8 text-[#1a1a1a] tracking-widest">相關影像記錄</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-2 shadow-sm"><img src="https://via.placeholder.com/400" alt="img"></div>
+                <div class="bg-white p-2 shadow-sm"><img src="https://via.placeholder.com/400" alt="img"></div>
             </div>
-            <div class="flex justify-center space-x-4">
-                <a href="#" class="vision-gray-btn">WGS 全基因體定序 <span class="arrow">»</span></a>
-                <a href="#" class="vision-gray-btn">WES 全外顯子定序 <span class="arrow">»</span></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="tech" class="py-20 text-center max-w-4xl mx-auto px-6">
-        <h2 class="wix-title mb-16">獨家技術</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="flex flex-col items-center">
-                <svg class="tech-icon" viewBox="20 20 160 160"><path d="M20 20v160c44.183 0 80-35.817 80-80S64.183 20 20 20z M100 100c0 44.183 35.817 80 80 80V20c-44.183 0-80 35.817-80 80z"/></svg>
-                <h3 class="text-lg font-bold tracking-widest mb-4">ACMG位點判定AI</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則<br>12 條無害性準則</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <svg class="tech-icon" viewBox="20 20 160 160"><path d="M100 20c-44.118 0-80 35.882-80 80s35.882 80 80 80 80-35.882 80-80h-80V20z"/></svg>
-                <h3 class="text-lg font-bold tracking-widest mb-4">次世代基因定序</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">NGS高速高效技術<br>數十億個DNA片段定序</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <svg class="tech-icon" viewBox="38.5 20 123 160"><path d="M102.887 20v117.469c32.371 0 58.613-26.296 58.613-58.734C161.5 46.296 135.258 20 102.887 20z M38.5 121.266C38.5 153.704 64.742 180 97.113 180V62.532c-32.371 0-58.613 26.296-58.613 58.734z"/></svg>
-                <h3 class="text-lg font-bold tracking-widest mb-4">多基因風險預測(PRS)</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="vision" class="section-vision-bg">
-        <div class="max-w-4xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-start gap-12">
-            <div class="md:w-5/12">
-                <h2 class="wix-title text-left leading-tight">改變台灣的<br>基因體醫學</h2>
-            </div>
-            <div class="md:w-7/12 flex flex-col items-end">
-                <div class="space-y-6 text-gray-700 leading-relaxed text-[16px] text-justify mb-10">
-                    <p>健曜國際有限公司於2018年2月由陳彥瑜博士及幾位致力推廣基因檢測的年輕科學家一同成立。提供學研界的科研生物資訊服務，積極開發“精準健康”服務。</p>
-                    <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者，與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
-                    <p>密切與各醫學中心、高階診所合作，為精準健康與精準醫學領域的“IC設計公司”：提供最高品質的臨床與設計服務。</p>
-                </div>
-                <div class="flex flex-col items-end space-y-4">
-                    <a href="company.html" class="vision-gray-btn">創辦人簡介 <span class="arrow">»</span></a>
-                    <a href="https://drlesliechen.wordpress.com/" target="_blank" class="vision-gray-btn">基因醫學網誌 <span class="arrow">»</span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 max-w-4xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-            <div class="flex flex-col items-center text-center">
-                <div class="quote-icon">“</div>
-                <h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5>
-                <p class="text-gray-600 leading-relaxed text-sm text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
-            </div>
-            <div class="flex flex-col items-center text-center">
-                <div class="quote-icon">“</div>
-                <h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5>
-                <p class="text-gray-600 leading-relaxed text-sm text-justify">我跟先生都很高，但兒子身高始終落後，到國中也沒進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中開始發育，長到理想身高。</p>
-            </div>
-            <div class="flex flex-col items-center text-center">
-                <div class="quote-icon">“</div>
-                <h5 class="text-lg font-bold mb-4">陳小姐/醫師</h5>
-                <p class="text-gray-600 leading-relaxed text-sm text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact-section" class="py-20 border-t border-gray-100 bg-white max-w-4xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div class="space-y-8">
-                <h2 class="wix-title">聯繫我們</h2>
-                <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
-                <div class="w-full h-64 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.496033481023!2d121.385498!3d25.065842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a0b784997193%3A0xc07a86f7842a98f7!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-            <form id="contact-form" class="space-y-6 pt-4">
-                <input type="text" name="name" placeholder="姓名" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
-                <input type="email" name="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
-                <textarea name="message" placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 text-sm h-24 outline-none focus:border-black" required></textarea>
-                <button type="submit" id="submit-btn" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm">SEND</button>
-                <p id="response-msg" class="text-xs text-center mt-2 hidden"></p>
-            </form>
-        </div>
-    </section>
-
-    <section class="py-12 bg-white max-w-4xl mx-auto px-6 border-t border-gray-50">
-        <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-8">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/NTU.jpg" alt="台大醫院" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/CGMH.jpg" alt="長庚醫院" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/中國醫.jpg" alt="中國醫" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/亞東.jpg" alt="亞東醫院" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/北榮.jpg" alt="台北榮總" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/北醫.png" alt="北醫" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/國防.jpg" alt="國防醫學院" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/基米.jpg" alt="基米" class="partner-img">
         </div>
     </section>
 
@@ -252,42 +121,10 @@
         </div>
     </footer>
 
-    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" 
-       class="fixed bottom-6 right-6 bg-[#757575] hover:bg-[#1a1a1a] text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 transition-all duration-300 z-[9999]">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-        </svg>
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" class="fixed bottom-6 right-6 bg-[#757575] hover:bg-[#1a1a1a] text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 z-[9999]">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
         <span class="font-bold tracking-wider text-sm">Let's Chat!</span>
     </a>
 
-    <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submit-btn');
-        const msg = document.getElementById('response-msg');
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxAT2FaY09CFO5tYxSMqOt86cdR7z69mC2MEZuJRQoQdPnkexW1nDVYKeA8X0SBIF7k/exec'; 
-
-        btn.disabled = true;
-        btn.innerText = 'SENDING...';
-
-        fetch(scriptURL, { method: 'POST', body: new FormData(this)})
-            .then(response => {
-                btn.innerText = 'SEND';
-                btn.disabled = false;
-                msg.innerText = '感謝您的留言，我們將盡快回覆您！';
-                msg.classList.remove('hidden', 'text-red-500');
-                msg.classList.add('text-green-600');
-                this.reset();
-            })
-            .catch(error => {
-                btn.innerText = 'SEND';
-                btn.disabled = false;
-                msg.innerText = '傳送失敗，請稍後再試。';
-                msg.classList.remove('hidden', 'text-green-600');
-                msg.classList.add('text-red-500');
-            });
-    });
-    </script>
-
-</body>
+    </body>
 </html>
