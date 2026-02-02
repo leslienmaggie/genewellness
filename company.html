@@ -10,64 +10,53 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 基礎連結樣式 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        /* --- 手機版專屬樣式 (iOS 穩定版) --- */
+        /* --- 手機版隔離 (iOS 強制生效) --- */
         @media (max-width: 767px) {
-            .pc-nav { display: none !important; } /* 徹底移除電腦版內容 */
+            .pc-nav-only { display: none !important; } /* 強制移除電腦版代碼影響 */
             
-            #mobile-menu-container {
+            #mobile-nav-panel {
                 display: none;
                 position: absolute;
                 top: 64px;
                 left: 0;
                 width: 100%;
-                background: white;
+                background: #ffffff;
                 flex-direction: column;
                 padding: 10px 24px;
                 border-bottom: 1px solid #eee;
                 box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-                z-index: 9999;
+                z-index: 99999;
             }
-            #mobile-menu-container.show { display: flex !important; }
+            #mobile-nav-panel.open { display: flex !important; }
 
-            /* 預設子選單完全不佔空間、不顯示 */
-            #ios-sub-menu {
-                display: none; 
+            /* 預設完全隱藏子選單容器 */
+            #ios-sub-container {
+                display: none !important; 
+                visibility: hidden;
+                opacity: 0;
                 height: 0;
-                overflow: hidden;
-                flex-direction: column;
+            }
+            /* 點擊後才賦予顯示屬性 */
+            #ios-sub-container.active {
+                display: flex !important;
+                visibility: visible;
+                opacity: 1;
+                height: auto;
                 padding-left: 20px;
                 background: #fafafa;
             }
-            /* 點擊後才顯示 */
-            #ios-sub-menu.active {
-                display: flex;
-                height: auto;
-                padding-bottom: 10px;
-            }
-            .nav-link-m { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; text-align: left; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; font-size: 15px; }
         }
 
-        /* --- 電腦版專屬樣式 --- */
         @media (min-width: 768px) {
-            .mobile-nav-toggle { display: none !important; }
+            .mobile-btn-only, #mobile-nav-panel { display: none !important; }
             .dropdown:hover .dropdown-pc { display: block; }
-            .dropdown-pc {
-                display: none;
-                position: absolute;
-                background-color: #ffffff;
-                min-width: 200px;
-                box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-                z-index: 100;
-                border-radius: 8px;
-                border: 1px solid #f0f0f0;
-            }
+            .dropdown-pc { display: none; position: absolute; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
-            .dropdown-pc a:hover { background-color: #f5f5f5; color: #000; }
         }
 
         .logo-banner { height: 32px; @media (min-width: 768px) { height: 35px; } width: auto; }
@@ -75,18 +64,18 @@
         .record-img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
-<body class="bg-white">
-    <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
+<body>
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100000] h-16">
         <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
             <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
 
-            <button id="ios-hamburger" class="mobile-nav-toggle flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
+            <button id="final-hamburger" class="mobile-btn-only flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
                 <span class="w-6 h-0.5 bg-gray-600"></span>
                 <span class="w-6 h-0.5 bg-gray-600"></span>
                 <span class="w-6 h-0.5 bg-gray-600"></span>
             </button>
 
-            <div class="pc-nav hidden md:flex items-center space-x-1">
+            <div class="pc-nav-only hidden md:flex items-center space-x-1">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="company.html" class="nav-link active">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
@@ -104,47 +93,41 @@
                 <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
             </div>
 
-            <div id="mobile-menu-container">
-                <a href="index.html" class="nav-link-m">首頁</a>
-                <a href="company.html" class="nav-link-m active">關於</a>
-                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link-m">新知</a>
-                <a href="#" class="nav-link-m">商務</a>
-                <div id="ios-dropdown-trigger" class="nav-link-m">
-                    檢測 <span class="text-[10px]">▼</span>
-                </div>
-                <div id="ios-sub-menu">
+            <div id="mobile-nav-panel">
+                <a href="index.html" class="mobile-row">首頁</a>
+                <a href="company.html" class="mobile-row active" style="color:#1a1a1a; font-weight:700;">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
+                <a href="#" class="mobile-row">商務</a>
+                <div id="ios-final-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
+                <div id="ios-sub-container">
                     </div>
-                <a href="index.html#contact-section" class="nav-link-m">聯絡我們</a>
+                <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
             </div>
         </div>
     </nav>
 
     <section class="max-w-4xl mx-auto px-6 py-12">
-        <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
-            <div class="md:w-[42%] order-1">
-                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" alt="Founder" class="w-full h-auto shadow-lg rounded-sm">
-                <p class="mt-3 text-gray-400 text-[10px] tracking-[0.2em] uppercase text-center md:text-left">FOUNDER / DR. LESLIE CHEN</p>
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
+            <div class="md:w-[42%]">
+                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" class="w-full shadow-lg">
+                <p class="mt-3 text-gray-400 text-[10px] uppercase text-center md:text-left">FOUNDER / DR. LESLIE CHEN</p>
             </div>
-            <div class="md:w-1/2 space-y-8 pt-6 order-2">
+            <div class="md:w-1/2 space-y-8 pt-6">
                 <div>
-                    <p class="text-gray-400 font-light text-sm tracking-widest mb-3">現職：</p>
-                    <p class="text-[17px] leading-relaxed text-[#1a1a1a] font-bold">健曜國際有限公司 研發長/共同創辦人<br>長庚醫院精準醫學計畫專案顧問<br>信息者基因有限公司 顧問</p>
+                    <p class="text-gray-400 text-sm mb-3">現職：</p>
+                    <p class="text-[17px] font-bold">健曜國際有限公司 研發長/共同創辦人<br>長庚醫院精準醫學計畫專案顧問<br>信息者基因有限公司 顧問</p>
                 </div>
                 <div>
-                    <p class="text-gray-400 font-light text-sm tracking-widest mb-3">經歷：</p>
-                    <p class="text-[#333333] leading-loose text-base">長庚大學 兼任教授<br>桃園怡仁醫院 基因體實驗室 主任<br>麗寶生醫 生物資訊長<br>林口長庚醫院 生物資訊中心 主任/創辦人<br>英國 Sanger 研究院 副科學家</p>
-                </div>
-                <div class="flex space-x-4 justify-center md:justify-start">
-                    <span class="text-xl opacity-80 cursor-pointer">🔗</span>
-                    <span class="text-xl opacity-80 cursor-pointer">📧</span>
+                    <p class="text-gray-400 text-sm mb-3">經歷：</p>
+                    <p class="text-[#333333] leading-loose">長庚大學 兼任教授<br>桃園怡仁醫院 基因體實驗室 主任<br>麗寶生醫 生物資訊長<br>林口長庚醫院 生物資訊中心 主任/創辦人<br>英國 Sanger 研究院 副科學家</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#F5F5F5] py-16 border-t border-gray-100">
+    <section class="bg-[#F5F5F5] py-16">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-xl font-bold mb-8 text-[#1a1a1a] tracking-widest text-center md:text-left">相關影像記錄</h2>
+            <h2 class="text-xl font-bold mb-8 tracking-widest text-center md:text-left">相關影像記錄</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/1%E5%9C%8B%E8%A1%9B%E9%99%A2.jpg" class="record-img"></div>
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/2%E7%99%8C%E7%97%87%E7%B2%BE%E6%BA%96%E9%86%AB%E5%AD%B8.jpg" class="record-img"></div>
@@ -159,44 +142,38 @@
         </div>
     </section>
 
-    <footer class="bg-[#F5F5F5] py-4 text-center text-xs font-medium border-t">2026 健曜國際</footer>
+    <footer class="bg-[#F5F5F5] py-4 text-center text-xs border-t">2026 健曜國際</footer>
 
     <script>
-        const iosHamburger = document.getElementById('ios-hamburger');
-        const mobileMenu = document.getElementById('mobile-menu-container');
-        const iosTrigger = document.getElementById('ios-dropdown-trigger');
-        const iosSubMenu = document.getElementById('ios-sub-menu');
+        const btn = document.getElementById('final-hamburger');
+        const panel = document.getElementById('mobile-nav-panel');
+        const trigger = document.getElementById('ios-final-trigger');
+        const sub = document.getElementById('ios-sub-container');
 
-        // 手機版內容 (物理隔離)
-        const subLinks = `
-            <a href="wgs.html" class="block py-3 border-b border-gray-100">WGS 全基因體檢測</a>
-            <a href="wes.html" class="block py-3 border-b border-gray-100">WES 外顯體基因檢測</a>
-            <a href="wellness-i.html" class="block py-3 border-b border-gray-100">wellness-i 基因命盤</a>
-            <a href="height.html" class="block py-3 border-b border-gray-100">劍橋博士身高管理</a>
-            <a href="sleep.html" class="block py-3">劍橋博士睡眠追蹤</a>
+        const htmlLinks = `
+            <a href="wgs.html" style="display:block; padding:12px 0; border-bottom:1px solid #eee;">WGS 全基因體檢測</a>
+            <a href="wes.html" style="display:block; padding:12px 0; border-bottom:1px solid #eee;">WES 外顯體基因檢測</a>
+            <a href="wellness-i.html" style="display:block; padding:12px 0; border-bottom:1px solid #eee;">wellness-i 基因命盤</a>
+            <a href="height.html" style="display:block; padding:12px 0; border-bottom:1px solid #eee;">劍橋博士身高管理</a>
+            <a href="sleep.html" style="display:block; padding:12px 0;">劍橋博士睡眠追蹤</a>
         `;
 
-        // 漢堡按鈕開關
-        iosHamburger.addEventListener('click', (e) => {
+        btn.onclick = function(e) {
             e.stopPropagation();
-            mobileMenu.classList.toggle('show');
-        });
+            panel.classList.toggle('open');
+        };
 
-        // 點擊「檢測 ▼」展開
-        iosTrigger.addEventListener('click', (e) => {
+        trigger.onclick = function(e) {
             e.preventDefault();
-            if (!iosSubMenu.innerHTML.trim()) {
-                iosSubMenu.innerHTML = subLinks;
-            }
-            iosSubMenu.classList.toggle('active');
-        });
+            if (!sub.innerHTML.trim()) { sub.innerHTML = htmlLinks; }
+            sub.classList.toggle('active');
+        };
 
-        // 點擊外面關閉
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && e.target !== iosHamburger) {
-                mobileMenu.classList.remove('show');
+        document.onclick = function(e) {
+            if (!panel.contains(e.target) && e.target !== btn) {
+                panel.classList.remove('open');
             }
-        });
+        };
     </script>
 </body>
 </html>
