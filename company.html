@@ -10,12 +10,12 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列基礎 */
-        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; display: inline-block; }
+        /* 導覽列連結：確保字體 15px */
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        /* 手機版漢堡選單 */
+        /* 手機版漢堡選單強化 */
         @media (max-width: 767px) {
             #nav-menu {
                 display: none;
@@ -28,14 +28,16 @@
                 padding: 10px 24px;
                 border-bottom: 1px solid #eee;
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                z-index: 9999;
             }
-            #nav-menu.show { display: flex; }
+            #nav-menu.show { display: flex !important; }
+            
             .nav-link { width: 100%; padding: 15px 0; text-align: left; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
             
-            /* 手機版子選單 */
+            /* 子選單靠左縮排 */
             .dropdown-content-mobile { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
             .dropdown.active .dropdown-content-mobile { display: flex; }
-            .dropdown-content-mobile a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; font-size: 14px; }
+            .dropdown-content-mobile a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; }
         }
 
         /* 電腦版下拉選單 */
@@ -53,15 +55,13 @@
                 border: 1px solid #f0f0f0;
             }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; white-space: nowrap; }
-            .dropdown-pc a:hover { background-color: #f5f5f5; color: #000; border-radius: 8px; }
+            .dropdown-pc a:hover { background-color: #f5f5f5; color: #000; }
         }
 
-        .logo-banner { height: 32px; width: auto; }
-        @media (min-width: 768px) { .logo-banner { height: 35px; } }
-        
+        .logo-banner { height: 32px; @media (min-width: 768px) { height: 35px; } width: auto; }
         .social-btn { width: 26px; height: 26px; background-color: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; }
         
-        /* 照片區塊樣式 */
+        /* 照片牆樣式 */
         .record-img-container { aspect-ratio: 4 / 3; overflow: hidden; background-color: #fff; border: 1px solid #eee; padding: 4px; border-radius: 2px; }
         .record-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
         .record-img:hover { transform: scale(1.05); }
@@ -71,25 +71,23 @@
     </style>
 </head>
 <body class="bg-white">
-    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50 h-16">
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
         <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
-            <a href="index.html">
-                <img src="Banner.png" alt="Logo" class="logo-banner">
-            </a>
+            <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
 
-            <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
+            <button id="hamburger-btn" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
                 <span class="w-6 h-0.5 bg-gray-600"></span>
                 <span class="w-6 h-0.5 bg-gray-600"></span>
                 <span class="w-6 h-0.5 bg-gray-600"></span>
             </button>
 
-            <div id="nav-menu" class="flex md:flex-row items-center md:space-x-1">
+            <div id="nav-menu" class="hidden md:flex md:flex-row items-center md:space-x-1">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="company.html" class="nav-link active">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
                 <a href="#" class="nav-link">商務</a>
                 
-                <div class="dropdown" id="mobile-dropdown-toggle">
+                <div class="dropdown" id="mobile-toggle">
                     <div class="nav-link">檢測 <span class="text-[10px] ml-1">▼</span></div>
                     <div class="dropdown-content-mobile">
                         <a href="wgs.html">WGS 全基因體檢測</a>
@@ -114,12 +112,12 @@
 
     <section class="max-w-4xl mx-auto px-6 py-12">
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
-            <div class="md:w-[42%] order-1 md:order-1">
+            <div class="md:w-[42%] order-1">
                 <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" alt="Founder" class="w-full h-auto shadow-lg rounded-sm">
                 <p class="mt-3 text-gray-400 text-[10px] tracking-[0.2em] uppercase text-center md:text-left">FOUNDER / DR. LESLIE CHEN</p>
             </div>
 
-            <div class="md:w-1/2 space-y-8 pt-6 order-2 md:order-2">
+            <div class="md:w-1/2 space-y-8 pt-6 order-2">
                 <div>
                     <p class="text-gray-400 font-light text-sm tracking-widest mb-3">現職：</p>
                     <p class="text-[17px] leading-relaxed text-[#1a1a1a] font-bold">
@@ -163,9 +161,7 @@
         </div>
     </section>
 
-    <footer class="bg-[#F5F5F5] py-4 border-t border-gray-200 text-center">
-        <p class="text-[#1a1a1a] text-xs tracking-widest font-medium">2026 健曜國際</p>
-    </footer>
+    <footer class="bg-[#F5F5F5] py-4 text-center text-xs font-medium border-t">2026 健曜國際</footer>
 
     <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" class="fixed bottom-6 right-6 bg-[#757575] hover:bg-[#1a1a1a] text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 z-[9999] no-underline">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
@@ -173,22 +169,23 @@
     </a>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
+        const hamburgerBtn = document.getElementById('hamburger-btn');
         const navMenu = document.getElementById('nav-menu');
-        const mobileToggle = document.getElementById('mobile-dropdown-toggle');
+        const mobileToggle = document.getElementById('mobile-toggle');
 
-        hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+        hamburgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('show');
+        });
 
         mobileToggle.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
-                if (e.target.closest('.nav-link')) {
-                    this.classList.toggle('active');
-                }
+                this.classList.toggle('active');
             }
         });
 
-        document.getElementById('contact-link').addEventListener('click', () => {
-            if (window.innerWidth < 768) { navMenu.classList.remove('show'); }
+        document.addEventListener('click', () => {
+            navMenu.classList.remove('show');
         });
     </script>
 </body>
