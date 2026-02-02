@@ -12,6 +12,24 @@
         .nav-link { padding: 4px 12px; font-size: 14px; color: #727272; transition: all 0.2s; border-radius: 4px; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; }
+        
+        /* 下拉選單樣式 */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 8px;
+            margin-top: 8px;
+            border: 1px solid #f0f0f0;
+        }
+        .dropdown-content a { color: #727272; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; transition: background 0.2s; }
+        .dropdown-content a:hover { background-color: #f5f5f5; color: #000; border-radius: 8px; }
+        .dropdown:hover .dropdown-content { display: block; }
+
         .logo-banner { height: 35px; width: auto; display: block; }
         .social-btn { width: 26px; height: 26px; background-color: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: opacity 0.3s; }
         #chat-button { animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
@@ -22,16 +40,24 @@
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div class="container mx-auto px-6 h-14 flex justify-between items-center max-w-4xl">
             <div class="flex items-center">
-                <a href="index.html">
-                    <img src="Banner.png" alt="Logo" class="logo-banner">
-                </a>
+                <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
             </div>
             <div class="hidden md:flex items-center space-x-1">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="company.html" class="nav-link active">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
                 <a href="#" class="nav-link">商務</a>
-                <a href="#" class="nav-link">檢測</a>
+                
+                <div class="dropdown">
+                    <a href="#" class="nav-link">檢測 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="wgs.html">WGS 全基因體檢測</a>
+                        <a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="wellness-i.html">wellness-i 基因命盤</a>
+                        <a href="height.html">劍橋博士身高管理</a>
+                        <a href="sleep.html">劍橋博士睡眠追蹤</a>
+                    </div>
+                </div>
                 <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
             </div>
         </div>
@@ -42,42 +68,18 @@
             <div class="md:w-1/2 space-y-8 pt-6">
                 <div>
                     <p class="text-gray-400 font-light text-sm tracking-widest mb-3">現職：</p>
-                    <p class="text-[17px] leading-relaxed text-[#1a1a1a] font-bold">
-                        健曜國際有限公司 研發長/共同創辦人<br>
-                        長庚醫院精準醫學計畫專案顧問<br>
-                        信息者基因有限公司 顧問
-                    </p>
+                    <p class="text-[17px] leading-relaxed text-[#1a1a1a] font-bold">健曜國際有限公司 研發長/共同創辦人<br>長庚醫院精準醫學計畫專案顧問<br>信息者基因有限公司 顧問</p>
                 </div>
                 <div>
                     <p class="text-gray-400 font-light text-sm tracking-widest mb-3">經歷：</p>
-                    <p class="text-[#333333] leading-loose text-base">
-                        長庚大學 兼任教授<br>
-                        桃園怡仁醫院 基因體實驗室 主任<br>
-                        麗寶生醫 生物資訊長<br>
-                        林口長庚醫院 生物資訊中心 主任/創辦人<br>
-                        英國 Sanger 研究院 副科學家
-                    </p>
+                    <p class="text-[#333333] leading-loose text-base">長庚大學 兼任教授<br>桃園怡仁醫院 基因體實驗室 主任<br>麗寶生醫 生物資訊長<br>林口長庚醫院 生物資訊中心 主任/創辦人<br>英國 Sanger 研究院 副科學家</p>
                 </div>
-                <div class="flex space-x-2">
-                    <a href="#" class="social-btn">f</a>
-                    <a href="#" class="social-btn">in</a>
-                </div>
+                <div class="flex space-x-2"><a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a></div>
             </div>
             <div class="md:w-[42%] text-right">
                 <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" alt="Founder" class="w-full h-auto shadow-lg rounded-sm">
                 <p class="mt-3 text-gray-400 text-[10px] tracking-[0.2em] uppercase">FOUNDER / DR. LESLIE CHEN</p>
             </div>
-        </div>
-    </section>
-
-    <section class="bg-[#F5F5F5] py-16 border-t border-gray-100">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-xl font-bold mb-8 text-[#1a1a1a] tracking-widest">相關影像記錄</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-white p-2 shadow-sm">
-                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/中國醫.jpg" alt="影像" class="w-full h-full object-cover">
-                </div>
-                </div>
         </div>
     </section>
 
