@@ -37,9 +37,12 @@
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
-        .iframe-container { width: 100%; height: calc(100vh - 120px); min-height: 700px; border: none; -webkit-overflow-scrolling: touch; }
-        .external-link-btn { background-color: #f3f4f6; color: #727272; padding: 4px 12px; border-radius: 4px; font-size: 12px; transition: 0.3s; }
-        .external-link-btn:hover { background-color: #1a1a1a; color: white; }
+        /* 系統視窗高度優化 */
+        .iframe-container { width: 100%; height: calc(100vh - 150px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
+        
+        /* 管理員按鈕：更明顯的樣式 */
+        .admin-btn { background-color: #1a1a1a; color: white; padding: 10px 20px; border-radius: 9999px; font-size: 13px; font-weight: 500; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; }
+        .admin-btn:hover { background-color: #4a4a4a; }
     </style>
 </head>
 <body>
@@ -78,19 +81,19 @@
         </div>
     </nav>
 
-    <main class="system-section bg-white md:bg-gray-50 md:py-4">
+    <main class="system-section bg-white md:bg-gray-50 py-4 md:py-8">
         <div class="max-w-5xl mx-auto md:px-6">
-            <div class="flex justify-end mb-2 px-4 md:px-0">
-                <a href="https://script.google.com/macros/s/AKfycbzzE_JsbOIkKsXEjQv_Rgj6Qo89kouPiinuut5n3MTXGhEkmMPB5Jq9-uHzf92Zr96P/exec" target="_blank" class="external-link-btn">
-                    無法登入後台？請點此開啟新視窗
+            <div class="flex justify-center md:justify-end mb-6 px-4">
+                <a href="https://script.google.com/macros/s/AKfycbzzE_JsbOIkKsXEjQv_Rgj6Qo89kouPiinuut5n3MTXGhEkmMPB5Jq9-uHzf92Zr96P/exec" target="_blank" class="admin-btn shadow-lg">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    管理員登入 / 開啟全螢幕系統
                 </a>
             </div>
             
-            <div class="system-container bg-white shadow-xl md:rounded-lg overflow-hidden md:border border-gray-100">
+            <div class="system-container bg-white shadow-2xl md:rounded-xl overflow-hidden md:border border-gray-100">
                 <iframe 
                     src="https://script.google.com/macros/s/AKfycbzzE_JsbOIkKsXEjQv_Rgj6Qo89kouPiinuut5n3MTXGhEkmMPB5Jq9-uHzf92Zr96P/exec" 
                     class="iframe-container"
-                    /* 增加 sandbox 權限以允許跳轉與登入彈窗 */
                     sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
                     allow="geolocation; microphone; camera; encrypted-media;"
                 ></iframe>
