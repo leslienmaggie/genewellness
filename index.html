@@ -10,10 +10,12 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
+        /* 導覽列：字體 15px */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; display: inline-block; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
+        /* 手機版選單：靠左對齊 */
         @media (max-width: 767px) {
             #nav-menu {
                 display: none;
@@ -42,6 +44,7 @@
             .dropdown-content a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; }
         }
 
+        /* 電腦版下拉選單 */
         @media (min-width: 768px) {
             .dropdown:hover .dropdown-content { display: block; }
             .dropdown-content {
@@ -145,7 +148,7 @@
             <div class="flex flex-col items-center">
                 <svg class="tech-icon" viewBox="20 20 160 160"><path d="M20 20v160c44.183 0 80-35.817 80-80S64.183 20 20 20z M100 100c0 44.183 35.817 80 80 80V20c-44.183 0-80 35.817-80 80z"/></svg>
                 <h3 class="text-lg font-bold tracking-widest mb-4">ACMG位點判定AI</h3>
-                <p class="text-gray-500 text-sm leading-relaxed text-center">針對台灣人基因研發、全自動化平台、ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
+                <p class="text-gray-500 text-sm leading-relaxed text-center">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
             </div>
             <div class="flex flex-col items-center">
                 <svg class="tech-icon" viewBox="20 20 160 160"><path d="M100 20c-44.118 0-80 35.882-80 80s35.882 80 80 80 80-35.882 80-80h-80V20z"/></svg>
@@ -155,7 +158,7 @@
             <div class="flex flex-col items-center">
                 <svg class="tech-icon" viewBox="38.5 20 123 160"><path d="M102.887 20v117.469c32.371 0 58.613-26.296 58.613-58.734C161.5 46.296 135.258 20 102.887 20z M38.5 121.266C38.5 153.704 64.742 180 97.113 180V62.532c-32.371 0-58.613 26.296-58.613 58.734z"/></svg>
                 <h3 class="text-lg font-bold tracking-widest mb-4">多基因風險預測(PRS)</h3>
-                <p class="text-gray-500 text-sm leading-relaxed text-center">Multi-ethnic PRS AI、細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
+                <p class="text-gray-500 text-sm leading-relaxed text-center">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
             </div>
         </div>
     </section>
@@ -169,8 +172,9 @@
                     <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者。</p>
                     <p>與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
                 </div>
-                <div class="flex flex-col items-end">
+                <div class="flex flex-col md:flex-row gap-4 items-end">
                     <a href="company.html" class="vision-gray-btn">創辦人簡介</a>
+                    <a href="https://drlesliechen.wordpress.com/" target="_blank" class="vision-gray-btn">基因醫學網誌</a>
                 </div>
             </div>
         </div>
@@ -202,7 +206,7 @@
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
                 <div class="w-full h-64 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.682662283038!2d121.3855673!3d25.0787383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a1215777169f%3A0xc66578051e948332!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB6oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1710000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.623193636511!2d121.3734493!3d25.0714481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a6de4c831349%3A0x6a0a09e07297e008!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5Luy5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw0" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <form id="contact-form" class="space-y-6 pt-4">
@@ -212,6 +216,14 @@
                 <button type="submit" id="submit-btn" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm">SEND</button>
                 <p id="response-msg" class="text-xs text-center mt-2 hidden"></p>
             </form>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white max-w-4xl mx-auto px-6 border-t border-gray-50">
+        <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-8">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/NTU.jpg" alt="台大醫院" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/CGMH.jpg" alt="長庚醫院" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/基米.jpg" alt="基米" class="partner-img">
         </div>
     </section>
 
@@ -229,9 +241,7 @@
         const navMenu = document.getElementById('nav-menu');
         const mobileDropdown = document.getElementById('mobile-dropdown');
 
-        hamburger.addEventListener('click', () => { 
-            navMenu.classList.toggle('show'); 
-        });
+        hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
         mobileDropdown.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
