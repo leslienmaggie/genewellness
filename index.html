@@ -31,14 +31,30 @@
         @media (min-width: 768px) {
             #hamburger-btn, #mobile-nav-panel { display: none !important; }
             .dropdown:hover .dropdown-pc { display: block; }
-            .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
+            .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
         .wix-title { font-size: 28px; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; }
         @media (min-width: 768px) { .wix-title { font-size: 32px; } }
         
-        /* 補回深灰色按鈕樣式 */
+        /* 統一按鈕大小版型：WGS, WES, 了解更多, 預約諮詢 */
+        .unified-btn { 
+            width: 180px; /* 統一寬度 */
+            height: 48px; /* 統一高度 */
+            border: 1px solid #d1d5db; 
+            border-radius: 9999px; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #727272; 
+            font-size: 15px; 
+            transition: all 0.3s;
+            background-color: transparent;
+        }
+        .unified-btn:hover { border-color: #1a1a1a; color: #1a1a1a; }
+        .bg-white-btn { background-color: #ffffff; } /* 針對檢測區的白色底色 */
+
         .vision-gray-btn { background-color: #7d7d7d; color: white; padding: 10px 24px; border-radius: 8px; display: inline-flex; align-items: center; font-size: 14px; white-space: nowrap; transition: 0.3s; }
         .vision-gray-btn:hover { background-color: #4a4a4a; }
 
@@ -89,10 +105,10 @@
         <h2 class="wix-title mb-10">先天基因｜後天影響｜整體健康</h2>
         <p class="text-gray-500 mb-12 text-base md:text-xl tracking-widest">依照你的基因，打造出最合適的生活方式</p>
         <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-            <a href="#vision" class="border border-gray-300 rounded-full px-12 py-3 text-gray-500 hover:border-black transition flex items-center group">
+            <a href="#vision" class="unified-btn group">
                 了解更多 <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
             </a>
-            <a href="#contact-section" class="border border-gray-300 rounded-full px-12 py-3 text-gray-500 hover:border-black transition flex items-center group">
+            <a href="#contact-section" class="unified-btn group">
                 預約諮詢 <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
             </a>
         </div>
@@ -101,10 +117,18 @@
     <section class="bg-[#E9E9E9] py-16 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <h4 class="wix-title mb-8">精準檢測 | AI基因分析</h4>
-            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10">根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防</div>
+            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10 tracking-widest">
+                根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>
+                全面細緻的健康數據分析、預測和干預<br>
+                實現健康風險的監測、預測和早期預防
+            </div>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <a href="wgs.html" class="border border-gray-300 bg-white rounded-full px-10 py-2 text-gray-400 hover:text-black transition">WGS ⬇</a>
-                <a href="wes.html" class="border border-gray-300 bg-white rounded-full px-10 py-2 text-gray-400 hover:text-black transition">WES ⬇</a>
+                <a href="wgs.html" class="unified-btn bg-white-btn group">
+                    WGS <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
+                </a>
+                <a href="wes.html" class="unified-btn bg-white-btn group">
+                    WES <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
+                </a>
             </div>
         </div>
     </section>
@@ -115,17 +139,17 @@
             <div class="flex flex-col items-center">
                 <svg class="tech-svg" viewBox="0 0 100 100"><path d="M50 20v60c-16.5 0-30-13.5-30-30s13.5-30 30-30z M50 20c16.5 0 30 13.5 30 30s-13.5 30-30 30z" fill="none" stroke="currentColor" stroke-width="4"/></svg>
                 <h3 class="text-xl font-bold mb-6">ACMG位點判定AI</h3>
-                <p class="text-gray-500 text-[15px]">針對台灣人基因研發 / 全自動化平台 / ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
+                <p class="text-gray-500 text-[15px] leading-loose">針對台灣人基因研發 / 全自動化平台 / ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
             </div>
             <div class="flex flex-col items-center">
                 <svg class="tech-svg" viewBox="0 0 100 100"><path d="M50 20c16.5 0 30 13.5 30 30s-13.5 30-30 30s-30-13.5-30-30h30z" fill="none" stroke="currentColor" stroke-width="4"/></svg>
                 <h3 class="text-xl font-bold mb-6">次世代基因定序</h3>
-                <p class="text-gray-500 text-[15px]">NGS高速高效技術<br>數十億個DNA片段定序</p>
+                <p class="text-gray-500 text-[15px] leading-loose">NGS高速高效技術<br>數十億個DNA片段定序</p>
             </div>
             <div class="flex flex-col items-center">
                 <svg class="tech-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="10 5"/></svg>
                 <h3 class="text-xl font-bold mb-6">台灣人專用PRS</h3>
-                <p class="text-gray-500 text-[15px]">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人PRS演算法</p>
+                <p class="text-gray-500 text-[15px] leading-loose">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
             </div>
         </div>
     </section>
@@ -173,7 +197,7 @@
                 <h2 class="wix-title">聯繫我們</h2>
                 <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
                 <div class="w-full h-64 rounded-xl overflow-hidden border border-gray-100">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.435728471802!2d121.38138437604692!3d25.086256277248177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a0e238477041%3A0x6d1f9765279f06dd!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB6oS_6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.682855217462!2d121.3857597!3d25.0787681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a0e445353955%3A0xc47e3077755f4f3!2zMjQ05paw5YyX5biC5p6X5Y-j5Y2A5LuB5oSb6Lev5LqM5q61NTAy6Jmf!5e0!3m2!1szh-TW!2stw!4v1710000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <form id="contact-form" class="space-y-6 pt-4">
@@ -194,12 +218,17 @@
             <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%8C%97%E6%A6%AE.jpg" class="partner-img">
             <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%8C%97%E9%86%AB.png" class="partner-img">
             <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%9C%8B%E9%98%B2.jpg" class="partner-img">
-            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/陽明.jpg" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E9%99%BD%E6%98%8E.jpg" class="partner-img">
             <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%9F%BA%E7%B1%B3.jpg" class="partner-img">
         </div>
     </section>
 
     <footer class="bg-[#F5F5F5] py-4 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 健曜國際</footer>
+
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] no-underline flex items-center space-x-3 hover:bg-black transition">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
+    </a>
 
     <script>
         const hb = document.getElementById('hamburger-btn');
@@ -207,6 +236,7 @@
         const trigger = document.getElementById('mobile-sub-trigger');
         const subBox = document.getElementById('mobile-sub-box');
         const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="wellness-i.html" class="sub-item">wellness-i 基因命盤</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
+        
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
         trigger.onclick = (e) => { 
             if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml;
