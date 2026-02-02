@@ -17,7 +17,7 @@
             background-color: #ffffff;
         }
 
-        /* 導覽列連結：依照截圖縮小字體與內距 */
+        /* 導覽列連結：同步縮小字體與內距 */
         .nav-link {
             padding: 4px 12px;
             font-size: 14px; 
@@ -32,7 +32,7 @@
             font-weight: 500;
         }
 
-        /* 弧線轉折背景：調降高度以符合緊湊版型 */
+        /* 弧線轉折背景 */
         .section-curve-bg {
             background-color: #E9E9E9;
             position: relative;
@@ -52,7 +52,7 @@
             z-index: 1;
         }
 
-        /* 社群圖標：依照截圖縮小尺寸 */
+        /* 社群圖標 */
         .social-btn {
             width: 26px;
             height: 26px;
@@ -67,15 +67,24 @@
         }
         .social-btn:hover { opacity: 0.7; }
 
-        /* Banner Logo：縮小高度以達成精緻感 */
+        /* Banner Logo */
         .logo-banner {
             height: 35px; 
             width: auto;
             display: block;
         }
+
+        /* Chat Button 動畫 */
+        #chat-button {
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        @keyframes bounceIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
-<body>
+<body class="bg-white">
 
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div class="container mx-auto px-6 h-14 flex justify-between items-center max-w-4xl">
@@ -153,18 +162,3 @@
                 <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
-                <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
-</body>
-</html>
