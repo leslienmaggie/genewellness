@@ -35,12 +35,27 @@
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
+        /* 統一按鈕樣式 */
+        .vision-btn { 
+            border: 1px solid #727272; 
+            color: #727272; 
+            padding: 10px 0; 
+            width: 200px; 
+            border-radius: 999px; 
+            font-size: 14px; 
+            font-weight: 500;
+            transition: 0.3s; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+        .vision-btn:hover { background: #727272; color: white; }
+
         .wgs-num { font-size: 24px; color: #ccc; font-weight: 300; display: block; margin-bottom: 8px; }
         .wgs-grid-title { font-size: 18px; font-weight: 700; color: #444; margin-bottom: 12px; }
         .wgs-grid-desc { font-size: 14px; color: #666; line-height: 1.8; }
-        
-        .vision-btn { border: 1.5px solid #727272; color: #727272; padding: 8px 30px; border-radius: 999px; font-size: 14px; transition: 0.3s; display: inline-flex; align-items: center; justify-content: center; width: 180px; }
-        .vision-btn:hover { background: #727272; color: white; }
     </style>
 </head>
 <body>
@@ -58,8 +73,10 @@
                 <div class="dropdown relative">
                     <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
                     <div class="dropdown-pc">
-                        <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a><a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="wellnessi.html">wellness-i 基因命盤</a><a href="height.html">劍橋博士身高管理</a>
+                        <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a>
+                        <a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="wellnessi.html">wellness-i 基因命盤</a>
+                        <a href="height.html">劍橋博士身高管理</a>
                         <a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
@@ -85,7 +102,7 @@
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-20">
             <div class="flex flex-col items-center">
-                <img src="images/images/hand.png" alt="成長基因定序" class="w-full h-64 object-cover rounded-sm mb-8">
+                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/hand.png" alt="成長基因定序" class="w-full h-64 object-cover rounded-sm mb-8">
                 <div class="text-left w-full px-4">
                     <h2 class="text-xl font-bold mb-6">成長基因定序</h2>
                     <ul class="text-sm text-gray-600 space-y-2 leading-relaxed mb-8">
@@ -97,15 +114,15 @@
                         <li>四項生理問題相關基因</li>
                         <li>幹細胞活性與端粒長度</li>
                     </ul>
-                    <div class="flex flex-col space-y-3 items-center">
+                    <div class="flex flex-col space-y-4 items-center">
                         <a href="#" class="vision-btn">檢測項目 →</a>
-                        <a href="#" class="vision-btn text-xs">DM 下載 <span class="ml-2">⬇</span></a>
+                        <a href="#" class="vision-btn">DM 下載 ⬇</a>
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-col items-center">
-                <img src="images/images/dna.png" alt="疾病風險定序" class="w-full h-64 object-cover rounded-sm mb-8">
+                <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/dna.png" alt="疾病風險定序" class="w-full h-64 object-cover rounded-sm mb-8">
                 <div class="text-left w-full px-4">
                     <h2 class="text-xl font-bold mb-6">疾病風險定序</h2>
                     <p class="text-sm text-gray-600 mb-6 font-bold">6000 項十四大類疾病，包含：</p>
@@ -115,9 +132,9 @@
                         <li>肌肉骨骼、免疫系統、皮膚、</li>
                         <li>呼吸系統、眼科、腸胃道、血液疾病</li>
                     </ul>
-                    <div class="flex flex-col space-y-3 items-center">
+                    <div class="flex flex-col space-y-4 items-center">
                         <a href="#" class="vision-btn">檢測項目 →</a>
-                        <a href="#" class="vision-btn text-xs">DM 下載 <span class="ml-2">⬇</span></a>
+                        <a href="#" class="vision-btn">DM 下載 ⬇</a>
                     </div>
                 </div>
             </div>
