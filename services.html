@@ -31,13 +31,10 @@
         @media (min-width: 768px) {
             #hamburger-btn, #mobile-nav-panel { display: none !important; }
             .dropdown:hover .dropdown-pc { display: block; }
-            .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
+            .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
-        .unified-btn { width: 180px; height: 48px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; transition: 0.3s; border: 1px solid #d1d5db; color: #727272; background-color: transparent; }
-        .unified-btn:hover { border-color: #1a1a1a; color: #1a1a1a; }
-        
         .vision-gray-btn { background-color: #7d7d7d; color: white; padding: 10px 24px; border-radius: 8px; display: inline-flex; align-items: center; font-size: 14px; white-space: nowrap; transition: 0.3s; cursor: pointer; }
         .vision-gray-btn:hover { background-color: #4a4a4a; }
 
@@ -64,10 +61,8 @@
                 <div class="dropdown relative">
                     <div class="nav-link">檢測 <span class="text-[10px] ml-1">▼</span></div>
                     <div class="dropdown-pc">
-                        <a href="wgs.html">WGS 全基因體檢測</a>
-                        <a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="wellnessi.html">wellness-i 基因命盤</a>
-                        <a href="height.html">劍橋博士身高管理</a>
+                        <a href="wgs.html">WGS 全基因體檢測</a><a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="wellnessi.html">wellness-i 基因命盤</a><a href="height.html">劍橋博士身高管理</a>
                         <a href="sleep.html">劍橋博士睡眠追蹤</a>
                     </div>
                 </div>
@@ -85,9 +80,9 @@
         </div>
     </nav>
 
-    <section class="py-20 max-w-5xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-            <div class="space-y-8 flex flex-col justify-between">
+    <section class="py-12 md:py-20 max-w-5xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-stretch gap-12">
+            <div class="md:w-1/2 space-y-8 flex flex-col justify-between">
                 <div>
                     <div class="flex items-start">
                         <span class="service-num">01</span>
@@ -110,22 +105,22 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col items-center md:items-end justify-between py-2">
-                <div class="w-full max-w-[180px] md:max-w-[220px] h-full">
-                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Keyboard.jpg" alt="商務服務" class="w-full h-full object-cover shadow-sm rounded">
+            <div class="md:w-[42%] flex flex-col justify-between items-center md:items-end">
+                <div class="w-full h-full">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Keyboard.jpg" alt="鍵盤圖示" class="w-full h-full object-cover shadow-2xl rounded-sm">
                 </div>
-                <div class="mt-8">
+                <div class="mt-6">
                     <a href="index.html#contact-section" class="vision-gray-btn">聯繫我們</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-white border-t border-gray-50">
+    <section class="py-24 bg-[#F5F5F5] border-t border-gray-100">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="wix-title text-center mb-16">基因檢測商品訂製</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-                <div class="flex flex-col justify-between">
+            <h2 class="wix-title text-center mb-20">基因檢測商品訂製</h2>
+            <div class="flex flex-col md:flex-row items-stretch gap-12">
+                <div class="md:w-1/2 flex flex-col justify-between">
                     <div class="space-y-6">
                         <h4 class="text-lg font-medium text-gray-800 leading-relaxed">只要 5 步驟，讓我們協助您開發獨家的基因檢測服務</h4>
                         <ul class="space-y-4 text-[16px] text-gray-600 font-light">
@@ -140,9 +135,9 @@
                         <a href="index.html#contact-section" class="vision-gray-btn">聯繫我們</a>
                     </div>
                 </div>
-                <div class="flex justify-center md:justify-end">
-                    <div class="w-full max-w-[200px] md:max-w-[240px]">
-                        <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/laptop.png" alt="筆電展示圖" class="w-full h-auto rounded shadow-sm">
+                <div class="md:w-[42%] flex justify-center md:justify-end">
+                    <div class="w-full h-full">
+                        <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/laptop.png" alt="筆電展示圖" class="w-full h-full object-cover rounded-sm shadow-2xl">
                     </div>
                 </div>
             </div>
@@ -150,7 +145,6 @@
     </section>
 
     <footer class="bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 GeneWellness International 健曜國際</footer>
-
     <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
         <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
@@ -161,13 +155,7 @@
         const menu = document.getElementById('mobile-nav-panel');
         const trigger = document.getElementById('mobile-sub-trigger');
         const subBox = document.getElementById('mobile-sub-box');
-        const subHtml = `
-            <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
-            <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
-            <a href="wellnessi.html" class="sub-item">wellness-i 基因命盤</a>
-            <a href="height.html" class="sub-item">劍橋博士身高管理</a>
-            <a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>
-        `;
+        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="wellnessi.html" class="sub-item">wellness-i 基因命盤</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
         trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml; subBox.classList.toggle('active'); };
         document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
