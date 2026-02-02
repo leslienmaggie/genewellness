@@ -6,7 +6,6 @@
     <title>關於創始人 | 劍橋博士基因檢驗</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 引入 Noto Sans TC 作為主要字體庫 */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         
         html { scroll-behavior: smooth; }
@@ -17,7 +16,7 @@
             background-color: #ffffff;
         }
 
-        /* 導覽列連結：同步縮小字體與內距 */
+        /* 導覽列連結 */
         .nav-link {
             padding: 4px 12px;
             font-size: 14px; 
@@ -74,9 +73,27 @@
             display: block;
         }
 
-        /* Chat Button 動畫 */
+        /* LINE 按鈕樣式：確保固定在右下角 */
         #chat-button {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #757575;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            z-index: 9999;
+            text-decoration: none;
             animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        #chat-button:hover {
+            background-color: #1a1a1a;
+            transform: scale(1.05);
         }
         @keyframes bounceIn {
             from { transform: translateY(100px); opacity: 0; }
@@ -95,7 +112,6 @@
                          class="logo-banner">
                 </a>
             </div>
-
             <div class="hidden md:flex items-center space-x-1">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="company.html" class="nav-link active">關於</a>
@@ -109,7 +125,6 @@
 
     <section class="max-w-4xl mx-auto px-6 py-12">
         <div class="flex flex-col md:flex-row items-start justify-between gap-10">
-            
             <div class="md:w-1/2 space-y-8 pt-6">
                 <div class="space-y-3">
                     <p class="text-gray-400 font-light text-sm tracking-widest">現職：</p>
@@ -119,7 +134,6 @@
                         信息者基因有限公司 顧問
                     </p>
                 </div>
-
                 <div class="space-y-3">
                     <p class="text-gray-400 font-light text-sm tracking-widest">經歷：</p>
                     <p class="text-[#333333] leading-loose text-base font-normal">
@@ -132,7 +146,6 @@
                         英國Sanger研究院 副科學家
                     </p>
                 </div>
-
                 <div class="flex space-x-2 pt-2">
                     <a href="#" class="social-btn">f</a>
                     <a href="#" class="social-btn">t</a>
@@ -140,7 +153,6 @@
                     <a href="#" class="social-btn">ig</a>
                 </div>
             </div>
-
             <div class="md:w-[42%]">
                 <div class="relative">
                     <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" 
@@ -159,6 +171,16 @@
                 <div class="aspect-square bg-white shadow-sm hover:shadow-md transition overflow-hidden">
                     <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
-                <div class="aspect-square bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
-                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover">
                 </div>
+        </div>
+    </section>
+
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        </svg>
+        <span class="font-bold tracking-wider text-sm">Let's Chat!</span>
+    </a>
+
+</body>
+</html>
