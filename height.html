@@ -10,7 +10,6 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列基礎樣式 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
@@ -34,9 +33,11 @@
             .dropdown:hover .dropdown-pc { display: block; }
             .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
+            
+            /* 強制在電腦版隱藏按鈕容器 */
+            .desktop-hide { display: none !important; }
         }
 
-        /* 黑色膠囊按鈕樣式 */
         .admin-pill-btn { 
             background-color: #1a1a1a; 
             color: white; 
@@ -51,8 +52,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* 系統視窗高度設定 */
-        .iframe-container { width: 100%; height: calc(100vh - 180px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
+        .iframe-container { width: 100%; height: calc(100vh - 120px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
     </style>
 </head>
 <body>
@@ -91,10 +91,10 @@
         </div>
     </nav>
 
-    <main class="system-section bg-gray-50 py-8 md:py-10">
+    <main class="system-section bg-gray-50 py-6 md:py-10">
         <div class="max-w-5xl mx-auto px-4 md:px-6">
             
-            <div class="flex justify-center mb-8 md:hidden">
+            <div class="flex justify-center mb-8 desktop-hide">
                 <a href="https://script.google.com/macros/s/AKfycbzzE_JsbOIkKsXEjQv_Rgj6Qo89kouPiinuut5n3MTXGhEkmMPB5Jq9-uHzf92Zr96P/exec" target="_blank" class="admin-pill-btn">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     管理員登入 / 開啟全螢幕系統
