@@ -111,8 +111,8 @@
                 </div>
             </div>
             <div class="flex flex-col items-center md:items-end justify-between py-2">
-                <div class="w-full max-w-[320px] md:max-w-[380px] h-full">
-                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Keyboard.jpg" alt="鍵盤圖示" class="w-full h-full object-cover shadow-sm rounded">
+                <div class="w-full max-w-[180px] md:max-w-[220px] h-full">
+                    <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Keyboard.jpg" alt="商務服務" class="w-full h-full object-cover shadow-sm rounded">
                 </div>
                 <div class="mt-8">
                     <a href="index.html#contact-section" class="vision-gray-btn">聯繫我們</a>
@@ -141,7 +141,7 @@
                     </div>
                 </div>
                 <div class="flex justify-center md:justify-end">
-                    <div class="w-full max-w-[350px] md:max-w-[420px]">
+                    <div class="w-full max-w-[200px] md:max-w-[240px]">
                         <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/laptop.png" alt="筆電展示圖" class="w-full h-auto rounded shadow-sm">
                     </div>
                 </div>
@@ -149,7 +149,7 @@
         </div>
     </section>
 
-    <footer class="bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 健曜國際</footer>
+    <footer class="bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 GeneWellness International 健曜國際</footer>
 
     <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
@@ -169,10 +169,7 @@
             <a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>
         `;
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
-        trigger.onclick = (e) => { 
-            if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml;
-            subBox.classList.toggle('active'); 
-        };
+        trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml; subBox.classList.toggle('active'); };
         document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
     </script>
 </body>
