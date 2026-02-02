@@ -10,12 +10,12 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 基礎導覽樣式 */
+        /* 導覽列基礎 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        /* 手機版面板：強化隱藏邏輯 */
+        /* 手機版與電腦版顯示邏輯 (物理隔離 iPhone 穩定版) */
         @media (max-width: 767px) {
             .pc-menu { display: none !important; } 
             #mobile-nav-panel {
@@ -25,30 +25,24 @@
             }
             #mobile-nav-panel.show { display: flex !important; }
             .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; font-size: 15px; }
-            
-            /* 子選單容器：物理鎖死 */
-            #mobile-sub-box { 
-                max-height: 0; opacity: 0; visibility: hidden; 
-                overflow: hidden; transition: all 0.3s ease-in-out;
-                display: flex; flex-direction: column; padding-left: 20px; background: #fafafa; 
-            }
-            #mobile-sub-box.active { max-height: 500px; opacity: 1; visibility: visible; padding-bottom: 10px; }
+            #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
+            #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
             .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
         }
 
         @media (min-width: 768px) {
             #hamburger-btn, #mobile-nav-panel { display: none !important; }
+            .pc-menu { display: flex !important; }
             .dropdown:hover .dropdown-pc { display: block; }
             .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
         }
 
-        .wix-title { font-size: 28px; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; }
+        /* 內容樣式 */
+        .wix-title { font-size: 28px; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; color: #1a1a1a; }
         @media (min-width: 768px) { .wix-title { font-size: 32px; } }
         
         .vision-gray-btn { background-color: #7d7d7d; color: white; padding: 10px 24px; border-radius: 8px; display: inline-flex; align-items: center; font-size: 14px; white-space: nowrap; }
-        .vision-gray-btn:hover { background-color: #4a4a4a; }
-
         .tech-svg { width: 80px; height: 80px; margin-bottom: 30px; fill: #1a1a1a; opacity: 0.8; }
         .section-vision-bg { background-color: #E9E9E9; position: relative; padding: 60px 0 100px 0; overflow: hidden; border-top: 1px solid #eee; }
         .section-vision-bg::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50%; height: 100px; background-color: #FFFFFF; border-top-right-radius: 120px; z-index: 1; }
@@ -58,12 +52,10 @@
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
         <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
             <a href="index.html"><img src="Banner.png" alt="Logo" class="h-8 md:h-9"></a>
-            
             <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
                 <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
             </button>
-
-            <div class="pc-menu flex items-center space-x-1">
+            <div class="pc-menu items-center space-x-1">
                 <a href="index.html" class="nav-link active">首頁</a>
                 <a href="company.html" class="nav-link">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
@@ -78,31 +70,45 @@
                 </div>
                 <a href="#contact-section" class="nav-link">聯絡我們</a>
             </div>
-
             <div id="mobile-nav-panel">
                 <a href="index.html" class="mobile-row active" style="font-weight:700; color:#1a1a1a;">首頁</a>
                 <a href="company.html" class="mobile-row">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
                 <a href="#" class="mobile-row">商務</a>
                 <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
-                <div id="mobile-sub-box"></div> <a href="#contact-section" class="mobile-row">聯絡我們</a>
+                <div id="mobile-sub-box"></div> 
+                <a href="#contact-section" class="mobile-row" id="mobile-contact-link">聯絡我們</a>
             </div>
         </div>
     </nav>
 
-    <section class="py-20 text-center">
+    <section class="py-12 md:py-24 text-center max-w-4xl mx-auto px-6">
+        <h6 class="text-gray-400 tracking-widest mb-6 text-sm md:text-lg">全方位精準醫療</h6>
+        <h2 class="wix-title mb-10">先天基因｜後天影響｜整體健康</h2>
+        <p class="text-gray-500 mb-12 text-base md:text-xl tracking-widest">依照你的基因，打造出最合適的生活方式</p>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+            <a href="#vision" class="border border-gray-300 rounded-full px-12 py-3 text-gray-500 hover:border-black hover:text-black transition flex items-center group">
+                了解更多 <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
+            </a>
+            <a href="#contact-section" class="border border-gray-300 rounded-full px-12 py-3 text-gray-500 hover:border-black hover:text-black transition flex items-center group">
+                預約諮詢 <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="bg-[#E9E9E9] py-16 border-y border-gray-200 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <h4 class="wix-title mb-8">精準檢測 | AI基因分析</h4>
-            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-12 tracking-widest">
+            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10 tracking-widest">
                 根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>
                 全面細緻的健康數據分析、預測和干預<br>
                 實現健康風險的監測、預測和早期預防
             </div>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <a href="wgs.html" class="border border-gray-300 rounded-full px-12 py-3 text-gray-500 hover:border-black hover:text-black transition flex items-center group">
+                <a href="wgs.html" class="border border-gray-300 rounded-full px-12 py-3 text-gray-400 bg-white hover:border-black hover:text-black transition flex items-center group">
                     WGS <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
                 </a>
-                <a href="wes.html" class="border border-gray-300 rounded-full px-12 py-3 text-gray-500 hover:border-black hover:text-black transition flex items-center group">
+                <a href="wes.html" class="border border-gray-300 rounded-full px-12 py-3 text-gray-400 bg-white hover:border-black hover:text-black transition flex items-center group">
                     WES <span class="ml-2 border border-gray-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:border-black">↓</span>
                 </a>
             </div>
@@ -141,7 +147,7 @@
                     <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者。</p>
                     <p>與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
                 </div>
-                <div class="flex gap-4">
+                <div class="flex flex-col md:flex-row gap-4">
                     <a href="company.html" class="vision-gray-btn">創辦人簡介</a>
                     <a href="https://drlesliechen.wordpress.com/" target="_blank" class="vision-gray-btn">基因醫學網誌</a>
                 </div>
@@ -154,12 +160,12 @@
             <div class="flex flex-col items-center text-center">
                 <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
                 <h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5>
-                <p class="text-gray-600 text-[15px] leading-relaxed text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因腸道吸收較差，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
+                <p class="text-gray-500 text-[15px] leading-relaxed text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因腸道吸收較差，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
             </div>
             <div class="flex flex-col items-center text-center">
                 <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
                 <h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5>
-                <p class="text-gray-600 text-[15px] leading-relaxed text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
+                <p class="text-gray-500 text-[15px] leading-relaxed text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
             </div>
             <div class="flex flex-col items-center text-center">
                 <div class="text-5xl text-gray-200 font-serif mb-4">“</div>
@@ -169,7 +175,27 @@
         </div>
     </section>
 
-    <footer class="bg-[#F5F5F5] py-6 text-center text-xs tracking-widest border-t">2026 健曜國際</footer>
+    <section id="contact-section" class="py-20 border-t border-gray-100 bg-white max-w-4xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div class="space-y-8">
+                <h2 class="wix-title">聯繫我們</h2>
+                <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
+                <div class="w-full h-64 rounded-xl overflow-hidden border border-gray-100">
+                    <iframe src="http://googleusercontent.com/maps.google.com/5" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <form id="contact-form" class="space-y-6 pt-4">
+                <input type="text" name="name" placeholder="姓名" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
+                <input type="email" name="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
+                <textarea name="message" placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 text-sm h-24 outline-none focus:border-black" required></textarea>
+                <button type="submit" id="submit-btn" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition rounded-md text-sm">SEND</button>
+                <p id="response-msg" class="text-xs text-center mt-2 hidden"></p>
+            </form>
+        </div>
+    </section>
+
+    <section class="py-12 border-t text-center"><div class="flex flex-wrap justify-center gap-12 opacity-50"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/NTU.jpg" class="h-10"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/CGMH.jpg" class="h-10"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/基米.jpg" class="h-10"></div></section>
+    <footer class="bg-[#F5F5F5] py-4 text-center text-xs tracking-widest border-t">2026 健曜國際</footer>
 
     <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] no-underline flex items-center space-x-3 hover:bg-black transition">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
@@ -181,32 +207,21 @@
         const menu = document.getElementById('mobile-nav-panel');
         const trigger = document.getElementById('mobile-sub-trigger');
         const subBox = document.getElementById('mobile-sub-box');
-
-        const subHtml = `
-            <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
-            <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
-            <a href="wellness-i.html" class="sub-item">wellness-i 基因命盤</a>
-            <a href="height.html" class="sub-item">劍橋博士身高管理</a>
-            <a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>
-        `;
-
-        hb.onclick = (e) => { 
-            e.stopPropagation(); 
-            menu.classList.toggle('show'); 
-        };
-
-        trigger.onclick = (e) => { 
-            e.stopPropagation();
-            if (!subBox.innerHTML.trim()) { 
-                subBox.innerHTML = subHtml; 
-            } 
-            subBox.classList.toggle('active'); 
-        };
-
-        document.onclick = (e) => { 
-            if (!menu.contains(e.target) && e.target !== hb) {
-                menu.classList.remove('show');
-            }
+        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="wellness-i.html" class="sub-item">wellness-i 基因命盤</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
+        hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
+        trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; } subBox.classList.toggle('active'); };
+        document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
+        document.getElementById('contact-form').onsubmit = function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const msg = document.getElementById('response-msg');
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxAT2FaY09CFO5tYxSMqOt86cdR7z69mC2MEZuJRQoQdPnkexW1nDVYKeA8X0SBIF7k/exec'; 
+            btn.disabled = true; btn.innerText = 'SENDING...';
+            fetch(scriptURL, { method: 'POST', body: new FormData(this)})
+                .then(r => {
+                    btn.innerText = 'SEND'; btn.disabled = false;
+                    msg.innerText = '感謝您的留言！'; msg.classList.remove('hidden'); this.reset();
+                });
         };
     </script>
 </body>
