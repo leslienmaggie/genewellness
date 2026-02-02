@@ -14,7 +14,6 @@
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        /* 手機版與電腦版的顯示控制 */
         @media (max-width: 767px) {
             .pc-nav-only { display: none !important; }
             #mobile-nav-panel {
@@ -25,12 +24,11 @@
             #mobile-nav-panel.show { display: flex !important; }
             #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
             #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
-            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
         }
 
         @media (min-width: 768px) {
-            .mobile-btn-only, #mobile-nav-panel { display: none !important; }
-            .pc-nav-only { display: flex !important; }
+            #hamburger-btn, #mobile-nav-panel { display: none !important; }
             .dropdown:hover .dropdown-pc { display: block; }
             .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
@@ -41,18 +39,20 @@
         .tech-svg { width: 80px; height: 80px; margin-bottom: 30px; fill: #1a1a1a; opacity: 0.8; }
         .section-vision-bg { background-color: #E9E9E9; position: relative; padding: 60px 0 100px 0; overflow: hidden; border-top: 1px solid #eee; }
         .section-vision-bg::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50%; height: 100px; background-color: #FFFFFF; border-top-right-radius: 120px; z-index: 1; }
+        
+        /* 合作夥伴 Logo 樣式 */
+        .partner-img { height: 45px; width: auto; opacity: 0.6; filter: grayscale(100%); transition: 0.3s; }
+        .partner-img:hover { opacity: 1; filter: grayscale(0%); }
     </style>
 </head>
-<body class="bg-white">
+<body>
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
         <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
             <a href="index.html"><img src="Banner.png" alt="Logo" class="h-8 md:h-9"></a>
-            
-            <button id="hamburger-btn" class="mobile-btn-only flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
+            <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
                 <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
             </button>
-
-            <div class="pc-nav-only items-center space-x-1">
+            <div class="pc-nav-only flex items-center space-x-1">
                 <a href="index.html" class="nav-link active">首頁</a>
                 <a href="company.html" class="nav-link">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
@@ -67,14 +67,13 @@
                 </div>
                 <a href="#contact-section" class="nav-link">聯絡我們</a>
             </div>
-
             <div id="mobile-nav-panel">
-                <a href="index.html" class="mobile-row active" style="font-weight:700;">首頁</a>
+                <a href="index.html" class="mobile-row active" style="font-weight:700; color:#1a1a1a;">首頁</a>
                 <a href="company.html" class="mobile-row">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
                 <a href="#" class="mobile-row">商務</a>
                 <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
-                <div id="mobile-sub-box"></div>
+                <div id="mobile-sub-box"></div> 
                 <a href="#contact-section" class="mobile-row" id="mobile-contact-link">聯絡我們</a>
             </div>
         </div>
@@ -97,35 +96,31 @@
     <section class="bg-[#E9E9E9] py-16 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <h4 class="wix-title mb-8">精準檢測 | AI基因分析</h4>
-            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10">
-                根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防
-            </div>
+            <div class="max-w-2xl mx-auto text-gray-500 text-[15px] leading-loose mb-10">根據基因、生活方式、所處環境等進行獨一無二的健康管理<br>全面細緻的健康數據分析、預測和干預<br>實現健康風險的監測、預測和早期預防</div>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <a href="wgs.html" class="border border-gray-300 bg-white rounded-full px-10 py-2 text-gray-400 hover:text-black transition flex items-center">WGS <span class="ml-2">⬇</span></a>
-                <a href="wes.html" class="border border-gray-300 bg-white rounded-full px-10 py-2 text-gray-400 hover:text-black transition flex items-center">WES <span class="ml-2">⬇</span></a>
+                <a href="wgs.html" class="border border-gray-300 bg-white rounded-full px-10 py-2 text-gray-400 hover:text-black transition">WGS ⬇</a>
+                <a href="wes.html" class="border border-gray-300 bg-white rounded-full px-10 py-2 text-gray-400 hover:text-black transition">WES ⬇</a>
             </div>
         </div>
     </section>
 
-    <section class="py-24 text-center">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="wix-title mb-20">獨家技術</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-                <div class="flex flex-col items-center">
-                    <svg class="tech-svg" viewBox="0 0 100 100"><path d="M50 20v60c-16.5 0-30-13.5-30-30s13.5-30 30-30z M50 20c16.5 0 30 13.5 30 30s-13.5 30-30 30z" fill="none" stroke="currentColor" stroke-width="4"/></svg>
-                    <h3 class="text-xl font-bold mb-6">ACMG位點判定AI</h3>
-                    <p class="text-gray-500 text-[15px]">針對台灣人基因研發<br>全自動化平台<br>ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <svg class="tech-svg" viewBox="0 0 100 100"><path d="M50 20c16.5 0 30 13.5 30 30s-13.5 30-30 30s-30-13.5-30-30h30z" fill="none" stroke="currentColor" stroke-width="4"/></svg>
-                    <h3 class="text-xl font-bold mb-6">次世代基因定序</h3>
-                    <p class="text-gray-500 text-[15px]">NGS高速高效技術<br>數十億個DNA片段定序</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <svg class="tech-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="10 5"/></svg>
-                    <h3 class="text-xl font-bold mb-6">台灣人專用PRS</h3>
-                    <p class="text-gray-500 text-[15px]">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人PRS演算法</p>
-                </div>
+    <section class="py-24 text-center max-w-5xl mx-auto px-6">
+        <h2 class="wix-title mb-20">獨家技術</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="flex flex-col items-center">
+                <svg class="tech-svg" viewBox="0 0 100 100"><path d="M50 20v60c-16.5 0-30-13.5-30-30s13.5-30 30-30z M50 20c16.5 0 30 13.5 30 30s-13.5 30-30 30z" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+                <h3 class="text-xl font-bold mb-6">ACMG位點判定AI</h3>
+                <p class="text-gray-500 text-[15px]">針對台灣人基因研發 / 全自動化平台 / ACMG指引<br>16 條致病準則 / 12 條無害性準則</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <svg class="tech-svg" viewBox="0 0 100 100"><path d="M50 20c16.5 0 30 13.5 30 30s-13.5 30-30 30s-30-13.5-30-30h30z" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+                <h3 class="text-xl font-bold mb-6">次世代基因定序</h3>
+                <p class="text-gray-500 text-[15px]">NGS高速高效技術<br>數十億個DNA片段定序</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <svg class="tech-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="10 5"/></svg>
+                <h3 class="text-xl font-bold mb-6">台灣人專用PRS</h3>
+                <p class="text-gray-500 text-[15px]">Multi-ethnic PRS AI<br>細胞系統反應路徑<br>獨步全球的台灣人演算法</p>
             </div>
         </div>
     </section>
@@ -148,28 +143,46 @@
     </section>
 
     <section class="py-24 max-w-5xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start text-center">
-            <div>
-                <div class="text-5xl text-gray-200 mb-4">“</div>
-                <h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5>
-                <p class="text-gray-500 text-[15px] text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因腸道吸收較差，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p>
-            </div>
-            <div>
-                <div class="text-5xl text-gray-200 mb-4">“</div>
-                <h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5>
-                <p class="text-gray-500 text-[15px] text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p>
-            </div>
-            <div>
-                <div class="text-5xl text-gray-200 mb-4">“</div>
-                <h5 class="text-lg font-bold mb-4">陳小姐/醫師</h5>
-                <p class="text-gray-500 text-[15px] text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+            <div><div class="text-5xl text-gray-200 mb-4">“</div><h5 class="text-lg font-bold mb-4">羅小姐/運動選手</h5><p class="text-gray-500 text-[15px] text-justify">配合營養師長期追蹤但始終維他命D不足導致容易骨質酥鬆，在經過基因檢測後發現麩質不耐基因腸道吸收較差，立即改變飲食習慣，一個月後維他命D數據恢復正常人水平。</p></div>
+            <div><div class="text-5xl text-gray-200 mb-4">“</div><h5 class="text-lg font-bold mb-4">蔡小姐/媽媽</h5><p class="text-gray-500 text-[15px] text-justify">我跟先生都很高，但兒子身高始終落後，到國中了也沒有進入發育階段，基因檢測報告顯示為晚發育體質讓我放下了心，讓當時的我沒有亂尋秘方介入生長，再搭配基因檢測報告的先天營養建議，果然兒子在高中時開始發育，長到理想身高。</p></div>
+            <div><div class="text-5xl text-gray-200 mb-4">“</div><h5 class="text-lg font-bold mb-4">陳小姐/醫師</h5><p class="text-gray-500 text-[15px] text-justify">骨質酥鬆的問題在自己身上及家族長輩兄弟都有，基因檢測後發現是ALPL出了問題，馬上讓小孩也一起做基因檢測：果然兩個小孩都有ALPL基因突變，導致鹼性磷酸酶結構異常，骨骼無法礦物質化。報告結果讓我們重新評估醫療保單項目及額度，多一分保險多一分保障。</p></div>
         </div>
     </section>
 
-    <section class="py-12 border-t text-center"><div class="flex flex-wrap justify-center gap-12 opacity-50"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/NTU.jpg" class="h-10"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/CGMH.jpg" class="h-10"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/基米.jpg" class="h-10"></div></section>
-    
-    <footer class="bg-[#F5F5F5] py-4 text-center text-xs tracking-widest border-t">2026 健曜國際</footer>
+    <section id="contact-section" class="py-20 border-t border-gray-100 bg-white max-w-4xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div class="space-y-8">
+                <h2 class="wix-title">聯繫我們</h2>
+                <p class="text-[15px] text-gray-600">新北市林口區仁愛路二段502號<br>02-6604-0580</p>
+                <div class="w-full h-64 rounded-xl overflow-hidden border border-gray-100">
+                    <iframe src="http://googleusercontent.com/maps.google.com/6" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <form id="contact-form" class="space-y-6 pt-4">
+                <input type="text" name="name" placeholder="姓名" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
+                <input type="email" name="email" placeholder="Email *" class="w-full border-b border-gray-300 py-2 text-sm outline-none focus:border-black" required>
+                <textarea name="message" placeholder="留下您的訊息" class="w-full border-b border-gray-300 py-2 text-sm h-24 outline-none focus:border-black" required></textarea>
+                <button type="submit" id="submit-btn" class="w-full bg-gray-500 text-white py-3 hover:bg-black transition text-sm">SEND</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white max-w-5xl mx-auto px-6 border-t border-gray-50">
+        <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-10">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/NTU.jpg" alt="台大醫院" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/CGMH.jpg" alt="長庚醫院" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E4%B8%AD%E5%9C%8B%E9%86%AB.jpg" alt="中國醫" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E4%BA%9E%E6%9D%B1.jpg" alt="亞東醫院" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%8C%97%E6%A6%AE.jpg" alt="台北榮總" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%8C%97%E9%86%AB.png" alt="北醫" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%9C%8B%E9%98%B2.jpg" alt="國防醫學院" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E9%99%BD%E6%98%87.jpg" alt="陽明醫院" class="partner-img">
+            <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/%E5%9F%BA%E7%B1%B3.jpg" alt="基米" class="partner-img">
+        </div>
+    </section>
+
+    <footer class="bg-[#F5F5F5] py-4 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 健曜國際</footer>
 
     <script>
         const hb = document.getElementById('hamburger-btn');
