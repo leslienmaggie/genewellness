@@ -10,12 +10,12 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列基礎 */
+        /* 導覽列連結 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        /* 手機版漢堡選單邏輯 */
+        /* 手機版漢堡選單：iOS 強效隱藏邏輯 */
         @media (max-width: 767px) {
             #nav-menu {
                 display: none;
@@ -30,28 +30,34 @@
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
                 z-index: 9999;
             }
-            /* 強制隱藏與顯示 */
             #nav-menu.show { display: flex !important; }
             .nav-link { width: 100%; padding: 15px 0; text-align: left; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
             
-            /* 手機版子選單：預設強制消失且不佔空間 */
+            /* 【iOS 專用隱藏】確保 iPhone 肉眼看不見也不佔空間 */
             .dropdown-content-mobile { 
-                display: none !important; 
+                max-height: 0;
+                opacity: 0;
+                visibility: hidden;
+                overflow: hidden;
+                transition: all 0.3s ease-in-out;
+                display: flex; 
                 flex-direction: column; 
                 padding-left: 20px; 
                 background: #fafafa; 
             }
-            /* 只有點選 active 後才顯示 */
+            /* 展開狀態 */
             .dropdown.active .dropdown-content-mobile { 
-                display: flex !important; 
+                max-height: 600px;
+                opacity: 1;
+                visibility: visible;
                 padding-bottom: 10px;
             }
-            .dropdown-content-mobile a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; font-size: 14px; }
+            .dropdown-content-mobile a { text-align: left; padding: 12px 0; width: 100%; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
         }
 
-        /* 電腦版下拉選單保持不變 */
+        /* 電腦版下拉選單 */
         @media (min-width: 768px) {
-            .dropdown-content-mobile { display: none !important; }
+            .dropdown-content-mobile { display: none; }
             .dropdown:hover .dropdown-pc { display: block; }
             .dropdown-pc {
                 display: none;
@@ -70,9 +76,13 @@
         .logo-banner { height: 32px; width: auto; }
         @media (min-width: 768px) { .logo-banner { height: 35px; } }
         
-        /* 影像記錄照片網格 */
+        /* 照片區塊樣式 */
         .record-img-container { aspect-ratio: 4 / 3; overflow: hidden; background-color: #fff; border: 1px solid #eee; padding: 4px; border-radius: 2px; }
-        .record-img { width: 100%; height: 100%; object-fit: cover; }
+        .record-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .record-img:hover { transform: scale(1.05); }
+
+        #chat-button { animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        @keyframes bounceIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body class="bg-white">
@@ -121,7 +131,8 @@
                 <img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/Leslie.jpg" alt="Founder" class="w-full h-auto shadow-lg rounded-sm">
                 <p class="mt-3 text-gray-400 text-[10px] tracking-[0.2em] uppercase text-center md:text-left">FOUNDER / DR. LESLIE CHEN</p>
             </div>
-            <div class="md:w-1/2 space-y-8 pt-6 order-2 text-left">
+
+            <div class="md:w-1/2 space-y-8 pt-6 order-2">
                 <div>
                     <p class="text-gray-400 font-light text-sm tracking-widest mb-3">現職：</p>
                     <p class="text-[17px] leading-relaxed text-[#1a1a1a] font-bold">
@@ -140,13 +151,17 @@
                         英國 Sanger 研究院 副科學家
                     </p>
                 </div>
+                <div class="flex space-x-4 justify-center md:justify-start">
+                    <span class="text-xl opacity-80 cursor-pointer">🔗</span>
+                    <span class="text-xl opacity-80 cursor-pointer">📧</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="bg-[#F5F5F5] py-16 border-t border-gray-100">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-xl font-bold mb-8 text-[#1a1a1a] tracking-widest text-left">相關影像記錄</h2>
+            <h2 class="text-xl font-bold mb-8 text-[#1a1a1a] tracking-widest text-center md:text-left">相關影像記錄</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/1%E5%9C%8B%E8%A1%9B%E9%99%A2.jpg" alt="影像" class="record-img"></div>
                 <div class="record-img-container"><img src="https://raw.githubusercontent.com/leslienmaggie/genewellness/main/images/2%E7%99%8C%E7%97%87%E7%B2%BE%E6%BA%96%E9%86%AB%E5%AD%B8.jpg" alt="影像" class="record-img"></div>
@@ -163,33 +178,24 @@
 
     <footer class="bg-[#F5F5F5] py-4 text-center text-xs font-medium border-t">2026 健曜國際</footer>
 
-    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" id="chat-button" class="fixed bottom-6 right-6 bg-[#757575] hover:bg-[#1a1a1a] text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 z-[9999] no-underline">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-        <span class="font-bold tracking-wider text-sm">Let's Chat!</span>
-    </a>
-
     <script>
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const navMenu = document.getElementById('nav-menu');
         const mobileToggle = document.getElementById('mobile-dropdown-toggle');
 
-        // 切換漢堡選單
         hamburgerBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             navMenu.classList.toggle('show');
         });
 
-        // 手機版子選單收合邏輯
         mobileToggle.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
-                // 只有點擊到檢測那一排時才切換
-                if (e.target.closest('.nav-link')) {
-                    this.classList.toggle('active');
-                }
+                // iPhone Safari 專用切換
+                e.preventDefault();
+                this.classList.toggle('active');
             }
         });
 
-        // 點擊外部自動收起漢堡選單
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
                 navMenu.classList.remove('show');
