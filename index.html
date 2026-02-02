@@ -16,7 +16,7 @@
             background-color: #ffffff;
         }
         
-        /* 導覽列連結：同步縮小字體與內距 */
+        /* 導覽列連結 */
         .nav-link {
             padding: 4px 12px;
             font-size: 14px; 
@@ -31,11 +31,11 @@
             font-weight: 500;
         }
 
-        /* 標題與字體比例同步 */
+        /* 標題與字體比例 */
         .wix-title { font-size: 32px; color: #1a1a1a; letter-spacing: 0.1em; line-height: 1.3; font-weight: 700; }
         .wix-subtitle { font-size: 18px; color: #727272; letter-spacing: 0.2em; }
 
-        /* 深灰色矩形按鈕 */
+        /* 深灰色矩形按鈕：設定固定最小寬度與置中 */
         .vision-gray-btn {
             background-color: #7d7d7d; 
             color: white; 
@@ -43,6 +43,8 @@
             border-radius: 8px; 
             display: inline-flex; 
             align-items: center;
+            justify-content: center; /* 文字置中 */
+            min-width: 160px;       /* 設定固定寬度使框框大小一致 */
             font-size: 14px; 
             transition: background 0.3s;
             white-space: nowrap;
@@ -59,11 +61,10 @@
         }
         .wix-btn-circle:hover { border-radius: 12px; background: #fdfdfd; color: #000; border-color: #000; }
 
-        /* 獨家技術圖示 */
+        /* 圖示與弧線 */
         .tech-icon { width: 60px; height: 60px; fill: #757575; margin-bottom: 20px; opacity: 0.8; }
         .quote-icon { font-size: 60px; color: #757575; opacity: 0.4; line-height: 0.5; margin-bottom: 20px; }
 
-        /* 願景區塊背景與弧線轉折 */
         .section-vision-bg {
             background-color: #E9E9E9;
             position: relative;
@@ -83,14 +84,12 @@
             z-index: 1;
         }
 
-        /* Banner Logo */
         .logo-banner {
             height: 35px; 
             width: auto;
             display: block;
         }
 
-        /* 合作夥伴圖片 */
         .partner-img {
             height: 45px;
             width: auto;
@@ -101,7 +100,6 @@
         }
         .partner-img:hover { filter: grayscale(0%); opacity: 1; }
 
-        /* Chat Button 動畫 */
         #chat-button {
             animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
@@ -182,7 +180,8 @@
             <div class="md:w-5/12">
                 <h2 class="wix-title text-left leading-tight">改變台灣的<br>基因體醫學</h2>
             </div>
-            <div class="md:w-7/12 flex flex-col items-end"> <div class="space-y-6 text-gray-700 leading-relaxed text-[16px] text-justify mb-10">
+            <div class="md:w-7/12 flex flex-col items-end">
+                <div class="space-y-6 text-gray-700 leading-relaxed text-[16px] text-justify mb-10">
                     <p>健曜國際有限公司於2018年2月由陳彥瑜博士及幾位致力推廣基因檢測的年輕科學家一同成立。提供學研界的科研生物資訊服務，積極開發“精準健康”服務。</p>
                     <p>專注建立自有基因資料庫與發展大數據分析，是台灣基因檢測結果判讀的領導者，與國內領導地位的基因定序服務公司合作，提供最優質的基因定序檢測報告服務。</p>
                     <p>密切與各醫學中心、高階診所合作，為精準健康與精準醫學領域的“IC設計公司”：提供最高品質的臨床與設計服務。</p>
