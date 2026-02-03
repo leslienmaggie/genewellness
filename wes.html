@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全外顯子疾病風險檢測 WES | 劍橋博士基因檢驗</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; font-size: 17px; }
+        
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
+        .nav-link:hover { color: #000; }
+        .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
+        @media (max-width: 767px) {
+            .pc-nav-only { display: none !important; } 
+            #mobile-nav-panel {
+                display: none; position: absolute; top: 64px; left: 0; width: 100%;
+                background: white; flex-direction: column; padding: 10px 24px;
+                border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999;
+            }
+            #mobile-nav-panel.show { display: flex !important; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
+            #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
+            #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
+            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
+        }
+
+        @media (min-width: 768px) {
+            #hamburger-btn, #mobile-nav-panel { display: none !important; }
+            .dropdown:hover .dropdown-pc { display: block; }
+            .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
+            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
+        }
+
+        .vision-btn { 
+            border: 1px solid #727272; 
+            color: #727272; 
+            padding: 8px 0; 
+            width: 180px; 
+            border-radius: 999px; 
+            font-size: 14px; 
+            font-weight: 500;
+            transition: 0.3s; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+        .vision-btn:hover { background: #727272; color: white; }
+    </style>
+</head>
+<body>
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
+            <a href="index.html"><img src="Banner.png" alt="Logo" class="h-8 md:h-9"></a>
+            <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
+                <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
+            </button>
+            <div class="pc-nav-only flex items-center space-x-1">
+                <a href="index.html" class="nav-link">首頁</a>
+                <a href="company.html" class="nav-link">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
+                <a href="services.html" class="nav-link">商務</a>
+                <div class="dropdown relative">
+                    <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
+                    <div class="dropdown-pc">
+                        <a href="wgs.html">WGS 全基因體檢測</a>
+                        <a href="wes.html" class="font-bold text-black">WES 外顯體基因檢測</a>
+                        <a href="wellnessi.html">wellness-i 基因命盤</a>
+                        <a href="height.html">劍橋博士身高管理</a>
+                        <a href="sleep.html">劍橋博士睡眠追蹤</a>
+                    </div>
+                </div>
+                <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+            </div>
+            <div id="mobile-nav-panel">
+                <a href="index.html" class="mobile-row">首頁</a>
+                <a href="company.html" class="mobile-row">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
+                <a href="services.html" class="mobile-row">商務</a>
+                <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
+                <div id="mobile-sub-box"></div> 
+                <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-16 md:py-24 max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-700 tracking-widest mb-4">全外顯子疾病風險檢測</h1>
+            <p class="text-gray-500 tracking-wide">Whole exome sequencing (WES) disease risk testing</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-20">
+            
+            <div class="flex flex-col items-start">
+                <div class="w-full aspect-[4/3] overflow-hidden rounded-sm mb-8">
+                    <img src="images/surgical.jpg" alt="癌症疾病" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-xl font-bold mb-4">癌症疾病：</h2>
+                <p class="text-[17px] text-gray-600 leading-relaxed font-bold mb-8">
+                   <img src="images/surgical.jpg" alt="心血管疾病" class="w-full h-full object-cover">
+                    檢測男性180種、女性194種癌症和其他與腫瘤相關的疾病，共334個相關基因。
+                </p>
+                <a href="#" class="vision-btn text-xs">檢測項目/檢測基因 <span class="ml-2">⬇</span></a>
+            </div>
+
+            <div class="flex flex-col items-start">
+                <div class="w-full aspect-[4/3] overflow-hidden rounded-sm mb-8">
+                    <img src="images/heart.jpg" alt="心血管疾病" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-xl font-bold mb-4">心血管疾病：</h2>
+                <p class="text-[17px] text-gray-600 leading-relaxed font-bold mb-8">
+                    檢測16種先天性心臟缺陷、心肌病變和心律不整共115個相關基因。
+                </p>
+                <a href="#" class="vision-btn text-xs">檢測項目/檢測基因 <span class="ml-2">⬇</span></a>
+            </div>
+
+            <div class="flex flex-col items-start">
+                <div class="w-full aspect-[4/3] overflow-hidden rounded-sm mb-8">
+                    <img src="images/alzheimer.png" alt="神經退化疾病" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-xl font-bold mb-4">神經退化疾病：</h2>
+                <p class="text-[17px] text-gray-600 leading-relaxed font-bold mb-8">
+                    檢測一般失智症、路易氏體失智症、早發性阿茲海默症、晚發性阿茲海默症與帕金森氏症等疾病共72個相關基因。
+                </p>
+                <a href="#" class="vision-btn text-xs">檢測項目/檢測基因 <span class="ml-2">⬇</span></a>
+            </div>
+
+            <div class="flex flex-col items-start">
+                <div class="w-full aspect-[4/3] overflow-hidden rounded-sm mb-8">
+                    <img src="images/diabetes.png" alt="代謝疾病" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-xl font-bold mb-4">代謝疾病：</h2>
+                <p class="text-[17px] text-gray-600 leading-relaxed font-bold mb-8">
+                    檢測原發性高血壓、動脈粥狀硬化、中風、遺傳性腦血管病變、第二型糖尿病、肥胖與痛風等共94個基因。
+                </p>
+                <a href="#" class="vision-btn text-xs">檢測項目/檢測基因 <span class="ml-2">⬇</span></a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 GeneWellness International 健曜國際</footer>
+
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
+    </a>
+
+    <script>
+        const hb = document.getElementById('hamburger-btn');
+        const menu = document.getElementById('mobile-nav-panel');
+        const trigger = document.getElementById('mobile-sub-trigger');
+        const subBox = document.getElementById('mobile-sub-box');
+        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="wellnessi.html" class="sub-item">wellness-i 基因命盤</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
+        hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
+        trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml; subBox.classList.toggle('active'); };
+        document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
+    </script>
+</body>
+</html>
