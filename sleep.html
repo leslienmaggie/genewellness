@@ -5,53 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>身高管理系統 | 劍橋博士基因檢驗</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列樣式 */
-        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
         @media (max-width: 767px) {
-            .pc-nav-only { display: none !important; } 
             #mobile-nav-panel {
                 display: none; position: absolute; top: 64px; left: 0; width: 100%;
                 background: white; flex-direction: column; padding: 10px 24px;
                 border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999;
             }
             #mobile-nav-panel.show { display: flex !important; }
-            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
             #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
             #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
-            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
+            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; text-decoration: none; }
         }
 
         @media (min-width: 768px) {
             #hamburger-btn, #mobile-nav-panel { display: none !important; }
             .dropdown:hover .dropdown-pc { display: block; }
             .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
-            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
-            /* 電幕版強制隱藏管理按鈕 */
+            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; text-decoration: none; }
+            .dropdown-pc a:hover { background: #f5f5f5; color: #000; }
             .mobile-admin-only { display: none !important; }
         }
 
-        .iframe-container { width: 100%; height: calc(100vh - 120px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
-        
-        /* 隱形入口：顏色極淡，避免引起使用者注意 */
+        .iframe-container { width: 100%; height: calc(100vh - 160px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
         .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
+        .logo-banner { height: 32px; width: auto; }
+        @media (min-width: 768px) { .logo-banner { height: 35px; } }
     </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
         <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
-            <a href="index.html"><img src="Banner.png" alt="Logo" class="h-8 md:h-9"></a>
+            <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
+
             <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
-                <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
             </button>
-            <div class="pc-nav-only flex items-center space-x-1">
+
+            <div class="hidden md:flex items-center space-x-1">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="company.html" class="nav-link">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
@@ -61,12 +64,16 @@
                     <div class="dropdown-pc">
                         <a href="wgs.html">WGS 全基因體檢測</a>
                         <a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="height.html" class="font-bold text-black">劍橋博士身高管理</a>
-                        <a href="sleep.html">劍橋博士睡眠追蹤</a>
+                        <a href="height.html" class="font-bold text-black">身高管理系統</a>
+                        <a href="sleep.html">睡眠追蹤</a>
                     </div>
                 </div>
                 <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+                <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">
+                    立即訂購
+                </a>
             </div>
+
             <div id="mobile-nav-panel">
                 <a href="index.html" class="mobile-row">首頁</a>
                 <a href="company.html" class="mobile-row">關於</a>
@@ -75,13 +82,16 @@
                 <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
                 <div id="mobile-sub-box"></div> 
                 <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+                <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-2 flex justify-between items-center no-underline">
+                    立即訂購 <i class="fa-solid fa-cart-shopping"></i>
+                </a>
             </div>
         </div>
     </nav>
 
-    <main class="bg-white py-4">
+    <main class="bg-gray-50 py-6 flex-grow">
         <div class="max-w-5xl mx-auto px-4 md:px-6">
-            <div class="system-container bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100">
+            <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200">
                 <iframe 
                     src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
                     class="iframe-container"
@@ -91,20 +101,20 @@
             </div>
 
             <div class="mobile-admin-only flex justify-center mt-6">
-                <a href="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec?authuser=0" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="secret-link">
+                <a href="https://script.google.com/macros/s/AKfycbwZxT-80P2ajosppZbacMkjGB8T1OwyRPPZHmGPVMLq3iZdakRUXO2I9nn0deoG-syn/exec?authuser=0" 
+                   target="_blank" rel="noopener noreferrer" class="secret-link">
                     Node: 2026-v4-auth
                 </a>
             </div>
         </div>
     </main>
 
-    <footer class="bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium">2026 GeneWellness International 健曜國際</footer>
+    <footer class="bg-[#F5F5F5] py-8 border-t border-gray-200 text-center text-xs tracking-widest font-medium text-gray-500">
+        2026 GeneWellness International 健曜國際
+    </footer>
 
     <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" width="20" height="20"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
         <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
     </a>
 
@@ -113,14 +123,19 @@
         const menu = document.getElementById('mobile-nav-panel');
         const trigger = document.getElementById('mobile-sub-trigger');
         const subBox = document.getElementById('mobile-sub-box');
+
         const subHtml = `
             <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
             <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
-            <a href="height.html" class="sub-item" style="font-weight:700; color:#1a1a1a;">劍橋博士身高管理</a>
-            <a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>
+            <a href="height.html" class="sub-item" style="font-weight:700; color:#1a1a1a;">身高管理系統</a>
+            <a href="sleep.html" class="sub-item">睡眠追蹤</a>
         `;
+
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
-        trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml; subBox.classList.toggle('active'); };
+        trigger.onclick = (e) => { 
+            if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; }
+            subBox.classList.toggle('active'); 
+        };
         document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
     </script>
 </body>
