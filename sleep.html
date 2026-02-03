@@ -38,7 +38,7 @@
             .mobile-admin-only { display: none !important; }
         }
 
-        .iframe-container { width: 100%; height: calc(100vh - 120px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
+        .iframe-container { width: 100%; height: 500px; border: none; -webkit-overflow-scrolling: touch; }
         
         /* 隱形入口：極淡色避免干擾使用者 */
         .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
@@ -79,15 +79,17 @@
         </div>
     </nav>
 
-    <main class="bg-white py-4">
-        <div class="max-w-5xl mx-auto px-4 md:px-6">
-            <div class="system-container bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100">
-                <iframe 
-                    src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
-                    class="iframe-container"
-                    sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
-                    allow="geolocation; microphone; camera; encrypted-media;"
-                ></iframe>
+    <main class="bg-gray-50 py-12 min-h-[calc(100vh-130px)]">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white p-6 md:p-10 rounded-[2rem] shadow-sm border border-gray-100">
+                <div class="bg-[#FFF8EE] rounded-2xl border border-orange-100 p-2 overflow-hidden">
+                    <iframe 
+                        src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
+                        class="iframe-container"
+                        sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
+                        allow="geolocation; microphone; camera; encrypted-media;"
+                    ></iframe>
+                </div>
             </div>
 
             <div class="mobile-admin-only flex justify-center mt-6">
