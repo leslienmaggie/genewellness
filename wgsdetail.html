@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WGS 兒童成長檢測詳情 | 劍橋博士基因檢驗</title>
+    <title>檢測疾病項目詳情 | 劍橋博士基因檢驗</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -11,34 +11,32 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
         @media (max-width: 767px) {
-            .pc-menu { display: none !important; }
             #mobile-nav-panel {
                 display: none; position: absolute; top: 64px; left: 0; width: 100%;
                 background: white; flex-direction: column; padding: 10px 24px;
                 border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999;
             }
             #mobile-nav-panel.show { display: flex !important; }
-            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
             #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
             #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
-            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
+            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; text-decoration: none; }
         }
 
         @media (min-width: 768px) {
             #hamburger-btn, #mobile-nav-panel { display: none !important; }
-            .pc-menu { display: flex !important; }
             .dropdown:hover .dropdown-pc { display: block; }
             .dropdown-pc {
                 display: none; position: absolute; background: white;
                 min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
                 z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0;
             }
-            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
+            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; text-decoration: none; }
             .dropdown-pc a:hover { background: #f5f5f5; color: #000; }
         }
 
@@ -46,14 +44,18 @@
         @media (min-width: 768px) { .logo-banner { height: 35px; } }
     </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
         <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
             <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
+
             <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
-                <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
             </button>
-            <div class="pc-menu items-center space-x-1">
+
+            <div class="hidden md:flex items-center space-x-1">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="company.html" class="nav-link">關於</a>
                 <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
@@ -63,12 +65,16 @@
                     <div class="dropdown-pc">
                         <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a>
                         <a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="height.html">劍橋博士身高管理</a>
-                        <a href="sleep.html">劍橋博士睡眠追蹤</a>
+                        <a href="height.html">身高管理</a>
+                        <a href="sleep.html">睡眠追蹤</a>
                     </div>
                 </div>
                 <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+                <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">
+                    立即訂購
+                </a>
             </div>
+
             <div id="mobile-nav-panel">
                 <a href="index.html" class="mobile-row">首頁</a>
                 <a href="company.html" class="mobile-row">關於</a>
@@ -77,39 +83,98 @@
                 <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
                 <div id="mobile-sub-box"></div> 
                 <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+                <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-2 flex justify-between items-center no-underline">
+                    立即訂購 <i class="fa-solid fa-cart-shopping"></i>
+                </a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <h1 class="text-3xl md:text-4xl font-light text-gray-500 tracking-[0.2em] mb-12 text-center">檢測疾病項目</h1>
+    <main class="flex-grow py-16 md:py-24 max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-700 tracking-widest mb-4">檢測疾病項目</h1>
+            <p class="text-gray-400 text-sm tracking-[0.2em] uppercase">Detailed Disease Panels (6000+ Items)</p>
+        </div>
         
-        <div class="space-y-2 text-[#1a1a1a] text-[16px] leading-[1.8] max-w-2xl mx-auto text-left px-4">
-            <div class="space-y-4 text-[#1a1a1a] text-[16px] leading-[1.6] max-w-2xl mx-auto text-left px-4">
-    <p>1. 腫瘤相關疾病：癌症和其他與腫瘤相關的疾病（例如乳癌、胰臟癌、急性骨髓性白血病）</p>
-    <p>2. 心血管疾病：包括先天性心臟缺陷、動脈瘤和心律不整（例如房間隔缺損、主動脈瓣疾病）</p>
-    <p>3. 神經系統疾病：與中樞和外周神經系統相關的疾病，包括神經發育障礙、共濟失調、神經病變和神經退行性疾病（例如毛細血管擴張性共濟失調、肌萎縮側索硬化症）</p>
-    <p>4. 代謝疾病：此類包括各種酶缺乏症和代謝綜合症（例如2-氨基己二酸、3-甲基谷氨酸尿症）</p>
-    <p>5. 遺傳疾病和綜合症：包括各種染色體缺失、微缺失綜合症以及其他與特定染色體異常相關的遺傳綜合症</p>
-    <p>6. 發育和先天性疾病：影響發育的一系列疾病，如骨骼、肌肉和器官的結構異常（例如軟骨發育不全）</p>
-    <p>7. 內分泌疾病：影響激素生成或腺體功能的疾病（例如腎上腺或甲狀腺激素的缺乏症）</p>
-    <p>8. 肌肉骨骼疾病：涉及骨骼、肌肉和結締組織的疾病（例如多發性關節攣縮症）</p>
-    <p>9. 免疫系統疾病：包括自身免疫疾病、免疫缺陷和過敏性疾病</p>
-    <p>10. 皮膚病：主要影響皮膚及其附屬物的疾病（例如脫髮、家族性逆位性青春痘）</p>
-    <p>11. 呼吸系統疾病：包括肺部和呼吸系統的疾病（例如急性呼吸衰竭、哮喘）</p>
-    <p>12. 眼科疾病：影響眼睛和視力的疾病（例如色盲、青光眼、黃斑部病變）</p>
-    <p>13. 胃腸道疾病：包括影響消化系統、肝臟和胰臟的疾病（例如腹痛、酸性鞘鄰脂酶缺乏症）</p>
-    <p>14. 血液疾病：影響血液和造血組織的疾病（例如貧血、先天性纖維蛋白原缺乏症）</p>
-</div>
+        <div class="grid gap-6">
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">1. 腫瘤相關疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">癌症和其他與腫瘤相關的疾病（例如：乳癌、胰臟癌、急性骨髓性白血病）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">2. 心血管疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">包括先天性心臟缺陷、動脈瘤和心律不整（例如：房間隔缺損、主動脈瓣疾病）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">3. 神經系統疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">中樞和外周神經相關，包括神經發育障礙、共濟失調、神經病變和退行性疾病（例如：肌萎縮側索硬化症）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">4. 代謝疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">包括各種酶缺乏症和代謝綜合症（例如：2-氨基己二酸、3-甲基谷氨酸尿症）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">5. 遺傳疾病和綜合症</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">包括各種染色體缺失、微缺失綜合症以及其他特定染色體異常相關的遺傳綜合症。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">6. 發育和先天性疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">影響發育的疾病，如骨骼、肌肉和器官結構異常（例如：軟骨發育不全）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">7. 內分泌疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">影響激素生成或腺體功能的疾病（例如：腎上腺或甲狀腺激素缺乏症）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">8. 肌肉骨骼疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">涉及骨骼、肌肉和結締組織的疾病（例如：多發性關節攣縮症）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">9. 免疫系統疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">包括自身免疫疾病、免疫缺陷和過敏性疾病。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">10. 皮膚病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">主要影響皮膚及其附屬物的疾病（例如：脫髮、家族性逆位性青春痘）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">11. 呼吸系統疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">包括肺部和呼吸系統的疾病（例如：急性呼吸衰竭、哮喘）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">12. 眼科疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">影響眼睛和視力的疾病（例如：色盲、青光眼、黃斑部病變）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">13. 胃腸道疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">影響消化系統、肝臟和胰臟的疾病（例如：酸性鞘鄰脂酶缺乏症）。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2 text-gray-800">14. 血液疾病</h3>
+                <p class="text-gray-600 text-[15px] leading-relaxed">影響血液和造血組織的疾病（例如：貧血、先天性纖維蛋白原缺乏症）。</p>
+            </div>
         </div>
     </main>
-          
+
     <footer class="bg-[#F5F5F5] py-10 border-t border-gray-200 text-center">
-        <p class="text-xs tracking-widest font-medium text-gray-400">2026 GeneWellness International 健曜國際</p>
+        <p class="text-xs tracking-widest font-medium text-gray-500">2026 GeneWellness International 健曜國際</p>
     </footer>
 
     <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" width="20" height="20"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
         <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
     </a>
 
@@ -118,9 +183,19 @@
         const menu = document.getElementById('mobile-nav-panel');
         const trigger = document.getElementById('mobile-sub-trigger');
         const subBox = document.getElementById('mobile-sub-box');
-        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
+
+        const subHtml = `
+            <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
+            <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
+            <a href="height.html">身高管理</a>
+            <a href="sleep.html">睡眠追蹤</a>
+        `;
+
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
-        trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; } subBox.classList.toggle('active'); };
+        trigger.onclick = (e) => { 
+            if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; }
+            subBox.classList.toggle('active'); 
+        };
         document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
     </script>
 </body>
