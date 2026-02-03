@@ -42,6 +42,16 @@
             .dropdown-pc a:hover { background: #f5f5f5; color: #000; }
         }
 
+        .social-btn {
+            width: 36px; height: 36px; 
+            border: 1px solid #e5e7eb; 
+            border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; 
+            color: #727272; transition: all 0.3s;
+            text-decoration: none;
+        }
+        .social-btn:hover { border-color: #000; color: #000; background-color: #f9f9f9; }
+
         .logo-banner { height: 32px; width: auto; }
         @media (min-width: 768px) { .logo-banner { height: 35px; } }
     </style>
@@ -50,9 +60,11 @@
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
         <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
             <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
+
             <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
                 <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
             </button>
+
             <div class="pc-menu items-center space-x-1">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="company.html" class="nav-link">關於</a>
@@ -69,6 +81,7 @@
                 </div>
                 <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
             </div>
+
             <div id="mobile-nav-panel">
                 <a href="index.html" class="mobile-row">首頁</a>
                 <a href="company.html" class="mobile-row">關於</a>
@@ -81,12 +94,13 @@
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <h1 class="text-3xl md:text-4xl font-light text-gray-500 tracking-[0.2em] mb-12 text-center">癌症與腫瘤檢測</h1>
-        
-        <div class="space-y-2 text-[#1a1a1a] text-[16px] leading-[1.8] max-w-2xl mx-auto text-left px-4">
-            <div class="space-y-4 text-[#1a1a1a] text-[16px] leading-[1.6] max-w-2xl mx-auto text-left px-4">
-    <p>腦：血管中心型膠質瘤/膠質母細胞瘤/膠質瘤/腦膜血管外皮細胞瘤/腦膜瘤/寡樹突膠質細胞瘤/兒童膠質母細胞瘤/腦下垂體腺瘤/腦下垂體母細胞瘤/單發型髓母細胞
+    <section class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-6">
+            
+                <div>
+                    <h2 class="text-gray-400 text-sm tracking-widest uppercase mb-6">癌症與腫瘤檢測：</h2>
+                    <p class="text-[#1a1a1a] text-[15px] leading-[2.2] tracking-wider text-justify md:text-center px-4">
+                    <p>腦：血管中心型膠質瘤/膠質母細胞瘤/膠質瘤/腦膜血管外皮細胞瘤/腦膜瘤/寡樹突膠質細胞瘤/兒童膠質母細胞瘤/腦下垂體腺瘤/腦下垂體母細胞瘤/單發型髓母細胞
 <p>眼：視網膜母細胞瘤/葡萄膜黑色素瘤</p>
 <p>口：口腔鱗狀細胞癌/口咽癌/多形性唾液腺瘤</p>
 <p>頭頸：頭頸癌/頭頸部鱗狀細胞癌</p>
@@ -128,20 +142,21 @@
 
 <p>子宮(女性)：子宮內膜癌/子宮癌惡性肉瘤/子宮平滑肌瘤</p>
 <p>卵巢(女性)：卵巢透明細胞癌/上皮性卵巢癌/卵巢顆粒細胞瘤/卵巢癌/高血鈣型卵巢小細胞癌/漿液型卵巢癌/卵巢性腺間質腫瘤</p>
-<p>乳房(女性)：乳癌/乳房葉狀肉瘤/乳房纖維腺瘤/乳葉癌/管狀A型乳癌/分泌型乳癌</p>
-
- <div>
-                    <h2 class="text-gray-400 text-sm tracking-widest uppercase mb-6">檢測基因</h2>
-                    <p class="text-[#727272] text-[13px] leading-[1.8] tracking-normal text-justify px-4 font-light">ACVR2A, ALK, AMER1, APC, APOBEC3B, ARHGAP26, ARHGAP35, ARHGEF10, ARHGEF10L, ARHGEF12, ARID1A, ARID1B, ARID2, ARNT, ASXL1, ASXL2, ATM, ATP1A1, ATP2B3, ATR, ATRX, AXIN1, AXIN2, B2M, BAP1, BARD1, BAX, BAZ1A, BCL10, BCL11B, BCL9L, BCOR, BCORL1, BIRC3, BLM, BMPR1A, BRCA1, BRCA2, BRIP1, BTG1, BTG2, BTK, BUB1B, CAMTA1, CARS, CASP3, CASP8, CASP9, CBFA2T3, CBFB, CBL, CBLB, CBLC, CCDC6, CCNB1IP1, CCNC, CD274, CDC73, CDH1, CDH10, CDH11, CDK12, CDK4, CDKN1A, CDKN1B, CDKN2A, CDKN2C, CDX2, CEBPA, CHD2, CHEK2, CIC, CIITA, CLTC, CLTCL1, CNBP, CNOT3, CNTNAP2, CPEB3, CREB3L1, CREBBP, CSMD3, CTCF, CUL3, CUX1, CYLD, DAXX, DDB2, DDX10, DDX3X, DICER1, DNM2, DNMT3A, DROSHA, EBF1, EED, EGFR, EIF3E, ELF3, ELF4, ELL, EP300, EPAS1, EPS15, ERBB4, ERCC2, ERCC3, ERCC4, ERCC5, ESR1, ETNK1, ETV6, EXT1, EXT2, EZH2, FADD, FANCA, FANCC, FANCD2, FANCE, FANCF, FANCG, FAS, FAT1, FAT4, FBLN2, FBXO11, FBXW7, FEN1, FES, FH, FHIT, FLCN, FOXL2, FOXO1, FOXO3, FOXO4, FUS, GATA1, GATA3, GPC3, GPC5, GRIN2A, HNF1A, HOXA11, HOXA9, HRAS, ID3, IGF2BP2, IKZF1, IKZF3, IRF4, IRS4, JAK1, KAT6B, KDM5C, KDM6A, KDR, KEAP1, KIT, KLF4, KLF6, KMT2C, KMT2D, KNL1, LARP4B, LATS1, LATS2, LEF1, LEPROTL1, LMO1, LRIG3, LRP1B, LZTR1, MALAT1, MAP2K4, MAP3K1, MAP3K13, MAX, MED12, MEN1, MET, MGMT, MLF1, MLH1, MPL, MRTFA, MSH2, MSH6, MUTYH, MYH9, N4BP2, NAB2, NBN, NCOA4, NCOR1, NCOR2, NDRG1, NF1, NF2, NFE2L2, NFKB2, NFKBIE, NKX2-1, NOTCH1, NOTCH2, NRG1, NTHL1, NTRK1, PABPC1, PALB2, PATZ1, PAX5, PBRM1, PDGFRA, PER1, PHF6, PHOX2B, PIK3R1, PML, PMS1, PMS2, POLD1, POLE, POLG, POLQ, POT1, PPARG, PPP2R1A, PPP6C, PRDM1, PRDM2, PRF1, PRKAR1A, PTCH1, PTEN, PTK6, PTPN13, PTPN6, PTPRB, PTPRC, PTPRD, PTPRK, PTPRT, QKI, RAD17, RAD21, RAD51B, RANBP2, RB1, RBM10, RECQL4, RET, RFWD3, RHOA, RHOH, RMI2, RNF43, ROBO2, RPL10, RPL22, RPL5, RSPO2, RUNX1, RUNX1T1, SBDS, SDHA, SDHAF2, SDHB, SDHC, SDHD, SETBP1, SETD1B, SETD2, SFPQ, SFRP4, SH2B3, SIRPA, SLC34A2, SMAD2, SMAD3, SMAD4, SMARCA4, SMARCB1, SMARCD1, SMARCE1, SMC1A, SOCS1, SOX21, SPEN, SPOP, STAG1, STAG2, STAT3, STAT5B, STK11, SUFU, SUZ12, TBL1XR1, TBX3, TCF3, TENT5C, TERT, TET1, TET2, TGFBR2, TMEM127, TNFAIP3, TNFRSF14, TP53, TP63, TPM3, TRAF7, TRIM24, TRIM33, TSC1, TSC2, TSHR, USP44, VHL, WAS, WIF1, WNK2, WRN, WT1, XPA, XPC, YWHAE, ZBTB16, ZFHX3, ZMYM3, ZNF331, ZNRF3, ZRSR2</p>
+<p>乳房(女性)：乳癌/乳房葉狀肉瘤/乳房纖維腺瘤/乳葉癌/管狀A型乳癌/分泌型乳癌</p></p>
                 </div>
 
-                
-</div>
+                <div>
+                    <h2 class="text-gray-400 text-sm tracking-widest uppercase mb-6">檢測基因</h2>
+                    <p class="text-[#727272] text-[13px] leading-[1.8] tracking-normal text-justify px-4 font-light">
+                                            ACVR2A, ALK, AMER1, APC, APOBEC3B, ARHGAP26, ARHGAP35, ARHGEF10, ARHGEF10L, ARHGEF12, ARID1A, ARID1B, ARID2, ARNT, ASXL1, ASXL2, ATM, ATP1A1, ATP2B3, ATR, ATRX, AXIN1, AXIN2, B2M, BAP1, BARD1, BAX, BAZ1A, BCL10, BCL11B, BCL9L, BCOR, BCORL1, BIRC3, BLM, BMPR1A, BRCA1, BRCA2, BRIP1, BTG1, BTG2, BTK, BUB1B, CAMTA1, CARS, CASP3, CASP8, CASP9, CBFA2T3, CBFB, CBL, CBLB, CBLC, CCDC6, CCNB1IP1, CCNC, CD274, CDC73, CDH1, CDH10, CDH11, CDK12, CDK4, CDKN1A, CDKN1B, CDKN2A, CDKN2C, CDX2, CEBPA, CHD2, CHEK2, CIC, CIITA, CLTC, CLTCL1, CNBP, CNOT3, CNTNAP2, CPEB3, CREB3L1, CREBBP, CSMD3, CTCF, CUL3, CUX1, CYLD, DAXX, DDB2, DDX10, DDX3X, DICER1, DNM2, DNMT3A, DROSHA, EBF1, EED, EGFR, EIF3E, ELF3, ELF4, ELL, EP300, EPAS1, EPS15, ERBB4, ERCC2, ERCC3, ERCC4, ERCC5, ESR1, ETNK1, ETV6, EXT1, EXT2, EZH2, FADD, FANCA, FANCC, FANCD2, FANCE, FANCF, FANCG, FAS, FAT1, FAT4, FBLN2, FBXO11, FBXW7, FEN1, FES, FH, FHIT, FLCN, FOXL2, FOXO1, FOXO3, FOXO4, FUS, GATA1, GATA3, GPC3, GPC5, GRIN2A, HNF1A, HOXA11, HOXA9, HRAS, ID3, IGF2BP2, IKZF1, IKZF3, IRF4, IRS4, JAK1, KAT6B, KDM5C, KDM6A, KDR, KEAP1, KIT, KLF4, KLF6, KMT2C, KMT2D, KNL1, LARP4B, LATS1, LATS2, LEF1, LEPROTL1, LMO1, LRIG3, LRP1B, LZTR1, MALAT1, MAP2K4, MAP3K1, MAP3K13, MAX, MED12, MEN1, MET, MGMT, MLF1, MLH1, MPL, MRTFA, MSH2, MSH6, MUTYH, MYH9, N4BP2, NAB2, NBN, NCOA4, NCOR1, NCOR2, NDRG1, NF1, NF2, NFE2L2, NFKB2, NFKBIE, NKX2-1, NOTCH1, NOTCH2, NRG1, NTHL1, NTRK1, PABPC1, PALB2, PATZ1, PAX5, PBRM1, PDGFRA, PER1, PHF6, PHOX2B, PIK3R1, PML, PMS1, PMS2, POLD1, POLE, POLG, POLQ, POT1, PPARG, PPP2R1A, PPP6C, PRDM1, PRDM2, PRF1, PRKAR1A, PTCH1, PTEN, PTK6, PTPN13, PTPN6, PTPRB, PTPRC, PTPRD, PTPRK, PTPRT, QKI, RAD17, RAD21, RAD51B, RANBP2, RB1, RBM10, RECQL4, RET, RFWD3, RHOA, RHOH, RMI2, RNF43, ROBO2, RPL10, RPL22, RPL5, RSPO2, RUNX1, RUNX1T1, SBDS, SDHA, SDHAF2, SDHB, SDHC, SDHD, SETBP1, SETD1B, SETD2, SFPQ, SFRP4, SH2B3, SIRPA, SLC34A2, SMAD2, SMAD3, SMAD4, SMARCA4, SMARCB1, SMARCD1, SMARCE1, SMC1A, SOCS1, SOX21, SPEN, SPOP, STAG1, STAG2, STAT3, STAT5B, STK11, SUFU, SUZ12, TBL1XR1, TBX3, TCF3, TENT5C, TERT, TET1, TET2, TGFBR2, TMEM127, TNFAIP3, TNFRSF14, TP53, TP63, TPM3, TRAF7, TRIM24, TRIM33, TSC1, TSC2, TSHR, USP44, VHL, WAS, WIF1, WNK2, WRN, WT1, XPA, XPC, YWHAE, ZBTB16, ZFHX3, ZMYM3, ZNF331, ZNRF3, ZRSR2</p>
+</p>
+                </div>
+            </div>
         </div>
-    </main>
-          
-    <footer class="bg-[#F5F5F5] py-10 border-t border-gray-200 text-center">
-        <p class="text-xs tracking-widest font-medium text-gray-400">2026 GeneWellness International 健曜國際</p>
+    </section>
+
+       <footer class="bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium text-gray-500">2026 GeneWellness International 健曜國際</footer>
+
     </footer>
 
     <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
@@ -154,9 +169,19 @@
         const menu = document.getElementById('mobile-nav-panel');
         const trigger = document.getElementById('mobile-sub-trigger');
         const subBox = document.getElementById('mobile-sub-box');
-        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
+
+        const subHtml = `
+            <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
+            <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
+            <a href="height.html" class="sub-item">劍橋博士身高管理</a>
+            <a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>
+        `;
+
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
-        trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; } subBox.classList.toggle('active'); };
+        trigger.onclick = (e) => { 
+            if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; }
+            subBox.classList.toggle('active'); 
+        };
         document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
     </script>
 </body>
