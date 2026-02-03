@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WGS 兒童成長檢測詳情 | 劍橋博士基因檢驗</title>
+    <title>代謝疾病檢測詳情 | 劍橋博士基因檢驗</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -11,165 +11,115 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
         @media (max-width: 767px) {
-            .pc-menu { display: none !important; }
             #mobile-nav-panel {
                 display: none; position: absolute; top: 64px; left: 0; width: 100%;
                 background: white; flex-direction: column; padding: 10px 24px;
                 border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999;
             }
             #mobile-nav-panel.show { display: flex !important; }
-            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
             #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
             #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
-            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
+            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; text-decoration: none; }
         }
 
         @media (min-width: 768px) {
             #hamburger-btn, #mobile-nav-panel { display: none !important; }
-            .pc-menu { display: flex !important; }
             .dropdown:hover .dropdown-pc { display: block; }
             .dropdown-pc {
                 display: none; position: absolute; background: white;
                 min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
                 z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0;
             }
-            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
+            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; text-decoration: none; }
             .dropdown-pc a:hover { background: #f5f5f5; color: #000; }
         }
-
-        .social-btn {
-            width: 36px; height: 36px; 
-            border: 1px solid #e5e7eb; 
-            border-radius: 50%; 
-            display: flex; justify-content: center; align-items: center; 
-            color: #727272; transition: all 0.3s;
-            text-decoration: none;
-        }
-        .social-btn:hover { border-color: #000; color: #000; background-color: #f9f9f9; }
 
         .logo-banner { height: 32px; width: auto; }
         @media (min-width: 768px) { .logo-banner { height: 35px; } }
     </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
         <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
             <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
 
             <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
-                <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
+                <span class="w-6 h-0.5 bg-gray-600"></span>
             </button>
 
-<nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
-    <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
-        <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
-
-        <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
-            <span class="w-6 h-0.5 bg-gray-600"></span>
-            <span class="w-6 h-0.5 bg-gray-600"></span>
-            <span class="w-6 h-0.5 bg-gray-600"></span>
-        </button>
-
-       <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
-    <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
-        <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
-
-        <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
-            <span class="w-6 h-0.5 bg-gray-600"></span>
-            <span class="w-6 h-0.5 bg-gray-600"></span>
-            <span class="w-6 h-0.5 bg-gray-600"></span>
-        </button>
-
-        <div class="pc-menu items-center space-x-1">
-            <a href="index.html" class="nav-link">首頁</a>
-            <a href="company.html" class="nav-link">關於</a>
-            <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
-            <a href="services.html" class="nav-link">商務</a>
-            <div class="dropdown relative">
-                <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
-                <div class="dropdown-pc">
-                    <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a>
-                    <a href="wes.html">WES 外顯體基因檢測</a>
-                    <a href="height.html">劍橋博士身高管理</a>
-                    <a href="sleep.html">劍橋博士睡眠追蹤</a>
+            <div class="hidden md:flex items-center space-x-1">
+                <a href="index.html" class="nav-link">首頁</a>
+                <a href="company.html" class="nav-link">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
+                <a href="services.html" class="nav-link">商務</a>
+                <div class="dropdown relative">
+                    <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
+                    <div class="dropdown-pc">
+                        <a href="wgs.html">WGS 全基因體檢測</a>
+                        <a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="height.html">身高管理</a>
+                        <a href="sleep.html">睡眠追蹤</a>
+                    </div>
                 </div>
-            </div>
-            <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
-            
-            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">
-                立即訂購
-            </a>
-        </div>
-
-        <div id="mobile-nav-panel">
-            <a href="index.html" class="mobile-row">首頁</a>
-            <a href="company.html" class="mobile-row">關於</a>
-            <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
-            <a href="services.html" class="mobile-row">商務</a>
-            <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
-            <div id="mobile-sub-box"></div> 
-            <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
-            
-            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-2 flex justify-between items-center no-underline">
-                立即訂購 <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-        </div>
-    </div>
-</nav>
-    
-    
-</div>
+                <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+                <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">
+                    立即訂購
+                </a>
             </div>
 
-    <div id="mobile-nav-panel">
-     <a href="index.html" class="mobile-row">首頁</a>
-     <a href="company.html" class="mobile-row">關於</a>
-     <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
-     <a href="services.html" class="mobile-row">商務</a>
-     <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
-     <div id="mobile-sub-box"></div> 
-     <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-2">
-        立即訂購 <i class="fa-solid fa-cart-shopping ml-2"></i>
-    <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
-    
-    
-    </a>
-</div>
+            <div id="mobile-nav-panel">
+                <a href="index.html" class="mobile-row">首頁</a>
+                <a href="company.html" class="mobile-row">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
+                <a href="services.html" class="mobile-row">商務</a>
+                <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
+                <div id="mobile-sub-box"></div> 
+                <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+                <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-2 flex justify-between items-center no-underline">
+                    立即訂購 <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
         </div>
     </nav>
 
-    <section class="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <div class="text-center mb-6">
-            
-                <div class="flex flex-col items-center"> 
-    <h2 class="text-gray-400 text-sm tracking-widest uppercase mb-6 text-center">代謝檢測疾病：</h2>
-    
-    <p class="text-[#1a1a1a] text-[15px] leading-[2.2] tracking-wider text-center px-4">
-        原發性高血壓 / 動脈粥狀硬化 / 中風 / 遺傳性腦血管病變 / 第二型糖尿病 / 肥胖 / 痛風
-    </p>
-</div>
-<br/><br/><br/>
-                <div>
-                    <h2 class="text-gray-400 text-sm tracking-widest uppercase mb-12">檢測基因</h2>
-                    <p class="text-[#727272] text-[13px] leading-[1.8] tracking-normal text-center px-4 font-light">
-AGT, AGTR1, PTGIS, APOE, SELP, ACSL4, ADA2, APOB, CD36, FGB, LDLR, MT-ATP6, MT-CO1, MT-CYB, MT-ND1, MT-ND5, MT-ND6, MT-TA, MT-TD, MT-TE, MT-TF, MT-TG, MT-TH, MT-TI, MT-TK, MT-TL1, MT-TL2, MT-TM, MT-TN, MT-TP, MT-TQ, MT-TR, MT-TS1, MT-TS2, MT-TT, MT-TV, MT-TW, NDUFS1, NOTCH3, PIK3CA, POLG, RNF213, HTRA1, NOTCH3, ABCC8, AKT2, ENPP1, GCK, GPD2, HNF1B, HNF4A, INSR, IRS1, KCNJ11, NEUROD1, PPARG, RBPJ, SLC2A2, WFS1, BDNF, FTO, LEP, LEPR, LPR2, MC3R, MC4R, MRAP2, NPY, NTRK2, PCSK1, PMOC, SH2B1, SIM1, ABCC4, ABCG2, ALDH16A1, CARMIL1, GCKR, HPRT1, PDZK1, PKD2, PRPS1, SCGN, SLC16A9, SLC17A1, SLC17A3, SLC17A4, SLC22A11, SLC22A12, SLC22A13, SLC22A6, SLC22A8, SLC2A12, SLC2A9, UMOD
-
-​​</p>
+    <main class="flex-grow">
+        <section class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+            <div class="text-center mb-12">
+                <h2 class="text-gray-400 text-sm tracking-widest uppercase mb-8">代謝檢測疾病：</h2>
+                <div class="text-[#1a1a1a] text-[15px] leading-[2.6] tracking-wider text-justify md:text-left px-4 bg-gray-50 p-8 rounded-lg">
+                    <p class="text-center">
+                        原發性高血壓 / 動脈粥狀硬化 / 中風 / 遺傳性腦血管病變 / 第二型糖尿病 / 肥胖 / 痛風
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
 
-<footer class="fixed bottom-0 left-0 w-full bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium text-gray-500 z-50">
+            <div class="mt-20">
+                <h2 class="text-gray-400 text-sm tracking-widest uppercase mb-12 text-center">檢測基因</h2>
+                <div class="bg-gray-50 p-6 rounded border border-gray-100">
+                    <p class="text-[#727272] text-[12px] leading-[2] tracking-normal text-justify font-light">
+                        AGT, AGTR1, PTGIS, APOE, SELP, ACSL4, ADA2, APOB, CD36, FGB, LDLR, MT-ATP6, MT-CO1, MT-CYB, MT-ND1, MT-ND5, MT-ND6, MT-TA, MT-TD, MT-TE, MT-TF, MT-TG, MT-TH, MT-TI, MT-TK, MT-TL1, MT-TL2, MT-TM, MT-TN, MT-TP, MT-TQ, MT-TR, MT-TS1, MT-TS2, MT-TT, MT-TV, MT-TW, NDUFS1, NOTCH3, PIK3CA, POLG, RNF213, HTRA1, NOTCH3, ABCC8, AKT2, ENPP1, GCK, GPD2, HNF1B, HNF4A, INSR, IRS1, KCNJ11, NEUROD1, PPARG, RBPJ, SLC2A2, WFS1, BDNF, FTO, LEP, LEPR, LPR2, MC3R, MC4R, MRAP2, NPY, NTRK2, PCSK1, PMOC, SH2B1, SIM1, ABCC4, ABCG2, ALDH16A1, CARMIL1, GCKR, HPRT1, PDZK1, PKD2, PRPS1, SCGN, SLC16A9, SLC17A1, SLC17A3, SLC17A4, SLC22A11, SLC22A12, SLC22A13, SLC22A6, SLC22A8, SLC2A12, SLC2A9, UMOD
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="fixed bottom-0 left-0 w-full bg-[#F5F5F5] py-6 border-t border-gray-200 text-center text-xs tracking-widest font-medium text-gray-500 z-50">
         2026 GeneWellness International 健曜國際
     </footer>
 
-    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" ...>
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" width="20" height="20"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
+    </a>
 
     <script>
         const hb = document.getElementById('hamburger-btn');
@@ -180,8 +130,8 @@ AGT, AGTR1, PTGIS, APOE, SELP, ACSL4, ADA2, APOB, CD36, FGB, LDLR, MT-ATP6, MT-C
         const subHtml = `
             <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
             <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
-            <a href="height.html" class="sub-item">劍橋博士身高管理</a>
-            <a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>
+            <a href="height.html">身高管理</a>
+            <a href="sleep.html">睡眠追蹤</a>
         `;
 
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
