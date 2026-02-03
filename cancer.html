@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WGS 兒童成長檢測詳情 | 劍橋博士基因檢驗</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
+        
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; }
+        .nav-link:hover { color: #000; }
+        .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
+
+        @media (max-width: 767px) {
+            .pc-menu { display: none !important; }
+            #mobile-nav-panel {
+                display: none; position: absolute; top: 64px; left: 0; width: 100%;
+                background: white; flex-direction: column; padding: 10px 24px;
+                border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999;
+            }
+            #mobile-nav-panel.show { display: flex !important; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
+            #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
+            #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
+            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; }
+        }
+
+        @media (min-width: 768px) {
+            #hamburger-btn, #mobile-nav-panel { display: none !important; }
+            .pc-menu { display: flex !important; }
+            .dropdown:hover .dropdown-pc { display: block; }
+            .dropdown-pc {
+                display: none; position: absolute; background: white;
+                min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0;
+            }
+            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; }
+            .dropdown-pc a:hover { background: #f5f5f5; color: #000; }
+        }
+
+        .logo-banner { height: 32px; width: auto; }
+        @media (min-width: 768px) { .logo-banner { height: 35px; } }
+    </style>
+</head>
+<body>
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
+            <a href="index.html"><img src="Banner.png" alt="Logo" class="logo-banner"></a>
+            <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none">
+                <span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span><span class="w-6 h-0.5 bg-gray-600"></span>
+            </button>
+            <div class="pc-menu items-center space-x-1">
+                <a href="index.html" class="nav-link">首頁</a>
+                <a href="company.html" class="nav-link">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
+                <a href="services.html" class="nav-link">商務</a>
+                <div class="dropdown relative">
+                    <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
+                    <div class="dropdown-pc">
+                        <a href="wgs.html" class="font-bold text-black">WGS 全基因體檢測</a>
+                        <a href="wes.html">WES 外顯體基因檢測</a>
+                        <a href="height.html">劍橋博士身高管理</a>
+                        <a href="sleep.html">劍橋博士睡眠追蹤</a>
+                    </div>
+                </div>
+                <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+            </div>
+            <div id="mobile-nav-panel">
+                <a href="index.html" class="mobile-row">首頁</a>
+                <a href="company.html" class="mobile-row">關於</a>
+                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
+                <a href="services.html" class="mobile-row">商務</a>
+                <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
+                <div id="mobile-sub-box"></div> 
+                <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+        <h1 class="text-3xl md:text-4xl font-light text-gray-500 tracking-[0.2em] mb-12 text-center">癌症與腫瘤檢測</h1>
+        
+        <div class="space-y-2 text-[#1a1a1a] text-[16px] leading-[1.8] max-w-2xl mx-auto text-left px-4">
+            <div class="space-y-4 text-[#1a1a1a] text-[16px] leading-[1.6] max-w-2xl mx-auto text-left px-4">
+    <p>腦：血管中心型膠質瘤/膠質母細胞瘤/膠質瘤/腦膜血管外皮細胞瘤/腦膜瘤/寡樹突膠質細胞瘤/兒童膠質母細胞瘤/腦下垂體腺瘤/腦下垂體母細胞瘤/單發型髓母細胞
+<p>眼：視網膜母細胞瘤/葡萄膜黑色素瘤</p>
+<p>口：口腔鱗狀細胞癌/口咽癌/多形性唾液腺瘤</p>
+<p>頭頸：頭頸癌/頭頸部鱗狀細胞癌</p>
+<p>食道：食道鱗狀細胞癌/食道癌</p>
+
+<p>肺：肺腺癌/肺癌肺鱗狀細胞癌/肺非小細胞瘤/肋膜肺母細胞瘤/肺淋巴血管平滑肌肉增生症/小細胞肺癌</p>
+
+<p>胃：瀰漫性胃癌/胃癌</p>
+
+<p>肝：肝腺瘤/肝母細胞瘤/肝細胞癌</p>
+
+<p>膽：膽道癌/膽囊癌</p>
+
+<p>胰：胰臟癌/胰臟腺泡細胞癌/胰臟神經內分泌腫瘤</p>
+
+<p>腸：大腸癌/大腸直腸癌/家族性腺瘤性息肉病/空腸錯構瘤病/幼年性息肉病綜合症/林奇綜合症，MUTYH息肉病，黑斑-傑格斯綜合症/小腸神經內分泌腫瘤/小腸癌</p>
+
+<p>腎：上腺皮質癌/腎透明細胞癌/腎癌/惡性類橫紋肌肉瘤/腎乳突細胞癌/腎血管平滑肌脂肪瘤/腎細胞癌/威爾姆氏腫瘤</p>
+
+<p>膀胱/膀胱癌</p>
+
+<p>泌尿道：泌尿道上皮癌</p>
+
+<p>皮膚：圓柱瘤/結締組織增生性黑色素瘤/眼瞼皮脂腺癌/纖維性毛囊瘤/黑色素瘤/皮膚基底細胞癌，皮膚細胞癌，皮膚鱗狀細胞癌/Spitzoid黑色素細胞瘤/毛盤瘤</p>
+
+<p>神經：聽覺神經瘤類癌/中樞神經血管母細胞瘤/中央神經系統腫瘤/神經節細胞瘤/神經管胚細胞瘤/神經母細胞瘤/神經上皮腫瘤/神經纖維瘤/2型神經纖維瘤/副神經節瘤/嗜鉻細胞瘤/神經鞘瘤</p>
+
+<p>骨骼與血管：動脈瘤性骨囊腫/伊文氏肉瘤/骨軟骨瘤/多發性下顎骨化纖維瘤/骨肉瘤/血管肉瘤/上皮樣血管內皮細胞瘤/血管瘤</p>
+
+<p>軟組織：腺泡型横纹肌肉瘤/血管瘤樣纖維組織細胞瘤/先天性纖維肉瘤/硬纖維瘤/結締組織增生性小圓細胞腫瘤/胚胎型横纹肌肉瘤/纖維黏液樣肉瘤/發炎性肌纖維母細胞腫瘤/平滑肌瘤/脂肪瘤/脂肪肉瘤/惡性間皮瘤/惡性周邊神經鞘腫瘤/間皮瘤/黏液纖維肉瘤/黏液瘤/腹膜轉移癌/横纹肌肉瘤/軟組織肉瘤/單發性纖維瘤/鱗狀細胞癌/腱鞘巨細胞瘤
+
+<p>內分泌：腎上腺醛固酮分泌腺瘤/內分泌瘤/家族性甲狀腺髓樣癌/甲狀腺濾泡癌/甲狀腺髓樣癌/多發性內分泌腫瘤1型/甲狀腺乳突癌/副甲狀腺腺瘤/副甲狀腺瘤/甲狀腺腺瘤/甲狀腺癌</p>
+
+<p>多器官系統：腺樣囊性癌/上皮瘤/胃腸道息肉/胃腸道間質瘤/李-法美尼綜合症/肉瘤/結節性硬化症腫瘤/von Hippel-Lindau綜合症</p>
+
+<p>血液：急性白血病/急性淋巴性白血病/急性巨核母細胞性白血病/急性骨髓性白血病/急性前骨髓細胞白血病/間變性大細胞淋巴瘤/非典型慢性骨髓性白血病/B細胞急性淋巴性白血病/B細胞慢性淋巴性白血病/B細胞非霍奇金氏淋巴瘤/布凱特氏淋巴瘤/化療耐藥性慢性淋巴性白血病/慢性淋巴性白血病/慢性骨髓性白血病/慢性髓性單球性白血病/瀰漫性大型B細胞淋巴瘤/早期T細胞前體急性淋巴性白血病/紅血球過多症/濾泡性淋巴瘤/霍奇金氏淋巴瘤/嗜酸性白血球增多症/少年性骨髓單核球白血病/大顆粒性淋巴球性白血病/白血病/淋巴癌/被套細胞淋巴瘤/邊緣區B細胞淋巴癌/邊緣區淋巴癌/唐氏症者之巨核母細胞性白血病/單株B淋巴球增多症/黏膜相關淋巴組織淋巴癌/多種白血病與淋巴癌/多發性骨髓瘤/骨髓造血不良症候群/多發骨髓瘤/骨髓增生性腫瘤/鼻部自然殺手/T細胞淋巴瘤/非霍奇金氏淋巴瘤/兒童伯基特淋巴瘤/小兒大顆粒淋巴細胞白血病/前體B細胞淋巴細胞白血病/原發性中樞神經系統淋巴瘤/原發性縱膈腔大B細胞淋巴瘤/併發性急性骨髓性白血病/脾臟邊緣區型淋巴癌/全身性肥大細胞增生症併發其他血液疾病/T細胞淋巴瘤/T急性淋巴性白血病/T前淋巴細胞白血病/華氏巨球蛋白血症
+
+<p>男性：前列腺癌/睾丸瘤</p>
+
+<p>子宮(女性)：子宮內膜癌/子宮癌惡性肉瘤/子宮平滑肌瘤</p>
+<p>卵巢(女性)：卵巢透明細胞癌/上皮性卵巢癌/卵巢顆粒細胞瘤/卵巢癌/高血鈣型卵巢小細胞癌/漿液型卵巢癌/卵巢性腺間質腫瘤</p>
+<p>乳房(女性)：乳癌/乳房葉狀肉瘤/乳房纖維腺瘤/乳葉癌/管狀A型乳癌/分泌型乳癌</p>
+   
+</div>
+        </div>
+    </main>
+          
+    <footer class="bg-[#F5F5F5] py-10 border-t border-gray-200 text-center">
+        <p class="text-xs tracking-widest font-medium text-gray-400">2026 GeneWellness International 健曜國際</p>
+    </footer>
+
+    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
+    </a>
+
+    <script>
+        const hb = document.getElementById('hamburger-btn');
+        const menu = document.getElementById('mobile-nav-panel');
+        const trigger = document.getElementById('mobile-sub-trigger');
+        const subBox = document.getElementById('mobile-sub-box');
+        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
+        hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
+        trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; } subBox.classList.toggle('active'); };
+        document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
+    </script>
+</body>
+</html>
