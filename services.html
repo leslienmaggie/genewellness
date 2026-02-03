@@ -169,7 +169,7 @@
         const menu = document.getElementById('mobile-nav-panel');
         const trigger = document.getElementById('mobile-sub-trigger');
         const subBox = document.getElementById('mobile-sub-box');
-        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="wellnessi.html" class="sub-item">wellness-i 基因命盤</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
+        const subHtml = `<a href="wgs.html" class="sub-item">WGS 全基因體檢測</a><a href="wes.html" class="sub-item">WES 外顯體基因檢測</a><a href="height.html" class="sub-item">劍橋博士身高管理</a><a href="sleep.html" class="sub-item">劍橋博士睡眠追蹤</a>`;
         hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
         trigger.onclick = (e) => { if (!subBox.innerHTML.trim()) subBox.innerHTML = subHtml; subBox.classList.toggle('active'); };
         document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
