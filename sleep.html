@@ -9,14 +9,20 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         html { scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; overflow-x: hidden; }
         
-        /* 1. 基礎容器樣式 */
+        /* 確保導覽列層級最高，解決漢堡選單點不動的問題 */
+        #nav-placeholder { 
+            position: relative; 
+            z-index: 9999; 
+        }
+
+        /* 睡眠追蹤專用容器 */
         .iframe-wrapper {
             width: 100%;
-            height: calc(100vh - 180px); /* 扣除導覽列與邊距的高度 */
+            height: calc(100vh - 160px);
             min-height: 600px;
-            overflow: hidden; /* 隱藏縮放產生的溢出 */
+            overflow: hidden;
             position: relative;
         }
 
@@ -27,18 +33,20 @@
             -webkit-overflow-scrolling: touch; 
         }
 
-        /* 2. 手機版特殊優化：縮放比例調整 */
+        /* 手機版優化：縮放解決爆出問題 */
         @media (max-width: 767px) {
-            .iframe-wrapper {
-                height: 70vh; /* 手機版稍微降低高度 */
+            .iframe-wrapper { 
+                height: 75vh; 
             }
             .iframe-container {
-                /* 將內容縮小為 90%，解決輸入框與按鈕爆出的問題 */
-                width: 111.1%; /* 補償縮放後的寬度 (100 / 0.9) */
+                /* 縮小 10% 確保登入面板完整顯示 */
+                width: 111.1%; 
                 height: 111.1%;
                 transform: scale(0.9);
                 transform-origin: 0 0;
             }
+            /* 確保手機版導覽列字體適中 */
+            .logo-banner-text { font-size: 1.1rem !important; }
         }
 
         .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
@@ -71,6 +79,6 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
