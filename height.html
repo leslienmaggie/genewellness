@@ -11,6 +11,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
+        /* 導覽列通用樣式 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
@@ -24,19 +25,9 @@
             .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; text-decoration: none; }
         }
 
-        @media (min-width: 768px) {
-            #hamburger-btn, #mobile-nav-panel { display: none !important; }
-            .dropdown:hover .dropdown-pc { display: block; }
-            .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
-            .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; text-decoration: none; }
-            .dropdown-pc a:hover { background: #f5f5f5; color: #000; }
-            .mobile-admin-only { display: none !important; }
-        }
-
+        /* 身高管理專用 iframe 樣式 */
         .iframe-container { width: 100%; height: calc(100vh - 160px); min-height: 650px; border: none; -webkit-overflow-scrolling: touch; }
         .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
-        .logo-banner { height: 32px; width: auto; }
-        @media (min-width: 768px) { .logo-banner { height: 35px; } }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -53,7 +44,7 @@
                 ></iframe>
             </div>
 
-            <div class="mobile-admin-only flex justify-center mt-6">
+            <div class="flex justify-center mt-6">
                 <a href="https://script.google.com/macros/s/AKfycbwZxT-80P2ajosppZbacMkjGB8T1OwyRPPZHmGPVMLq3iZdakRUXO2I9nn0deoG-syn/exec?authuser=0" 
                    target="_blank" rel="noopener noreferrer" class="secret-link">
                     Node: 2026-v4-auth
@@ -64,40 +55,6 @@
 
     <div id="footer-placeholder"></div>
 
-    <script>
-        // 自動載入零件
-        const requestNav = fetch('./nav.html').then(res => res.text());
-        const requestFooter = fetch('./footer.html').then(res => res.text());
-
-        Promise.all([requestNav, requestFooter])
-            .then(results => {
-                document.getElementById('nav-placeholder').innerHTML = results[0];
-                document.getElementById('footer-placeholder').innerHTML = results[1];
-                initNavLogic();
-            })
-            .catch(err => console.error("零件載入失敗:", err));
-
-        function initNavLogic() {
-            const hb = document.getElementById('hamburger-btn');
-            const menu = document.getElementById('mobile-nav-panel');
-            const trigger = document.getElementById('mobile-sub-trigger');
-            const subBox = document.getElementById('mobile-sub-box');
-
-            // 統一加上 sub-item 並為當前頁面加粗
-            const subHtml = `
-                <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
-                <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
-                <a href="height.html" class="sub-item" style="font-weight:700; color:#1a1a1a;">身高管理系統</a>
-                <a href="sleep.html" class="sub-item">睡眠追蹤</a>
-            `;
-
-            if(hb) hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
-            if(trigger) trigger.onclick = (e) => { 
-                if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; }
-                subBox.classList.toggle('active'); 
-            };
-            document.onclick = (e) => { if (menu && !menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
