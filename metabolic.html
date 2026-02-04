@@ -11,6 +11,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
+        /* 導覽列通用樣式 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
@@ -56,43 +57,10 @@
                 </div>
             </div>
         </section>
-        </main>
+    </main>
 
     <div id="footer-placeholder"></div>
 
-    <script>
-        // 自動載入零件
-        const requestNav = fetch('./nav.html').then(res => res.text());
-        const requestFooter = fetch('./footer.html').then(res => res.text());
-
-        Promise.all([requestNav, requestFooter])
-            .then(results => {
-                document.getElementById('nav-placeholder').innerHTML = results[0];
-                document.getElementById('footer-placeholder').innerHTML = results[1];
-                initNavLogic();
-            })
-            .catch(err => console.error("零件載入失敗:", err));
-
-        function initNavLogic() {
-            const hb = document.getElementById('hamburger-btn');
-            const menu = document.getElementById('mobile-nav-panel');
-            const trigger = document.getElementById('mobile-sub-trigger');
-            const subBox = document.getElementById('mobile-sub-box');
-
-            const subHtml = `
-                <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
-                <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
-                <a href="height.html" class="sub-item">身高管理</a>
-                <a href="sleep.html" class="sub-item">睡眠追蹤</a>
-            `;
-
-            if(hb) hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
-            if(trigger) trigger.onclick = (e) => { 
-                if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; }
-                subBox.classList.toggle('active'); 
-            };
-            document.onclick = (e) => { if (menu && !menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
