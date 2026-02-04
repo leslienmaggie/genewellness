@@ -8,20 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; overflow-x: hidden; }
+        html, body { height: 100%; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; display: flex; flex-direction: column; }
         
-        /* 確保導覽列層級最高，解決漢堡選單點不動的問題 */
+        /* 確保導覽列在每一頁的層級都是最高的，且不會被遮擋 */
         #nav-placeholder { 
-            position: relative; 
-            z-index: 9999; 
+            z-index: 1000; 
+            position: relative;
         }
 
-        /* 睡眠追蹤專用容器 */
+        /* 睡眠內容區域：設定最大高度，防止在電腦版無限延伸 */
+        .sleep-main-container {
+            flex: 1;
+            padding: 20px 0;
+            background-color: #f9f9f9;
+        }
+
         .iframe-wrapper {
             width: 100%;
-            height: calc(100vh - 160px);
-            min-height: 600px;
+            height: 750px; /* 電腦版固定高度 */
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             overflow: hidden;
             position: relative;
         }
@@ -30,55 +40,40 @@
             width: 100%; 
             height: 100%; 
             border: none; 
-            -webkit-overflow-scrolling: touch; 
         }
 
-        /* 手機版優化：縮放解決爆出問題 */
+        /* 手機版專屬優化 (螢幕寬度 < 768px) */
         @media (max-width: 767px) {
+            .sleep-main-container { padding: 10px; }
             .iframe-wrapper { 
-                height: 75vh; 
+                height: 600px; /* 手機版降低高度 */
             }
             .iframe-container {
-                /* 縮小 10% 確保登入面板完整顯示 */
+                /* 縮小比例解決 Email 框爆出的問題，同時維持導覽列不變 */
                 width: 111.1%; 
                 height: 111.1%;
                 transform: scale(0.9);
                 transform-origin: 0 0;
             }
-            /* 確保手機版導覽列字體適中 */
-            .logo-banner-text { font-size: 1.1rem !important; }
         }
-
-        .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
     <div id="nav-placeholder"></div>
 
-    <main class="bg-gray-50 py-4 flex-grow">
-        <div class="max-w-5xl mx-auto px-2 md:px-6">
-            <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
-                <div class="iframe-wrapper">
-                    <iframe 
-                        src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
-                        class="iframe-container"
-                        sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
-                        allow="geolocation; microphone; camera; encrypted-media;"
-                    ></iframe>
-                </div>
-            </div>
-
-            <div class="flex justify-center mt-4">
-                <a href="https://script.google.com/macros/s/AKfycbwZxT-80P2ajosppZbacMkjGB8T1OwyRPPZHmGPVMLq3iZdakRUXO2I9nn0deoG-syn/exec?authuser=0" 
-                   target="_blank" rel="noopener noreferrer" class="secret-link">
-                    Node: 2026-v4-auth
-                </a>
-            </div>
+    <main class="sleep-main-container">
+        <div class="iframe-wrapper">
+            <iframe 
+                src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
+                class="iframe-container"
+                sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
+                allow="geolocation; microphone; camera; encrypted-media;"
+            ></iframe>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
 
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
