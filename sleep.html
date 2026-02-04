@@ -8,77 +8,106 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-        html, body { margin: 0; padding: 0; width: 100%; }
-        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; }
+        html, body { height: 100%; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; display: flex; flex-direction: column; }
         
-        /* --- 1. 確保 Nav 佔位符不被任何東西壓縮或擋住 --- */
-        #nav-placeholder { 
-            width: 100%;
-            min-height: 64px; /* 對應 h-16 */
-            position: relative;
-            z-index: 9999; /* 必須高於 iframe */
-        }
+        /* 導覽列通用樣式 */
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
+        .nav-link:hover { color: #000; }
+        .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
 
-        /* --- 2. 睡眠內容主容器 --- */
-        .sleep-main {
-            background-color: #f9fafb;
-            padding: 20px 0;
-            width: 100%;
-        }
-
+        /* 睡眠內容區域 */
+        .sleep-main { flex-grow: 1; background-color: #f9fafb; padding: 20px 0; display: flex; justify-content: center; }
         .iframe-wrapper {
-            width: 100%;
-            max-width: 1050px; /* 對應你 App 的卡片寬度 */
-            height: 750px; 
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            overflow: hidden;
-            position: relative;
+            width: 95%; max-width: 1080px; height: 800px;
+            background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden; position: relative; border: 1px solid #eee;
         }
+        .iframe-container { width: 100%; height: 100%; border: none; }
 
-        .iframe-container { 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-        }
-
-        /* --- 3. 手機版優化：只縮放 iframe 內容，不影響外部 Nav --- */
         @media (max-width: 767px) {
             .sleep-main { padding: 10px; }
-            .iframe-wrapper { 
-                height: 650px; 
-                border-radius: 8px;
-            }
-            .iframe-container {
-                /* 縮放 90% 解決 Email 框太大的問題 */
-                width: 111.1%; 
-                height: 111.1%;
-                transform: scale(0.9);
-                transform-origin: 0 0;
-            }
+            .iframe-wrapper { height: 650px; width: 100%; }
+            .iframe-container { transform: scale(0.9); transform-origin: 0 0; width: 111.1%; height: 111.1%; }
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
-    <div id="nav-placeholder"></div>
+<body>
 
-    <main class="sleep-main flex-grow">
-        <div class="container mx-auto px-4">
-            <div class="iframe-wrapper">
-                <iframe 
-                    src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
-                    class="iframe-container"
-                    sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
-                    allow="geolocation; microphone; camera; encrypted-media;"
-                ></iframe>
+<nav class="bg-white border-b border-gray-100 sticky top-0 z-[9999] h-16 w-full">
+    <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
+        <a href="index.html" class="flex-shrink-0 flex items-center">
+            <img src="Banner.png" alt="Logo" class="h-8 md:h-9 w-auto object-contain">
+        </a>
+        
+        <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none md:hidden">
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+        </button>
+
+        <div class="hidden md:flex items-center space-x-1">
+            <a href="index.html" class="nav-link">首頁</a>
+            <a href="company.html" class="nav-link">關於</a>
+            <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
+            <a href="services.html" class="nav-link">商務</a>
+            <div class="dropdown relative group">
+                <div class="nav-link cursor-pointer">檢測 <span class="text-[10px] ml-1">▼</span></div>
+                <div class="dropdown-pc group-hover:block hidden absolute top-full left-0 bg-white shadow-lg rounded-md py-2 border border-gray-100 min-w-[180px]">
+                    <a href="wgs.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">WGS 全基因體檢測</a>
+                    <a href="wes.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">WES 外顯體基因檢測</a>
+                    <a href="height.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">身高管理</a>
+                    <a href="sleep.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">睡眠追蹤</a>
+                </div>
             </div>
+            <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">立即訂購</a>
         </div>
-    </main>
 
-    <div id="footer-placeholder"></div>
+        <div id="mobile-nav-panel" class="hidden absolute top-16 left-0 w-full bg-white border-b border-gray-100 px-6 py-4 shadow-xl z-50">
+            <a href="index.html" class="mobile-row">首頁</a>
+            <a href="company.html" class="mobile-row">關於</a>
+            <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
+            <a href="services.html" class="mobile-row">商務</a>
+            <div id="mobile-sub-trigger" class="mobile-row cursor-pointer">檢測 <span style="font-size:10px;">▼</span></div>
+            <div id="mobile-sub-box" class="hidden flex-col pl-4 bg-gray-50">
+                <a href="wgs.html" class="block py-2 text-sm text-gray-600">WGS 全基因體檢測</a>
+                <a href="wes.html" class="block py-2 text-sm text-gray-600">WES 外顯體基因檢測</a>
+                <a href="height.html" class="block py-2 text-sm text-gray-600">身高管理</a>
+                <a href="sleep.html" class="block py-2 text-sm text-gray-600">睡眠追蹤</a>
+            </div> 
+            <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-4 py-3 mt-2 flex justify-between items-center no-underline rounded-lg">
+                立即訂購 <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+    </div>
+</nav>
 
-    <script src="main.js"></script>
+<main class="sleep-main">
+    <div class="iframe-wrapper">
+        <iframe src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" class="iframe-container"></iframe>
+    </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script>
+    // 漢堡選單邏輯
+    const hb = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('mobile-nav-panel');
+    const subTrigger = document.getElementById('mobile-sub-trigger');
+    const subBox = document.getElementById('mobile-sub-box');
+
+    hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); };
+    subTrigger.onclick = (e) => { e.stopPropagation(); subBox.classList.toggle('hidden'); };
+    document.onclick = () => { menu.classList.add('hidden'); };
+
+    // 載入頁尾
+    fetch('./footer.html').then(res => res.text()).then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+    });
+</script>
+
 </body>
 </html>
