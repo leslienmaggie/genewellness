@@ -8,81 +8,120 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-        html, body { height: 100%; margin: 0; padding: 0; }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; display: flex; flex-direction: column; }
         
-        /* 導覽列通用樣式 - 確保與首頁完全一致 */
-        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
-        .nav-link:hover { color: #000; }
-        .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
-
-        /* 睡眠內容區域樣式 */
-        .sleep-main { flex-grow: 1; background-color: #f9fafb; padding: 20px 0; display: flex; justify-content: center; align-items: flex-start; }
-        .iframe-wrapper {
-            width: 95%; max-width: 1080px; height: 800px;
-            background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            overflow: hidden; position: relative; border: 1px solid #eee;
+        /* --- 修正導覽列樣式，確保高度與比例 --- */
+        .nav-link { 
+            padding: 8px 16px; /* 增加左右間距讓它不擁擠 */
+            font-size: 16px;   /* 稍微加大字體到標準尺寸 */
+            color: #444; 
+            transition: all 0.2s; 
+            white-space: nowrap; 
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
         }
-        .iframe-container { width: 100%; height: 100%; border: none; -webkit-overflow-scrolling: touch; }
+        .nav-link:hover { color: #000; }
 
-        /* 手機版縮放優化 - 解決 Email 框爆開問題 */
+        /* 行動版行高修正 */
+        .mobile-row { 
+            width: 100%; 
+            padding: 16px 0; 
+            border-bottom: 1px solid #f2f2f2; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            color: #444; 
+            text-decoration: none; 
+            font-size: 16px;
+        }
+
+        /* --- 睡眠內容區域 --- */
+        .sleep-main { 
+            flex-grow: 1; 
+            background-color: #f9fafb; 
+            padding: 30px 0; /* 增加上方間距讓電腦版更寬裕 */
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; 
+        }
+        .iframe-wrapper {
+            width: 95%; 
+            max-width: 1100px; /* 稍微放寬，對應電腦版大版型 */
+            height: 850px;     /* 增加高度，減少捲動感 */
+            background: white; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+            overflow: hidden; 
+            position: relative; 
+            border: 1px solid #eaeaea;
+        }
+        .iframe-container { width: 100%; height: 100%; border: none; }
+
         @media (max-width: 767px) {
-            .sleep-main { padding: 10px; }
-            .iframe-wrapper { height: 650px; width: 100%; }
+            .sleep-main { padding: 15px 10px; }
+            .iframe-wrapper { height: 700px; width: 100%; }
             .iframe-container {
                 width: 111.1%; height: 111.1%;
                 transform: scale(0.9); transform-origin: 0 0;
             }
         }
-        .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
 
-<nav class="bg-white border-b border-gray-100 sticky top-0 z-[9999] h-16 w-full">
+<nav class="bg-white border-b border-gray-100 sticky top-0 z-[9999] h-20 w-full flex-shrink-0">
     <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
         <a href="index.html" class="flex-shrink-0 flex items-center">
-            <img src="Banner.png" alt="Logo" class="h-8 md:h-9 w-auto object-contain">
+            <img src="Banner.png" alt="Logo" class="h-9 md:h-10 w-auto object-contain">
         </a>
         
-        <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none md:hidden">
-            <span class="w-6 h-0.5 bg-gray-600"></span>
-            <span class="w-6 h-0.5 bg-gray-600"></span>
-            <span class="w-6 h-0.5 bg-gray-600"></span>
+        <button id="hamburger-btn" class="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none md:hidden">
+            <span class="w-7 h-0.5 bg-gray-700"></span>
+            <span class="w-7 h-0.5 bg-gray-700"></span>
+            <span class="w-7 h-0.5 bg-gray-700"></span>
         </button>
 
-        <div class="hidden md:flex items-center space-x-1">
+        <div class="hidden md:flex items-center space-x-2">
             <a href="index.html" class="nav-link">首頁</a>
             <a href="company.html" class="nav-link">關於</a>
             <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
             <a href="services.html" class="nav-link">商務</a>
+            
             <div class="dropdown relative group">
                 <div class="nav-link cursor-pointer">檢測 <span class="text-[10px] ml-1">▼</span></div>
-                <div class="dropdown-pc group-hover:block hidden absolute top-full left-0 bg-white shadow-lg rounded-md py-2 border border-gray-100 min-w-[180px]">
-                    <a href="wgs.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">WGS 全基因體檢測</a>
-                    <a href="wes.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">WES 外顯體基因檢測</a>
-                    <a href="height.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">身高管理</a>
-                    <a href="sleep.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">睡眠追蹤</a>
+                <div class="dropdown-pc group-hover:block hidden absolute top-full left-0 bg-white shadow-xl rounded-md py-3 border border-gray-100 min-w-[200px]">
+                    <a href="wgs.html" class="block px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-black">WGS 全基因體檢測</a>
+                    <a href="wes.html" class="block px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-black">WES 外顯體基因檢測</a>
+                    <a href="height.html" class="block px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-black">身高管理</a>
+                    <a href="sleep.html" class="block px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-black">睡眠追蹤</a>
                 </div>
             </div>
+            
             <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
-            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">立即訂購</a>
+            
+            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" 
+               class="ml-6 bg-[#666] text-white px-7 py-2.5 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline shadow-sm">
+                立即訂購
+            </a>
         </div>
 
-        <div id="mobile-nav-panel" class="hidden absolute top-16 left-0 w-full bg-white border-b border-gray-100 px-6 py-4 shadow-xl z-[10000]">
+        <div id="mobile-nav-panel" class="hidden absolute top-20 left-0 w-full bg-white border-b border-gray-200 px-8 py-6 shadow-2xl z-[10000]">
             <a href="index.html" class="mobile-row">首頁</a>
             <a href="company.html" class="mobile-row">關於</a>
             <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
             <a href="services.html" class="mobile-row">商務</a>
-            <div id="mobile-sub-trigger" class="mobile-row cursor-pointer">檢測 <span style="font-size:10px;">▼</span></div>
-            <div id="mobile-sub-box" class="hidden flex-col pl-4 bg-gray-50">
-                <a href="wgs.html" class="block py-2 text-sm text-gray-600">WGS 全基因體檢測</a>
-                <a href="wes.html" class="block py-2 text-sm text-gray-600">WES 外顯體基因檢測</a>
-                <a href="height.html" class="block py-2 text-sm text-gray-600">身高管理</a>
-                <a href="sleep.html" class="block py-2 text-sm text-gray-600">睡眠追蹤</a>
+            <div id="mobile-sub-trigger" class="mobile-row cursor-pointer">檢測 <span>▼</span></div>
+            <div id="mobile-sub-box" class="hidden flex-col pl-6 bg-gray-50 rounded-lg">
+                <a href="wgs.html" class="block py-3 text-sm text-gray-600">WGS 全基因體檢測</a>
+                <a href="wes.html" class="block py-3 text-sm text-gray-600">WES 外顯體基因檢測</a>
+                <a href="height.html" class="block py-3 text-sm text-gray-600">身高管理</a>
+                <a href="sleep.html" class="block py-3 text-sm text-gray-600">睡眠追蹤</a>
             </div> 
             <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
-            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-4 py-3 mt-2 flex justify-between items-center no-underline rounded-lg">
+            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" 
+               class="mobile-row font-bold text-white bg-gray-800 px-5 py-4 mt-6 flex justify-between items-center no-underline rounded-xl shadow-lg">
                 立即訂購 <i class="fa-solid fa-cart-shopping"></i>
             </a>
         </div>
@@ -91,32 +130,37 @@
 
 <main class="sleep-main">
     <div class="iframe-wrapper">
-        <iframe 
-            src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
-            class="iframe-container"
-            sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
-            allow="geolocation; microphone; camera; encrypted-media;"
-        ></iframe>
+        <iframe src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" class="iframe-container"></iframe>
     </div>
 </main>
 
 <div id="footer-placeholder"></div>
 
 <script>
-    // 手機漢堡選單邏輯
     const hb = document.getElementById('hamburger-btn');
     const menu = document.getElementById('mobile-nav-panel');
     const subTrigger = document.getElementById('mobile-sub-trigger');
     const subBox = document.getElementById('mobile-sub-box');
 
-    hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); };
-    subTrigger.onclick = (e) => { e.stopPropagation(); subBox.classList.toggle('hidden'); };
-    document.onclick = () => { menu.classList.add('hidden'); };
+    hb.onclick = (e) => { 
+        e.stopPropagation(); 
+        menu.classList.toggle('hidden'); 
+    };
+    
+    subTrigger.onclick = (e) => { 
+        e.stopPropagation(); 
+        subBox.classList.toggle('hidden'); 
+    };
+    
+    document.onclick = (e) => {
+        if (!menu.contains(e.target) && e.target !== hb) {
+            menu.classList.add('hidden');
+        }
+    };
 
-    // 載入頁尾 (Footer 保持組件化即可)
     fetch('./footer.html').then(res => res.text()).then(html => {
         document.getElementById('footer-placeholder').innerHTML = html;
-    }).catch(err => console.error("頁尾載入失敗"));
+    });
 </script>
 
 </body>
