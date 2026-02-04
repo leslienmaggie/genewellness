@@ -11,28 +11,33 @@
         html, body { height: 100%; margin: 0; padding: 0; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; display: flex; flex-direction: column; }
         
-        /* 導覽列通用樣式 */
+        /* 導覽列通用樣式 - 確保與首頁完全一致 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
         .nav-link:hover { color: #000; }
         .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
 
-        /* 睡眠內容區域 */
-        .sleep-main { flex-grow: 1; background-color: #f9fafb; padding: 20px 0; display: flex; justify-content: center; }
+        /* 睡眠內容區域樣式 */
+        .sleep-main { flex-grow: 1; background-color: #f9fafb; padding: 20px 0; display: flex; justify-content: center; align-items: flex-start; }
         .iframe-wrapper {
             width: 95%; max-width: 1080px; height: 800px;
             background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             overflow: hidden; position: relative; border: 1px solid #eee;
         }
-        .iframe-container { width: 100%; height: 100%; border: none; }
+        .iframe-container { width: 100%; height: 100%; border: none; -webkit-overflow-scrolling: touch; }
 
+        /* 手機版縮放優化 - 解決 Email 框爆開問題 */
         @media (max-width: 767px) {
             .sleep-main { padding: 10px; }
             .iframe-wrapper { height: 650px; width: 100%; }
-            .iframe-container { transform: scale(0.9); transform-origin: 0 0; width: 111.1%; height: 111.1%; }
+            .iframe-container {
+                width: 111.1%; height: 111.1%;
+                transform: scale(0.9); transform-origin: 0 0;
+            }
         }
+        .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
     </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
 <nav class="bg-white border-b border-gray-100 sticky top-0 z-[9999] h-16 w-full">
     <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
@@ -64,7 +69,7 @@
             <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">立即訂購</a>
         </div>
 
-        <div id="mobile-nav-panel" class="hidden absolute top-16 left-0 w-full bg-white border-b border-gray-100 px-6 py-4 shadow-xl z-50">
+        <div id="mobile-nav-panel" class="hidden absolute top-16 left-0 w-full bg-white border-b border-gray-100 px-6 py-4 shadow-xl z-[10000]">
             <a href="index.html" class="mobile-row">首頁</a>
             <a href="company.html" class="mobile-row">關於</a>
             <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
@@ -86,14 +91,19 @@
 
 <main class="sleep-main">
     <div class="iframe-wrapper">
-        <iframe src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" class="iframe-container"></iframe>
+        <iframe 
+            src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
+            class="iframe-container"
+            sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
+            allow="geolocation; microphone; camera; encrypted-media;"
+        ></iframe>
     </div>
 </main>
 
 <div id="footer-placeholder"></div>
 
 <script>
-    // 漢堡選單邏輯
+    // 手機漢堡選單邏輯
     const hb = document.getElementById('hamburger-btn');
     const menu = document.getElementById('mobile-nav-panel');
     const subTrigger = document.getElementById('mobile-sub-trigger');
@@ -103,10 +113,10 @@
     subTrigger.onclick = (e) => { e.stopPropagation(); subBox.classList.toggle('hidden'); };
     document.onclick = () => { menu.classList.add('hidden'); };
 
-    // 載入頁尾
+    // 載入頁尾 (Footer 保持組件化即可)
     fetch('./footer.html').then(res => res.text()).then(html => {
         document.getElementById('footer-placeholder').innerHTML = html;
-    });
+    }).catch(err => console.error("頁尾載入失敗"));
 </script>
 
 </body>
