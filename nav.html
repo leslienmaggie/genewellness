@@ -1,0 +1,46 @@
+<nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
+    <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
+        <a href="index.html" class="flex-shrink-0">
+            <img src="Banner.png" alt="Logo" class="h-8 md:h-9">
+        </a>
+        
+        <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none md:hidden">
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+        </button>
+
+        <div class="hidden md:flex items-center space-x-1">
+            <a href="index.html" class="nav-link">首頁</a>
+            <a href="company.html" class="nav-link">關於</a>
+            <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
+            <a href="services.html" class="nav-link">商務</a>
+            <div class="dropdown relative">
+                <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
+                <div class="dropdown-pc">
+                    <a href="wgs.html">WGS 全基因體檢測</a>
+                    <a href="wes.html">WES 外顯體基因檢測</a>
+                    <a href="height.html">身高管理</a>
+                    <a href="sleep.html">睡眠追蹤</a>
+                </div>
+            </div>
+            <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">
+                立即訂購
+            </a>
+        </div>
+
+        <div id="mobile-nav-panel">
+            <a href="index.html" class="mobile-row">首頁</a>
+            <a href="company.html" class="mobile-row">關於</a>
+            <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
+            <a href="services.html" class="mobile-row">商務</a>
+            <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
+            <div id="mobile-sub-box"></div> 
+            <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-2 flex justify-between items-center no-underline">
+                立即訂購 <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+    </div>
+</nav>
