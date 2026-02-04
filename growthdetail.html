@@ -16,11 +16,7 @@
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
         @media (max-width: 767px) {
-            #mobile-nav-panel {
-                display: none; position: absolute; top: 64px; left: 0; width: 100%;
-                background: white; flex-direction: column; padding: 10px 24px;
-                border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999;
-            }
+            #mobile-nav-panel { display: none; position: absolute; top: 64px; left: 0; width: 100%; background: white; flex-direction: column; padding: 10px 24px; border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999; }
             #mobile-nav-panel.show { display: flex !important; }
             .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
             #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
@@ -31,11 +27,7 @@
         @media (min-width: 768px) {
             #hamburger-btn, #mobile-nav-panel { display: none !important; }
             .dropdown:hover .dropdown-pc { display: block; }
-            .dropdown-pc {
-                display: none; position: absolute; background: white;
-                min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-                z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0;
-            }
+            .dropdown-pc { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 100; border-radius: 8px; border: 1px solid #f0f0f0; }
             .dropdown-pc a { color: #727272; padding: 12px 16px; display: block; font-size: 14px; text-decoration: none; }
             .dropdown-pc a:hover { background: #f5f5f5; color: #000; }
         }
@@ -45,52 +37,7 @@
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
-    <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] h-16">
-        <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
-            <a href="index.html" class="flex-shrink-0">
-                <img src="Banner.png" alt="Logo" class="logo-banner">
-            </a>
-
-            <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none md:hidden">
-                <span class="w-6 h-0.5 bg-gray-600"></span>
-                <span class="w-6 h-0.5 bg-gray-600"></span>
-                <span class="w-6 h-0.5 bg-gray-600"></span>
-            </button>
-
-            <div class="hidden md:flex items-center space-x-1">
-                <a href="index.html" class="nav-link">首頁</a>
-                <a href="company.html" class="nav-link">關於</a>
-                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
-                <a href="services.html" class="nav-link">商務</a>
-                <div class="dropdown relative">
-                    <div class="nav-link active">檢測 <span class="text-[10px] ml-1">▼</span></div>
-                    <div class="dropdown-pc">
-                        <a href="wgs.html">WGS 全基因體檢測</a>
-                        <a href="wes.html">WES 外顯體基因檢測</a>
-                        <a href="height.html">身高管理</a>
-                        <a href="sleep.html">睡眠追蹤</a>
-                    </div>
-                </div>
-                <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
-                <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline whitespace-nowrap flex-shrink-0">
-                    立即訂購
-                </a>
-            </div>
-
-            <div id="mobile-nav-panel">
-                <a href="index.html" class="mobile-row">首頁</a>
-                <a href="company.html" class="mobile-row">關於</a>
-                <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
-                <a href="services.html" class="mobile-row">商務</a>
-                <div id="mobile-sub-trigger" class="mobile-row">檢測 <span style="font-size:10px;">▼</span></div>
-                <div id="mobile-sub-box"></div> 
-                <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
-                <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-2 flex justify-between items-center no-underline">
-                    立即訂購 <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <main class="flex-grow">
         <section class="max-w-4xl mx-auto px-6 py-16 md:py-24">
@@ -118,8 +65,7 @@
                 <div class="flex flex-col">
                     <h2 class="text-gray-400 text-xs tracking-widest uppercase mb-6 border-b pb-2">檢測疾病項目 (40+)</h2>
                     <p class="text-[#1a1a1a] text-[15px] leading-[2.4] tracking-wider text-justify">
-                        特納氏症 / 努南症 / SHOX缺乏症 / 西爾弗-拉塞姆症 / 普瑞德威利症 / 唐氏症 / 軟骨發育不全 / 骨骼發育不良 / 威廉斯症 / 勞斯穆恩-巴德-比德爾症候群 / 塞克爾症 / 布魯姆症 / 史密斯-萊姆利-奧皮茨症 / 生長激素缺乏症 / 甲狀腺功能低下症 / 庫欣症 / 性早熟 / 假性副甲狀腺功能低下症 / 先天性腎上腺增生症 / 慢性腎功能不全 / 先天性心臟病 / 乳糜瀉 / 發炎性腸道疾病 / 慢性肝病 / 肺纖維化囊腫 / 氣喘 / 佝僂病 / 慢性感染 ...
-                    </p>
+特納氏症/努南症/SHOX缺乏症/西爾弗-拉塞爾症/普瑞德威利症/唐氏症/軟骨發育不全/骨骼發育不良/威廉斯症/勞斯穆恩-巴德-比德爾症候群/塞克爾症/布魯姆症/史密斯-萊姆利-奧皮茨症/生長激素缺乏症/甲狀腺功能低下症庫欣症/性早熟/假性副甲狀腺功能低下症/先天性腎上腺增生症/慢性腎功能不全/先天性心臟病/乳糜瀉/發炎性腸道疾病/慢性肝病/肺纖維化囊腫/鐮形血球貧血症/氣喘/營養缺乏/先天性代謝缺陷/佝僂病/子宮內生長受限/小於胎齡/慢性感染/骨骼疾病/細胞外基質/細胞內信號傳導/旁分泌信號傳導/內分泌信號傳導/表觀遺傳調控/                    </p>
                 </div>
             </div>
 
@@ -127,41 +73,47 @@
                 <h2 class="text-gray-400 text-xs tracking-widest uppercase mb-8 text-center">檢測關鍵基因清單</h2>
                 <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-inner">
                     <p class="text-[#727272] text-[12px] leading-[2] tracking-tight text-justify font-light">
-                        HDAC8, LAS1L, PTCH1, BRAF, KRAS, PTPN11, RAF1, SHOX, CDKN1C, IGF2, PLAG1, HMGA2, FBN1, FGFR3, TRPV4, ELN, LIMK1, BBS1, CEP290, ATR, BLM, GH1, GHR, SOX3, KMT2D, PROP1, TSHR, GNAS, KISS1R, CYP21A2, PKD1, WT1, GATA4, CFTR, ALPL, COL1A1, NSD1 ... (總共涵蓋完整 WGS 全基因位點判定)
-                    </p>
+HDAC8, LAS1L, PTCH1, VSPA, A2ML1, BRAF, CBL, CLTC, DMPK, GJB2, HRAS, KRAS, LZTR1, MAP2K1, MAP2K2, MAPK1, MRAS, NF1, NRAS, PIK3CA, PPP1CB, PTPN11, RAF1, RASA2, RIT1, RRAS, RRAS2, SHOC2, SOS1, SOS2, SPRED1, SPRED2, SHOX, CDKN1C, DLK1, H19, HMGA2, ICR1, IGF2, KCNQ1, KCNQ1OT1, LOC106783508, PLAG1, SRS2, HERC2, MAGEL2, NDN, OCA2, SNHG14, SNORD115, SNORD116, SNRPN, SNURF, CBFA2T3, CTCF, DCR, EPOR, GATA1, GLIS2, JAK1, NRAS, PTPN11, RAD21, SETD2, SRSF2, SUZ12, TAM, COMP, FBN1, FGFR3, FGFR3, TRPV4, ABHD11, BAZ1B, BCL7B, BUD23, CLDN3, CLDN4, CLIP2, DNAJC30, EIF4H, ELN, FKBP6, GTF2I, GTF2IRD1, GTF2IRD2, LAT2, LIMK1, METTL27, MLXIPL, NCF1, RFC2, STX1A, TBL2, TMEM270, VPS37D, AKT3, ALMS1, ARL6, ARL6IP6, ASTN2, BBIP1, BBS1, BBS10, BBS12, BBS2, BBS4, BBS5, BBS7, BBS9, C8orf37, CCDC28B, CCR9, CEP164, CEP19, CEP290, CFAP418, COMT, F8, GLI1, GLI2, HTR2B, IFT172, IFT27, IFT74, IQCB1, LOC129934936, LOC130061278, LZTFL1, MKKS, MKS1, NPHP1, NPHP3, NPHP4, OGFOD1, OSBPL8, PDE11A, PHLDB1, PTHB1, RPGRIP1, RPGRIP1L, SCAPER, SCLT1, SDCCAG8, TMEM67, TRAPPC3, TRIM32, TSPOAP1, TSPOAP1-AS1, TTC21B, TTC8, WDPCP, WDR19, ZDHHC24, ATR, ATRIP, CENPE, CENPJ, CEP152, CEP295, CEP63, DNA2, NIN, NSMCE2, PCNT, PLK4, RBBP8, TRAIP, BLM, RECQL3, CLCN1, DHCR7, NADSYN1, BTK, ELF4, GH1, GHRH, GHRHR, GHSR, HESX1, IARS2, POU1F1, RNPC3, SOX3, CHNG3, CR1, DUOX2, DUOXA2, FANCC, GLIS3, HESX1, IGSF1, IRS4, IYD, KMT2D, LHX3, LHX4, NKX2-1, NKX2-5, PAX8, PAX8-AS1, POU1F1, PROP1, SLC26A4, SLC26A7, SLC33A1, SLC5A5, TBL1X, TG, THRA, TPO, TRH, TRHR, TSHB, TSHR, TTF1, TUBB1, ARMC5, GNAS, PRKACA, CDON, DLK1, KDM6A, KISS1R, LEPR, LHCGR, MKRN3, OFD1, PNPLA6, PTCH1, GNAS, GNASAS1, PTH1R, STX16, CYP11A1, CYP11B1, CYP17A1, CYP19A1, CYP21A2, HSD3B2, LOC106780800, POR, STAR, TNXB, ACTN4, ALMS1, ANLN, APOA1, ARHGDIA, AXDND1, CFH, CFHR1, CFHR5, COL4A1, COL4A3, COL4A4, COL4A5, DSTYK, EHHADH, ETFB, FN1, FREM1, GANAB, GATA3, MKS1, MT-TF, NHERF1, NPHS2, PASK, PKD1, PKD2, SLC13A5, SOX17, TBX18, TFCP2L1, TTC21B, UMOD, WNT9B, WT1, ZNF423, ABL1, BMPR1A, BMPR1B, BMPR2, CAV1, CHD7, COL1A1, DNAH9, ENG, GATA4, GATA6, JAG1, KLF13, LTBP1, MESP1, MYL2, NKX2-5, PIGL, PRDM16, PTCH1, RIT1, SMAD2, SMAD9, TBX4, TBX5, TRAF7, WDR5, CELIAC2, CELIAC5, CELIAC6, CELIAC7, CELIAC8, CELIAC9, CELIAC10, CELIAC11, CELIAC12, CELIAC13, CTLA4, HLA-DQA1, HLA-DQB1, HLA-DRB1, MYO9B, ABCB1, ATG16L1, CARD8, CRFB4, HSPA1L, IBD2, IBD3, IBD4, IBD5, IBD6, IBD7, IBD8, IBD9, IBD11, IBD12, IBD15, IBD16, IBD18, IBD20, IBD21, IBD22, IBD23, IBD24, IBD26, IBD27, IL10, IL10RA, IL10RB, IL21, IL23R, IL37, INAVA, IRF5, IRGM, LOC130006833, NFAT5, NOD2, PTPN2, RIPK1, SLC22A5, TGFB1, FARSB, KRT18, KRT8, LYN, NAIC, PBC1, PBC2, PBC3, PBC4, PBC5, PHKG2, SERPINA1, SLC30A10, UTP4, CEACAM3, CEACAM6, CFM1, CFTR, CFTR-AS1, CLCA4, DCTN4, EDNRA, FCGR2A, GCLC, GSTM3, HFE, HMOX1, KCNN4, MBL2, MIF, PIK3CG, PLG, POLE, SERPINA1, SLC11A1, SLC26A9, SLC6A14, SLC9A3, STX1A, TGFB1, BCL11A, HBB, HBG1, HBG2, KLF1, LOC106099062, LOC107133510, ADRB2, ALOX5, ASRT3, ASRT4, ASRT6, ASRT8, CARD11, CCL11, CHI3L1, FKBP5, HLA-G, HNMT, IGES, IL13, IRAK3, LTC4S, MUC7, NPSR1, PLA2G7, PTGDR, PTGER2, SCGB1A1, SCGB3A2, TBX21, TNF, CYP2R1, CYP27B1, CYP3A4, PHEX, PHYH, PRSS1, SLC30A2, VDR, COL1A1, GALE, GALM, GALT, PAH, PI4KA, POMGNT1, TKFC, CA1, CLCN5, CYP27B1, CYP2R1, CYP3A4, DMP1, ENPP1, FGF23, HADHB, HPRHP, HRAS, PHEX, PHYH, PRSS1, SLC34A3, VDR, WDR72, CDKN1C, GPKOW, RMI2, TOP3A, DHCR7, CCL2, CCL3, CCL5, HLA-C, CD209, CCR2, CCR5, MBL2, MTBSX, STAT1, TIRAP, IL12RB1, MTBS1, MTBS3, MTBS2, CXCR1, CISH, SP110, IL4R, NRAM, ALPL, BMP1, CCDC134, COL1A1, COL1A2, COL1A2-AS1, COL5A2, COL11A1, COL11A2, CREB3L1, CRTAP, FKBP10, GBE1, IFITM5, KDELR2, KIF5B, LOC129936436, LOC129999976, LRP5, MBTPS2, MESD, P3H1, PGGHG, PHLDB1, PIGT, PLOD2, PLS3, PPIB, SERPINF1, SERPINH1, SFTPC, SLC34A1, SP7, SPARC, TENT5A, TMEM38B, WNT1, XYLT2, ACAN, ADAMTS17, COL9A2, COL11A1, COL27A1, FBN1, FBN2, LTBP2, MATN3, CREBBP, GNAS, PDE3A, SOX9, GDF5, IGF2, IHH, NPPC, NPR2, PTH1R, PTHLH, WNT5A, CYP19A1, ESR1, IGF1R, PIK3R1, DNMT3A, EZH2, HIST1H1E, NSD1, SETD2                    </p>
                 </div>
             </div>
         </section>
-    </main>
+        </main>
 
-    <footer class="bg-[#F5F5F5] py-8 border-t border-gray-200 text-center text-xs tracking-widest font-medium text-gray-500">
-        2026 GeneWellness International 健曜國際
-    </footer>
-
-    <a href="https://line.me/R/ti/p/@394kplur" target="_blank" class="fixed bottom-8 right-8 bg-[#757575] text-white px-8 py-3 rounded-full shadow-2xl z-[9999] flex items-center space-x-3 hover:bg-black transition no-underline">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" width="20" height="20"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-        <span class="font-bold text-sm tracking-widest">Let's Chat!</span>
-    </a>
+    <div id="footer-placeholder"></div>
 
     <script>
-        const hb = document.getElementById('hamburger-btn');
-        const menu = document.getElementById('mobile-nav-panel');
-        const trigger = document.getElementById('mobile-sub-trigger');
-        const subBox = document.getElementById('mobile-sub-box');
+        // 自動載入零件
+        const requestNav = fetch('./nav.html').then(res => res.text());
+        const requestFooter = fetch('./footer.html').then(res => res.text());
 
-        const subHtml = `
-            <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
-            <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
-            <a href="height.html">身高管理</a>
-            <a href="sleep.html">睡眠追蹤</a>
-        `;
+        Promise.all([requestNav, requestFooter])
+            .then(results => {
+                document.getElementById('nav-placeholder').innerHTML = results[0];
+                document.getElementById('footer-placeholder').innerHTML = results[1];
+                initNavLogic();
+            })
+            .catch(err => console.error("零件載入失敗:", err));
 
-        hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
-        trigger.onclick = (e) => { 
-            if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; }
-            subBox.classList.toggle('active'); 
-        };
-        document.onclick = (e) => { if (!menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
+        function initNavLogic() {
+            const hb = document.getElementById('hamburger-btn');
+            const menu = document.getElementById('mobile-nav-panel');
+            const trigger = document.getElementById('mobile-sub-trigger');
+            const subBox = document.getElementById('mobile-sub-box');
+
+            const subHtml = `
+                <a href="wgs.html" class="sub-item">WGS 全基因體檢測</a>
+                <a href="wes.html" class="sub-item">WES 外顯體基因檢測</a>
+                <a href="height.html" class="sub-item">身高管理</a>
+                <a href="sleep.html" class="sub-item">睡眠追蹤</a>
+            `;
+
+            if(hb) hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('show'); };
+            if(trigger) trigger.onclick = (e) => { 
+                if (!subBox.innerHTML.trim()) { subBox.innerHTML = subHtml; }
+                subBox.classList.toggle('active'); 
+            };
+            document.onclick = (e) => { if (menu && !menu.contains(e.target) && e.target !== hb) menu.classList.remove('show'); };
+        }
     </script>
 </body>
 </html>
