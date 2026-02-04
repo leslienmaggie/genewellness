@@ -8,30 +8,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-        html, body { height: 100%; margin: 0; padding: 0; }
-        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; display: flex; flex-direction: column; }
+        html, body { margin: 0; padding: 0; width: 100%; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; }
         
-        /* 確保導覽列在每一頁的層級都是最高的，且不會被遮擋 */
+        /* --- 1. 確保 Nav 佔位符不被任何東西壓縮或擋住 --- */
         #nav-placeholder { 
-            z-index: 1000; 
+            width: 100%;
+            min-height: 64px; /* 對應 h-16 */
             position: relative;
+            z-index: 9999; /* 必須高於 iframe */
         }
 
-        /* 睡眠內容區域：設定最大高度，防止在電腦版無限延伸 */
-        .sleep-main-container {
-            flex: 1;
+        /* --- 2. 睡眠內容主容器 --- */
+        .sleep-main {
+            background-color: #f9fafb;
             padding: 20px 0;
-            background-color: #f9f9f9;
+            width: 100%;
         }
 
         .iframe-wrapper {
             width: 100%;
-            height: 750px; /* 電腦版固定高度 */
-            max-width: 1100px;
+            max-width: 1050px; /* 對應你 App 的卡片寬度 */
+            height: 750px; 
             margin: 0 auto;
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             overflow: hidden;
             position: relative;
         }
@@ -42,14 +44,15 @@
             border: none; 
         }
 
-        /* 手機版專屬優化 (螢幕寬度 < 768px) */
+        /* --- 3. 手機版優化：只縮放 iframe 內容，不影響外部 Nav --- */
         @media (max-width: 767px) {
-            .sleep-main-container { padding: 10px; }
+            .sleep-main { padding: 10px; }
             .iframe-wrapper { 
-                height: 600px; /* 手機版降低高度 */
+                height: 650px; 
+                border-radius: 8px;
             }
             .iframe-container {
-                /* 縮小比例解決 Email 框爆出的問題，同時維持導覽列不變 */
+                /* 縮放 90% 解決 Email 框太大的問題 */
                 width: 111.1%; 
                 height: 111.1%;
                 transform: scale(0.9);
@@ -58,17 +61,19 @@
         }
     </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <div id="nav-placeholder"></div>
 
-    <main class="sleep-main-container">
-        <div class="iframe-wrapper">
-            <iframe 
-                src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
-                class="iframe-container"
-                sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
-                allow="geolocation; microphone; camera; encrypted-media;"
-            ></iframe>
+    <main class="sleep-main flex-grow">
+        <div class="container mx-auto px-4">
+            <div class="iframe-wrapper">
+                <iframe 
+                    src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
+                    class="iframe-container"
+                    sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation"
+                    allow="geolocation; microphone; camera; encrypted-media;"
+                ></iframe>
+            </div>
         </div>
     </main>
 
