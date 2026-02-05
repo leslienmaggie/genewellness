@@ -1,265 +1,142 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <base target="_top">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>劍橋博士睡眠追蹤中心</title>
+    
+    <title>睡眠追蹤與分析系統 | 穿戴裝置數據管理 | 劍橋博士</title>
+    <meta name="description" content="結合科學數據與專業分析，劍橋博士睡眠追蹤系統協助您深度解讀穿戴裝置的睡眠指標。針對兒童與青少年的成長發育需求，提供精準的睡眠品質評估與專業健康建議。">
+    <meta name="keywords" content="睡眠追蹤系統, 睡眠品質分析, Garmin睡眠數據, 兒童成長發育, 劍橋博士, 健曜國際, 健康數據可視化">
+
+    <link rel="icon" href="https://www.genewellness.com.tw/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://www.genewellness.com.tw/images/og-logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://www.genewellness.com.tw/images/og-logo.png">
+
+    <meta property="og:title" content="睡眠追蹤系統 - 劍橋博士精準數據管理">
+    <meta property="og:description" content="解讀數據背後的健康密碼，守護孩子與家人的優質睡眠。點擊了解詳細分析系統。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.genewellness.com.tw/sleep.html">
+    <meta property="og:image" content="https://www.genewellness.com.tw/images/og-logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color: #1e293b; }
-        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5); border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .loading-overlay { background: rgba(255,255,255,0.8); position: fixed; inset: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; }
-        .admin-only { display: none; } /* 預設完全不佔空間 */
-        .status-badge { padding: 2px 8px; border-radius: 99px; font-size: 12px; font-weight: 500; }
-        .scroll-hide::-webkit-scrollbar { display: none; }
+        html, body { height: 100%; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; display: flex; flex-direction: column; }
+        
+        /* 導覽列通用樣式 - 確保與首頁完全一致 */
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
+        .nav-link:hover { color: #000; }
+        .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
+
+        /* 睡眠內容區域樣式 - 縮短高度版 */
+        .sleep-main { flex-grow: 1; background-color: #f9fafb; padding: 20px 0; display: flex; justify-content: center; align-items: flex-start; }
+        .iframe-wrapper {
+            width: 95%; max-width: 1080px; 
+            height: 650px; /* 電腦版縮短至 650px */
+            background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden; position: relative; border: 1px solid #eee;
+        }
+        .iframe-container { width: 100%; height: 100%; border: none; -webkit-overflow-scrolling: touch; }
+
+        /* 手機版縮放與高度優化 */
+        @media (max-width: 767px) {
+            .sleep-main { padding: 10px; }
+            .iframe-wrapper { 
+                height: 550px; /* 手機版縮短至 550px */
+                width: 100%; 
+            }
+            .iframe-container {
+                width: 111.1%; height: 111.1%;
+                transform: scale(0.9); transform-origin: 0 0;
+            }
+        }
+        .secret-link { color: #f9fafb; font-size: 10px; text-decoration: none; padding: 15px; display: inline-block; user-select: none; }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="flex flex-col min-h-screen">
 
-<div id="loader" class="loading-overlay">
-    <div class="flex flex-col items-center">
-        <i class="fa-solid fa-circle-notch fa-spin text-4xl text-indigo-600"></i>
-        <p class="mt-4 text-gray-600 font-medium">數據讀取中...</p>
-    </div>
-</div>
+<nav class="bg-white border-b border-gray-100 sticky top-0 z-[9999] h-16 w-full">
+    <div class="container mx-auto px-6 h-full flex justify-between items-center max-w-5xl">
+        <a href="index.html" class="flex-shrink-0 flex items-center">
+            <img src="Banner.png" alt="Logo" class="h-8 md:h-9 w-auto object-contain">
+        </a>
+        
+        <button id="hamburger-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none md:hidden">
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+            <span class="w-6 h-0.5 bg-gray-600"></span>
+        </button>
 
-<nav class="bg-white border-b sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
-                <i class="fa-solid fa-moon"></i>
+        <div class="hidden md:flex items-center space-x-1">
+            <a href="index.html" class="nav-link">首頁</a>
+            <a href="company.html" class="nav-link">關於</a>
+            <a href="https://drlesliechen.wordpress.com/" target="_blank" class="nav-link">新知</a>
+            <a href="services.html" class="nav-link">商務</a>
+            <div class="dropdown relative group">
+                <div class="nav-link cursor-pointer">檢測 <span class="text-[10px] ml-1">▼</span></div>
+                <div class="dropdown-pc group-hover:block hidden absolute top-full left-0 bg-white shadow-lg rounded-md py-2 border border-gray-100 min-w-[180px]">
+                    <a href="wgs.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">WGS 全基因體檢測</a>
+                    <a href="wes.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">WES 外顯體基因檢測</a>
+                    <a href="height.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">身高管理</a>
+                    <a href="sleep.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">睡眠追蹤</a>
+                </div>
             </div>
-            <span class="font-bold text-xl tracking-tight">睡眠追蹤中心</span>
+            <a href="index.html#contact-section" class="nav-link">聯絡我們</a>
+            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="ml-4 bg-[#757575] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-black transition duration-300 no-underline">立即訂購</a>
         </div>
-        <div id="user-display" class="text-sm font-medium text-gray-500"></div>
+
+        <div id="mobile-nav-panel" class="hidden absolute top-16 left-0 w-full bg-white border-b border-gray-100 px-6 py-4 shadow-xl z-[10000]">
+            <a href="index.html" class="mobile-row">首頁</a>
+            <a href="company.html" class="mobile-row">關於</a>
+            <a href="https://drlesliechen.wordpress.com/" target="_blank" class="mobile-row">新知</a>
+            <a href="services.html" class="mobile-row">商務</a>
+            <div id="mobile-sub-trigger" class="mobile-row cursor-pointer">檢測 <span style="font-size:10px;">▼</span></div>
+            <div id="mobile-sub-box" class="hidden flex-col pl-4 bg-gray-50">
+                <a href="wgs.html" class="block py-2 text-sm text-gray-600">WGS 全基因體檢測</a>
+                <a href="wes.html" class="block py-2 text-sm text-gray-600">WES 外顯體基因檢測</a>
+                <a href="height.html" class="block py-2 text-sm text-gray-600">身高管理</a>
+                <a href="sleep.html" class="block py-2 text-sm text-gray-600">睡眠追蹤</a>
+            </div> 
+            <a href="index.html#contact-section" class="mobile-row">聯絡我們</a>
+            <a href="https://nutrition.cashier.ecpay.com.tw/" target="_blank" class="mobile-row font-bold text-black bg-gray-50 px-4 py-3 mt-2 flex justify-between items-center no-underline rounded-lg">
+                立即訂購 <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
     </div>
 </nav>
 
-<main class="max-w-6xl mx-auto px-4 py-6 space-y-6">
-
-    <div class="flex flex-wrap items-center justify-between gap-4">
-        <h2 class="text-lg font-bold flex items-center gap-2">
-            <i class="fa-solid fa-users text-indigo-500"></i> 成員管理
-        </h2>
-        
-        <div class="flex gap-2">
-            <button id="download-btn" onclick="handleDownload()" class="admin-only bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold hover:bg-gray-50 flex items-center gap-2 transition shadow-sm">
-                <i class="fa-solid fa-camera text-rose-500"></i> 下載分析照片
-            </button>
-            
-            <button id="upload-btn" onclick="showUploadModal()" class="admin-only bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-indigo-700 flex items-center gap-2 transition shadow-md">
-                <i class="fa-solid fa-plus"></i> 上傳數據
-            </button>
-        </div>
-    </div>
-
-    <div id="admin-summary-section" class="admin-only grid grid-cols-1 md:grid-cols-3 gap-4">
-        </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div class="lg:col-span-1 space-y-4">
-            <div id="children-list" class="space-y-3">
-                </div>
-        </div>
-
-        <div id="data-display" class="lg:col-span-2 glass-card p-6 min-h-[400px]">
-            <div class="flex flex-col items-center justify-center h-full text-gray-400">
-                <i class="fa-solid fa-chart-line text-5xl mb-4 opacity-20"></i>
-                <p>請從左側選擇成員以查看睡眠分析</p>
-            </div>
-        </div>
+<main class="sleep-main">
+    <div class="iframe-wrapper">
+        <iframe 
+            src="https://script.google.com/macros/s/AKfycbxiRCWeRXwNsqOK1vuQD2bwY1-6Gxqi_1OH0EnRgXD7TdPmgJedy-qfSxYfh4MPPbIrZg/exec" 
+            class="iframe-container"
+            sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation allow-downloads"
+            allow="geolocation; microphone; camera; encrypted-media;"
+        ></iframe>
     </div>
 </main>
 
-<div id="upload-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] flex justify-center items-center p-4">
-    <div class="bg-white rounded-2xl w-full max-w-lg p-6 shadow-2xl">
-        <div class="flex justify-between items-center mb-4">
-            <h3 class="text-xl font-bold">上傳 JSON 睡眠數據</h3>
-            <button onclick="closeUploadModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="space-y-4">
-            <div>
-                <label class="block text-sm font-bold text-gray-700 mb-1">選擇成員</label>
-                <select id="upload-child-select" class="w-full border rounded-lg p-2 bg-gray-50"></select>
-            </div>
-            <div>
-                <label class="block text-sm font-bold text-gray-700 mb-1">時區偏置 (小時)</label>
-                <input type="number" id="timezone-offset" value="8" class="w-full border rounded-lg p-2 bg-gray-50">
-            </div>
-            <div>
-                <label class="block text-sm font-bold text-gray-700 mb-1">貼上 JSON 內容</label>
-                <textarea id="json-input" rows="8" class="w-full border rounded-lg p-2 font-mono text-xs bg-gray-50" placeholder='[{"sleepStartTimestampGMT":...}]'></textarea>
-            </div>
-            <button onclick="submitUpload()" id="submit-btn" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl hover:bg-indigo-700 transition">開始解析並儲存</button>
-        </div>
-    </div>
-</div>
+<div id="footer-placeholder"></div>
 
 <script>
-    let appData = { children: [], isAdmin: false, userEmail: "chenyyl@gmail.com" }; // Email 應根據實際環境獲取
+    // 手機漢堡選單邏輯
+    const hb = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('mobile-nav-panel');
+    const subTrigger = document.getElementById('mobile-sub-trigger');
+    const subBox = document.getElementById('mobile-sub-box');
 
-    window.onload = function() {
-        // 初始化載入
-        google.script.run
-            .withSuccessHandler(onInitSuccess)
-            .withFailureHandler(onInitError)
-            .loginAndGetChildren(appData.userEmail);
-    };
+    hb.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); };
+    subTrigger.onclick = (e) => { e.stopPropagation(); subBox.classList.toggle('hidden'); };
+    document.onclick = () => { menu.classList.add('hidden'); };
 
-    function onInitSuccess(response) {
-        document.getElementById('loader').classList.add('hidden');
-        appData.isAdmin = response.isAdmin;
-        appData.children = response.children;
-
-        // 顯示登入狀態
-        document.getElementById('user-display').innerHTML = `
-            <span class="status-badge ${response.isAdmin ? 'bg-rose-100 text-rose-600' : 'bg-green-100 text-green-600'}">
-                ${response.isAdmin ? '管理員權限' : '家長帳號'}
-            </span>
-        `;
-
-        // --- 權限控管：如果是管理員，顯示所有專屬按鈕 ---
-        if (response.isAdmin) {
-            document.querySelectorAll('.admin-only').forEach(el => {
-                el.style.display = 'flex'; // 顯示按鈕與區塊
-            });
-            renderAdminStats(response.adminStats);
-        }
-
-        renderChildrenList(response.children);
-        populateChildSelect(response.children);
-    }
-
-    function onInitError(err) {
-        alert("系統載入失敗：" + err);
-        document.getElementById('loader').innerHTML = `<p class="text-red-500">連線失敗，請重新整理頁面</p>`;
-    }
-
-    // 渲染管理員統計摘要
-    function renderAdminStats(stats) {
-        if (!stats) return;
-        const container = document.getElementById('admin-summary-section');
-        const latest = stats[0] || { name: '無', lastDate: '-' };
-        const totalChildren = stats.length;
-        
-        container.innerHTML = `
-            <div class="glass-card p-4 flex items-center gap-4">
-                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xl"><i class="fa-solid fa-child"></i></div>
-                <div><p class="text-xs text-gray-500">成員總數</p><p class="text-xl font-black">${totalChildren}</p></div>
-            </div>
-            <div class="glass-card p-4 flex items-center gap-4">
-                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 text-xl"><i class="fa-solid fa-clock-rotate-left"></i></div>
-                <div><p class="text-xs text-gray-500">最新更新</p><p class="text-sm font-bold text-gray-700">${latest.name}</p></div>
-            </div>
-            <div class="glass-card p-4 flex items-center gap-4">
-                <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xl"><i class="fa-solid fa-calendar-check"></i></div>
-                <div><p class="text-xs text-gray-500">最後更新日</p><p class="text-sm font-bold text-gray-700">${latest.lastDate}</p></div>
-            </div>
-        `;
-    }
-
-    // 渲染左側名單
-    function renderChildrenList(children) {
-        const list = document.getElementById('children-list');
-        list.innerHTML = children.map(child => `
-            <div onclick="viewSleepData('${child.id}', '${child.name}')" class="glass-card p-4 cursor-pointer hover:border-indigo-300 hover:shadow-md transition group">
-                <div class="flex justify-between items-center">
-                    <span class="font-bold group-hover:text-indigo-600">${child.name}</span>
-                    <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    // 查看睡眠數據
-    function viewSleepData(id, name) {
-        const display = document.getElementById('data-display');
-        display.innerHTML = `<div class="flex justify-center py-20"><i class="fa-solid fa-circle-notch fa-spin text-2xl text-indigo-500"></i></div>`;
-        
-        google.script.run
-            .withSuccessHandler(data => {
-                const logs = JSON.parse(data);
-                if (logs.length === 0) {
-                    display.innerHTML = `<div class="text-center py-20 text-gray-400">尚無資料</div>`;
-                    return;
-                }
-                
-                let tableHtml = `
-                    <div class="flex justify-between items-end mb-6">
-                        <div>
-                            <h3 class="text-2xl font-black text-indigo-900">${name}</h3>
-                            <p class="text-sm text-gray-500">睡眠紀錄表 (共 ${logs.length} 筆)</p>
-                        </div>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left text-sm">
-                            <thead>
-                                <tr class="text-gray-400 border-b italic">
-                                    <th class="pb-2 font-medium">日期</th>
-                                    <th class="pb-2 font-medium">入睡時間</th>
-                                    <th class="pb-2 font-medium">總時數</th>
-                                    <th class="pb-2 font-medium">深層/REM</th>
-                                    <th class="pb-2 font-medium">起床</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y">
-                                ${logs.reverse().map(log => `
-                                    <tr class="hover:bg-gray-50 transition">
-                                        <td class="py-3 font-bold text-gray-700">${log.date}</td>
-                                        <td class="py-3 text-indigo-600">${log.onset}</td>
-                                        <td class="py-3 font-black">${log.total}h</td>
-                                        <td class="py-3 text-xs text-gray-500">${log.deep}m / ${log.rem}m <br> <span class="text-[10px] text-gray-400">比值: ${log.ratio}</span></td>
-                                        <td class="py-3 text-gray-500">${log.wake}</td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    </div>
-                `;
-                display.innerHTML = tableHtml;
-            })
-            .getSleepDataByChildID(id);
-    }
-
-    // 下載照片功能
-    function handleDownload() {
-        if (!appData.isAdmin) return;
-        alert("準備生成「" + document.querySelector('#data-display h3')?.innerText + "」的睡眠分析報告照片...");
-        // 這裡可以串接 html2canvas
-    }
-
-    // Modal 控制
-    function showUploadModal() { document.getElementById('upload-modal').classList.remove('hidden'); }
-    function closeUploadModal() { document.getElementById('upload-modal').classList.add('hidden'); }
-    function populateChildSelect(children) {
-        const select = document.getElementById('upload-child-select');
-        select.innerHTML = children.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
-    }
-
-    function submitUpload() {
-        const btn = document.getElementById('submit-btn');
-        const childId = document.getElementById('upload-child-select').value;
-        const json = document.getElementById('json-input').value;
-        const offset = document.getElementById('timezone-offset').value;
-        
-        if (!json) { alert("請貼上 JSON 數據"); return; }
-        
-        btn.disabled = true;
-        btn.innerText = "處理中...";
-        
-        google.script.run
-            .withSuccessHandler(res => {
-                alert(res);
-                btn.disabled = false;
-                btn.innerText = "開始解析並儲存";
-                closeUploadModal();
-                location.reload(); // 重新整理查看結果
-            })
-            .uploadJsonFromWeb(childId, json, appData.userEmail, offset);
-    }
+    // 載入頁尾
+    fetch('./footer.html').then(res => res.text()).then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+    }).catch(err => console.error("頁尾載入失敗"));
 </script>
 
 </body>
