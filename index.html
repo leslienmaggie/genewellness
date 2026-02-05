@@ -5,43 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>劍橋博士基因檢驗 | 健曜國際 - 專業基因檢測與精準健康管理</title>
-    <meta name="description" content="劍橋博士基因檢驗（健曜國際）提供專業兒童身高管理、癌症風險篩檢、心血管疾病檢測及個人化精準醫學服務。結合先進基因定序技術與科學數據，為您與家人的健康提供最嚴謹的守護。">
-    <meta name="keywords" content="劍橋博士, 健曜國際, 基因檢測, 身高管理, 癌症篩檢, 心血管疾病檢測, 精準醫學, 預防醫學, 健康管理系統">
-
+    <meta name="description" content="劍橋博士基因檢驗（健曜國際）提供專業兒童身高管理、癌症風險篩檢、心血管疾病檢測及個人化精準醫學服務。">
     <link rel="icon" href="https://www.genewellness.com.tw/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://www.genewellness.com.tw/images/og-logo.png" type="image/png">
     <link rel="apple-touch-icon" href="https://www.genewellness.com.tw/images/og-logo.png">
-
-    <meta property="og:title" content="劍橋博士基因檢驗 | 健曜國際 - 科學守護、精準預防">
-    <meta property="og:description" content="專業兒童成長追蹤、癌症與心血管風險篩檢。點擊了解如何透過基因科技掌握健康主導權。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.genewellness.com.tw/">
     <meta property="og:image" content="https://www.genewellness.com.tw/images/og-logo.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; }
         
-        /* 導覽列通用樣式 */
-        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
-        .nav-link:hover { color: #000; }
-        .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
+        /* ======= 補回你的關鍵版型樣式 ======= */
 
+        /* 弧線版型與容器區塊 */
+        .curved-box { border-radius: 30px; overflow: hidden; } /* 這是你常見的圓角弧線 */
+        .section-curve { border-radius: 0 0 50% 50% / 0 0 20px 20px; } /* 底部弧線效果 */
+
+        /* 按鈕框框與互動效果 */
+        .vision-btn { 
+            border: 1px solid #727272; color: #727272; padding: 8px 24px; 
+            border-radius: 999px; font-size: 14px; transition: 0.3s; 
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .vision-btn:hover { background: #727272; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+        /* 導覽列與陰影 */
+        .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; text-decoration: none; }
+        .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
+        .shadow-custom { box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
+        /* 手機版選單 (保留原本邏輯) */
         @media (max-width: 767px) {
-            #mobile-nav-panel { display: none; position: absolute; top: 64px; left: 0; width: 100%; background: white; flex-direction: column; padding: 10px 24px; border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999; }
+            #mobile-nav-panel { display: none; position: absolute; top: 64px; left: 0; width: 100%; background: white; flex-direction: column; padding: 10px 24px; border-bottom: 1px solid #eee; z-index: 9999; }
             #mobile-nav-panel.show { display: flex !important; }
-            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
-            #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
-            #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
-            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; text-decoration: none; }
+            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; }
         }
 
-        /* 如果你原本 index 還有其他的 .style 內容，請繼續接在下方 */
+        /* 圖片容器樣式 */
+        .img-container { aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; }
+        .img-fit { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
