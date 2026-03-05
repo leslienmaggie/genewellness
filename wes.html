@@ -5,20 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>全外顯子定序 WES | 深度疾病風險篩檢 | 劍橋博士</title>
-    <meta name="description" content="全外顯子定序 (WES) 提供最全面的基因掃描。劍橋博士運用先進定序技術，針對數萬個基因進行深度檢測，協助您精準掌握遺傳疾病、罕見風險及個人化體質。一次檢測，為終身健康提供科學藍圖。">
-    <meta name="keywords" content="全外顯子定序, WES基因檢測, 深度基因篩檢, 遺傳病檢測, 劍橋博士, 健曜國際, 精準醫療, 罕見疾病篩檢">
-
-    <link rel="icon" href="https://www.genewellness.com.tw/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://www.genewellness.com.tw/images/og-logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="https://www.genewellness.com.tw/images/og-logo.png">
-
-    <meta property="og:title" content="全外顯子定序 WES - 劍橋博士最深度的健康資產掃描">
-    <meta property="og:description" content="超越傳統篩檢，解碼生命最核心的數據。點擊了解 WES 如何重塑您的健康管理。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.genewellness.com.tw/wes.html">
-    <meta property="og:image" content="https://www.genewellness.com.tw/images/og-logo.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta name="description" content="全外顯子定序 (WES) 提供最全面的基因掃描。劍橋博士運用先進定序技術，針對數萬個基因進行深度檢測。">
+    <meta name="keywords" content="全外顯子定序, WES基因檢測, 深度基因篩檢, 劍橋博士">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,21 +15,10 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; font-size: 17px; }
         
-        /* 導覽列通用樣式 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        @media (max-width: 767px) {
-            #mobile-nav-panel { display: none; position: absolute; top: 64px; left: 0; width: 100%; background: white; flex-direction: column; padding: 10px 24px; border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999; }
-            #mobile-nav-panel.show { display: flex !important; }
-            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
-            #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
-            #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
-            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; text-decoration: none; }
-        }
-
-        /* WES 頁面專用按鈕樣式 */
         .vision-btn { 
             border: 1px solid #727272; 
             color: #727272; 
@@ -56,8 +33,24 @@
             justify-content: center; 
             letter-spacing: 0.05em;
             text-decoration: none;
+            white-space: nowrap;
         }
         .vision-btn:hover { background: #727272; color: white; }
+
+        /* 關鍵對齊樣式 */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; 
+            margin-bottom: 24px; 
+        }
+
+        @media (min-width: 768px) {
+            .button-group {
+                /* 設定最小高度，確保不論 1 或 2 顆按鈕，下方文字都能對齊 */
+                min-height: 100px; 
+            }
+        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -75,8 +68,9 @@
                     <img src="images/surgical.jpg" alt="癌症疾病" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                 </div>
                 <h2 class="text-xl font-bold mb-4 tracking-wide">癌症疾病：</h2>
-                <div class="flex flex-row space-x-3 mb-6">
+                <div class="button-group">
                     <a href="cancer.html" class="vision-btn">檢測項目/基因 ⬇</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1U6aTYWKLSDNhIOggriU5K3tkRYbxvHZv" target="_blank" class="vision-btn">DM 下載 ⬇</a>
                 </div>
                 <p class="text-[17px] text-gray-600 leading-relaxed font-bold">
                     檢測男性180種、女性194種癌症和其他與腫瘤相關的疾病，共334個相關基因。
@@ -88,7 +82,7 @@
                     <img src="images/heart.jpg" alt="心血管疾病" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                 </div>
                 <h2 class="text-xl font-bold mb-4 tracking-wide">心血管疾病：</h2>
-                <div class="flex flex-row space-x-3 mb-6">
+                <div class="button-group">
                     <a href="cardiac.html" class="vision-btn">檢測項目/基因 ⬇</a>
                 </div>
                 <p class="text-[17px] text-gray-600 leading-relaxed font-bold">
@@ -101,7 +95,7 @@
                     <img src="images/alzheimer.png" alt="神經退化疾病" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                 </div>
                 <h2 class="text-xl font-bold mb-4 tracking-wide">神經退化疾病：</h2>
-                <div class="flex flex-row space-x-3 mb-6">
+                <div class="button-group">
                     <a href="neuro.html" class="vision-btn">檢測項目/基因 ⬇</a>
                 </div>
                 <p class="text-[17px] text-gray-600 leading-relaxed font-bold">
@@ -114,7 +108,7 @@
                     <img src="images/diabetes.png" alt="代謝疾病" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                 </div>
                 <h2 class="text-xl font-bold mb-4 tracking-wide">代謝疾病：</h2>
-                <div class="flex flex-row space-x-3 mb-6">
+                <div class="button-group">
                     <a href="metabolic.html" class="vision-btn">檢測項目/基因 ⬇</a>
                 </div>
                 <p class="text-[17px] text-gray-600 leading-relaxed font-bold">
@@ -125,7 +119,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-
     <script src="main.js"></script>
 </body>
 </html>
