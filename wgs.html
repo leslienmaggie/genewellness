@@ -5,21 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>WGS 全基因體檢測 | 30億鹼基對完整解碼 | 劍橋博士</title>
-    <meta name="description" content="WGS 全基因體檢測是目前最完整的基因解碼技術。劍橋博士提供專業 WGS 服務，全面掃描 30 億個鹼基對，不只涵蓋疾病風險，更深入解讀藥物反應、遺傳特徵與潛在體質。一次檢測，打造個人專屬的終身健康數據庫。">
-    <meta name="keywords" content="全基因體檢測, WGS, 基因掃描, 精準醫療, 劍橋博士, 健曜國際, 預防醫學, 終身健康管理, 藥物反應檢測">
-
-    <link rel="icon" href="https://www.genewellness.com.tw/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://www.genewellness.com.tw/images/og-logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="https://www.genewellness.com.tw/images/og-logo.png">
-
-    <meta property="og:title" content="WGS 全基因體檢測 - 劍橋博士引領精準醫療最高規格">
-    <meta property="og:description" content="解鎖 100% 的基因生命之書。點擊了解如何透過 WGS 實現最全面的健康防禦。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.genewellness.com.tw/wgs.html">
-    <meta property="og:image" content="https://www.genewellness.com.tw/images/og-logo.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
+    <meta name="description" content="WGS 全基因體檢測是目前最完整的基因解碼技術。劍橋博士提供專業 WGS 服務，全面掃描 30 億個鹼基對，不只涵蓋疾病風險，更深入解讀藥物反應、遺傳特徵與潛在體質。">
+    <meta name="keywords" content="全基因體檢測, WGS, 基因掃描, 精準醫療, 劍橋博士, 健曜國際, 預防醫學, 終身健康管理">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -27,38 +15,45 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; color: #1a1a1a; background-color: #ffffff; font-size: 17px; }
         
-        /* 導覽列通用樣式 */
+        /* 導覽列與通用樣式 */
         .nav-link { padding: 8px 12px; font-size: 15px; color: #727272; transition: all 0.2s; white-space: nowrap; cursor: pointer; text-decoration: none; }
         .nav-link:hover { color: #000; }
         .nav-link.active { background-color: #EBEBEB; color: #1a1a1a; font-weight: 500; border-radius: 4px; }
 
-        @media (max-width: 767px) {
-            #mobile-nav-panel { display: none; position: absolute; top: 64px; left: 0; width: 100%; background: white; flex-direction: column; padding: 10px 24px; border-bottom: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 9999; }
-            #mobile-nav-panel.show { display: flex !important; }
-            .mobile-row { width: 100%; padding: 15px 0; border-bottom: 1px solid #f9f9f9; display: flex; justify-content: space-between; align-items: center; color: #727272; text-decoration: none; }
-            #mobile-sub-box { display: none; flex-direction: column; padding-left: 20px; background: #fafafa; }
-            #mobile-sub-box.active { display: flex; padding-bottom: 10px; }
-            .sub-item { display: block; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #727272; text-decoration: none; }
-        }
-
-        .vision-btn { 
-            border: 1px solid #727272; 
-            color: #727272; 
-            padding: 6px 0; 
-            width: 140px; 
-            border-radius: 999px; 
-            font-size: 13px; 
+        .vision-btn {
+            border: 1px solid #727272;
+            color: #727272;
+            padding: 7px 0;
+            width: 160px;
+            border-radius: 999px;
+            font-size: 13px;
             font-weight: 500;
-            transition: 0.3s; 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             letter-spacing: 0.05em;
             text-decoration: none;
+            white-space: nowrap;
         }
         .vision-btn:hover { background: #727272; color: white; }
 
-        /* WGS 專屬數字與網格樣式 */
+        /* 關鍵對齊：按鈕容器高度控制 */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        @media (min-width: 768px) {
+            .button-group {
+                min-height: 150px; /* 確保兩邊文字起始點對齊 */
+            }
+        }
+        @media (max-width: 767px) {
+            .button-group { min-height: auto; margin-bottom: 2rem; }
+        }
+
         .wgs-num { font-size: 26px; color: #ccc; font-weight: 300; display: block; margin-bottom: 8px; }
         .wgs-grid-title { font-size: 20px; font-weight: 700; color: #444; margin-bottom: 12px; }
         .wgs-grid-desc { font-size: 16px; color: #666; line-height: 1.8; }
@@ -80,9 +75,10 @@
                 </div>
                 <div class="w-full">
                     <h2 class="text-2xl font-bold mb-6 tracking-wide">成長基因定序</h2>
-                    <div class="flex flex-row space-x-3 mb-10">
+                    <div class="button-group">
                         <a href="growthdetail.html" class="vision-btn">檢測項目 →</a>
                         <a href="https://drive.google.com/file/d/1vBpv651FO5tosMfOBHRA2MFlq2CjionD/view?usp=sharing" target="_blank" class="vision-btn">DM 下載 ⬇</a>
+                        <a href="https://drive.google.com/uc?export=download&id=1yEypRIr6AhYKP0BMnRR60KaYSmDs5pMR" target="_blank" class="vision-btn">成長衛教手冊 ⬇</a>
                     </div>
                     <ul class="text-[16px] text-gray-600 space-y-3 leading-relaxed font-bold">
                         <li>檢測 > 20000 個身高相關基因位點</li>
@@ -100,7 +96,7 @@
                 </div>
                 <div class="w-full">
                     <h2 class="text-2xl font-bold mb-6 tracking-wide">疾病風險定序</h2>
-                    <div class="flex flex-row space-x-3 mb-10">
+                    <div class="button-group">
                         <a href="wgsdetail.html" class="vision-btn">檢測項目 →</a>
                         <a href="https://drive.google.com/file/d/12RXSpPzoIcIthjzeMdOBamo92Y0laLx0/view?usp=sharing" target="_blank" class="vision-btn">DM 下載 ⬇</a>
                     </div>
@@ -143,7 +139,6 @@
     </section>
 
     <div id="footer-placeholder"></div>
-
     <script src="main.js"></script>
 </body>
 </html>
