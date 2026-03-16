@@ -31,14 +31,43 @@
   }
 
   .page {
-    width: 210mm;
-    height: 297mm;
-    margin: 0 auto 20px;
-    background: var(--warm-white);
-    position: relative;
-    overflow: hidden;
-    page-break-after: always;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    /* 修改原本的 .page 設定 */
+.page {
+  width: 210mm;        /* 電腦版固定寬度 */
+  min-height: 297mm;   /* 電腦版固定高度 */
+  margin: 0 auto 20px;
+  background: var(--warm-white);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+}
+
+/* 額外新增：手機版 RWD 自動切換指令 */
+@media (max-width: 210mm) {
+  body { 
+    padding: 0; 
+    background: #fff; 
+  }
+  .page {
+    width: 100%;       /* 手機版自動改為 100% 寬度 */
+    height: auto;
+    min-height: 100vh;
+    box-shadow: none;
+    margin-bottom: 0;
+    padding-bottom: 80px; /* 為底部預留空間 */
+  }
+  
+  /* 讓原本 3 欄的網格在手機變成 2 欄，避免太擠 */
+  .p1-risk-grid { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+  
+  /* 讓案例見證在手機變成上下堆疊 */
+  .case-cards { 
+    grid-template-columns: 1fr !important; 
+  }
+}
   }
 
   /* ===== PAGE 1 ===== */
