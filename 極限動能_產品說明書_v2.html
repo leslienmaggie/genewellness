@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>極限動能 — 產品說明書</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --o:#d97706; --ol:#f59e0b; --op:#fffbeb;
+    --dk:#111; --md:#444; --lt:#888;
+    --ln:#e5e0d8; --bg:#fafaf7; --wh:#fff;
+  }
+  body {
+    background:#ccc8c0; font-family:'Noto Sans TC',sans-serif;
+    color:var(--dk); padding:40px 20px;
+    display:flex; flex-direction:column; align-items:center; gap:20px;
+  }
+  .page { width:595px; background:var(--wh); overflow:hidden; }
+
+  /* ─── PAGE 1 ─── */
+  .p1-head {
+    background:var(--dk); padding:26px 38px 22px;
+    display:flex; align-items:flex-end; justify-content:space-between;
+    position:relative; overflow:hidden;
+  }
+  .p1-head::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--o); }
+  .p1-en { font-size:8px; letter-spacing:3px; color:rgba(255,255,255,.38); text-transform:uppercase; margin-bottom:6px; }
+  .p1-name { font-family:'Bebas Neue',sans-serif; font-size:50px; color:#fff; letter-spacing:2px; line-height:1; }
+  .p1-name span { color:var(--ol); }
+  .p1-sub { font-size:9px; letter-spacing:1.5px; color:rgba(255,255,255,.28); text-transform:uppercase; margin-top:5px; }
+  .p1-right { text-align:right; }
+  .p1-series { font-size:8px; letter-spacing:2px; color:var(--ol); text-transform:uppercase; margin-bottom:5px; }
+  .p1-badge { border:0.5px solid rgba(255,255,255,.22); padding:5px 12px; font-size:9px; letter-spacing:1px; color:rgba(255,255,255,.5); }
+
+  /* intro */
+  .intro { padding:28px 38px; border-bottom:0.5px solid var(--ln); }
+  .intro-hl { font-size:17px; font-weight:700; color:var(--dk); line-height:1.65; border-left:3px solid var(--o); padding-left:14px; margin-bottom:18px; }
+  .intro-hl em { color:var(--o); font-style:normal; }
+  .intro-cols { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .intro-col { font-size:11.5px; color:var(--md); line-height:2; font-weight:300; }
+
+  /* stats */
+  .stats { display:flex; border-bottom:0.5px solid var(--ln); }
+  .st { flex:1; padding:18px 12px; border-right:0.5px solid var(--ln); text-align:center; }
+  .st:last-child { border-right:none; }
+  .st-num { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--o); line-height:1; margin-bottom:3px; }
+  .st-lbl { font-size:8px; letter-spacing:1.5px; color:var(--lt); text-transform:uppercase; line-height:1.5; }
+
+  /* section label */
+  .slbl { font-size:8px; letter-spacing:4px; color:var(--o); text-transform:uppercase; margin-bottom:14px;
+          display:flex; align-items:center; gap:10px; }
+  .slbl::after { content:''; flex:1; height:0.5px; background:var(--o); opacity:.25; }
+
+  /* grow tech */
+  .grow-section { padding:26px 38px; background:var(--bg); border-bottom:0.5px solid var(--ln); }
+  .grow-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+  .grow-card { background:var(--wh); border:0.5px solid var(--ln); padding:14px 13px; }
+  .grow-card-n { font-family:'Bebas Neue',sans-serif; font-size:26px; color:var(--o); opacity:.25; line-height:1; margin-bottom:3px; }
+  .grow-card-t { font-size:11.5px; font-weight:700; color:var(--dk); margin-bottom:5px; line-height:1.4; }
+  .grow-card-b { font-size:10px; color:var(--md); line-height:1.8; font-weight:300; }
+
+  /* ingredients table */
+  .ingr-section { padding:26px 38px; border-bottom:0.5px solid var(--ln); }
+  .ingr-tbl { width:100%; border-collapse:collapse; }
+  .ingr-tbl thead th { font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:var(--lt); text-align:left; padding:0 8px 8px 0; border-bottom:0.5px solid var(--ln); }
+  .ingr-tbl tbody td { padding:8px 8px 8px 0; font-size:11px; color:var(--md); border-bottom:0.5px solid var(--ln); vertical-align:top; line-height:1.5; font-weight:300; }
+  .ingr-tbl tbody td:first-child { color:var(--dk); font-weight:500; width:80px; padding-right:14px; white-space:nowrap; }
+  .ingr-tbl tbody td:nth-child(2) { width:170px; }
+  .ingr-hl td:first-child { color:var(--o) !important; }
+
+  /* p1 footer */
+  .p1-foot { background:var(--dk); padding:14px 38px; display:flex; align-items:center; justify-content:space-between; }
+  .p1-foot-t { font-size:9px; letter-spacing:1.5px; color:rgba(255,255,255,.35); text-transform:uppercase; }
+  .p1-certs { display:flex; gap:8px; }
+  .ctag { font-size:7.5px; letter-spacing:1px; color:rgba(255,255,255,.28); border:0.5px solid rgba(255,255,255,.13); padding:3px 7px; text-transform:uppercase; }
+
+  /* ─── PAGE 2 ─── */
+  .p2-head { background:var(--o); padding:20px 38px; display:flex; align-items:center; justify-content:space-between; }
+  .p2-head-t { font-size:8px; letter-spacing:3px; color:rgba(0,0,0,.45); text-transform:uppercase; }
+  .p2-head-n { font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--dk); letter-spacing:2px; }
+  .p2-pn { font-size:8px; letter-spacing:2px; color:rgba(0,0,0,.38); }
+
+  /* science section */
+  .sci-section { padding:26px 38px; border-bottom:0.5px solid var(--ln); }
+  .sci-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+  .sci-card { border:0.5px solid var(--ln); padding:14px 14px; background:var(--bg); }
+  .sci-pill { display:inline-block; font-size:9px; letter-spacing:1px; padding:3px 10px; background:var(--op); color:var(--o); border:0.5px solid rgba(217,119,6,.3); margin-bottom:8px; }
+  .sci-title { font-size:12px; font-weight:700; color:var(--dk); margin-bottom:6px; line-height:1.4; }
+  .sci-body { font-size:10.5px; color:var(--md); line-height:1.85; font-weight:300; }
+
+  /* benefits */
+  .ben-section { padding:26px 38px; border-bottom:0.5px solid var(--ln); }
+  .ben-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+  .ben-block { border-left:2px solid var(--o); padding-left:13px; }
+  .ben-tag { font-size:8px; letter-spacing:2px; color:var(--o); text-transform:uppercase; margin-bottom:4px; }
+  .ben-title { font-size:12.5px; font-weight:700; color:var(--dk); margin-bottom:6px; }
+  .ben-body { font-size:10.5px; color:var(--md); line-height:1.85; font-weight:300; }
+
+  /* timeline */
+  .tl-section { padding:24px 38px; background:var(--bg); border-bottom:0.5px solid var(--ln); }
+  .tl-row { display:flex; gap:10px; margin-top:14px; }
+  .tl-card { flex:1; background:var(--wh); border:0.5px solid var(--ln); padding:14px 12px; text-align:center; }
+  .tl-card-days { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--o); line-height:1; margin-bottom:5px; }
+  .tl-card-title { font-size:11px; font-weight:700; color:var(--dk); margin-bottom:6px; }
+  .tl-card-body { font-size:10px; color:var(--md); line-height:1.75; font-weight:300; }
+
+  /* usage */
+  .usage-section { padding:24px 38px; border-bottom:0.5px solid var(--ln); display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .ucol-title { font-size:11px; font-weight:700; color:var(--dk); margin-bottom:10px; padding-bottom:7px; border-bottom:0.5px solid var(--ln); }
+  .uitem { display:flex; gap:8px; margin-bottom:9px; align-items:flex-start; }
+  .udot { width:4px; height:4px; background:var(--o); border-radius:50%; margin-top:7px; flex-shrink:0; }
+  .utext { font-size:11px; color:var(--md); line-height:1.8; font-weight:300; }
+  .utext strong { color:var(--dk); font-weight:500; }
+
+  /* compare */
+  .cmp-section { padding:24px 38px; border-bottom:0.5px solid var(--ln); }
+  .cmp-tbl { width:100%; border-collapse:collapse; margin-top:14px; font-size:10.5px; }
+  .cmp-tbl th { padding:8px 10px; background:var(--bg); font-size:9px; font-weight:500; letter-spacing:1px; color:var(--md); border:0.5px solid var(--ln); text-align:center; }
+  .cmp-tbl th.us { background:var(--op); color:var(--o); }
+  .cmp-tbl td { padding:8px 10px; border:0.5px solid var(--ln); text-align:center; color:var(--md); font-weight:300; line-height:1.5; }
+  .cmp-tbl td:first-child { text-align:left; font-weight:500; color:var(--dk); background:var(--bg); font-size:10px; }
+  .cmp-tbl td.us { color:var(--o); font-weight:500; background:rgba(255,251,235,.4); }
+  .cmp-tbl td.no { color:#aaa; }
+
+  /* qa */
+  .qa-section { padding:22px 38px; border-bottom:0.5px solid var(--ln); }
+  .qa-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+  .qa-item { display:flex; gap:10px; background:var(--bg); border:0.5px solid var(--ln); padding:11px 12px; }
+  .qa-icon { width:26px; height:26px; background:var(--op); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:12px; color:var(--o); font-weight:700; }
+  .qa-item-t { font-size:11px; font-weight:500; color:var(--dk); margin-bottom:3px; }
+  .qa-item-b { font-size:10px; color:var(--lt); line-height:1.65; font-weight:300; }
+
+  /* p2 footer */
+  .p2-foot { padding:18px 38px; background:var(--bg); display:flex; align-items:center; justify-content:space-between; }
+  .p2-foot-info { font-size:9px; color:var(--lt); line-height:1.7; letter-spacing:.3px; }
+  .p2-foot-info strong { color:var(--md); font-weight:500; }
+  .p2-logo { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--o); letter-spacing:2px; }
+
+  /* ─── PAGE 3 ─── */
+  .p3-head { background:var(--dk); padding:20px 38px; display:flex; align-items:center; justify-content:space-between; }
+  .p3-head-n { font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--ol); letter-spacing:2px; }
+  .p3-head-sub { font-size:8px; letter-spacing:2px; color:rgba(255,255,255,.35); text-transform:uppercase; margin-top:3px; }
+
+  /* science detail */
+  .sci-detail { padding:24px 38px; border-bottom:0.5px solid var(--ln); }
+  .sci-detail-item { margin-bottom:18px; }
+  .sci-detail-item:last-child { margin-bottom:0; }
+  .sci-tag { display:inline-block; font-size:9px; letter-spacing:1.5px; color:var(--o); background:var(--op); padding:3px 10px; border:0.5px solid rgba(217,119,6,.3); margin-bottom:8px; }
+  .sci-detail-title { font-size:12.5px; font-weight:700; color:var(--dk); margin-bottom:6px; }
+  .sci-detail-body { font-size:11px; color:var(--md); line-height:1.95; font-weight:300; }
+  .sci-detail-body em { color:var(--dk); font-style:normal; font-weight:500; }
+  .sci-divider { border:none; border-top:0.5px solid var(--ln); margin:18px 0; }
+
+  /* about grow */
+  .grow-about { padding:24px 38px; background:var(--bg); border-bottom:0.5px solid var(--ln); }
+  .grow-about-body { font-size:11px; color:var(--md); line-height:2; font-weight:300; margin-top:14px; }
+  .grow-about-body strong { color:var(--dk); font-weight:500; }
+  .grow-pts { margin-top:14px; display:flex; flex-direction:column; gap:7px; }
+  .grow-pt { display:flex; gap:10px; align-items:flex-start; }
+  .gpt-dot { width:4px; height:4px; background:var(--o); border-radius:50%; margin-top:7px; flex-shrink:0; }
+  .gpt-text { font-size:10.5px; color:var(--md); line-height:1.8; font-weight:300; }
+  .gpt-text strong { color:var(--dk); font-weight:500; }
+
+  /* ref */
+  .ref-section { padding:22px 38px; border-bottom:0.5px solid var(--ln); }
+  .ref-body { font-size:9.5px; color:var(--lt); line-height:1.9; font-weight:300; margin-top:12px; }
+
+  /* p3 footer */
+  .p3-foot { background:var(--o); padding:14px 38px; display:flex; align-items:center; justify-content:space-between; }
+  .p3-foot-t { font-size:9px; letter-spacing:2px; color:rgba(0,0,0,.45); text-transform:uppercase; }
+  .p3-foot-n { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--dk); letter-spacing:2px; }
+
+  @media print { body { background:#fff; padding:0; gap:0; } .page+.page { page-break-before:always; } }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="page">
+  <div class="p1-head">
+    <div>
+      <div class="p1-en">Extreme Kinetics · Performance Supplement · SMG-2 Formula</div>
+      <div class="p1-name">極限<span>動能</span></div>
+      <div class="p1-sub">Grow Patent · NDS Peptide Carrier · Yeast Fermentation Technology</div>
+    </div>
+    <div class="p1-right">
+      <div class="p1-series">Performance Series</div>
+      <div class="p1-badge">Grow · Made in USA</div>
+    </div>
+  </div>
+
+  <div class="intro">
+    <div class="intro-hl">針對男性健身與活力設計，從<em>細胞底層</em>強化<br>訓練爆發力、持久耐力與修復效率的完整配方</div>
+    <div class="intro-cols">
+      <div class="intro-col">
+        極限動能採用美國 Grow 公司全球唯一 NDS 天然蛋白質胜肽載體技術，結合酵母發酵製程，讓 11 種活性成分在酵母菌自然代謝中形成有機鍵結，吸收路徑如同天然食物，生物利用率遠超化學合成補充品。
+      </div>
+      <div class="intro-col">
+        以 56% 高純度精氨酸酵母為核心，搭配牛磺酸、鋅、維生素 B₆、C、E、葉酸、膽鹼、肌醇、鉬及錳，構成完整男性運動支援矩陣。無藥物殘留，三高族群亦可每日安心使用，效能持久、無西藥副作用。
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="st"><div class="st-num">56%</div><div class="st-lbl">精氨酸<br>純度</div></div>
+    <div class="st"><div class="st-num">11+</div><div class="st-lbl">活性<br>成分</div></div>
+    <div class="st"><div class="st-num">NDS</div><div class="st-lbl">專利<br>技術</div></div>
+    <div class="st"><div class="st-num">USA</div><div class="st-lbl">原廠<br>製造</div></div>
+    <div class="st"><div class="st-num">0</div><div class="st-lbl">藥物<br>殘留</div></div>
+  </div>
+
+  <div class="grow-section">
+    <div class="slbl">核心技術 · Grow Patent NDS Peptide Technology</div>
+    <div class="grow-grid">
+      <div class="grow-card">
+        <div class="grow-card-n">01</div>
+        <div class="grow-card-t">有機態整合<br>非添加混合</div>
+        <div class="grow-card-b">成分在酵母菌生長代謝中自然形成有機鍵結，非粉末混合；吸收路徑與天然食物一致</div>
+      </div>
+      <div class="grow-card">
+        <div class="grow-card-n">02</div>
+        <div class="grow-card-t">NDS 胜肽<br>精準深入細胞</div>
+        <div class="grow-card-b">全球唯一 NDS 蛋白質胜肽載體技術，讓有效成分精準穿透細胞膜，快速被吸收利用</div>
+      </div>
+      <div class="grow-card">
+        <div class="grow-card-n">03</div>
+        <div class="grow-card-t">高生物利用率<br>體內停留時間長</div>
+        <div class="grow-card-b">有機態礦物質與胺基酸生物利用率遠優於無機鹽；效能停留時間長，三高族群安全使用</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingr-section">
+    <div class="slbl">成分規格 · Active Ingredient Specifications</div>
+    <table class="ingr-tbl">
+      <thead>
+        <tr><th>成分</th><th>酵母規格（COA）</th><th>主要運動生理功能</th></tr>
+      </thead>
+      <tbody>
+        <tr class="ingr-hl"><td>精氨酸酵母</td><td>10% Arg（實測 55.70%）</td><td>促 NO 生成 · 血管擴張 · 刺激生長激素 GH 分泌 · 改善海綿體充血</td></tr>
+        <tr><td>牛磺酸酵母</td><td>25% Taurine</td><td>穩定細胞膜電位 · 抗氧化 · 延緩肌肉疲勞 · 改善海綿體纖維化</td></tr>
+        <tr class="ingr-hl"><td>鋅酵母</td><td>5% Zinc（實測 14.84%）</td><td>睪酮合成關鍵輔因子 · 蛋白質代謝 · 睪丸功能與精子製造</td></tr>
+        <tr><td>維生素 B₆ 酵母</td><td>20% Vitamin B₆</td><td>胺基酸代謝輔酶 · 維持睪固酮濃度 · 減少同半胱胺酸</td></tr>
+        <tr><td>維生素 C（柑橘）</td><td>25% Vitamin C</td><td>膠原蛋白合成 · 改善血管內皮功能 · 維持精子品質</td></tr>
+        <tr><td>維生素 E（黃豌豆）</td><td>250 IU/G Vitamin E</td><td>脂溶性抗氧化 · 增加海綿體 NO 濃度 · 改善生殖器官毛細血管</td></tr>
+        <tr><td>葉酸酵母</td><td>1% Folic Acid</td><td>降低同半胱胺酸 · 改善海綿體血流 · DNA 合成與細胞修復</td></tr>
+        <tr><td>膽鹼酵母</td><td>25% Choline</td><td>乙醯膽鹼前驅物 · 神經肌肉連結 · 性興奮時釋放 NO · 海綿體舒張</td></tr>
+        <tr><td>肌醇酵母</td><td>25% Inositol</td><td>胰島素信號傳導 · 糖原補充 · 與葉酸協同改善勃起功能</td></tr>
+        <tr><td>鉬酵母</td><td>2,000 μg/G Mo</td><td>亞硝酸鹽還原 NO · 硫胺基酸代謝酵素輔因子</td></tr>
+        <tr><td>錳酵母</td><td>5% Mn（實測 2.20%）</td><td>MnSOD 輔因子 · 睪固酮轉化利用 · 精氨酸酶作用</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="p1-foot">
+    <div class="p1-foot-t">極限動能 · Extreme Kinetics · Product Sheet P.1 / 3</div>
+    <div class="p1-certs">
+      <div class="ctag">cGMP</div><div class="ctag">COA Verified</div>
+      <div class="ctag">RNP認可</div><div class="ctag">英國皇家健康協會</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="page">
+  <div class="p2-head">
+    <div>
+      <div class="p2-head-t">Product Sheet · 功效與科學依據</div>
+      <div class="p2-head-n">極限動能 · 成分科學與功效</div>
+    </div>
+    <div class="p2-pn">Page 02 / 03</div>
+  </div>
+
+  <div class="sci-section">
+    <div class="slbl">成分科學依據 · Ingredient Science</div>
+    <div class="sci-grid">
+      <div class="sci-card">
+        <div class="sci-pill">精氨酸 · Arginine</div>
+        <div class="sci-title">NO 生成路徑 · 血管擴張核心</div>
+        <div class="sci-body">精氨酸是體內一氧化氮（NO）的直接前驅物。NO 使血管平滑肌舒張，促進海綿體充血達到充分擴張；同時作用於垂體，刺激生長激素（GH）脈衝釋放，促進肌肉合成代謝。缺乏精氨酸時，NO 合成不足，海綿體平滑肌無法順利舒張充血。</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-pill">葉酸 + 肌醇 · Folate + Inositol</div>
+        <div class="sci-title">協同改善 · 雙重機制</div>
+        <div class="sci-body">研究顯示，肌醇與葉酸複合物可顯著改善第2型糖尿病患者的 IIEF-5 評分、性功能及海綿體動靜脈血流速度（PSV 提升 52%，EDV 提升 36%，p&lt;0.05）；葉酸同步降低血中同半胱胺酸，減少海綿體過氧化物造成的 NO 利用率下降。</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-pill">維生素 E · Vitamin E</div>
+        <div class="sci-title">增加海綿體 NO · 改善充血</div>
+        <div class="sci-body">研究指出維生素 E 能增加男性生殖器官海綿體內的一氧化氮濃度，提高毛細血管活性，特別針對糖尿病引起的勃起功能障礙效果明顯。補充維生素 E 組別的海綿體內壓（ICP）顯著高於未治療糖尿病組（p&lt;0.05）。</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-pill">牛磺酸 · Taurine</div>
+        <div class="sci-title">抗纖維化 · 保護海綿體結構</div>
+        <div class="sci-body">研究指出補充牛磺酸可改善因糖尿病導致的海綿體纖維化（平滑肌/膠原蛋白比值恢復）及內皮 NO 減少，ICP/MAP 值顯著改善（p&lt;0.05）。牛磺酸同時降低血脂、保護心血管，為男性健康的多重防護成分。</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-pill">鋅 · Zinc</div>
+        <div class="sci-title">睪酮合成 · 睪丸功能維護</div>
+        <div class="sci-body">鋅在前列腺的濃度高於其他器官，對睪丸發育、睪丸功能及精子製造有舉足輕重的角色。研究顯示缺鋅導致 Leydig cell 異常，使膽固醇無法轉化成睪固酮，造成少精、低睪固酮濃度，性慾低下、勃起硬度不良。</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-pill">維生素 C · Vitamin C</div>
+        <div class="sci-title">抗氧化 · 睪固酮與精子品質</div>
+        <div class="sci-body">維生素 C 改善血管內皮功能，減少男性生殖系統受到氧化傷害，維持睪固酮濃度。研究顯示補充維生素 C 可改善糖尿病氧化壓力造成的睪固酮下降，進而改善生殖能力（p&lt;0.05）。</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-pill">鉬 · Molybdenum</div>
+        <div class="sci-title">亞硝酸鹽還原 · NO 生成輔助</div>
+        <div class="sci-body">鉬酶（Molybdoenzyme）可將亞硝酸鹽還原成一氧化氮，提高體內 NO 濃度，改善 NO 生成效率。鉬缺乏可能導致同半胱胺酸累積增加，造成心血管疾病風險及嘌呤代謝異常。</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-pill">錳 · Manganese</div>
+        <div class="sci-title">精氨酸酶 · 睪固酮轉化</div>
+        <div class="sci-body">錳參與精氨酸酶與膽固醇酯酶的合成，這兩種酶直接影響體內精氨酸、睪固酮的轉化利用。錳缺乏使一氧化氮減少、血管擴張受阻，男性荷爾蒙濃度下降，導致性慾降低、精子減少、勃起功能障礙。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ben-section">
+    <div class="slbl">核心功效 · Performance Benefits</div>
+    <div class="ben-grid">
+      <div class="ben-block">
+        <div class="ben-tag">Pre-Workout · 訓練前</div>
+        <div class="ben-title">血管擴張 · 爆發力啟動</div>
+        <div class="ben-body">精氨酸轉化 NO 擴張血管，增加肌肉血流量與氧氣輸送；膽鹼提升神經效率，使泵感更強、爆發力即時啟動。</div>
+      </div>
+      <div class="ben-block">
+        <div class="ben-tag">Intra-Workout · 訓練中</div>
+        <div class="ben-title">抗疲勞 · 持續高輸出</div>
+        <div class="ben-body">牛磺酸穩定細胞膜電位延緩疲勞；錳酵母提供 MnSOD 輔因子，於粒線體層級清除超氧自由基，維持持續輸出能力。</div>
+      </div>
+      <div class="ben-block">
+        <div class="ben-tag">Post-Workout · 訓練後</div>
+        <div class="ben-title">生長激素 · 加速修復</div>
+        <div class="ben-body">精氨酸刺激 GH 脈衝釋放促進肌肉蛋白合成；葉酸 + 維生素 B₆ 支持 DNA 修復；肌醇協助胰島素信號加速糖原再補充。</div>
+      </div>
+      <div class="ben-block">
+        <div class="ben-tag">Foundation · 基礎長期支持</div>
+        <div class="ben-title">荷爾蒙 · 免疫 · 抗氧化</div>
+        <div class="ben-body">鋅酵母支持睪酮合成基準；維生素 C + E 雙重抗氧化體系保護細胞完整性；B₆ 維持睪固酮濃度並參與胺基酸代謝。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-section">
+    <div class="slbl">效果時程 · Expected Timeline</div>
+    <div class="tl-row">
+      <div class="tl-card">
+        <div class="tl-card-days">3–7天</div>
+        <div class="tl-card-title">血流循環暢通</div>
+        <div class="tl-card-body">即效暢通海綿體血流循環，快速改善充血狀況，泵感與爆發力顯著提升</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-card-days">3–7天</div>
+        <div class="tl-card-title">表現指數提升</div>
+        <div class="tl-card-body">極效強化運動耐力輸出，持久力提升，整體表現指數明顯改善</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-card-days">14天</div>
+        <div class="tl-card-title">荷爾蒙全面守護</div>
+        <div class="tl-card-body">加倍守護男性生殖機能，極效維持睪固酮濃度，荷爾蒙基準全面優化</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="usage-section">
+    <div>
+      <div class="ucol-title">建議使用方式</div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>強化期</strong>：每日 2g，持續 2–4 週，快速啟動效果</div></div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>保養期</strong>：每日 1g，長期維持荷爾蒙基準與運動表現</div></div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>訓練日</strong>：訓練前 30–60 分鐘空腹服用，NO 在訓練時達峰值</div></div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>非訓練日</strong>：建議睡前服用，配合深睡期 GH 分泌節律</div></div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>注意</strong>：避免與高鈣食品大量同時攝取；腎臟疾病患者請諮詢醫師</div></div>
+    </div>
+    <div>
+      <div class="ucol-title">適用族群</div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>重訓 / 健美族群</strong>：最大化肌肥大，強化泵感與爆發力</div></div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>耐力運動員</strong>：延緩疲勞、縮短訓練後恢復時間</div></div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>30 歲以上男性</strong>：補償 GH 自然下降，維持肌肉量與代謝</div></div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>三高族群</strong>：無藥物殘留，天然全食物型態，每日可安心使用</div></div>
+      <div class="uitem"><div class="udot"></div><div class="utext"><strong>重視長期健康者</strong>：素食可食，無使用人群限制</div></div>
+    </div>
+  </div>
+
+  <div class="p2-foot">
+    <div class="p2-foot-info">
+      <strong>Grow Patent · NDS Peptide Technology</strong> · 全球唯一天然全食物型態蛋白質胜肽載體技術<br>
+      無藥物殘留 · 三高族群可食 · 可每日攝取 · cGMP 美國原廠製造
+    </div>
+    <div class="p2-logo">極限動能</div>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 3 ═══════════════ -->
+<div class="page">
+  <div class="p3-head">
+    <div>
+      <div class="p3-head-n">極限動能 · 市場差異化與品牌背景</div>
+      <div class="p3-head-sub">Competitive Analysis · Brand Heritage · References</div>
+    </div>
+    <div class="p2-pn" style="color:rgba(255,255,255,.35);">Page 03 / 03</div>
+  </div>
+
+  <div class="cmp-section">
+    <div class="slbl">市場差異化分析 · Competitive Comparison</div>
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          <th class="us">極限動能（SMG-2）</th>
+          <th>市售 W 牌</th>
+          <th>市售 S 牌</th>
+          <th>市售 T 牌</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>原料來源</td><td class="us">天然全食物型態有機酵母</td><td class="no">化學合成</td><td class="no">化學合成</td><td class="no">化學合成</td></tr>
+        <tr><td>服用方式</td><td class="us">無需空腹，可每日攝取</td><td class="no">需空腹服用</td><td>不需空腹</td><td>不需空腹</td></tr>
+        <tr><td>藥物殘留時間</td><td class="us">無殘留</td><td class="no">1 天</td><td class="no">4 天</td><td class="no">1 天</td></tr>
+        <tr><td>三高族群</td><td class="us">安全可使用</td><td class="no">需謹慎</td><td class="no">需謹慎</td><td class="no">需謹慎</td></tr>
+        <tr><td>依賴性</td><td class="us">無</td><td class="no">有依賴性</td><td class="no">有依賴性</td><td class="no">有依賴性</td></tr>
+        <tr><td>心血管副作用</td><td class="us">無</td><td class="no">頭痛、潮紅、血壓驟降</td><td class="no">頭痛、背痛、視力模糊</td><td class="no">頭痛、消化不適</td></tr>
+        <tr><td>素食適用</td><td class="us">可</td><td class="no">不適用</td><td class="no">不適用</td><td class="no">不適用</td></tr>
+        <tr><td>改善根本原因</td><td class="us">是，補充血管與荷爾蒙基礎營養</td><td class="no">否，只短暫改善充血</td><td class="no">否，只短暫改善充血</td><td class="no">否，只短暫改善充血</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grow-about">
+    <div class="slbl">關於 Grow 公司 · Brand Heritage</div>
+    <div class="grow-about-body">
+      <strong>Grow Herbal Research Co., Ltd.</strong> 創立於 1977 年，總部位於美國紐澤西州，由 Andrew Szalay 所創立。公司以諾貝爾醫學獎得主的研發概念為基礎，歷經六十餘年研究積累，為世界唯一天然全食物型態營養補充品的生產商，符合美國 cGMP 工廠規範認證。
+    </div>
+    <div class="grow-pts">
+      <div class="grow-pt"><div class="gpt-dot"></div><div class="gpt-text"><strong>全球唯一</strong>：NDS 天然蛋白質胜肽載體專利製程，讓營養素精準送達細胞發揮功能，為市場上唯一真正可生產天然全食物型態營養素的技術</div></div>
+      <div class="grow-pt"><div class="gpt-dot"></div><div class="gpt-text"><strong>高吸收率</strong>：吸收率高、生物利用率高、體內效能停留時間長，一般化學合成營養素無法比擬</div></div>
+      <div class="grow-pt"><div class="gpt-dot"></div><div class="gpt-text"><strong>國際認證</strong>：榮獲英國皇家健康協會會員推薦、英國 RNP 國際營養醫學研究中心認可，並榮獲多項國際發明展大獎</div></div>
+      <div class="grow-pt"><div class="gpt-dot"></div><div class="gpt-text"><strong>安全有效</strong>：唯一經 FDA 檢驗、美國法院判定勝訴確認，品質優於市售任何維生素；無毒性和副作用</div></div>
+      <div class="grow-pt"><div class="gpt-dot"></div><div class="gpt-text"><strong>素食可食</strong>：所有原料源自天然酵母與植物，完全素食適用，無使用人群限制</div></div>
+    </div>
+  </div>
+
+  <div class="qa-section">
+    <div class="slbl">品質認證 · Quality Assurance</div>
+    <div class="qa-grid">
+      <div class="qa-item">
+        <div class="qa-icon">✓</div>
+        <div><div class="qa-item-t">批次 COA 檢驗報告</div><div class="qa-item-b">各成分實測含量可查，精氨酸實測 55.70%，鋅實測 14.84%，品質透明可溯源</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-icon">✓</div>
+        <div><div class="qa-item-t">微生物安全檢驗</div><div class="qa-item-b">沙門氏菌、大腸桿菌、金黃色葡萄球菌、黴菌均達標（USP&lt;2022&gt;），菌落總數 310 CFU/G</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-icon">✓</div>
+        <div><div class="qa-item-t">乾燥損失 0.57%</div><div class="qa-item-b">標準 ≤5%，實測遠優於標準，確保粉末品質穩定，不受潮結塊</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-icon">✓</div>
+        <div><div class="qa-item-t">美國 cGMP 原廠製造</div><div class="qa-item-b">符合美國 cGMP 工廠規範認證，榮獲英國皇家健康協會推薦，RNP 認可</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ref-section">
+    <div class="slbl">科學參考文獻 · Scientific References</div>
+    <div class="ref-body">
+      1. Agostini R, et al. Myoinositol/folic acid combination for ED treatment in type 2 diabetes men: a double-blind, randomized, placebo-controlled study. Eur Rev Med Pharmacol Sci. 2006;10(5):247-50.<br>
+      2. Chu Q, Chi Zh, et al. A potential role for zinc transporter 7 in testosterone synthesis in mouse Leydig tumor cells. Int J Mol Med. 2016;37(6)1619-26.<br>
+      3. DE Young, Yu D, et al. Oxidative Stress and Antioxidant Therapy: Their Impact in Diabetes-Associated Erectile Dysfunction. Journal of Andrology, Vol.25, No.5.<br>
+      4. Fernandes GS, et al. Can vitamins C and E restore the androgen level and hypersensitivity of the vas deferens in hyperglycemic rats? Pharmacol Rep. 2011;63(4):983-91.<br>
+      5. Kim NM, et al. Role of arginase in the male and female sexual arousal response. J Nutr. 2004;134:2873S-2879S.<br>
+      6. Schwarz G. Molybdenum cofactor and human disease. Curr Opin Chem Biol. 2016;31:179-87.<br>
+      7. Shukla N, et al. The effects of long-term administration of tadalafil on STZ-induced diabetic rats with ED via a local antioxidative mechanism. BJU Int. 2009;103(1):98-103.<br>
+      8. Ruan Yajun, et al. Taurine Supplementation Improves Erectile Function in Rats with Streptozotocin-induced Type 1 Diabetes via Amelioration of Penile Fibrosis and Endothelial Dysfunction. J Sex Med. 2016:1-8.
+    </div>
+  </div>
+
+  <div class="p3-foot">
+    <div class="p3-foot-t">本資料供內部專業人員參考使用 · 不得轉供他用</div>
+    <div class="p3-foot-n">極限動能 · SMG-2</div>
+  </div>
+</div>
+
+</body>
+</html>
