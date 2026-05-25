@@ -1,366 +1,369 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <title>MaxDrive 極限動能 - A4 廣告單</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=300;400;700;900&family=Bebas+Neue&family=Barlow:wght=300;400;600;700;800;900&display=swap');
-    * { margin:0; padding:0; box-sizing:border-box; }
-    
-    body {
-      width: 210mm;
-      font-family: "Noto Sans TC", sans-serif;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-      background: #0f1a10;
-    }
-    
-    .poster {
-      width: 210mm;
-      height: 297mm;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      background: #0f1a10;
-      position: relative;
-    }
-    
-    /* ── HERO ── */
-    .hero-section {
-      position: relative;
-      flex-shrink: 0;
-      height: 98mm;
-      background: linear-gradient(135deg, #0a1209 0%, #1a3020 40%, #0f2015 100%);
-      display: flex;
-      overflow: visible;
-    }
-    .hero-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: repeating-linear-gradient(
-        -55deg, transparent 0px, transparent 18px,
-        rgba(255,255,255,0.018) 18px, rgba(255,255,255,0.018) 19px
-      );
-      z-index: 0;
-    }
-    .hero-section::after {
-      content: '';
-      position: absolute;
-      top: -20px; right: 80mm;
-      width: 5px; height: 130mm;
-      background: linear-gradient(180deg, transparent, #e86629 30%, #e86629 70%, transparent);
-      transform: skewX(-10deg);
-      opacity: 0.7;
-      z-index: 1;
-    }
-    .hero-left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 8mm 0 8mm 11mm;
-      position: relative;
-      z-index: 2;
-    }
-    .collab-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4mm;
-    }
-    .collab-dot { width: 9px; height: 9px; border-radius: 50%; background: #e86629; }
-    .collab-text {
-      font-family: "Barlow", sans-serif;
-      font-size: 13px; font-weight: 700;
-      color: rgba(232,102,41,0.95);
-      letter-spacing: 2px; text-transform: uppercase;
-    }
-    .hero-en {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 104px; color: #ffffff;
-      letter-spacing: 5px; line-height: 0.85; display: block;
-    }
-    .hero-cn {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 30px; font-weight: 300;
-      color: #ffffff;
-      letter-spacing: 14px; margin-top: 5px; display: block;
-    }
-    .hero-tagline {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 12px; font-weight: 300;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.8; margin-top: 4mm;
-      padding-left: 12px;
-      border-left: 3px solid #e86629;
-    }
+<meta charset="UTF-8">
+<title>MaxDrive 極限動能 × 練健康</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&family=Bebas+Neue&family=Barlow:wght@300;400;600;700;800;900&display=swap');
 
-    /* ── 右上角產品圖區塊 ── */
-    .hero-right {
-      position: absolute;
-      top: 6mm; 
-      right: 11mm;
-      width: 70mm;
-      height: 95mm;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-    }
-    .product-glow {
-      position: absolute;
-      top: 50%; left: 50%; 
-      transform: translate(-50%, -50%);
-      width: 240px; height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-      z-index: 1;
-    }
-    .product-img {
-      width: 190px; height: 190px;
-      object-fit: contain;
-      position: relative; 
-      z-index: 2;
-      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6));
-    }
+  :root {
+    --blue-dk:   #1e2d45;
+    --blue-mid:  #2c4268;
+    --blue:      #3a5a8c;
+    --blue-lt:   #5b7eae;
+    --blue-mist: #f0f4f9;
+    --orange:    #e86629;
+    --orange-lt: #f28a52;
+    --orange-dk: #c04f1a;
+    --slate:     #3a4a5e;
+    --white:     #ffffff;
+    --border:    #c8d4e4;
+  }
 
-    /* ── ORANGE BAND ── */
-    .orange-band {
-      background: #e86629;
-      flex-shrink: 0;
-      padding: 6px 11mm;
-      display: flex;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-      padding-right: 80mm;
-      justify-content: space-between;
-    }
-    .band-item {
-      font-family: "Barlow", sans-serif;
-      font-size: 12px; font-weight: 800;
-      color: white; letter-spacing: 1.5px; text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .band-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.4); flex-shrink:0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-    /* ── KPI STRIP ── */
-    .kpi-strip {
-      background: #1a3020;
-      flex-shrink: 0;
-      display: flex;
-      padding: 0 11mm;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      position: relative;
-      z-index: 1;
-    }
-    .kpi-item {
-      flex: 1;
-      padding: 5mm 0 4mm;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-right: 1px solid rgba(255,255,255,0.08);
-      gap: 2px;
-    }
-    .kpi-item:last-child { border-right: none; }
-    .kpi-num {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 54px; color: #ffffff; line-height: 1;
-    }
-    .kpi-unit {
-      font-family: "Barlow", sans-serif;
-      font-size: 17px; font-weight: 700; color: #e86629;
-    }
-    .kpi-item span[style*="font-size:30px"] {
-      font-family: "Barlow", "Noto Sans TC", sans-serif;
-      font-weight: 700;
-    }
-    .kpi-label {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 12px; font-weight: 400;
-      color: #ffffff;
-      text-align: center; line-height: 1.5; margin-top: 1px;
-    }
+  body {
+    width: 210mm;
+    font-family: "Noto Sans TC", sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: #fff;
+  }
 
-    /* ── INGREDIENTS ── */
-    .ing-section {
-      background: #0f1a10;
-      flex-shrink: 0;
-      padding: 4mm 11mm;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .sec-title {
-      font-family: "Barlow", sans-serif;
-      font-size: 11px; font-weight: 800;
-      color: #e86629;
-      letter-spacing: 4px; text-transform: uppercase;
-      margin-bottom: 3mm;
-    }
-    .ing-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-    }
-    .ing-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-top: 3px solid #3a6b45;
-      border-radius: 3px;
-      padding: 6px 8px;
-    }
-    .ing-card.o { border-top-color: #e86629; }
-    .ing-name {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 13px; font-weight: 700; color: #ffffff;
-      display: block; margin-bottom: 2px;
-    }
-    .ing-role {
-      font-family: "Barlow", sans-serif;
-      font-size: 10px; font-weight: 400;
-      color: rgba(255,255,255,0.75);
-      letter-spacing: 0.3px;
-    }
-    .ing-mech {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 10px; font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.6;
-    }
+  .poster {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
 
-    /* ── CASES ── */
-    .cases-section {
-      background: #132318;
-      flex: 1;
-      padding: 4mm 11mm;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-      overflow: hidden;
-    }
-    .cases-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      flex: 1;
-      min-height: 0;
-    }
-    .case-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-left: 5px solid #3a6b45;
-      border-radius: 3px;
-      padding: 8px 11px;
-      display: flex; flex-direction: column; gap: 4px;
-      overflow: hidden;
-      min-height: 0;
-    }
-    .case-card.o { border-left-color: #e86629; }
-    .case-who {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 13px; font-weight: 700; color: #ffffff;
-      flex-shrink: 0;
-    }
-    .case-body {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 11px; font-weight: 400;
-      color: #ffffff;
-      line-height: 1.7;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-    }
+  /* ══ HERO ══ */
+  .hero-section {
+    position: relative;
+    flex-shrink: 0;
+    height: 78mm;
+    background: linear-gradient(135deg, #1a2840 0%, #253d63 55%, #1e3354 100%);
+    display: flex;
+    overflow: visible;
+  }
 
-    /* ── PROTOCOL ── */
-    .protocol-section {
-      background: #1a3020;
-      flex-shrink: 0;
-      padding: 4mm 11mm;
-      display: flex;
-      gap: 4px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .proto-card {
-      flex: 1;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 3px;
-      padding: 7px 10px;
-    }
-    .proto-card.highlight {
-      background: rgba(232,102,41,0.15);
-      border-color: rgba(232,102,41,0.5);
-      flex: 1.2;
-    }
-    .proto-phase {
-      font-family: "Barlow", sans-serif;
-      font-size: 10px; font-weight: 800;
-      color: #e86629;
-      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px;
-    }
-    .proto-title {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 4px;
-    }
-    .proto-detail {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 11px; font-weight: 300;
-      color: #ffffff; line-height: 1.65;
-    }
+  .hero-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      -55deg, transparent 0px, transparent 20px,
+      rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px
+    );
+    z-index: 0;
+  }
 
-    /* ── FOOTER ── */
-    .footer {
-      background: #090f0a;
-      flex-shrink: 0;
-      padding: 3.5mm 11mm;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 3px solid #e86629;
-    }
-    .footer-brand {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 13px; font-weight: 700; color: #ffffff;
-    }
-    .footer-brand em { color: #e86629; font-style: normal; }
-    .footer-sub {
-      font-family: "Barlow", sans-serif;
-      font-size: 9px; font-weight: 400;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;
-    }
-    .footer-pills { display: flex; gap: 5px; }
-    .footer-pill {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 11px; color: #ffffff;
-      padding: 3px 10px;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 10px;
-    }
-    .footer-count {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 36px; color: #ffffff;
-      line-height: 1; letter-spacing: 2px; text-align: right;
-    }
-    .footer-unit {
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 11px; font-weight: 300;
-      color: #ffffff; text-align: right;
-    }
+  .hero-accent {
+    position: absolute;
+    top: 0; bottom: 0; right: 62mm;
+    width: 5px;
+    background: linear-gradient(180deg, transparent 5%, var(--orange) 30%, var(--orange) 70%, transparent 95%);
+    transform: skewX(-8deg);
+    z-index: 1; opacity: 0.9;
+  }
 
-    @media print {
-      body { margin:0; }
-      @page { size: A4; margin: 0; }
-    }
-  </style>
+  .hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6mm 0 6mm 11mm;
+    position: relative; z-index: 2;
+  }
+
+  .collab-row { display: flex; align-items: center; gap: 8px; margin-bottom: 2mm; }
+  .collab-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); }
+  .collab-text {
+    font-family: "Barlow", sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: rgba(232,102,41,0.95); letter-spacing: 2px; text-transform: uppercase;
+  }
+
+  .hero-en {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 90px; color: #fff;
+    letter-spacing: 5px; line-height: 0.85; display: block;
+  }
+
+  .hero-cn {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 24px; font-weight: 300;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 12px; margin-top: 4px; display: block;
+  }
+
+  .hero-tagline {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 11px; font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8; margin-top: 3mm;
+    padding-left: 11px; border-left: 3px solid var(--orange);
+  }
+
+  .hero-right {
+    width: 66mm; flex-shrink: 0;
+    position: relative; z-index: 3;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 3mm; overflow: visible;
+  }
+
+  .product-img {
+    width: 152px; height: 152px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 24px rgba(10,20,40,0.5));
+    transform: translateY(13mm);
+  }
+
+  /* ══ ORANGE BAND ══ */
+  .orange-band {
+    background: var(--orange);
+    flex-shrink: 0;
+    padding: 6px 11mm; padding-right: 70mm;
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative; z-index: 2;
+  }
+
+  .band-item {
+    font-family: "Barlow", sans-serif;
+    font-size: 12px; font-weight: 800;
+    color: white; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap;
+  }
+
+  .band-sep { width: 1px; height: 15px; background: rgba(255,255,255,0.4); flex-shrink:0; }
+
+  /* ══ KPI STRIP ══ */
+  .kpi-strip {
+    background: var(--blue-dk);
+    flex-shrink: 0;
+    display: flex; padding: 0 11mm;
+    position: relative; z-index: 1;
+  }
+
+  .kpi-item {
+    flex: 1; padding: 4mm 0 3mm;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border-right: 1px solid rgba(255,255,255,0.1); gap: 1px;
+  }
+
+  .kpi-item:last-child { border-right: none; }
+
+  .kpi-num { font-family: "Bebas Neue", sans-serif; font-size: 48px; color: #fff; line-height: 1; }
+  .kpi-unit { font-family: "Barlow", sans-serif; font-size: 15px; font-weight: 700; color: var(--orange-lt); }
+  .kpi-label {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 400; color: #fff; text-align: center; line-height: 1.45;
+  }
+
+  /* ══ INGREDIENTS — flex 撐滿，卡片等高用者回饋 ══ */
+  .ing-section {
+    background: var(--white);
+    flex-shrink: 0;
+    padding: 4mm 11mm;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sec-title {
+    font-family: "Barlow", sans-serif;
+    font-size: 12px; font-weight: 800; color: var(--orange);
+    letter-spacing: 4px; text-transform: uppercase; margin-bottom: 3mm;
+  }
+
+  .ing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+
+  /* 每張成分卡 padding 與 case-card 完全一致 */
+  .ing-card {
+    background: var(--blue-mist);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue);
+    border-radius: 3px;
+    padding: 9px 13px;           /* 與 case-card 相同 */
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .ing-card.o { border-left-color: var(--orange); }
+
+  /* 成分名：與 case-who 字級一致 */
+  .ing-name {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px; font-weight: 700; color: var(--blue-dk);
+  }
+
+  .ing-card.o .ing-name { color: var(--orange-dk); }
+
+  /* 說明：與 case-body 字級一致 */
+  .ing-role {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 400; color: var(--slate); line-height: 1.6;
+  }
+
+  .ing-mech-row {
+    grid-column: span 2;
+    background: var(--blue-mist);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue-lt);
+    border-radius: 3px;
+    padding: 9px 13px;
+  }
+
+  .ing-mech {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 400; color: var(--slate); line-height: 1.7;
+  }
+
+  /* ══ CASES ══ */
+  .cases-section {
+    background: var(--blue-mist);
+    flex: 1;
+    padding: 4mm 11mm;
+    display: flex; flex-direction: column;
+    min-height: 0; border-bottom: 1px solid var(--border);
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px; flex: 1; align-content: start;
+  }
+
+  .case-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue);
+    border-radius: 3px;
+    padding: 9px 13px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+
+  .case-card.o { border-left-color: var(--orange); }
+
+  .case-who {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px; font-weight: 700; color: var(--blue-dk);
+  }
+
+  .case-card.o .case-who { color: var(--orange-dk); }
+
+  .case-body {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 400; color: var(--slate); line-height: 1.75;
+  }
+
+  /* ══ PROTOCOL ══ */
+  .protocol-section {
+    background: var(--blue-mid);
+    flex-shrink: 0;
+    padding: 4mm 11mm; display: flex; gap: 5px;
+  }
+
+  .proto-card {
+    flex: 1;
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 4px; padding: 8px 11px;
+  }
+
+  .proto-card.highlight {
+    background: rgba(232,102,41,0.18);
+    border-color: rgba(232,102,41,0.55); flex: 1.3;
+  }
+
+  .proto-phase {
+    font-family: "Barlow", sans-serif;
+    font-size: 10px; font-weight: 800; color: var(--orange-lt);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px;
+  }
+
+  .proto-title {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px;
+  }
+
+  .proto-detail {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 300;
+    color: rgba(255,255,255,0.92); line-height: 1.7;
+  }
+
+  /* ══ FOOTER ══ */
+  .footer {
+    background: var(--white);
+    flex-shrink: 0;
+    padding: 3.5mm 11mm;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 4px solid var(--blue-dk);
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute; left: 0; top: -4px;
+    width: 40mm; height: 4px; background: var(--orange);
+  }
+
+  .footer-main { display: flex; flex-direction: column; gap: 1px; }
+
+  .footer-line1 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 15px; font-weight: 900; color: var(--blue-dk); letter-spacing: 0.5px;
+  }
+
+  .footer-line1 em { color: var(--orange); font-style: normal; }
+
+  .footer-line2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 19px; letter-spacing: 3px; color: var(--blue-dk);
+  }
+
+  .footer-line2 em { color: var(--orange); font-style: normal; }
+
+  .footer-pills { display: flex; gap: 5px; align-items: center; }
+
+  .footer-pill {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; color: var(--blue-dk);
+    padding: 3px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px; background: var(--blue-mist);
+  }
+
+  .footer-right { text-align: right; }
+
+  .footer-count {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 34px; color: var(--blue-dk); line-height: 1; letter-spacing: 2px;
+  }
+
+  .footer-unit {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 300; color: var(--slate);
+  }
+
+  @media print {
+    body { margin:0; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
 </head>
 <body>
 <div class="poster">
+
+  <!-- HERO -->
   <div class="hero-section">
+    <div class="hero-accent"></div>
     <div class="hero-left">
       <div class="collab-row">
         <div class="collab-dot"></div>
@@ -370,14 +373,15 @@
       <span class="hero-cn">極 限 動 能</span>
       <div class="hero-tagline">
         從細胞層次優化爆發力・循環效能・持久能量<br>
-        NDS 天然蛋白質胜肽載體・英國 RNP 國際認可      </div>
+        NDS 天然蛋白質胜肽載體・英國 RNP 國際認可
+      </div>
     </div>
     <div class="hero-right">
-      <div class="product-glow"></div>
       <img class="product-img" id="prod-img" src="" alt="MaxDrive" />
     </div>
   </div>
 
+  <!-- ORANGE BAND -->
   <div class="orange-band">
     <span class="band-item">NDS 天然蛋白質胜肽載體</span>
     <div class="band-sep"></div>
@@ -388,6 +392,7 @@
     <span class="band-item">無西藥副作用</span>
   </div>
 
+  <!-- KPI -->
   <div class="kpi-strip">
     <div class="kpi-item">
       <div><span class="kpi-num">7</span><span class="kpi-unit"> 天</span></div>
@@ -398,48 +403,50 @@
       <div class="kpi-label">穩定睪固酮<br>守護生殖機能</div>
     </div>
     <div class="kpi-item">
-      <div><span class="kpi-num">55<span style="font-size:30px">%</span></span></div>
+      <div><span class="kpi-num">55<span style="font-size:26px">%</span></span></div>
       <div class="kpi-label">精胺酸高濃度<br>NO 前驅物配方</div>
     </div>
     <div class="kpi-item">
-      <div><span class="kpi-num">11<span style="font-size:30px">種</span></span></div>
+      <div><span class="kpi-num">11<span style="font-size:26px">種</span></span></div>
       <div class="kpi-label">活性營養素<br>精準協同配方</div>
     </div>
   </div>
 
+  <!-- INGREDIENTS -->
   <div class="ing-section">
     <div class="sec-title">主要成分 · Key Ingredients</div>
     <div class="ing-grid">
       <div class="ing-card">
-        <span class="ing-name">精胺酸</span>
-        <span class="ing-role">L-Arginine · NO前驅物 55%</span>
+        <div class="ing-name">精胺酸</div>
+        <div class="ing-role">L-Arginine · 一氧化氮前驅物 55%</div>
       </div>
       <div class="ing-card o">
-        <span class="ing-name">瓜胺酸</span>
-        <span class="ing-role">Citrulline · NO循環回收</span>
+        <div class="ing-name">瓜胺酸</div>
+        <div class="ing-role">Citrulline · NO循環回收再利用</div>
       </div>
       <div class="ing-card">
-        <span class="ing-name">膽鹼・肌醇</span>
-        <span class="ing-role">神經傳導・平滑肌放鬆</span>
+        <div class="ing-name">膽鹼・肌醇</div>
+        <div class="ing-role">神經傳導・平滑肌放鬆</div>
       </div>
       <div class="ing-card o">
-        <span class="ing-name">牛磺酸</span>
-        <span class="ing-role">心血管細胞保護</span>
+        <div class="ing-name">牛磺酸</div>
+        <div class="ing-role">心血管細胞保護</div>
       </div>
       <div class="ing-card">
-        <span class="ing-name">鋅・錳・鉬</span>
-        <span class="ing-role">睪固酮平衡・微量元素</span>
+        <div class="ing-name">鋅・錳・鉬</div>
+        <div class="ing-role">睪固酮平衡・微量元素補充</div>
       </div>
       <div class="ing-card o">
-        <span class="ing-name">Vit B₆・C・E</span>
-        <span class="ing-role">抗氧化・快速修復</span>
+        <div class="ing-name">Vit B₆・C・E</div>
+        <div class="ing-role">抗氧化・訓練後快速修復</div>
       </div>
-      <div class="ing-card" style="grid-column: span 2; border-top-color: rgba(255,255,255,0.2);">
-        <span class="ing-mech">三大機制：① 血管擴張・泵感最大化 ② 神經衝動・爆發力提升 ③ 賀爾盟平衡・持久修復</span>
+      <div class="ing-mech-row">
+        <div class="ing-mech">三大機制：① 血管擴張・泵感最大化　② 神經衝動・爆發力提升　③ 賀爾蒙平衡・持久修復</div>
       </div>
     </div>
   </div>
 
+  <!-- CASES -->
   <div class="cases-section">
     <div class="sec-title">使用者實證回饋 · Real Results</div>
     <div class="cases-grid">
@@ -457,11 +464,12 @@
       </div>
       <div class="case-card">
         <div class="case-who">楊先生・攀岩愛好者</div>
-        <div class="case-body">連續投遞七天使用後，耐力與爆發力明顯增強，攀岩時可長時間保持穩定，專注力同步提升。</div>
+        <div class="case-body">連續七天使用後，耐力與爆發力明顯增強，攀岩時可長時間保持穩定，專注力同步提升。</div>
       </div>
     </div>
   </div>
 
+  <!-- PROTOCOL -->
   <div class="protocol-section">
     <div class="proto-card">
       <div class="proto-phase">啟動期 · Phase 01</div>
@@ -480,27 +488,26 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
   <div class="footer">
-    <div>
-      <div class="footer-brand"><em>練健康</em> × MaxDrive 極限動能 聯名推薦</div>
-      <div class="footer-sub">GeneBoost · NDS Technology · Evidence-Based Nutrition</div>
+    <div class="footer-main">
+      <div class="footer-line1"><em>練健康</em> × 基倍適</div>
+      <div class="footer-line2">MaxDrive <em>極限動能</em> 聯名推薦</div>
     </div>
     <div class="footer-pills">
       <span class="footer-pill">天然配方</span>
       <span class="footer-pill">無西藥成分</span>
       <span class="footer-pill">英國 RNP 認可</span>
     </div>
-    <div>
+    <div class="footer-right">
       <div class="footer-count">60</div>
       <div class="footer-unit">顆 per bottle</div>
     </div>
   </div>
+
 </div>
 <script>
- <div class="hero-right">
-  <div class="product-glow"></div>
-  <img class="product-img" id="prod-img" src="GeneboostLOGO.png" alt="MaxDrive" />
-</div>
+  document.getElementById("prod-img").src = "data:image/png;base64,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";
 </script>
 </body>
 </html>
