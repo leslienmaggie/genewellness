@@ -43,7 +43,7 @@
   .hero-section {
     position: relative;
     flex-shrink: 0;
-    height: 68mm; /* 從 78mm 縮減至 68mm，釋放垂直空間給下方實證區塊 */
+    height: 60mm; /* 進一步由 68mm 縮減至 60mm，將區塊上移並釋放空間 */
     background: linear-gradient(135deg, #1a2840 0%, #253d63 55%, #1e3354 100%);
     display: flex;
     overflow: visible;
@@ -73,11 +73,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6mm 0 6mm 11mm;
+    padding: 4mm 0 4mm 11mm; /* 稍微縮減內邊距讓空間更緊湊上移 */
     position: relative; z-index: 2;
   }
 
-  .collab-row { display: flex; align-items: center; gap: 8px; margin-bottom: 2mm; }
+  .collab-row { display: flex; align-items: center; gap: 8px; margin-bottom: 1.5mm; }
   .collab-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); }
   .collab-text {
     font-family: "Barlow", sans-serif;
@@ -87,22 +87,22 @@
 
   .hero-en {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 90px; color: #fff;
+    font-size: 80px; color: #fff; /* 稍微微調字級優化空間 */
     letter-spacing: 5px; line-height: 0.85; display: block;
   }
 
   .hero-cn {
     font-family: "Noto Sans TC", sans-serif;
-    font-size: 24px; font-weight: 300;
+    font-size: 22px; font-weight: 300;
     color: rgba(255,255,255,0.88);
-    letter-spacing: 12px; margin-top: 4px; display: block;
+    letter-spacing: 12px; margin-top: 2px; display: block;
   }
 
   .hero-tagline {
     font-family: "Noto Sans TC", sans-serif;
     font-size: 11px; font-weight: 300;
     color: rgba(255,255,255,0.75);
-    line-height: 1.8; margin-top: 3mm;
+    line-height: 1.7; margin-top: 2mm;
     padding-left: 11px; border-left: 3px solid var(--orange);
   }
 
@@ -110,14 +110,14 @@
     width: 66mm; flex-shrink: 0;
     position: relative; z-index: 3;
     display: flex; align-items: flex-start; justify-content: center;
-    padding-top: 3mm; overflow: visible;
+    padding-top: 2mm; overflow: visible;
   }
 
   .product-img {
-    width: 152px; height: 152px;
+    width: 140px; height: 140px; /* 微調圖片大小配合區塊上移 */
     object-fit: contain;
     filter: drop-shadow(0 8px 24px rgba(10,20,40,0.5));
-    transform: translateY(13mm);
+    transform: translateY(10mm);
   }
 
   /* ══ ORANGE BAND ══ */
@@ -146,7 +146,7 @@
   }
 
   .kpi-item {
-    flex: 1; padding: 4mm 0 3mm;
+    flex: 1; padding: 3mm 0 2.5mm; /* 縮減上下高度，協助整體內容上移 */
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     border-right: 1px solid rgba(255,255,255,0.1); gap: 1px;
@@ -154,14 +154,14 @@
 
   .kpi-item:last-child { border-right: none; }
 
-  .kpi-num { font-family: "Bebas Neue", sans-serif; font-size: 48px; color: #fff; line-height: 1; }
-  .kpi-unit { font-family: "Barlow", sans-serif; font-size: 15px; font-weight: 700; color: var(--orange-lt); }
+  .kpi-num { font-family: "Bebas Neue", sans-serif; font-size: 44px; color: #fff; line-height: 1; }
+  .kpi-unit { font-family: "Barlow", sans-serif; font-size: 14px; font-weight: 700; color: var(--orange-lt); }
   .kpi-label {
     font-family: "Noto Sans TC", sans-serif;
-    font-size: 12px; font-weight: 400; color: #fff; text-align: center; line-height: 1.45;
+    font-size: 11px; font-weight: 400; color: #fff; text-align: center; line-height: 1.4;
   }
 
-  /* ══ INGREDIENTS — flex 撐滿，卡片等高用者回饋 ══ */
+  /* ══ INGREDIENTS ══ */
   .ing-section {
     background: var(--white);
     flex-shrink: 0;
@@ -181,13 +181,12 @@
     gap: 5px;
   }
 
-  /* 每張成分卡 padding 與 case-card 完全一致，底色已換成 var(--white) */
   .ing-card {
     background: var(--white);
     border: 1px solid var(--border);
     border-left: 5px solid var(--blue);
     border-radius: 3px;
-    padding: 9px 13px;           /* 與 case-card 相同 */
+    padding: 9px 13px;
     display: flex;
     flex-direction: column;
     gap: 3px;
@@ -195,7 +194,6 @@
 
   .ing-card.o { border-left-color: var(--orange); }
 
-  /* 成分名：與 case-who 字級一致 */
   .ing-name {
     font-family: "Noto Sans TC", sans-serif;
     font-size: 14px; font-weight: 700; color: var(--blue-dk);
@@ -203,13 +201,11 @@
 
   .ing-card.o .ing-name { color: var(--orange-dk); }
 
-  /* 說明：與 case-body 字級一致 */
   .ing-role {
     font-family: "Noto Sans TC", sans-serif;
     font-size: 12px; font-weight: 400; color: var(--slate); line-height: 1.6;
   }
 
-  /* 機制底色已換成 var(--white) */
   .ing-mech-row {
     grid-column: span 2;
     background: var(--white);
@@ -226,17 +222,18 @@
 
   /* ══ CASES ══ */
   .cases-section {
-    background: var(--blue-mist);
+    background: var(--white); /* 底色已完全改成白色 */
     flex: 1;
-    padding: 4mm 11mm;
+    padding: 5mm 11mm 8mm 11mm; /* 增加底部 padding (8mm) 確保下方有充足的留白空間 */
     display: flex; flex-direction: column;
-    min-height: 0; border-bottom: 1px solid var(--border);
+    min-height: 0; 
+    border-bottom: 1px solid var(--border);
   }
 
   .cases-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5px; flex: 1; align-content: start;
+    gap: 6px; flex: 1; align-content: start;
   }
 
   .case-card {
@@ -244,8 +241,9 @@
     border: 1px solid var(--border);
     border-left: 5px solid var(--blue);
     border-radius: 3px;
-    padding: 9px 13px;
+    padding: 10px 13px;
     display: flex; flex-direction: column; gap: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02); /* 加上微弱陰影在白底上更有層次 */
   }
 
   .case-card.o { border-left-color: var(--orange); }
