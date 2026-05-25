@@ -22,7 +22,7 @@
       display: flex;
       flex-direction: column;
       background: #0f1a10;
-      position: relative; /* 供產品圖絕對定位使用 */
+      position: relative;
     }
     
     /* ── HERO ── */
@@ -43,7 +43,6 @@
       );
       z-index: 0;
     }
-    /* 斜線橘色裝飾 */
     .hero-section::after {
       content: '';
       position: absolute;
@@ -96,14 +95,14 @@
       border-left: 3px solid #e86629;
     }
 
-    /* ── 右上角絕對定位產品去背白瓶區塊 ── */
+    /* ── 右上角產品圖區塊 ── */
     .hero-right {
       position: absolute;
       top: 6mm; 
       right: 11mm;
       width: 70mm;
       height: 95mm;
-      z-index: 10; /* 確保壓在橘帶與背景最上層 */
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -135,7 +134,7 @@
       align-items: center;
       position: relative;
       z-index: 2;
-      padding-right: 80mm; /* 為懸浮瓶身留空 */
+      padding-right: 80mm;
       justify-content: space-between;
     }
     .band-item {
@@ -436,7 +435,7 @@
         <span class="ing-role">抗氧化・快速修復</span>
       </div>
       <div class="ing-card" style="grid-column: span 2; border-top-color: rgba(255,255,255,0.2);">
-        <span class="ing-mech">三大機制：① 血管擴張・泵感最大化 ② 神經衝動・爆發力提升 ③ 賀爾蒙平衡・持久修復</span>
+        <span class="ing-mech">三大機制：① 血管擴張・泵感最大化 ② 神經衝動・爆發力提升 ③ 賀爾盟平衡・持久修復</span>
       </div>
     </div>
   </div>
@@ -498,8 +497,8 @@
   </div>
 </div>
 <script>
-  // 使用您在 GitHub 的 images 資料夾中建立的去背相對路徑
-  document.getElementById("prod-img").src = "images/GeneboostLOGO.png";
+  // 配合圖片在 GitHub 的根目錄位置，直接讀取檔案
+  document.getElementById("prod-img").src = "GeneboostLOGO.png";
 </script>
 </body>
 </html>
