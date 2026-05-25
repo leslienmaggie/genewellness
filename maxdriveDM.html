@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -8,17 +7,17 @@
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&family=Bebas+Neue&family=Barlow:wght@300;400;600;700;800;900&display=swap');
 
   :root {
-    --blue-dk:   #1e2d45;
-    --blue-mid:  #2c4268;
-    --blue:      #3a5a8c;
-    --blue-lt:   #5b7eae;
-    --blue-mist: #f0f4f9;
-    --orange:    #e86629;
-    --orange-lt: #f28a52;
-    --orange-dk: #c04f1a;
-    --slate:     #3a4a5e;
-    --white:     #ffffff;
-    --border:    #c8d4e4;
+    --blue-dk:    #1e2d45;
+    --blue-mid:   #2c4268;
+    --blue:       #3a5a8c;
+    --blue-lt:    #5b7eae;
+    --blue-mist:  #f0f4f9;
+    --orange:     #e86629;
+    --orange-lt:  #f28a52;
+    --orange-dk:  #c04f1a;
+    --slate:      #3a4a5e;
+    --white:      #ffffff;
+    --border:     #c8d4e4;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -44,7 +43,7 @@
   .hero-section {
     position: relative;
     flex-shrink: 0;
-    height: 78mm;
+    height: 68mm; /* 從 78mm 縮減至 68mm，釋放垂直空間給下方實證區塊 */
     background: linear-gradient(135deg, #1a2840 0%, #253d63 55%, #1e3354 100%);
     display: flex;
     overflow: visible;
@@ -182,9 +181,9 @@
     gap: 5px;
   }
 
-  /* 每張成分卡 padding 與 case-card 完全一致 */
+  /* 每張成分卡 padding 與 case-card 完全一致，底色已換成 var(--white) */
   .ing-card {
-    background: var(--blue-mist);
+    background: var(--white);
     border: 1px solid var(--border);
     border-left: 5px solid var(--blue);
     border-radius: 3px;
@@ -210,9 +209,10 @@
     font-size: 12px; font-weight: 400; color: var(--slate); line-height: 1.6;
   }
 
+  /* 機制底色已換成 var(--white) */
   .ing-mech-row {
     grid-column: span 2;
-    background: var(--blue-mist);
+    background: var(--white);
     border: 1px solid var(--border);
     border-left: 5px solid var(--blue-lt);
     border-radius: 3px;
@@ -361,7 +361,6 @@
 <body>
 <div class="poster">
 
-  <!-- HERO -->
   <div class="hero-section">
     <div class="hero-accent"></div>
     <div class="hero-left">
@@ -381,7 +380,6 @@
     </div>
   </div>
 
-  <!-- ORANGE BAND -->
   <div class="orange-band">
     <span class="band-item">NDS 天然蛋白質胜肽載體</span>
     <div class="band-sep"></div>
@@ -392,7 +390,6 @@
     <span class="band-item">無西藥副作用</span>
   </div>
 
-  <!-- KPI -->
   <div class="kpi-strip">
     <div class="kpi-item">
       <div><span class="kpi-num">7</span><span class="kpi-unit"> 天</span></div>
@@ -412,7 +409,6 @@
     </div>
   </div>
 
-  <!-- INGREDIENTS -->
   <div class="ing-section">
     <div class="sec-title">主要成分 · Key Ingredients</div>
     <div class="ing-grid">
@@ -441,12 +437,11 @@
         <div class="ing-role">抗氧化・訓練後快速修復</div>
       </div>
       <div class="ing-mech-row">
-        <div class="ing-mech">三大機制：① 血管擴張・泵感最大化　② 神經衝動・爆發力提升　③ 賀爾蒙平衡・持久修復</div>
+        <div class="ing-mech">三大機制：① 血管擴張・泵感最大化 ② 神經衝動・爆發力提升 ③ 賀爾蒙平衡・持久修復</div>
       </div>
     </div>
   </div>
 
-  <!-- CASES -->
   <div class="cases-section">
     <div class="sec-title">使用者實證回饋 · Real Results</div>
     <div class="cases-grid">
@@ -469,7 +464,6 @@
     </div>
   </div>
 
-  <!-- PROTOCOL -->
   <div class="protocol-section">
     <div class="proto-card">
       <div class="proto-phase">啟動期 · Phase 01</div>
@@ -488,7 +482,6 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <div class="footer">
     <div class="footer-main">
       <div class="footer-line1"><em>練健康</em> × 基倍適</div>
@@ -507,7 +500,6 @@
 
 </div>
 <script>
-  // 這三行可以留著或刪除
   document.getElementById("prod-img").src = "images/黑底去背.png";
 </script>
 </body>
