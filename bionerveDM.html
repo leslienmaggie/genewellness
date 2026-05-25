@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>MaxDrive 極限動能 × 練健康</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&family=Bebas+Neue&family=Barlow:wght@300;400;600;700;800;900&display=swap');
+
+  :root {
+    --blue-dk:    #1e2d45;
+    --blue-mid:   #2c4268;
+    --blue:       #3a5a8c;
+    --blue-lt:    #5b7eae;
+    --blue-mist:  #f0f4f9;
+    --orange:     #e86629;
+    --orange-lt:  #f28a52;
+    --orange-dk:  #c04f1a;
+    --slate:      #3a4a5e;
+    --white:      #ffffff;
+    --border:     #c8d4e4;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    width: 210mm;
+    font-family: "Noto Sans TC", sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: #fff;
+  }
+
+  .poster {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
+
+  /* ══ HERO ══ */
+  .hero-section {
+    position: relative;
+    flex-shrink: 0;
+    height: 60mm; /* 進一步由 68mm 縮減至 60mm，將區塊上移並釋放空間 */
+    background: linear-gradient(135deg, #1a2840 0%, #253d63 55%, #1e3354 100%);
+    display: flex;
+    overflow: visible;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      -55deg, transparent 0px, transparent 20px,
+      rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px
+    );
+    z-index: 0;
+  }
+
+  .hero-accent {
+    position: absolute;
+    top: 0; bottom: 0; right: 62mm;
+    width: 5px;
+    background: linear-gradient(180deg, transparent 5%, var(--orange) 30%, var(--orange) 70%, transparent 95%);
+    transform: skewX(-8deg);
+    z-index: 1; opacity: 0.9;
+  }
+
+  .hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4mm 0 4mm 11mm; /* 稍微縮減內邊距讓空間更緊湊上移 */
+    position: relative; z-index: 2;
+  }
+
+  .collab-row { display: flex; align-items: center; gap: 8px; margin-bottom: 1.5mm; }
+  .collab-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); }
+  .collab-text {
+    font-family: "Barlow", sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: rgba(232,102,41,0.95); letter-spacing: 2px; text-transform: uppercase;
+  }
+
+  .hero-en {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 80px; color: #fff; /* 稍微微調字級優化空間 */
+    letter-spacing: 5px; line-height: 0.85; display: block;
+  }
+
+  .hero-cn {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 22px; font-weight: 300;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 12px; margin-top: 2px; display: block;
+  }
+
+  .hero-tagline {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 11px; font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7; margin-top: 2mm;
+    padding-left: 11px; border-left: 3px solid var(--orange);
+  }
+
+  .hero-right {
+    width: 66mm; flex-shrink: 0;
+    position: relative; z-index: 3;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 2mm; overflow: visible;
+  }
+
+  .product-img {
+    width: 140px; height: 140px; /* 微調圖片大小配合區塊上移 */
+    object-fit: contain;
+    filter: drop-shadow(0 8px 24px rgba(10,20,40,0.5));
+    transform: translateY(10mm);
+  }
+
+  /* ══ ORANGE BAND ══ */
+  .orange-band {
+    background: var(--orange);
+    flex-shrink: 0;
+    padding: 6px 11mm; padding-right: 70mm;
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative; z-index: 2;
+  }
+
+  .band-item {
+    font-family: "Barlow", sans-serif;
+    font-size: 12px; font-weight: 800;
+    color: white; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap;
+  }
+
+  .band-sep { width: 1px; height: 15px; background: rgba(255,255,255,0.4); flex-shrink:0; }
+
+  /* ══ KPI STRIP ══ */
+  .kpi-strip {
+    background: var(--blue-dk);
+    flex-shrink: 0;
+    display: flex; padding: 0 11mm;
+    position: relative; z-index: 1;
+  }
+
+  .kpi-item {
+    flex: 1; padding: 3mm 0 2.5mm; /* 縮減上下高度，協助整體內容上移 */
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border-right: 1px solid rgba(255,255,255,0.1); gap: 1px;
+  }
+
+  .kpi-item:last-child { border-right: none; }
+
+  .kpi-num { font-family: "Bebas Neue", sans-serif; font-size: 44px; color: #fff; line-height: 1; }
+  .kpi-unit { font-family: "Barlow", sans-serif; font-size: 14px; font-weight: 700; color: var(--orange-lt); }
+  .kpi-label {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 11px; font-weight: 400; color: #fff; text-align: center; line-height: 1.4;
+  }
+
+  /* ══ INGREDIENTS ══ */
+  .ing-section {
+    background: var(--white);
+    flex-shrink: 0;
+    padding: 4mm 11mm;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sec-title {
+    font-family: "Barlow", sans-serif;
+    font-size: 12px; font-weight: 800; color: var(--orange);
+    letter-spacing: 4px; text-transform: uppercase; margin-bottom: 3mm;
+  }
+
+  .ing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+
+  .ing-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue);
+    border-radius: 3px;
+    padding: 9px 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .ing-card.o { border-left-color: var(--orange); }
+
+  .ing-name {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px; font-weight: 700; color: var(--blue-dk);
+  }
+
+  .ing-card.o .ing-name { color: var(--orange-dk); }
+
+  .ing-role {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 400; color: var(--slate); line-height: 1.6;
+  }
+
+  .ing-mech-row {
+    grid-column: span 2;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue-lt);
+    border-radius: 3px;
+    padding: 9px 13px;
+  }
+
+  .ing-mech {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 400; color: var(--slate); line-height: 1.7;
+  }
+
+  /* ══ CASES ══ */
+  .cases-section {
+    background: var(--white); /* 底色已完全改成白色 */
+    flex: 1;
+    padding: 5mm 11mm 8mm 11mm; /* 增加底部 padding (8mm) 確保下方有充足的留白空間 */
+    display: flex; flex-direction: column;
+    min-height: 0; 
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px; flex: 1; align-content: start;
+  }
+
+  .case-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue);
+    border-radius: 3px;
+    padding: 10px 13px;
+    display: flex; flex-direction: column; gap: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02); /* 加上微弱陰影在白底上更有層次 */
+  }
+
+  .case-card.o { border-left-color: var(--orange); }
+
+  .case-who {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px; font-weight: 700; color: var(--blue-dk);
+  }
+
+  .case-card.o .case-who { color: var(--orange-dk); }
+
+  .case-body {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 400; color: var(--slate); line-height: 1.75;
+  }
+
+  /* ══ PROTOCOL ══ */
+  .protocol-section {
+    background: var(--blue-mid);
+    flex-shrink: 0;
+    padding: 4mm 11mm; display: flex; gap: 5px;
+  }
+
+  .proto-card {
+    flex: 1;
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 4px; padding: 8px 11px;
+  }
+
+  .proto-card.highlight {
+    background: rgba(232,102,41,0.18);
+    border-color: rgba(232,102,41,0.55); flex: 1.3;
+  }
+
+  .proto-phase {
+    font-family: "Barlow", sans-serif;
+    font-size: 10px; font-weight: 800; color: var(--orange-lt);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px;
+  }
+
+  .proto-title {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px;
+  }
+
+  .proto-detail {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 300;
+    color: rgba(255,255,255,0.92); line-height: 1.7;
+  }
+
+  /* ══ FOOTER ══ */
+  .footer {
+    background: var(--white);
+    flex-shrink: 0;
+    padding: 3.5mm 11mm;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 4px solid var(--blue-dk);
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute; left: 0; top: -4px;
+    width: 40mm; height: 4px; background: var(--orange);
+  }
+
+  .footer-main { display: flex; flex-direction: column; gap: 1px; }
+
+  .footer-line1 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 15px; font-weight: 900; color: var(--blue-dk); letter-spacing: 0.5px;
+  }
+
+  .footer-line1 em { color: var(--orange); font-style: normal; }
+
+  .footer-line2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 19px; letter-spacing: 3px; color: var(--blue-dk);
+  }
+
+  .footer-line2 em { color: var(--orange); font-style: normal; }
+
+  .footer-pills { display: flex; gap: 5px; align-items: center; }
+
+  .footer-pill {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; color: var(--blue-dk);
+    padding: 3px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px; background: var(--blue-mist);
+  }
+
+  .footer-right { text-align: right; }
+
+  .footer-count {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 34px; color: var(--blue-dk); line-height: 1; letter-spacing: 2px;
+  }
+
+  .footer-unit {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 12px; font-weight: 300; color: var(--slate);
+  }
+
+  @media print {
+    body { margin:0; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="hero-section">
+    <div class="hero-accent"></div>
+    <div class="hero-left">
+      <div class="collab-row">
+        <div class="collab-dot"></div>
+        <span class="collab-text">基倍適 GeneBoost &nbsp;&#xD7;&nbsp; 練健康 LKK Wellness</span>
+      </div>
+      <span class="hero-en">MaxDrive</span>
+      <span class="hero-cn">極 限 動 能</span>
+      <div class="hero-tagline">
+        從細胞層次優化爆發力・循環效能・持久能量<br>
+        NDS 天然蛋白質胜肽載體・英國 RNP 國際認可
+      </div>
+    </div>
+    <div class="hero-right">
+      <img class="product-img" id="prod-img" src="" alt="MaxDrive" />
+    </div>
+  </div>
+
+  <div class="orange-band">
+    <span class="band-item">NDS 天然蛋白質胜肽載體</span>
+    <div class="band-sep"></div>
+    <span class="band-item">英國 RNP 國際認可</span>
+    <div class="band-sep"></div>
+    <span class="band-item">皇家健康協會推薦</span>
+    <div class="band-sep"></div>
+    <span class="band-item">無西藥副作用</span>
+  </div>
+
+  <div class="kpi-strip">
+    <div class="kpi-item">
+      <div><span class="kpi-num">7</span><span class="kpi-unit"> 天</span></div>
+      <div class="kpi-label">快速暢通血流<br>提升循環效能</div>
+    </div>
+    <div class="kpi-item">
+      <div><span class="kpi-num">14</span><span class="kpi-unit"> 天</span></div>
+      <div class="kpi-label">穩定睪固酮<br>守護生殖機能</div>
+    </div>
+    <div class="kpi-item">
+      <div><span class="kpi-num">55<span style="font-size:26px">%</span></span></div>
+      <div class="kpi-label">精胺酸高濃度<br>NO 前驅物配方</div>
+    </div>
+    <div class="kpi-item">
+      <div><span class="kpi-num">11<span style="font-size:26px">種</span></span></div>
+      <div class="kpi-label">活性營養素<br>精準協同配方</div>
+    </div>
+  </div>
+
+  <div class="ing-section">
+    <div class="sec-title">主要成分 · Key Ingredients</div>
+    <div class="ing-grid">
+      <div class="ing-card">
+        <div class="ing-name">精胺酸</div>
+        <div class="ing-role">L-Arginine · 一氧化氮前驅物 55%</div>
+      </div>
+      <div class="ing-card o">
+        <div class="ing-name">瓜胺酸</div>
+        <div class="ing-role">Citrulline · NO循環回收再利用</div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-name">膽鹼・肌醇</div>
+        <div class="ing-role">神經傳導・平滑肌放鬆</div>
+      </div>
+      <div class="ing-card o">
+        <div class="ing-name">牛磺酸</div>
+        <div class="ing-role">心血管細胞保護</div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-name">鋅・錳・鉬</div>
+        <div class="ing-role">睪固酮平衡・微量元素補充</div>
+      </div>
+      <div class="ing-card o">
+        <div class="ing-name">Vit B₆・C・E</div>
+        <div class="ing-role">抗氧化・訓練後快速修復</div>
+      </div>
+      <div class="ing-mech-row">
+        <div class="ing-mech">三大機制：① 血管擴張・泵感最大化 ② 神經衝動・爆發力提升 ③ 賀爾蒙平衡・持久修復</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cases-section">
+    <div class="sec-title">使用者實證回饋 · Real Results</div>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-who">李小姐・重訓愛好者</div>
+        <div class="case-body">使用後輕鬆完成1小時訓練，推舉重量首次突破個人紀錄；停用後疲憊感立即回返，現已固定訓練前使用。</div>
+      </div>
+      <div class="case-card o">
+        <div class="case-who">陳小姐・晨泳愛好者</div>
+        <div class="case-body">呼吸明顯順暢，中後段疲憊感消失，衝刺階段仍可維持爆發力，游泳數據全面超越以往表現。</div>
+      </div>
+      <div class="case-card o">
+        <div class="case-who">黃先生・跑步社員</div>
+        <div class="case-body">平日3顆保養、訓練前加1顆，耐力配速顯著提升，隔天起床恢復感良好，長距離不再力不從心。</div>
+      </div>
+      <div class="case-card">
+        <div class="case-who">楊先生・攀岩愛好者</div>
+        <div class="case-body">連續七天使用後，耐力與爆發力明顯增強，攀岩時可長時間保持穩定，專注力同步提升。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="protocol-section">
+    <div class="proto-card">
+      <div class="proto-phase">啟動期 · Phase 01</div>
+      <div class="proto-title">強效啟動</div>
+      <div class="proto-detail">每日 2g・連續 7–14 天<br>快速補充訓練損耗</div>
+    </div>
+    <div class="proto-card">
+      <div class="proto-phase">維持期 · Phase 02</div>
+      <div class="proto-title">巔峰維持</div>
+      <div class="proto-detail">每日 1g・長期維持<br>穩定睪固酮與循環</div>
+    </div>
+    <div class="proto-card highlight">
+      <div class="proto-phase">安全性說明</div>
+      <div class="proto-title">三高族群亦可安心使用</div>
+      <div class="proto-detail">無西藥副作用・高血壓・高血糖・高血脂族群皆可每日攝取・食品補充品・非藥品</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-main">
+      <div class="footer-line1"><em>練健康</em> × 基倍適</div>
+      <div class="footer-line2">MaxDrive <em>極限動能</em> 聯名推薦</div>
+    </div>
+    <div class="footer-pills">
+      <span class="footer-pill">天然配方</span>
+      <span class="footer-pill">無西藥成分</span>
+      <span class="footer-pill">英國 RNP 認可</span>
+    </div>
+    <div class="footer-right">
+      <div class="footer-count">60</div>
+      <div class="footer-unit">顆 per bottle</div>
+    </div>
+  </div>
+
+</div>
+<script>
+  document.getElementById("prod-img").src = "images/黑底去背.png";
+</script>
+</body>
+</html>
