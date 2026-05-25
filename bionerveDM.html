@@ -73,7 +73,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 4mm 0 4mm 11mm; 
+    padding: 4mm 0 4mm 11mm; /* 稍微縮減內邊距讓空間更緊湊上移 */
     position: relative; z-index: 2;
   }
 
@@ -114,7 +114,7 @@
   }
 
   .product-img {
-    width: 140px; height: 140px;
+    width: 140px; height: 140px; 
     object-fit: contain;
     filter: drop-shadow(0 8px 24px rgba(28,56,94,0.4));
     transform: translateY(10mm);
@@ -222,7 +222,7 @@
 
   /* ══ CASES ══ */
   .cases-section {
-    background: var(--white);
+    background: var(--white); 
     flex: 1;
     padding: 5mm 11mm 8mm 11mm; 
     display: flex; flex-direction: column;
@@ -366,7 +366,7 @@
         <div class="collab-dot"></div>
         <span class="collab-text">基倍適 GeneBoost &nbsp;&#xD7;&nbsp; 練健康 LKK Wellness</span>
       </div>
-      <span class="hero-en">Bio Nerve</span>
+      <span class="hero-en">Bio-Nerve</span>
       <span class="hero-cn">神經舒緩配方</span>
       <div class="hero-tagline">
         專利 NDS 全食物標靶傳輸技術・精準作用於中樞與外周神經系統<br>
@@ -374,7 +374,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <img class="product-img" id="prod-img" src="" alt="Relax Formula" />
+      <img class="product-img" id="prod-img" src="" alt="Bio-Nerve" />
     </div>
   </div>
 
@@ -435,7 +435,7 @@
         <div class="ing-role">Niacinamide · 維護神經穩定與支持細胞能量修復</div>
       </div>
       <div class="ing-mech-row">
-        <div class="ing-mech">三大機制：① 血管擴張・泵感最大化 ② 神經衝動・爆發力提升 ③ 賀爾蒙平衡・持久修復</div>
+        <div class="ing-mech">三大機制：① 運動後神經放鬆・切換修復模式 ② 優化睡眠品質・緩解肌肉緊繃焦慮 ③ 抗氧化與機能修復・減少自由基損害</div>
       </div>
     </div>
   </div>
@@ -445,7 +445,7 @@
     <div class="cases-grid">
       <div class="case-card">
         <div class="case-who">吳先生・45歲外商高階主管</div>
-        <div class="case-body">長期高壓失眠，服用睡前兩顆當晚身體即感放鬆。醒後精神極佳，完美改善時差與難入睡問題 。</div>
+        <div class="case-body">長期高壓失眠，服用睡前兩顆當晚身體即感放鬆。醒後精神極佳，完美改善時差與難入睡問題。</div>
       </div>
       <div class="case-card o">
         <div class="case-who">張小姐・失眠受害者</div>
@@ -482,8 +482,8 @@
 
   <div class="footer">
     <div class="footer-main">
-      <div class="footer-line1"><em>練健康 × 基倍適 </em> 聯名推薦</div>
-      <div class="footer-line2">BioNerve <em>神經舒緩配方</em></div>
+      <div class="footer-line1"><em>練健康× 基倍適 </em> 聯名推薦</div>
+      <div class="footer-line2">Bio Nerve<em>神經舒緩配方</em> </div>
     </div>
     <div class="footer-pills">
       <span class="footer-pill">全食物型態</span>
@@ -491,14 +491,13 @@
       <span class="footer-pill">英國 RNP 認可</span>
     </div>
     <div class="footer-right">
-      <div class="footer-count">60</div>
-      <div class="footer-unit">顆/罐</div>
+      <div class="footer-count">60</div><div class="footer-unit">顆/罐</div>
     </div>
   </div>
 
 </div>
 <script>
-  document.getElementById("prod-img").src = "images/黑底去背.png";
+  document.getElementById("prod-img").src = "images/白罐黑底.png";
 </script>
 </body>
 </html>
