@@ -2,10 +2,11 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>MaxDrive 極限動能</title>
+  <title>MaxDrive 極限動能 - A4 廣告單</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=300;400;700;900&family=Bebas+Neue&family=Barlow:wght=300;400;600;700;800;900&display=swap');
     * { margin:0; padding:0; box-sizing:border-box; }
+    
     body {
       width: 210mm;
       font-family: "Noto Sans TC", sans-serif;
@@ -13,6 +14,7 @@
       print-color-adjust: exact;
       background: #0f1a10;
     }
+    
     .poster {
       width: 210mm;
       height: 297mm;
@@ -20,14 +22,14 @@
       display: flex;
       flex-direction: column;
       background: #0f1a10;
-      position: relative; /* 讓內部絕對定位的產品區塊以此為基準 */
+      position: relative; /* 供產品圖絕對定位使用 */
     }
     
     /* ── HERO ── */
     .hero-section {
       position: relative;
       flex-shrink: 0;
-      height: 96mm;
+      height: 98mm;
       background: linear-gradient(135deg, #0a1209 0%, #1a3020 40%, #0f2015 100%);
       display: flex;
       overflow: visible;
@@ -41,7 +43,7 @@
       );
       z-index: 0;
     }
-    /* 斜線橘色裝飾：往左調整避免與右上角圖片衝突 */
+    /* 斜線橘色裝飾 */
     .hero-section::after {
       content: '';
       position: absolute;
@@ -65,7 +67,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 3mm;
+      margin-bottom: 4mm;
     }
     .collab-dot { width: 9px; height: 9px; border-radius: 50%; background: #e86629; }
     .collab-text {
@@ -94,14 +96,14 @@
       border-left: 3px solid #e86629;
     }
 
-    /* ── 產品圖：已改為絕對定位，精準鎖定 A4 右上角 ── */
+    /* ── 右上角絕對定位產品去背白瓶區塊 ── */
     .hero-right {
       position: absolute;
-      top: 10mm; 
+      top: 6mm; 
       right: 11mm;
       width: 70mm;
       height: 95mm;
-      z-index: 10; /* 提高層級，確保壓在橘色帶與所有元素最上方 */
+      z-index: 10; /* 確保壓在橘帶與背景最上層 */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -111,17 +113,17 @@
       position: absolute;
       top: 50%; left: 50%; 
       transform: translate(-50%, -50%);
-      width: 260px; height: 260px;
+      width: 240px; height: 240px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(58,107,69,0.6) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
       z-index: 1;
     }
     .product-img {
-      width: 220px; height: 220px;
+      width: 190px; height: 190px;
       object-fit: contain;
       position: relative; 
       z-index: 2;
-      filter: drop-shadow(0 16px 40px rgba(0,0,0,0.8));
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6));
     }
 
     /* ── ORANGE BAND ── */
@@ -133,7 +135,7 @@
       align-items: center;
       position: relative;
       z-index: 2;
-      padding-right: 80mm; /* 右側向內縮，留出空間給右上角懸浮的產品圖 */
+      padding-right: 80mm; /* 為懸浮瓶身留空 */
       justify-content: space-between;
     }
     .band-item {
@@ -496,8 +498,8 @@
   </div>
 </div>
 <script>
-  // 已直接將去背處理後的透明白色瓶身圖片轉換為靜態 Base64 編碼，保證不破圖
-  document.getElementById("prod-img").src = "data:image/png;base64,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";
+  // 使用您在 GitHub 的 images 資料夾中建立的去背相對路徑
+  document.getElementById("prod-img").src = "images/GeneboostLOGO.png";
 </script>
 </body>
 </html>
